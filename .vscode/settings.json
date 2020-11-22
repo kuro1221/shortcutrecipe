@@ -1,0 +1,17 @@
+{
+    "eslint.validate": [
+        "javascript",
+        {
+            "autoFix": true,
+            "language": "vue"
+        }
+    ],
+    // JavaScriptでのみ保存時フォーマットを有効化
+    "[javascript]": {
+        "editor.formatOnSave": true
+    },
+    // prettierのシングルクオーテーションオプションをon
+    "prettier.singleQuote": true,
+    // Eslintによって不適切と指摘された箇所をファイルの保存時に自動的にフォーマットする。
+    "eslint.autoFixOnSave": true,
+}
