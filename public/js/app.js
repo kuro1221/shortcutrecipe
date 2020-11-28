@@ -2021,9 +2021,10 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
-  props: ['application_list', 'product_list', 'situation_list'],
+  props: ['application_list', 'product_list', 'situation_list', 'csrf'],
   data: function data() {
     return {
       rule: _validation_js__WEBPACK_IMPORTED_MODULE_0__["default"],
@@ -2048,8 +2049,7 @@ __webpack_require__.r(__webpack_exports__);
           comment: ''
         };
         axios.post('addRecipe', this.recipe).then(function () {
-          self.errors = [];
-          location.href = '/home';
+          self.errors = []; // location.href = '/home'
         })["catch"](function (error) {
           for (var key in error.response.data.errors) {
             self.errors[key] = error.response.data.errors[key][0];
@@ -2071,7 +2071,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _validation_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../validation.js */ "./resources/js/validation.js");
+/* harmony import */ var _validation__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../validation */ "./resources/js/validation.js");
 //
 //
 //
@@ -2154,23 +2154,36 @@ __webpack_require__.r(__webpack_exports__);
 //
 
 /* harmony default export */ __webpack_exports__["default"] = ({
-  props: ['application_list', 'product_list', 'situation_list'],
+  props: ['props_recipe', 'props_select_application', 'props_select_product', 'props_select_situation', 'application_list', 'product_list', 'situation_list'],
   data: function data() {
     return {
-      rule: _validation_js__WEBPACK_IMPORTED_MODULE_0__["default"],
-      recipe: {
-        recipe_name: '',
-        iCloud_link: '',
-        comment: '',
-        select_application: [],
-        select_product: [],
-        select_situation: []
-      },
+      rule: _validation__WEBPACK_IMPORTED_MODULE_0__["default"],
+      recipe: '',
       errors: {}
     };
   },
+  created: function created() {
+    this.recipe = this.props_recipe;
+    this.recipe.select_application = [];
+    this.recipe.select_product = [];
+    this.recipe.select_situation = [];
+
+    for (var i = 0; i < this.props_select_product.length; i++) {
+      this.recipe.select_product.push(this.props_select_product[i].product_id);
+    }
+
+    for (var _i = 0; _i < this.props_select_application.length; _i++) {
+      this.recipe.select_application.push(this.props_select_application[_i].application_id);
+    }
+
+    for (var _i2 = 0; _i2 < this.props_select_situation.length; _i2++) {
+      this.recipe.select_situation.push(this.props_select_situation[_i2].situation_id);
+    }
+
+    this.recipe.comment = "書き換え";
+  },
   methods: {
-    addRecipe: function addRecipe(e) {
+    editRecipe: function editRecipe(e) {
       if (this.$refs.form.validate()) {
         var self = this;
         self.errors = {
@@ -2178,7 +2191,7 @@ __webpack_require__.r(__webpack_exports__);
           iCloud_link: '',
           comment: ''
         };
-        axios.post('addRecipe', this.recipe).then(function () {
+        axios.post('/editRecipe/' + this.recipe.id, this.recipe).then(function () {
           self.errors = [];
           location.href = '/home';
         })["catch"](function (error) {
@@ -37865,6 +37878,11 @@ var render = function() {
                             "v-form",
                             { ref: "form" },
                             [
+                              _c("input", {
+                                attrs: { type: "hidden", name: "_token" },
+                                domProps: { value: _vm.csrf }
+                              }),
+                              _vm._v(" "),
                               _c("v-text-field", {
                                 attrs: {
                                   label: "レシピ名",
@@ -38225,9 +38243,9 @@ var render = function() {
                             "v-btn",
                             {
                               attrs: { color: "primary" },
-                              on: { click: _vm.addRecipe }
+                              on: { click: _vm.editRecipe }
                             },
-                            [_vm._v("登録")]
+                            [_vm._v("編集")]
                           )
                         ],
                         1
@@ -94395,15 +94413,14 @@ __webpack_require__.r(__webpack_exports__);
 /*!***************************************************************!*\
   !*** ./resources/js/components/recipe/AddRecipeComponent.vue ***!
   \***************************************************************/
-/*! no static exports found */
+/*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _AddRecipeComponent_vue_vue_type_template_id_c17c3998___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./AddRecipeComponent.vue?vue&type=template&id=c17c3998& */ "./resources/js/components/recipe/AddRecipeComponent.vue?vue&type=template&id=c17c3998&");
 /* harmony import */ var _AddRecipeComponent_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./AddRecipeComponent.vue?vue&type=script&lang=js& */ "./resources/js/components/recipe/AddRecipeComponent.vue?vue&type=script&lang=js&");
-/* harmony reexport (unknown) */ for(var __WEBPACK_IMPORT_KEY__ in _AddRecipeComponent_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__) if(["default"].indexOf(__WEBPACK_IMPORT_KEY__) < 0) (function(key) { __webpack_require__.d(__webpack_exports__, key, function() { return _AddRecipeComponent_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__[key]; }) }(__WEBPACK_IMPORT_KEY__));
-/* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+/* empty/unused harmony star reexport *//* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
 
 
 
@@ -94433,7 +94450,7 @@ component.options.__file = "resources/js/components/recipe/AddRecipeComponent.vu
 /*!****************************************************************************************!*\
   !*** ./resources/js/components/recipe/AddRecipeComponent.vue?vue&type=script&lang=js& ***!
   \****************************************************************************************/
-/*! no static exports found */
+/*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -94553,7 +94570,7 @@ __webpack_require__.r(__webpack_exports__);
   },
   // 文字数の制約
   limit_max_comment: function limit_max_comment(value) {
-    return value.length <= 200 || "200文字以内で入力してください";
+    return !value || String(value).length <= 200 || "200文字以内で入力してください";
   },
   //文字数の制約
   select: function select(value) {

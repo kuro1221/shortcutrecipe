@@ -10,6 +10,7 @@
             </v-toolbar>
             <v-card-text>
               <v-form ref="form">
+                <input type="hidden" name="_token" v-bind:value="csrf">
                 <v-text-field
                   v-model="recipe.recipe_name"
                   label="レシピ名"
@@ -81,7 +82,7 @@
 <script>
 import validation_rule from '../../validation.js'
 export default {
-  props: ['application_list', 'product_list', 'situation_list'],
+  props: ['application_list', 'product_list', 'situation_list','csrf'],
   data: function() {
     return {
       rule: validation_rule,
@@ -109,7 +110,7 @@ export default {
         axios.post('addRecipe',this.recipe
         ).then(function(){
           self.errors = [];
-          location.href = '/home'
+          // location.href = '/home'
         }).catch(function(error){
           for(let key in error.response.data.errors) {
             self.errors[key] = error.response.data.errors[key][0];
