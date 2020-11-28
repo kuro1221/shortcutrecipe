@@ -21,3 +21,4 @@ Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/addRecipe', 'RecipeController@addRecipeShow')->name('addRecipeShow');
 Route::post('/addRecipe', 'RecipeController@addRecipe')->name('addRecipe');
 Route::get('/editRecipe/{id}', 'RecipeController@editRecipeShow');
+Route::post('/editRecipe/{id}', 'RecipeController@editRecipe');

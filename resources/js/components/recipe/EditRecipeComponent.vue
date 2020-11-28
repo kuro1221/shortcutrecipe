@@ -70,7 +70,7 @@
             </v-card-text>
             <v-card-actions>
               <v-spacer />
-              <v-btn color="primary" @click="addRecipe">登録</v-btn>
+              <v-btn color="primary" @click="editRecipe">編集</v-btn>
             </v-card-actions>
           </v-card>
         </v-col>
@@ -79,26 +79,35 @@
   </v-app>
 </template>
 <script>
-import validation_rule from '../../validation.js'
+import validation_rule from '../../validation'
 export default {
-  props: ['application_list', 'product_list', 'situation_list'],
+  props: ['props_recipe','props_select_application','props_select_product','props_select_situation','application_list', 'product_list', 'situation_list'],
   data: function() {
     return {
       rule: validation_rule,
-      recipe: {
-        recipe_name: '',
-        iCloud_link: '',
-        comment: '',
-        select_application: [],
-        select_product: [],
-        select_situation: [],
-      },
+      recipe: '',
       errors: {
       }
     }
   },
+  created: function() {
+      this.recipe = this.props_recipe
+      this.recipe.select_application = [];
+      this.recipe.select_product = [];
+      this.recipe.select_situation = [];
+      for(let i =0; i<this.props_select_product.length;i++) {
+        this.recipe.select_product.push(this.props_select_product[i].product_id);
+      }
+      for(let i =0; i<this.props_select_application.length;i++) {
+        this.recipe.select_application.push(this.props_select_application[i].application_id);
+      }
+      for(let i =0; i<this.props_select_situation.length;i++) {
+        this.recipe.select_situation.push(this.props_select_situation[i].situation_id);
+      }
+      this.recipe.comment = "書き換え"
+  },
   methods: {
-    addRecipe: function(e) {
+    editRecipe: function(e) {
       if(this.$refs.form.validate()){
         let self = this;
         self.errors = {
@@ -106,7 +115,7 @@ export default {
           iCloud_link: '',
           comment: '',
         }
-        axios.post('addRecipe',this.recipe
+        axios.post('/editRecipe/'+this.recipe.id,this.recipe
         ).then(function(){
           self.errors = [];
           location.href = '/home'
