@@ -22,3 +22,4 @@ Route::get('/addRecipe', 'RecipeController@addRecipeShow')->name('addRecipeShow'
 Route::post('/addRecipe', 'RecipeController@addRecipe')->name('addRecipe');
 Route::get('/editRecipe/{id}', 'RecipeController@editRecipeShow');
 Route::post('/editRecipe/{id}', 'RecipeController@editRecipe');
+Route::get('/recipeList', 'RecipeController@recipeListShow')->name('recipeListShow');

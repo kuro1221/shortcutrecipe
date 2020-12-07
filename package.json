@@ -44,5 +44,8 @@
         "vue-template-compiler": "^2.6.12",
         "vuetify": "^2.2.26"
     },
-    "name": "shortcutrecipe"
+    "name": "shortcutrecipe",
+    "dependencies": {
+        "vuejs-paginate": "^2.1.0"
+    }
 }
