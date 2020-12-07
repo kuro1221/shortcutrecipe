@@ -115,10 +115,6 @@ class RecipeController extends Controller
         $this->editLoop($request->select_product, $old_select_product, "product", "product_id", $recipe->id);
         $this->editLoop($request->select_application, $old_select_application, "application", "application_id", $recipe->id);
         $this->editLoop($request->select_situation, $old_select_situation, "situation", "situation_id", $recipe->id);
-        // return view(
-        //     'recipe.editRecipe',
-        //     ['recipe' => $recipe, 'select_application' => $select_application, 'select_situation' => $select_situation, 'select_product' => $select_product]
-        // );
     }
 
     //選択したアプリや製品、状況を編集するための処理
@@ -160,6 +156,42 @@ class RecipeController extends Controller
                 $new_select_data->save();
             }
         }
+    }
+
+    public function recipeListShow()
+    {
+        $recipes = Recipe::where("delete_flg", false)->get();
+        $select_products = RecipesRelationProduct::select()
+            ->join('products', 'recipes_relation_products.product_id', '=', 'products.id')
+            ->get();
+        $select_applications = RecipesRelationApplication::select()
+            ->join('applications', 'recipes_relation_applications.application_id', '=', 'applications.id')
+            ->get();
+        $select_situations = RecipesRelationSituation::select()
+            ->join('situations', 'recipes_relation_situations.situation_id', '=', 'situations.id')
+            ->get();
+
+        log::debug($recipes);
+        $this->relationStoring($recipes, $select_products, "select_products");
+        $this->relationStoring($recipes, $select_applications, "select_applications");
+        $this->relationStoring($recipes, $select_situations, "select_situations");
+        log::debug($recipes);
+        return view('recipe.recipeList', ['recipes' => $recipes]);
+    }
+
+    public function relationStoring($recipes, $relations, $type)
+    {
+        foreach ($recipes as $recipe) {
+            $tempArray = array();
+            foreach ($relations as $relation) {
+                if ($relation->recipe_id == $recipe->id) {
+                    array_push($tempArray, $relation);
+                    // log::debug($relation->products);
+                }
+            }
+            $recipe[$type] = $tempArray;
+        }
+        return $recipes;
     }
 
     protected function validator(array $data)
