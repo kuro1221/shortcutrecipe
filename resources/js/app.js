@@ -27,6 +27,11 @@ Vue.component(
 );
 
 Vue.component(
+    "profile-edit-component",
+    require("./components/user/ProfileEditComponent.vue").default
+);
+
+Vue.component(
     'add-recipe-component',
     require("./components/recipe/AddRecipeComponent.vue").default
 );

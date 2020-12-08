@@ -3,6 +3,7 @@
 namespace App\Providers;
 
 use App\Application;
+use App\Http\ViewComposers\userComposer;
 use App\Http\ViewComposers\applicationComposer;
 use App\Http\ViewComposers\ProductComposer;
 use App\Http\ViewComposers\SituationComposer;
@@ -30,6 +31,7 @@ class ComposerServiceProvider extends ServiceProvider
     {
         //
         View::composers([
+            UserComposer::class => '*',
             ApplicationComposer::class => '*',
             ProductComposer::class => '*',
             SituationComposer::class => '*',

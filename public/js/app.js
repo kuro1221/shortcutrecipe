@@ -2509,6 +2509,140 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/user/ProfileEditComponent.vue?vue&type=script&lang=js&":
+/*!************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/user/ProfileEditComponent.vue?vue&type=script&lang=js& ***!
+  \************************************************************************************************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _validation_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../validation.js */ "./resources/js/validation.js");
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+/* harmony default export */ __webpack_exports__["default"] = ({
+  props: ["props_auth_user"],
+  data: function data() {
+    return {
+      rule: _validation_js__WEBPACK_IMPORTED_MODULE_0__["default"],
+      auth_user: this.props_auth_user,
+      errors: {}
+    };
+  },
+  methods: {
+    profileEdit: function profileEdit(e) {
+      if (this.$refs.form.validate()) {
+        var self = this;
+        self.errors = {
+          name: '',
+          email: '',
+          comment: '',
+          instaglam: '',
+          twitter: '',
+          website: '',
+          youtube: ''
+        };
+        axios.post('/profileEdit', this.auth_user).then(function () {
+          self.errors = [];
+          location.href = '/home';
+        })["catch"](function (error) {
+          for (var key in error.response.data.errors) {
+            self.errors[key] = error.response.data.errors[key][0];
+          }
+        });
+      }
+    }
+  }
+});
+
+/***/ }),
+
 /***/ "./node_modules/bootstrap/dist/js/bootstrap.js":
 /*!*****************************************************!*\
   !*** ./node_modules/bootstrap/dist/js/bootstrap.js ***!
@@ -38820,6 +38954,235 @@ var render = function() {
           }),
           _vm._v(" "),
           _c("recipe", { attrs: { recipe_list: _vm.filterdList } })
+        ],
+        1
+      )
+    ],
+    1
+  )
+}
+var staticRenderFns = []
+render._withStripped = true
+
+
+
+/***/ }),
+
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/user/ProfileEditComponent.vue?vue&type=template&id=db2a07da&":
+/*!****************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/user/ProfileEditComponent.vue?vue&type=template&id=db2a07da& ***!
+  \****************************************************************************************************************************************************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c(
+    "v-app",
+    [
+      _c(
+        "v-content",
+        { staticClass: "fill-height", attrs: { fluid: "" } },
+        [
+          _c(
+            "v-row",
+            { attrs: { justify: "center" } },
+            [
+              _c(
+                "v-col",
+                { attrs: { cols: "12", sm: "8", md: "4" } },
+                [
+                  _c(
+                    "v-card",
+                    { staticClass: "elevation-12" },
+                    [
+                      _c(
+                        "v-toolbar",
+                        { attrs: { color: "primary", dark: "", flat: "" } },
+                        [
+                          _c("v-toolbar-title", [_vm._v("プロフィール編集")]),
+                          _vm._v(" "),
+                          _c("v-spacer")
+                        ],
+                        1
+                      ),
+                      _vm._v(" "),
+                      _c(
+                        "v-card-text",
+                        [
+                          _c(
+                            "v-form",
+                            { ref: "form" },
+                            [
+                              _c("v-text-field", {
+                                attrs: {
+                                  label: "e-mail",
+                                  name: "email",
+                                  "prepend-icon": "fas fa-utensils",
+                                  type: "text",
+                                  rules: [
+                                    _vm.rule.required,
+                                    _vm.rule.limit_max_length,
+                                    _vm.rule.email
+                                  ],
+                                  "error-messages": _vm.errors.email
+                                },
+                                model: {
+                                  value: _vm.auth_user.email,
+                                  callback: function($$v) {
+                                    _vm.$set(_vm.auth_user, "email", $$v)
+                                  },
+                                  expression: "auth_user.email"
+                                }
+                              }),
+                              _vm._v(" "),
+                              _c("v-text-field", {
+                                attrs: {
+                                  label: "名前",
+                                  name: "name",
+                                  "prepend-icon": "fas fa-utensils",
+                                  type: "text",
+                                  rules: [
+                                    _vm.rule.required,
+                                    _vm.rule.limit_max_length
+                                  ],
+                                  "error-messages": _vm.errors.name
+                                },
+                                model: {
+                                  value: _vm.auth_user.name,
+                                  callback: function($$v) {
+                                    _vm.$set(_vm.auth_user, "name", $$v)
+                                  },
+                                  expression: "auth_user.name"
+                                }
+                              }),
+                              _vm._v(" "),
+                              _c("v-text-field", {
+                                attrs: {
+                                  label: "Twitter_id",
+                                  name: "twitter",
+                                  "prepend-icon": "fas fa-utensils",
+                                  type: "text",
+                                  rules: [_vm.rule.limit_max_length],
+                                  "error-messages": _vm.errors.twitter
+                                },
+                                model: {
+                                  value: _vm.auth_user.twitter,
+                                  callback: function($$v) {
+                                    _vm.$set(_vm.auth_user, "twitter", $$v)
+                                  },
+                                  expression: "auth_user.twitter"
+                                }
+                              }),
+                              _vm._v(" "),
+                              _c("v-text-field", {
+                                attrs: {
+                                  label: "youtube_id",
+                                  name: "youtube",
+                                  "prepend-icon": "fas fa-utensils",
+                                  type: "text",
+                                  rules: [_vm.rule.limit_max_length],
+                                  "error-messages": _vm.errors.youtube
+                                },
+                                model: {
+                                  value: _vm.auth_user.youtube,
+                                  callback: function($$v) {
+                                    _vm.$set(_vm.auth_user, "youtube", $$v)
+                                  },
+                                  expression: "auth_user.youtube"
+                                }
+                              }),
+                              _vm._v(" "),
+                              _c("v-text-field", {
+                                attrs: {
+                                  label: "website_id",
+                                  name: "website",
+                                  "prepend-icon": "fas fa-utensils",
+                                  type: "text",
+                                  rules: [_vm.rule.limit_max_length],
+                                  "error-messages": _vm.errors.website
+                                },
+                                model: {
+                                  value: _vm.auth_user.website,
+                                  callback: function($$v) {
+                                    _vm.$set(_vm.auth_user, "website", $$v)
+                                  },
+                                  expression: "auth_user.website"
+                                }
+                              }),
+                              _vm._v(" "),
+                              _c("v-text-field", {
+                                attrs: {
+                                  label: "instaglam_id",
+                                  name: "instaglam",
+                                  "prepend-icon": "fas fa-utensils",
+                                  type: "text",
+                                  rules: [_vm.rule.limit_max_length],
+                                  "error-messages": _vm.errors.instaglam
+                                },
+                                model: {
+                                  value: _vm.auth_user.instaglam,
+                                  callback: function($$v) {
+                                    _vm.$set(_vm.auth_user, "instaglam", $$v)
+                                  },
+                                  expression: "auth_user.instaglam"
+                                }
+                              }),
+                              _vm._v(" "),
+                              _c("v-textarea", {
+                                attrs: {
+                                  label: "コメント",
+                                  autocomplete: "comment",
+                                  "prepend-icon": "far fa-comment",
+                                  rules: [_vm.rule.limit_max_comment],
+                                  counter: "200"
+                                },
+                                model: {
+                                  value: _vm.auth_user.comment,
+                                  callback: function($$v) {
+                                    _vm.$set(_vm.auth_user, "comment", $$v)
+                                  },
+                                  expression: "auth_user.comment"
+                                }
+                              })
+                            ],
+                            1
+                          )
+                        ],
+                        1
+                      ),
+                      _vm._v(" "),
+                      _c(
+                        "v-card-actions",
+                        [
+                          _c("v-spacer"),
+                          _vm._v(" "),
+                          _c(
+                            "v-btn",
+                            {
+                              attrs: { color: "primary" },
+                              on: { click: _vm.profileEdit }
+                            },
+                            [_vm._v("編集")]
+                          )
+                        ],
+                        1
+                      )
+                    ],
+                    1
+                  )
+                ],
+                1
+              )
+            ],
+            1
+          )
         ],
         1
       )
@@ -94852,6 +95215,7 @@ Vue.use(vuetify__WEBPACK_IMPORTED_MODULE_0___default.a);
 // files.keys().map(key => Vue.component(key.split('/').pop().split('.')[0], files(key).default));
 
 Vue.component("example-component", __webpack_require__(/*! ./components/ExampleComponent.vue */ "./resources/js/components/ExampleComponent.vue")["default"]);
+Vue.component("profile-edit-component", __webpack_require__(/*! ./components/user/ProfileEditComponent.vue */ "./resources/js/components/user/ProfileEditComponent.vue")["default"]);
 Vue.component('add-recipe-component', __webpack_require__(/*! ./components/recipe/AddRecipeComponent.vue */ "./resources/js/components/recipe/AddRecipeComponent.vue")["default"]);
 Vue.component('edit-recipe-component', __webpack_require__(/*! ./components/recipe/EditRecipeComponent.vue */ "./resources/js/components/recipe/EditRecipeComponent.vue")["default"]);
 Vue.component('recipe-list-component', __webpack_require__(/*! ./components/recipe/RecipeListComponent.vue */ "./resources/js/components/recipe/RecipeListComponent.vue")["default"]);
@@ -95322,6 +95686,76 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_RecipeListComponent_vue_vue_type_template_id_5577f77b___WEBPACK_IMPORTED_MODULE_0__["render"]; });
 
 /* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_RecipeListComponent_vue_vue_type_template_id_5577f77b___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
+
+
+
+/***/ }),
+
+/***/ "./resources/js/components/user/ProfileEditComponent.vue":
+/*!***************************************************************!*\
+  !*** ./resources/js/components/user/ProfileEditComponent.vue ***!
+  \***************************************************************/
+/*! no static exports found */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _ProfileEditComponent_vue_vue_type_template_id_db2a07da___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./ProfileEditComponent.vue?vue&type=template&id=db2a07da& */ "./resources/js/components/user/ProfileEditComponent.vue?vue&type=template&id=db2a07da&");
+/* harmony import */ var _ProfileEditComponent_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./ProfileEditComponent.vue?vue&type=script&lang=js& */ "./resources/js/components/user/ProfileEditComponent.vue?vue&type=script&lang=js&");
+/* harmony reexport (unknown) */ for(var __WEBPACK_IMPORT_KEY__ in _ProfileEditComponent_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__) if(["default"].indexOf(__WEBPACK_IMPORT_KEY__) < 0) (function(key) { __webpack_require__.d(__webpack_exports__, key, function() { return _ProfileEditComponent_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__[key]; }) }(__WEBPACK_IMPORT_KEY__));
+/* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+
+
+
+
+
+/* normalize component */
+
+var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
+  _ProfileEditComponent_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
+  _ProfileEditComponent_vue_vue_type_template_id_db2a07da___WEBPACK_IMPORTED_MODULE_0__["render"],
+  _ProfileEditComponent_vue_vue_type_template_id_db2a07da___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
+  false,
+  null,
+  null,
+  null
+  
+)
+
+/* hot reload */
+if (false) { var api; }
+component.options.__file = "resources/js/components/user/ProfileEditComponent.vue"
+/* harmony default export */ __webpack_exports__["default"] = (component.exports);
+
+/***/ }),
+
+/***/ "./resources/js/components/user/ProfileEditComponent.vue?vue&type=script&lang=js&":
+/*!****************************************************************************************!*\
+  !*** ./resources/js/components/user/ProfileEditComponent.vue?vue&type=script&lang=js& ***!
+  \****************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_ProfileEditComponent_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/babel-loader/lib??ref--4-0!../../../../node_modules/vue-loader/lib??vue-loader-options!./ProfileEditComponent.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/user/ProfileEditComponent.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_ProfileEditComponent_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
+
+/***/ }),
+
+/***/ "./resources/js/components/user/ProfileEditComponent.vue?vue&type=template&id=db2a07da&":
+/*!**********************************************************************************************!*\
+  !*** ./resources/js/components/user/ProfileEditComponent.vue?vue&type=template&id=db2a07da& ***!
+  \**********************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_ProfileEditComponent_vue_vue_type_template_id_db2a07da___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../../node_modules/vue-loader/lib??vue-loader-options!./ProfileEditComponent.vue?vue&type=template&id=db2a07da& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/user/ProfileEditComponent.vue?vue&type=template&id=db2a07da&");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_ProfileEditComponent_vue_vue_type_template_id_db2a07da___WEBPACK_IMPORTED_MODULE_0__["render"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_ProfileEditComponent_vue_vue_type_template_id_db2a07da___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
 
 
 
