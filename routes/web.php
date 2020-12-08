@@ -18,6 +18,12 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+
+//プロファイル編集
+Route::get('/profileEdit', 'UserController@profileEditShow')->name('profileEditShow');
+Route::post('/profileEdit', 'UserController@profileEdit');
+
+//レシピ
 Route::get('/addRecipe', 'RecipeController@addRecipeShow')->name('addRecipeShow');
 Route::post('/addRecipe', 'RecipeController@addRecipe')->name('addRecipe');
 Route::get('/editRecipe/{id}', 'RecipeController@editRecipeShow');
