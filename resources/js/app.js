@@ -27,8 +27,8 @@ Vue.component(
 );
 
 Vue.component(
-    "profile-edit-component",
-    require("./components/user/ProfileEditComponent.vue").default
+    "profile-all-component",
+    require("./components/user/ProfileAllComponent.vue").default
 );
 
 Vue.component(

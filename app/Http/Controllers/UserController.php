@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Validator;
+use Illuminate\Support\Facades\Hash;
 
 class UserController extends Controller
 {
@@ -23,6 +24,18 @@ class UserController extends Controller
         $user->save();
     }
 
+    public function passwordEdit(Request $request)
+    {
+        log::debug($request->all());
+        $user = Auth::user();
+        $this->passwordValidator($request->all())->validate();
+        $user->password = Hash::make($request->password);
+        $user->save();
+        // $this->validator($request->all())->validate();
+        // $user->fill($request->all());
+        // $user->save();
+    }
+
     protected function validator(array $data)
     {
         return  Validator::make($data, [
@@ -32,7 +45,18 @@ class UserController extends Controller
             'website' => ['nullable', 'string', 'max:100'],
             'youtube' => ['nullable', 'string', 'max:100'],
             'instaglam' => ['nullable', 'string', 'max:100'],
-            'comment' => ['nullable', 'max:250']
+            'comment' => ['nullable', 'max:250'],
+        ]);
+    }
+
+    //パスワード編集バリデーション処理
+    public function passwordValidator(array $data)
+    {
+        $hashed_password = Auth::user()->password;
+        return Validator::make($data, [
+            'old_password' => ['required', 'string', 'min:8', 'max:50', "password_hash_check:$hashed_password"],
+            'password' => ['required', 'string', 'min:8', 'max:50', 'confirmed'],
+            'password_confirmation' => ['required', 'string', 'min:8', 'max:50'],
         ]);
     }
 }
