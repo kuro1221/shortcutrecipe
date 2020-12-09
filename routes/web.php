@@ -22,6 +22,8 @@ Route::get('/home', 'HomeController@index')->name('home');
 //プロファイル編集
 Route::get('/profileEdit', 'UserController@profileEditShow')->name('profileEditShow');
 Route::post('/profileEdit', 'UserController@profileEdit');
+Route::post('/passwordEdit', 'UserController@passwordEdit');
+
 
 //レシピ
 Route::get('/addRecipe', 'RecipeController@addRecipeShow')->name('addRecipeShow');
