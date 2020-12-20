@@ -46,6 +46,7 @@
     },
     "name": "shortcutrecipe",
     "dependencies": {
+        "material-design-icons-iconfont": "^6.1.0",
         "vuejs-paginate": "^2.1.0"
     }
 }

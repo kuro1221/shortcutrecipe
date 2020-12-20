@@ -7,6 +7,7 @@ use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Validation\Rule;
 
 class UserController extends Controller
 {
@@ -18,8 +19,16 @@ class UserController extends Controller
 
     public function profileEdit(Request $request)
     {
+        log::debug($request->all());
         $user = Auth::user();
         $this->validator($request->all())->validate();
+        //画像アップロード処理
+        if (!empty($request->img)) {
+            if ($request->file('img')->isValid()) {
+                $filePath = $request->file('img')->store('public');
+            }
+            $user->img = str_replace('public/', '', $filePath);
+        }
         $user->fill($request->all());
         $user->save();
     }
@@ -39,7 +48,8 @@ class UserController extends Controller
     protected function validator(array $data)
     {
         return  Validator::make($data, [
-            'email' => ['required', 'string', 'email', 'max:50'],
+            'img' => ['nullable', 'file', 'image', 'mimes:png,jpeg,jpg,gif', 'max:85000'],
+            'email' => ['required', 'string', 'email', 'max:50', Rule::unique('users', 'email')->whereNot('email', Auth::user()->email)],
             'name' => ['required', 'string', 'max:50'],
             'twitter' => ['nullable', 'string', 'max:100'],
             'website' => ['nullable', 'string', 'max:100'],

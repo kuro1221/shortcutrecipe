@@ -1,12 +1,17 @@
 <template>
-  <v-app>
-    <v-content class="fill-height" fluid>
+  <div>
+    <v-content class="fill-height" red >
+      <v-row justify="center" red>
+        <v-col cols="12" sm="8" md="9">
       <recipe-filter :filter_data.sync="filter_data" :search.sync="search" :sort_order.sync="sort_order" :application_list="application_list" :product_list="product_list" :situation_list="situation_list"></recipe-filter>
       <recipe :recipe_list="filterdList"></recipe>
+      </v-col>
+      </v-row>
     </v-content>
-  </v-app>
+  </div>
 </template>
 <script>
+import defaultCSS from '../../default.js'
 import recipeFilter from '../recipe/RecipeFilterComponent.vue';
 import recipe from '../recipe/RecipeComponent.vue';
 export default {
@@ -17,6 +22,7 @@ export default {
   },
   data: function() {
     return {
+      defaultCSS: defaultCSS,
       filter_data:{
         filter_application: [],
         filter_product: [],
