@@ -10,6 +10,24 @@
             </v-toolbar>
             <v-card-text>
               <v-form ref="form">
+                <v-avatar v-if="preview_image" size="200px"><v-img  :src="preview_image" aspect-ratio="1.7" contain /></v-avatar>
+                <v-avatar v-else-if="auth_user.img" size="200px">
+                  <v-img
+                    v-bind:src="'../storage/' + auth_user.img"
+                    aspect-ratio="1.7"
+                    contain
+                  />
+                </v-avatar>
+                <v-avatar v-else size="200px"><v-img :src="'/../storage/no-image.png'" alt="Avatar" contain /></v-avatar>
+                <v-file-input
+                  :rules="[rule.limit_image_size]"
+                  label="プロフィール画像"
+                  accept="image/*"
+                  show-size
+                  prepend-icon="far fa-image"
+                  v-on:change="file_selected"
+                  :error-messages="errors.img"
+                />
                 <v-text-field
                   v-model="auth_user.email"
                   label="e-mail"
@@ -92,6 +110,8 @@ export default {
     return {
       rule: validation_rule,
       auth_user: this.props_auth_user,
+      file_info: "",
+      preview_image: "",
       errors: {
       }
     }
@@ -109,7 +129,18 @@ export default {
           website: '',
           youtube: '',
         }
-        axios.post('/profileEdit',this.auth_user
+
+        const formData = new FormData();
+        formData.append('img',self.file_info),
+        formData.append('name',self.auth_user.name),
+        formData.append('email',self.auth_user.email),
+        formData.append('comment',self.auth_user.comment),
+        formData.append('instaglam',self.auth_user.instaglam),
+        formData.append('twitter',self.auth_user.twitter),
+        formData.append('website',self.auth_user.website),
+        formData.append('youtube',self.auth_user.youtube),
+
+        axios.post('/profileEdit',formData
         ).then(function(){
           self.errors = [];
           location.href = '/home'
@@ -120,6 +151,16 @@ export default {
         });
       }
     },
+    file_selected: function(event){
+        this.file_info = event;
+        if(this.file_info){
+            const reader = new FileReader();
+            reader.onload = (e) => {
+                this.preview_image = e.target.result;
+            }
+            reader.readAsDataURL(this.file_info);
+        }
+    }
   },
 }
 </script>

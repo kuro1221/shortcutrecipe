@@ -1,25 +1,53 @@
 <template>
-  <v-app>
-    <v-content class="fill-height" fluid>
-      <v-flex xs12 md4 v-for="(recipe, i) in sliceRecipes" :key="i" class="no-border">
-        <v-card-title>{{recipe.id}}</v-card-title>
-      </v-flex>
-    </v-content>
-    <paginate
-      :page-count="getPageCount"
-      :page-range="3"
-      :margin-pages="2"
-      :click-handler="clickCallback"
-      :prev-text="'<'"
-      :prev-link-class="'p-page__prev'"
-      :next-text="'>'"
-      :next-link-class="'p-page__next'"
-      :container-class="'p-pagination'"
-      :page-class="'p-page__item'"
-      :page-link-class="'p-page__item-link'"
-      :hide-prev-next="true"
-    ></paginate>
-  </v-app>
+  <div>
+      <v-layout wrap>
+        <v-flex xs6 md4 shrink v-for="(recipe, i) in sliceRecipes" :key="i" class="no-border">
+          <v-card
+            class=""
+            outlined
+            tile
+            height="120"
+          >
+          <v-list-item three-line class="px-2">
+            <v-list-item-content>
+              <v-list-item-title class="subtitle-1 font-weight-bold">
+                {{recipe.recipe_name}}
+              </v-list-item-title>
+              <v-card-text class="pa-0" height="60">
+                {{recipe.comment}}
+              </v-card-text>
+              <!-- <v-chip
+                class="ma-2"
+                color="primary"
+                outlined
+                pill
+                v-for="(select_product,key,index) in recipe.select_products"
+                :key="index"
+              >{{ select_product.product_name }}
+              </v-chip> -->
+              <v-card-actions>
+                <v-btn color="#FFD500" rounded small v-on:click="showModal()">詳細</v-btn>
+              </v-card-actions>
+            </v-list-item-content>
+          </v-list-item>
+          </v-card>
+        </v-flex>
+      </v-layout>
+      <paginate
+        :page-count="getPageCount"
+        :page-range="3"
+        :margin-pages="2"
+        :click-handler="clickCallback"
+        :prev-text="'<'"
+        :prev-link-class="'p-page__prev'"
+        :next-text="'>'"
+        :next-link-class="'p-page__next'"
+        :container-class="'p-pagination'"
+        :page-class="'p-page__item'"
+        :page-link-class="'p-page__item-link'"
+        :hide-prev-next="true"
+      ></paginate>
+  </div>
 </template>
 <script>
 import Paginate from "vuejs-paginate";
@@ -36,7 +64,10 @@ export default {
     //現在のページ数を取得（ページネーション用)
     clickCallback: function(pageNum) {
       this.currentPage = Number(pageNum);
-    }
+    },
+    showModal: function() {
+
+    },  
   },
   computed: {
     //現在のページに表示する商品を取得

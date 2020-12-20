@@ -4,8 +4,9 @@
       <v-row justify="center">
         <v-col cols="12" sm="8" md="4">
           <v-card class="elevation-12">
-            <passwordEdit :props_auth_user="props_auth_user"></passwordEdit>
             <profileEdit :props_auth_user="props_auth_user"></profileEdit>
+            <passwordEdit :props_auth_user="props_auth_user"></passwordEdit>
+            <profileImgEdit :props_auth_user="props_auth_user"></profileImgEdit>
           </v-card>
         </v-col>
       </v-row>
@@ -21,7 +22,7 @@ export default {
   props: ["props_auth_user"],
   components: {
       'profileEdit': profileEdit,
-      'profileImgEdit ': profileImgEdit,
+      'profileImgEdit': profileImgEdit,
       'passwordEdit': passwordEdit,
   },
   data: function() {

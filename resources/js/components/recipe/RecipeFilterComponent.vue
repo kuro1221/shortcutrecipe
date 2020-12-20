@@ -1,6 +1,6 @@
 <template>
-  <v-app>
-    <v-content class="fill-height" fluid>
+  <div >
+      <v-col cols="12" sm="8" md="9">
       <v-select
         v-model="child_sort_order"
         :items="sort_orders"
@@ -12,10 +12,9 @@
       <v-text-field
         v-model="child_search"
         label="検索"
-        name="search"
-        prepend-icon="search"
+        name="検索"
         type="text"
-        :rules=[rule.limit_max_length]
+        :rules="[rule.limit_max_length]"
       />
       <v-select
         v-model="filter_data.filter_product"
@@ -25,10 +24,9 @@
         multiple
         label="製品(複数選択可能)"
         chips
-        prepend-icon="fas fa-utensils">
+        dense
+      >
       </v-select>
-    </v-content>
-    <v-content class="fill-height" fluid>
       <v-select
         v-model="filter_data.filter_application"
         :items="application_list"
@@ -37,10 +35,10 @@
         multiple
         label="アプリ(複数選択可能)"
         chips
-        prepend-icon="fas fa-utensils">
+        >
       </v-select>
-    </v-content>
-    <v-content class="fill-height" fluid>
+      </v-col>
+    <!-- <v-content class="fill-height" fluid>
       <v-select
         v-model="filter_data.filter_situation"
         :items="situation_list"
@@ -51,8 +49,8 @@
         chips
         prepend-icon="fas fa-utensils">
       </v-select>
-    </v-content>
-  </v-app>
+    </v-content> -->
+  </div>
 </template>
 <script>
 import validation_rule from '../../validation.js'
