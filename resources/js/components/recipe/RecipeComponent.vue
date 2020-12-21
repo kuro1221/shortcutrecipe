@@ -1,19 +1,19 @@
 <template>
   <div>
       <v-layout wrap>
-        <v-flex xs6 md4 shrink v-for="(recipe, i) in sliceRecipes" :key="i" class="no-border">
+        <v-flex xs6 md4 shrink v-for="(recipe, i) in sliceRecipes" :key="i" class="no-border" >
           <v-card
-            class=""
+            class="ma-2"
             outlined
             tile
             height="120"
           >
           <v-list-item three-line class="px-2">
-            <v-list-item-content>
+            <v-list-item-content class="py-2">
               <v-list-item-title class="subtitle-1 font-weight-bold">
                 {{recipe.recipe_name}}
               </v-list-item-title>
-              <v-card-text class="pa-0" height="60">
+              <v-card-text class="pa-0 my-1 button text--secondary card_comment" height="60">
                 {{recipe.comment}}
               </v-card-text>
               <!-- <v-chip
@@ -25,8 +25,9 @@
                 :key="index"
               >{{ select_product.product_name }}
               </v-chip> -->
-              <v-card-actions>
-                <v-btn color="#FFD500" rounded small v-on:click="showModal()">詳細</v-btn>
+              <v-card-actions class="pa-0">
+                <v-spacer></v-spacer>
+                <v-btn class="button_small" color="#FFD500" rounded small v-on:click="showModal()">詳細</v-btn>
               </v-card-actions>
             </v-list-item-content>
           </v-list-item>
@@ -51,9 +52,13 @@
 </template>
 <script>
 import Paginate from "vuejs-paginate";
+import recipeModal from '../recipe/RecipeModalComponent.vue';
 Vue.component("paginate", Paginate);
 export default {
   props: ["recipe_list"],
+  components: {
+    'recipeModal': recipeModal,
+  },
   data: function() {
     return {
       perPage: 9, //1ページあたりの表示商品数

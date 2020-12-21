@@ -2274,6 +2274,8 @@ __webpack_require__.r(__webpack_exports__);
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var vuejs_paginate__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vuejs-paginate */ "./node_modules/vuejs-paginate/dist/index.js");
 /* harmony import */ var vuejs_paginate__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(vuejs_paginate__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _recipe_RecipeModalComponent_vue__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../recipe/RecipeModalComponent.vue */ "./resources/js/components/recipe/RecipeModalComponent.vue");
+//
 //
 //
 //
@@ -2326,9 +2328,13 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 
+
 Vue.component("paginate", vuejs_paginate__WEBPACK_IMPORTED_MODULE_0___default.a);
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: ["recipe_list"],
+  components: {
+    'recipeModal': _recipe_RecipeModalComponent_vue__WEBPACK_IMPORTED_MODULE_1__["default"]
+  },
   data: function data() {
     return {
       perPage: 9,
@@ -39949,7 +39955,10 @@ var render = function() {
             [
               _c(
                 "v-card",
-                { attrs: { outlined: "", tile: "", height: "120" } },
+                {
+                  staticClass: "ma-2",
+                  attrs: { outlined: "", tile: "", height: "120" }
+                },
                 [
                   _c(
                     "v-list-item",
@@ -39957,6 +39966,7 @@ var render = function() {
                     [
                       _c(
                         "v-list-item-content",
+                        { staticClass: "py-2" },
                         [
                           _c(
                             "v-list-item-title",
@@ -39972,7 +39982,11 @@ var render = function() {
                           _vm._v(" "),
                           _c(
                             "v-card-text",
-                            { staticClass: "pa-0", attrs: { height: "60" } },
+                            {
+                              staticClass:
+                                "pa-0 my-1 button text--secondary card_comment",
+                              attrs: { height: "60" }
+                            },
                             [
                               _vm._v(
                                 "\n              " +
@@ -39984,10 +39998,14 @@ var render = function() {
                           _vm._v(" "),
                           _c(
                             "v-card-actions",
+                            { staticClass: "pa-0" },
                             [
+                              _c("v-spacer"),
+                              _vm._v(" "),
                               _c(
                                 "v-btn",
                                 {
+                                  staticClass: "button_small",
                                   attrs: {
                                     color: "#FFD500",
                                     rounded: "",
@@ -97500,6 +97518,38 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_RecipeListComponent_vue_vue_type_template_id_5577f77b___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
 
 
+
+/***/ }),
+
+/***/ "./resources/js/components/recipe/RecipeModalComponent.vue":
+/*!*****************************************************************!*\
+  !*** ./resources/js/components/recipe/RecipeModalComponent.vue ***!
+  \*****************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+var render, staticRenderFns
+var script = {}
+
+
+/* normalize component */
+
+var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_0__["default"])(
+  script,
+  render,
+  staticRenderFns,
+  false,
+  null,
+  null,
+  null
+  
+)
+
+component.options.__file = "resources/js/components/recipe/RecipeModalComponent.vue"
+/* harmony default export */ __webpack_exports__["default"] = (component.exports);
 
 /***/ }),
 
