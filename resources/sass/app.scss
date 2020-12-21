@@ -14,3 +14,16 @@
 #app {
     background-color: #BFDCFA;
 }
+
+.card_comment {
+    height: 45px;
+    line-height: 15px !important;
+    display: -webkit-box;
+    overflow: hidden;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+}
+
+.button_small {
+    font-size: 12px;
+}
