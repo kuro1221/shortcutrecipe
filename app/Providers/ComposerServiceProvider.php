@@ -3,8 +3,8 @@
 namespace App\Providers;
 
 use App\Application;
-use App\Http\ViewComposers\userComposer;
-use App\Http\ViewComposers\applicationComposer;
+use App\Http\ViewComposers\UserComposer;
+use App\Http\ViewComposers\ApplicationComposer;
 use App\Http\ViewComposers\ProductComposer;
 use App\Http\ViewComposers\SituationComposer;
 use Illuminate\Support\ServiceProvider;
