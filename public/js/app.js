@@ -2327,6 +2327,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
 
 
 Vue.component("paginate", vuejs_paginate__WEBPACK_IMPORTED_MODULE_0___default.a);
@@ -2339,7 +2340,9 @@ Vue.component("paginate", vuejs_paginate__WEBPACK_IMPORTED_MODULE_0___default.a)
     return {
       perPage: 9,
       //1ページあたりの表示商品数
-      currentPage: 1
+      currentPage: 1,
+      recipeDetail: '',
+      modalFlg: false
     };
   },
   methods: {
@@ -2347,7 +2350,11 @@ Vue.component("paginate", vuejs_paginate__WEBPACK_IMPORTED_MODULE_0___default.a)
     clickCallback: function clickCallback(pageNum) {
       this.currentPage = Number(pageNum);
     },
-    showModal: function showModal() {}
+    showModal: function showModal(recipe) {
+      console.log("modal!");
+      this.recipeDetail = recipe;
+      this.modalFlg = true;
+    }
   },
   computed: {
     //現在のページに表示する商品を取得
@@ -2602,6 +2609,71 @@ __webpack_require__.r(__webpack_exports__);
     // }
 
   }
+});
+
+/***/ }),
+
+/***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/recipe/RecipeModalComponent.vue?vue&type=script&lang=js&":
+/*!**************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/recipe/RecipeModalComponent.vue?vue&type=script&lang=js& ***!
+  \**************************************************************************************************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+/* harmony default export */ __webpack_exports__["default"] = ({
+  props: ["recipe", "modalFlg"],
+  components: {},
+  data: function data() {
+    return {
+      dialog: false
+    };
+  },
+  methods: {}
 });
 
 /***/ }),
@@ -39944,98 +40016,104 @@ var render = function() {
       _c(
         "v-layout",
         { attrs: { wrap: "" } },
-        _vm._l(_vm.sliceRecipes, function(recipe, i) {
-          return _c(
-            "v-flex",
-            {
-              key: i,
-              staticClass: "no-border",
-              attrs: { xs6: "", md4: "", shrink: "" }
-            },
-            [
-              _c(
-                "v-card",
-                {
-                  staticClass: "ma-2",
-                  attrs: { outlined: "", tile: "", height: "120" }
-                },
-                [
-                  _c(
-                    "v-list-item",
-                    { staticClass: "px-2", attrs: { "three-line": "" } },
-                    [
-                      _c(
-                        "v-list-item-content",
-                        { staticClass: "py-2" },
-                        [
-                          _c(
-                            "v-list-item-title",
-                            { staticClass: "subtitle-1 font-weight-bold" },
-                            [
-                              _vm._v(
-                                "\n              " +
-                                  _vm._s(recipe.recipe_name) +
-                                  "\n            "
-                              )
-                            ]
-                          ),
-                          _vm._v(" "),
-                          _c(
-                            "v-card-text",
-                            {
-                              staticClass:
-                                "pa-0 my-1 button text--secondary card_comment",
-                              attrs: { height: "60" }
-                            },
-                            [
-                              _vm._v(
-                                "\n              " +
-                                  _vm._s(recipe.comment) +
-                                  "\n            "
-                              )
-                            ]
-                          ),
-                          _vm._v(" "),
-                          _c(
-                            "v-card-actions",
-                            { staticClass: "pa-0" },
-                            [
-                              _c("v-spacer"),
-                              _vm._v(" "),
-                              _c(
-                                "v-btn",
-                                {
-                                  staticClass: "button_small",
-                                  attrs: {
-                                    color: "#FFD500",
-                                    rounded: "",
-                                    small: ""
-                                  },
-                                  on: {
-                                    click: function($event) {
-                                      return _vm.showModal()
+        [
+          _c("recipeModal", {
+            attrs: { recipe: _vm.recipeDetail, modalFlg: _vm.modalFlg }
+          }),
+          _vm._v(" "),
+          _vm._l(_vm.sliceRecipes, function(recipe, i) {
+            return _c(
+              "v-flex",
+              {
+                key: i,
+                staticClass: "no-border",
+                attrs: { xs6: "", md4: "", shrink: "" }
+              },
+              [
+                _c(
+                  "v-card",
+                  {
+                    staticClass: "ma-2",
+                    attrs: { outlined: "", tile: "", height: "120" }
+                  },
+                  [
+                    _c(
+                      "v-list-item",
+                      { staticClass: "px-2", attrs: { "three-line": "" } },
+                      [
+                        _c(
+                          "v-list-item-content",
+                          { staticClass: "py-2" },
+                          [
+                            _c(
+                              "v-list-item-title",
+                              { staticClass: "subtitle-1 font-weight-bold" },
+                              [
+                                _vm._v(
+                                  "\n              " +
+                                    _vm._s(recipe.recipe_name) +
+                                    "\n            "
+                                )
+                              ]
+                            ),
+                            _vm._v(" "),
+                            _c(
+                              "v-card-text",
+                              {
+                                staticClass:
+                                  "pa-0 my-1 button text--secondary card_comment",
+                                attrs: { height: "60" }
+                              },
+                              [
+                                _vm._v(
+                                  "\n              " +
+                                    _vm._s(recipe.comment) +
+                                    "\n            "
+                                )
+                              ]
+                            ),
+                            _vm._v(" "),
+                            _c(
+                              "v-card-actions",
+                              { staticClass: "pa-0" },
+                              [
+                                _c("v-spacer"),
+                                _vm._v(" "),
+                                _c(
+                                  "v-btn",
+                                  {
+                                    staticClass: "button_small",
+                                    attrs: {
+                                      color: "#FFD500",
+                                      rounded: "",
+                                      small: ""
+                                    },
+                                    on: {
+                                      click: function($event) {
+                                        return _vm.showModal(recipe)
+                                      }
                                     }
-                                  }
-                                },
-                                [_vm._v("詳細")]
-                              )
-                            ],
-                            1
-                          )
-                        ],
-                        1
-                      )
-                    ],
-                    1
-                  )
-                ],
-                1
-              )
-            ],
-            1
-          )
-        }),
-        1
+                                  },
+                                  [_vm._v("詳細")]
+                                )
+                              ],
+                              1
+                            )
+                          ],
+                          1
+                        )
+                      ],
+                      1
+                    )
+                  ],
+                  1
+                )
+              ],
+              1
+            )
+          })
+        ],
+        2
       ),
       _vm._v(" "),
       _c("paginate", {
@@ -40223,6 +40301,101 @@ var render = function() {
                   }),
                   _vm._v(" "),
                   _c("recipe", { attrs: { recipe_list: _vm.filterdList } })
+                ],
+                1
+              )
+            ],
+            1
+          )
+        ],
+        1
+      )
+    ],
+    1
+  )
+}
+var staticRenderFns = []
+render._withStripped = true
+
+
+
+/***/ }),
+
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/recipe/RecipeModalComponent.vue?vue&type=template&id=2a5ce4f8&":
+/*!******************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/recipe/RecipeModalComponent.vue?vue&type=template&id=2a5ce4f8& ***!
+  \******************************************************************************************************************************************************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c(
+    "v-row",
+    { attrs: { justify: "center" } },
+    [
+      _c(
+        "v-dialog",
+        {
+          attrs: { persistent: "", "max-width": "290" },
+          model: {
+            value: _vm.modalFlg,
+            callback: function($$v) {
+              _vm.modalFlg = $$v
+            },
+            expression: "modalFlg"
+          }
+        },
+        [
+          _c(
+            "v-card",
+            [
+              _c("v-card-title", { staticClass: "headline" }, [
+                _vm._v("\n        Use Google's location service?\n      ")
+              ]),
+              _vm._v(" "),
+              _c("v-card-text", [
+                _vm._v(
+                  "Let Google help apps determine location. This means sending anonymous location data to Google, even when no apps are running."
+                )
+              ]),
+              _vm._v(" "),
+              _c(
+                "v-card-actions",
+                [
+                  _c("v-spacer"),
+                  _vm._v(" "),
+                  _c(
+                    "v-btn",
+                    {
+                      attrs: { color: "green darken-1", text: "" },
+                      on: {
+                        click: function($event) {
+                          _vm.dialog = false
+                        }
+                      }
+                    },
+                    [_vm._v("\n          Disagree\n        ")]
+                  ),
+                  _vm._v(" "),
+                  _c(
+                    "v-btn",
+                    {
+                      attrs: { color: "green darken-1", text: "" },
+                      on: {
+                        click: function($event) {
+                          _vm.dialog = false
+                        }
+                      }
+                    },
+                    [_vm._v("\n          Agree\n        ")]
+                  )
                 ],
                 1
               )
@@ -97530,17 +97703,20 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
-var render, staticRenderFns
-var script = {}
+/* harmony import */ var _RecipeModalComponent_vue_vue_type_template_id_2a5ce4f8___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./RecipeModalComponent.vue?vue&type=template&id=2a5ce4f8& */ "./resources/js/components/recipe/RecipeModalComponent.vue?vue&type=template&id=2a5ce4f8&");
+/* harmony import */ var _RecipeModalComponent_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./RecipeModalComponent.vue?vue&type=script&lang=js& */ "./resources/js/components/recipe/RecipeModalComponent.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport *//* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+
+
+
 
 
 /* normalize component */
 
-var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_0__["default"])(
-  script,
-  render,
-  staticRenderFns,
+var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
+  _RecipeModalComponent_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
+  _RecipeModalComponent_vue_vue_type_template_id_2a5ce4f8___WEBPACK_IMPORTED_MODULE_0__["render"],
+  _RecipeModalComponent_vue_vue_type_template_id_2a5ce4f8___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
   false,
   null,
   null,
@@ -97548,8 +97724,42 @@ var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_
   
 )
 
+/* hot reload */
+if (false) { var api; }
 component.options.__file = "resources/js/components/recipe/RecipeModalComponent.vue"
 /* harmony default export */ __webpack_exports__["default"] = (component.exports);
+
+/***/ }),
+
+/***/ "./resources/js/components/recipe/RecipeModalComponent.vue?vue&type=script&lang=js&":
+/*!******************************************************************************************!*\
+  !*** ./resources/js/components/recipe/RecipeModalComponent.vue?vue&type=script&lang=js& ***!
+  \******************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_RecipeModalComponent_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/babel-loader/lib??ref--4-0!../../../../node_modules/vue-loader/lib??vue-loader-options!./RecipeModalComponent.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/recipe/RecipeModalComponent.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_RecipeModalComponent_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
+
+/***/ }),
+
+/***/ "./resources/js/components/recipe/RecipeModalComponent.vue?vue&type=template&id=2a5ce4f8&":
+/*!************************************************************************************************!*\
+  !*** ./resources/js/components/recipe/RecipeModalComponent.vue?vue&type=template&id=2a5ce4f8& ***!
+  \************************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_RecipeModalComponent_vue_vue_type_template_id_2a5ce4f8___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../../node_modules/vue-loader/lib??vue-loader-options!./RecipeModalComponent.vue?vue&type=template&id=2a5ce4f8& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/recipe/RecipeModalComponent.vue?vue&type=template&id=2a5ce4f8&");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_RecipeModalComponent_vue_vue_type_template_id_2a5ce4f8___WEBPACK_IMPORTED_MODULE_0__["render"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_RecipeModalComponent_vue_vue_type_template_id_2a5ce4f8___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
+
+
 
 /***/ }),
 

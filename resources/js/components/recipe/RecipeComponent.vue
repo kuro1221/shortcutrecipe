@@ -1,6 +1,7 @@
 <template>
   <div>
       <v-layout wrap>
+        <recipeModal :recipe="recipeDetail" :modalFlg="modalFlg"></recipeModal>
         <v-flex xs6 md4 shrink v-for="(recipe, i) in sliceRecipes" :key="i" class="no-border" >
           <v-card
             class="ma-2"
@@ -27,7 +28,7 @@
               </v-chip> -->
               <v-card-actions class="pa-0">
                 <v-spacer></v-spacer>
-                <v-btn class="button_small" color="#FFD500" rounded small v-on:click="showModal()">詳細</v-btn>
+                <v-btn class="button_small" color="#FFD500" rounded small v-on:click="showModal(recipe)">詳細</v-btn>
               </v-card-actions>
             </v-list-item-content>
           </v-list-item>
@@ -63,6 +64,8 @@ export default {
     return {
       perPage: 9, //1ページあたりの表示商品数
       currentPage: 1,
+      recipeDetail: '',
+      modalFlg: false,
     }
   },
   methods: {
@@ -70,9 +73,11 @@ export default {
     clickCallback: function(pageNum) {
       this.currentPage = Number(pageNum);
     },
-    showModal: function() {
-
-    },  
+    showModal: function(recipe) {
+      console.log("modal!");
+      this.recipeDetail = recipe;
+      this.modalFlg = true;
+    },
   },
   computed: {
     //現在のページに表示する商品を取得
