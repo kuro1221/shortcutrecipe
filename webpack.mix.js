@@ -21,7 +21,7 @@ const mix = require('laravel-mix');
 //                     loader: 'eslint-loader',
 //                     test: /\.(js|vue)?$/,
 //                 },
-//             ],
+//     e        ],
 //         },
 //     })
 // }

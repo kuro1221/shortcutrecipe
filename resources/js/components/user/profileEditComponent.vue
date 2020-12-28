@@ -129,7 +129,7 @@ export default {
           website: '',
           youtube: '',
         }
-
+        //画像を送信するためformDataを使用
         const formData = new FormData();
         formData.append('img',self.file_info),
         formData.append('name',self.auth_user.name),
