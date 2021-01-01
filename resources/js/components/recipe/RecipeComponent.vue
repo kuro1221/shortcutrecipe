@@ -1,7 +1,7 @@
 <template>
   <div>
       <v-layout wrap>
-        <recipeModal :recipe="recipeDetail" :modalFlg="modalFlg"></recipeModal>
+        <recipeModal :recipe="recipeDetail" @reset="resetRecipe"></recipeModal>
         <v-flex xs6 md4 shrink v-for="(recipe, i) in sliceRecipes" :key="i" class="no-border" >
           <v-card
             class="ma-2"
@@ -17,15 +17,6 @@
               <v-card-text class="pa-0 my-1 button text--secondary card_comment" height="60">
                 {{recipe.comment}}
               </v-card-text>
-              <!-- <v-chip
-                class="ma-2"
-                color="primary"
-                outlined
-                pill
-                v-for="(select_product,key,index) in recipe.select_products"
-                :key="index"
-              >{{ select_product.product_name }}
-              </v-chip> -->
               <v-card-actions class="pa-0">
                 <v-spacer></v-spacer>
                 <v-btn class="button_small" color="#FFD500" rounded small v-on:click="showModal(recipe)">詳細</v-btn>
@@ -74,10 +65,12 @@ export default {
       this.currentPage = Number(pageNum);
     },
     showModal: function(recipe) {
-      console.log("modal!");
       this.recipeDetail = recipe;
       this.modalFlg = true;
     },
+    resetRecipe: function() {
+      this.recipeDetail = "";
+    }
   },
   computed: {
     //現在のページに表示する商品を取得

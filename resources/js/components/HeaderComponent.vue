@@ -21,6 +21,11 @@
             <v-list-item-title>プロフィール編集</v-list-item-title>
           </v-list-item-content>
         </v-list-item>
+        <v-list-item>
+          <v-list-item-content>
+            <v-list-item-title><button @click="logout">ログアウト</button></v-list-item-title>
+          </v-list-item-content>
+        </v-list-item>
       </v-list>
     </v-navigation-drawer>
     <v-app-bar app :color="defaultCSS.backgroundColor">
@@ -28,8 +33,6 @@
       <v-spacer></v-spacer>
       <v-app-bar-nav-icon @click="drawer = !drawer"></v-app-bar-nav-icon>
     </v-app-bar>
-          <!-- <v-main>
-    </v-main> -->
   </div>
 </template>
 <script>
@@ -43,5 +46,13 @@ export default {
       drawer: null,
     }
   },
+  methods: {
+    logout: function() {
+      axios.post('logout',
+      ).then(function(){
+        location.href = '/login'
+      })
+    }
+  }
 }
 </script>

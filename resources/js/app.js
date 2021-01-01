@@ -37,7 +37,10 @@ Vue.component(
     "profile-all-component",
     require("./components/user/ProfileAllComponent.vue").default
 );
-
+Vue.component(
+    "user-detail-component",
+    require("./components/user/UserDetailComponent.vue").default
+);
 Vue.component(
     'add-recipe-component',
     require("./components/recipe/AddRecipeComponent.vue").default

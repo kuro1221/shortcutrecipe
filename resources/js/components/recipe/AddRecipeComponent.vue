@@ -26,7 +26,7 @@
                   name="iCloud_link"
                   prepend-icon="fas fa-utensils"
                   type="text"
-                  :rules="[rule.required, rule.limit_max_length]"
+                  :rules="[rule.required, rule.limit_max_recipe]"
                   :error-messages="errors.iCloud_link"
                 />
                 <v-select

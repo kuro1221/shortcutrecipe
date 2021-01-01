@@ -19,7 +19,8 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 
-//プロファイル編集
+//ユーゼー関係
+Route::get('/userDetail/{id}', 'UserController@useDetailShow')->name('userDetailShow');
 Route::get('/profileEdit', 'UserController@profileEditShow')->name('profileEditShow');
 Route::post('/profileEdit', 'UserController@profileEdit');
 Route::post('/passwordEdit', 'UserController@passwordEdit');
