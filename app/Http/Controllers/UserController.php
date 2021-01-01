@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Recipe;
+use App\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Auth;
@@ -12,6 +14,19 @@ use Illuminate\Validation\Rule;
 class UserController extends Controller
 {
     //
+    public function userDetailShow($id)
+    {
+        //数値以外が入力された場合、不正な入力とみなす
+        if (!is_numeric($id))
+            return redirect()->action('HomeController@index')->with('flash_message', '不正な値が入力されました');
+        $user = User::find($id);
+        //ユーザーが存在しない、またはユーザーが削除されている場合は不正とみなす
+        if (!$user || $user->delete_flg !== 0)
+            return redirect()->action('HomeController@index')->with('flash_message', '不正な値が入力されました');
+        return view('user.userDetail');
+    }
+
+
     public function profileEditShow()
     {
         return view('user.profileEdit');
@@ -48,7 +63,7 @@ class UserController extends Controller
     protected function validator(array $data)
     {
         return  Validator::make($data, [
-            'img' => ['nullable', 'file', 'image', 'mimes:png,jpeg,jpg,gif', 'max:85000'],
+            'img' => ['nullable', 'file', 'mimes:png,jpeg,jpg,gif', 'max:85000'],
             'email' => ['required', 'string', 'email', 'max:50', Rule::unique('users', 'email')->whereNot('email', Auth::user()->email)],
             'name' => ['required', 'string', 'max:50'],
             'twitter' => ['nullable', 'string', 'max:100'],

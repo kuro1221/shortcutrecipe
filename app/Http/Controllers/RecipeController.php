@@ -160,7 +160,10 @@ class RecipeController extends Controller
 
     public function recipeListShow()
     {
-        $recipes = Recipe::where("delete_flg", false)->get();
+        $recipes = Recipe::select()
+            ->join('users', 'recipes.user_id', '=', 'users.id')
+            ->where('recipes.delete_flg', false)->get();
+        // $recipes = Recipe::where("delete_flg", false)->get();
         $select_products = RecipesRelationProduct::select()
             ->join('products', 'recipes_relation_products.product_id', '=', 'products.id')
             ->get();
@@ -198,7 +201,7 @@ class RecipeController extends Controller
     {
         return  Validator::make($data, [
             'recipe_name' => ['required', 'string', 'max:50'],
-            'iCloud_link' => ['required', 'string', 'max:100'],
+            'iCloud_link' => ['required', 'string', 'max:150'],
             'comment' => ['sometimes', 'max:250']
         ]);
     }

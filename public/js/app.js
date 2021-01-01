@@ -1975,6 +1975,9 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   components: {},
@@ -1983,6 +1986,13 @@ __webpack_require__.r(__webpack_exports__);
       defaultCSS: _default_js__WEBPACK_IMPORTED_MODULE_0__["default"],
       drawer: null
     };
+  },
+  methods: {
+    logout: function logout() {
+      axios.post('logout').then(function () {
+        location.href = '/login';
+      });
+    }
   }
 });
 
@@ -2319,15 +2329,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
 
 
 Vue.component("paginate", vuejs_paginate__WEBPACK_IMPORTED_MODULE_0___default.a);
@@ -2351,9 +2352,11 @@ Vue.component("paginate", vuejs_paginate__WEBPACK_IMPORTED_MODULE_0___default.a)
       this.currentPage = Number(pageNum);
     },
     showModal: function showModal(recipe) {
-      console.log("modal!");
       this.recipeDetail = recipe;
       this.modalFlg = true;
+    },
+    resetRecipe: function resetRecipe() {
+      this.recipeDetail = "";
     }
   },
   computed: {
@@ -2665,15 +2668,38 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
-  props: ["recipe", "modalFlg"],
-  components: {},
+  props: ["recipe"],
   data: function data() {
     return {
-      dialog: false
+      modalFlg: false,
+      showURL: false
     };
   },
-  methods: {}
+  watch: {
+    recipe: function recipe(_recipe) {
+      if (_recipe) {
+        this.modalFlg = true;
+      } else {
+        this.modFlg = false;
+        this.showURL = false;
+      }
+    },
+    modalFlg: function modalFlg(_modalFlg) {
+      if (this.recipe && this.modalFlg == false) this.$emit('reset');
+    }
+  }
 });
 
 /***/ }),
@@ -39512,6 +39538,24 @@ var render = function() {
                   )
                 ],
                 1
+              ),
+              _vm._v(" "),
+              _c(
+                "v-list-item",
+                [
+                  _c(
+                    "v-list-item-content",
+                    [
+                      _c("v-list-item-title", [
+                        _c("button", { on: { click: _vm.logout } }, [
+                          _vm._v("ログアウト")
+                        ])
+                      ])
+                    ],
+                    1
+                  )
+                ],
+                1
               )
             ],
             1
@@ -39635,7 +39679,7 @@ var render = function() {
                                   type: "text",
                                   rules: [
                                     _vm.rule.required,
-                                    _vm.rule.limit_max_length
+                                    _vm.rule.limit_max_recipe
                                   ],
                                   "error-messages": _vm.errors.iCloud_link
                                 },
@@ -39856,7 +39900,7 @@ var render = function() {
                                   type: "text",
                                   rules: [
                                     _vm.rule.required,
-                                    _vm.rule.limit_max_length
+                                    _vm.rule.limit_max_link
                                   ],
                                   "error-messages": _vm.errors.iCloud_link
                                 },
@@ -40019,7 +40063,8 @@ var render = function() {
         { attrs: { wrap: "" } },
         [
           _c("recipeModal", {
-            attrs: { recipe: _vm.recipeDetail, modalFlg: _vm.modalFlg }
+            attrs: { recipe: _vm.recipeDetail },
+            on: { reset: _vm.resetRecipe }
           }),
           _vm._v(" "),
           _vm._l(_vm.sliceRecipes, function(recipe, i) {
@@ -40344,7 +40389,7 @@ var render = function() {
       _c(
         "v-dialog",
         {
-          attrs: { persistent: "", "max-width": "290" },
+          attrs: { "min-width": "350", height: "250" },
           model: {
             value: _vm.modalFlg,
             callback: function($$v) {
@@ -40354,55 +40399,155 @@ var render = function() {
           }
         },
         [
-          _c(
-            "v-card",
-            [
-              _c("v-card-title", { staticClass: "headline" }, [
-                _vm._v("\n        Use Google's location service?\n      ")
-              ]),
-              _vm._v(" "),
-              _c("v-card-text", [
-                _vm._v(
-                  "Let Google help apps determine location. This means sending anonymous location data to Google, even when no apps are running."
+          _c("v-card", { staticClass: "pa-2" }, [
+            _vm.showURL
+              ? _c(
+                  "div",
+                  [
+                    _c("v-card-text", [
+                      _vm._v(
+                        "これより外部のサイトにアクセスします。よろしければ下記リンク先のURLをクリックして下さい。"
+                      ),
+                      _c("br"),
+                      _vm._v(
+                        "ショートカットをダウンロードする前に安全性を確認してください。\n        "
+                      )
+                    ]),
+                    _vm._v(" "),
+                    _c("v-card-text", { staticClass: "pt-0" }, [
+                      _c("a", { attrs: { href: _vm.recipe.iCloud_link } }, [
+                        _vm._v(_vm._s(_vm.recipe.iCloud_link))
+                      ])
+                    ])
+                  ],
+                  1
                 )
-              ]),
-              _vm._v(" "),
-              _c(
-                "v-card-actions",
-                [
-                  _c("v-spacer"),
-                  _vm._v(" "),
-                  _c(
-                    "v-btn",
-                    {
-                      attrs: { color: "green darken-1", text: "" },
-                      on: {
-                        click: function($event) {
-                          _vm.dialog = false
-                        }
-                      }
-                    },
-                    [_vm._v("\n          Disagree\n        ")]
-                  ),
-                  _vm._v(" "),
-                  _c(
-                    "v-btn",
-                    {
-                      attrs: { color: "green darken-1", text: "" },
-                      on: {
-                        click: function($event) {
-                          _vm.dialog = false
-                        }
-                      }
-                    },
-                    [_vm._v("\n          Agree\n        ")]
-                  )
-                ],
-                1
-              )
-            ],
-            1
-          )
+              : _c(
+                  "div",
+                  [
+                    _c(
+                      "v-card-title",
+                      { staticClass: "pa-0 ma-2 subtitle-1 font-weight-bold" },
+                      [
+                        _vm._v(
+                          "\n          " +
+                            _vm._s(_vm.recipe.recipe_name) +
+                            "\n        "
+                        )
+                      ]
+                    ),
+                    _vm._v(" "),
+                    _c(
+                      "v-card-text",
+                      {
+                        staticClass:
+                          "pa-0 ma-2 button text--secondary font-weight-bold"
+                      },
+                      [_vm._v(_vm._s(_vm.recipe.comment))]
+                    ),
+                    _vm._v(" "),
+                    _vm._l(_vm.recipe.select_products, function(
+                      select_product,
+                      key,
+                      index
+                    ) {
+                      return _c(
+                        "v-chip",
+                        {
+                          key: index,
+                          staticClass: "ma-1 mb-2",
+                          attrs: { color: "primary", outlined: "", pill: "" }
+                        },
+                        [
+                          _vm._v(
+                            _vm._s(select_product.product_name) + "\n        "
+                          )
+                        ]
+                      )
+                    }),
+                    _vm._v(" "),
+                    _vm._l(_vm.recipe.select_applications, function(
+                      select_applications,
+                      key,
+                      index
+                    ) {
+                      return _c(
+                        "v-chip",
+                        {
+                          key: index,
+                          staticClass: "ma-1",
+                          attrs: { color: "primary", outlined: "", pill: "" }
+                        },
+                        [
+                          _vm._v(
+                            _vm._s(select_applications.application_name) +
+                              "\n        "
+                          )
+                        ]
+                      )
+                    }),
+                    _vm._v(" "),
+                    _c(
+                      "v-card-actions",
+                      [
+                        _c(
+                          "v-avatar",
+                          { attrs: { size: "50px" } },
+                          [
+                            _c("v-img", {
+                              attrs: {
+                                src: "../storage/" + _vm.recipe.img,
+                                "aspect-ratio": "1.7",
+                                contain: ""
+                              }
+                            })
+                          ],
+                          1
+                        ),
+                        _vm._v(" "),
+                        _c(
+                          "v-card-text",
+                          {
+                            staticClass: "ml-2 font-weight-bold text-truncate"
+                          },
+                          [_vm._v(_vm._s(_vm.recipe.name))]
+                        ),
+                        _vm._v(" "),
+                        _c("v-spacer"),
+                        _vm._v(" "),
+                        _c(
+                          "v-btn",
+                          {
+                            staticClass: "button_small",
+                            attrs: { color: "#FFD500", rounded: "", small: "" },
+                            on: {
+                              click: function($event) {
+                                _vm.showURL = true
+                              }
+                            }
+                          },
+                          [_vm._v("GET")]
+                        ),
+                        _vm._v(" "),
+                        _c(
+                          "v-icon",
+                          {
+                            staticClass: "ml-1",
+                            on: {
+                              click: function($event) {
+                                _vm.modalFlg = false
+                              }
+                            }
+                          },
+                          [_vm._v("mdi-close")]
+                        )
+                      ],
+                      1
+                    )
+                  ],
+                  2
+                )
+          ])
         ],
         1
       )
@@ -97149,6 +97294,7 @@ Vue.use(vuetify__WEBPACK_IMPORTED_MODULE_0___default.a);
 Vue.component("example-component", __webpack_require__(/*! ./components/ExampleComponent.vue */ "./resources/js/components/ExampleComponent.vue")["default"]);
 Vue.component("header-component", __webpack_require__(/*! ./components/HeaderComponent.vue */ "./resources/js/components/HeaderComponent.vue")["default"]);
 Vue.component("profile-all-component", __webpack_require__(/*! ./components/user/ProfileAllComponent.vue */ "./resources/js/components/user/ProfileAllComponent.vue")["default"]);
+Vue.component("user-detail-component", __webpack_require__(/*! ./components/user/UserDetailComponent.vue */ "./resources/js/components/user/UserDetailComponent.vue")["default"]);
 Vue.component('add-recipe-component', __webpack_require__(/*! ./components/recipe/AddRecipeComponent.vue */ "./resources/js/components/recipe/AddRecipeComponent.vue")["default"]);
 Vue.component('edit-recipe-component', __webpack_require__(/*! ./components/recipe/EditRecipeComponent.vue */ "./resources/js/components/recipe/EditRecipeComponent.vue")["default"]);
 Vue.component('recipe-list-component', __webpack_require__(/*! ./components/recipe/RecipeListComponent.vue */ "./resources/js/components/recipe/RecipeListComponent.vue")["default"]);
@@ -98040,6 +98186,38 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./resources/js/components/user/UserDetailComponent.vue":
+/*!**************************************************************!*\
+  !*** ./resources/js/components/user/UserDetailComponent.vue ***!
+  \**************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+var render, staticRenderFns
+var script = {}
+
+
+/* normalize component */
+
+var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_0__["default"])(
+  script,
+  render,
+  staticRenderFns,
+  false,
+  null,
+  null,
+  null
+  
+)
+
+component.options.__file = "resources/js/components/user/UserDetailComponent.vue"
+/* harmony default export */ __webpack_exports__["default"] = (component.exports);
+
+/***/ }),
+
 /***/ "./resources/js/default.js":
 /*!*********************************!*\
   !*** ./resources/js/default.js ***!
@@ -98075,6 +98253,10 @@ __webpack_require__.r(__webpack_exports__);
   // 文字数の制約
   limit_max_length: function limit_max_length(value) {
     return !value || value.length <= 50 || "50文字以内で入力してください";
+  },
+  // 文字数の制約
+  limit_max_link: function limit_max_link(value) {
+    return !value || value.length <= 150 || "150文字以内で入力してください";
   },
   // 文字数の制約
   limit_max_comment: function limit_max_comment(value) {
