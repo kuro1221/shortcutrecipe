@@ -182,7 +182,7 @@ class RecipeController extends Controller
         return view('recipe.recipeList', ['recipes' => $recipes]);
     }
 
-    public function relationStoring($recipes, $relations, $type)
+    public static function relationStoring($recipes, $relations, $type)
     {
         foreach ($recipes as $recipe) {
             $tempArray = array();
@@ -200,7 +200,7 @@ class RecipeController extends Controller
     protected function validator(array $data)
     {
         return  Validator::make($data, [
-            'recipe_name' => ['required', 'string', 'max:50'],
+            'recipe_name' => ['required', 'string', 'max:20'],
             'iCloud_link' => ['required', 'string', 'max:150'],
             'comment' => ['sometimes', 'max:250']
         ]);

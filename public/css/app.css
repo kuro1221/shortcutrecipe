@@ -11101,3 +11101,43 @@ img {
   font-size: 12px;
 }
 
+.p-pagination {
+  display: flex;
+  justify-content: center;
+  padding-left: 0;
+  margin: 20px auto;
+  padding-bottom: 20px;
+  border-radius: 4px;
+}
+
+.page__item {
+  color: black !important;
+  width: 24px;
+  padding: 8px;
+  border: none;
+}
+
+.page__item.active {
+  background-color: #fff;
+}
+
+.page__item.active .p-page__item-link {
+  color: #fff;
+}
+
+.page__item-link {
+  color: black !important;
+}
+
+.page__prev {
+  color: black !important;
+  line-height: 40px;
+  margin-right: 5px;
+}
+
+.page__next {
+  color: black !important;
+  line-height: 40px;
+  margin-left: 5px;
+}
+

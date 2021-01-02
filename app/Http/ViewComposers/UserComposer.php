@@ -10,7 +10,6 @@ class UserComposer
 
     public function  __construct()
     {
-        // $application_list = Application::where('delete_flg', false)->get();
     }
 
     public function compose(View $view)

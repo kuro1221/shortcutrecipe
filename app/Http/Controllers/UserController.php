@@ -10,6 +10,9 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Validation\Rule;
+use App\RecipesRelationApplication;
+use App\RecipesRelationProduct;
+use App\Http\Controllers\RecipeController;
 
 class UserController extends Controller
 {
@@ -23,7 +26,24 @@ class UserController extends Controller
         //ユーザーが存在しない、またはユーザーが削除されている場合は不正とみなす
         if (!$user || $user->delete_flg !== 0)
             return redirect()->action('HomeController@index')->with('flash_message', '不正な値が入力されました');
-        return view('user.userDetail');
+
+        $recipes = Recipe::select()
+            ->join('users', 'recipes.user_id', '=', 'users.id')
+            ->where('user_id', Auth::id())
+            ->where('recipes.delete_flg', false)->get();
+
+        $select_products = RecipesRelationProduct::select()
+            ->join('products', 'recipes_relation_products.product_id', '=', 'products.id')
+            ->get();
+
+        $select_applications = RecipesRelationApplication::select()
+            ->join('applications', 'recipes_relation_applications.application_id', '=', 'applications.id')
+            ->get();
+
+        RecipeController::relationStoring($recipes, $select_products, "select_products");
+        RecipeController::relationStoring($recipes, $select_applications, "select_applications");
+
+        return view('user.userDetail', ['recipes' => $recipes, 'user' => $user]);
     }
 
 
@@ -65,7 +85,7 @@ class UserController extends Controller
         return  Validator::make($data, [
             'img' => ['nullable', 'file', 'mimes:png,jpeg,jpg,gif', 'max:85000'],
             'email' => ['required', 'string', 'email', 'max:50', Rule::unique('users', 'email')->whereNot('email', Auth::user()->email)],
-            'name' => ['required', 'string', 'max:50'],
+            'name' => ['required', 'string', 'max:20'],
             'twitter' => ['nullable', 'string', 'max:100'],
             'website' => ['nullable', 'string', 'max:100'],
             'youtube' => ['nullable', 'string', 'max:100'],

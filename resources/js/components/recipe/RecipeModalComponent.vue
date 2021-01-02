@@ -44,6 +44,7 @@
             </v-avatar>
             <v-card-text class="ml-2 font-weight-bold text-truncate">{{ recipe.name }}</v-card-text>
             <v-spacer></v-spacer>
+            <v-btn class="button_small" color="#FFD500" rounded small v-if="recipe.user_id === auth_user.id" :href="'/userDetail/' + recipe.user_id">編集</v-btn>
             <v-btn class="button_small" color="#FFD500" rounded small @click="showURL = true">GET</v-btn>
             <v-icon class="ml-1" @click="modalFlg = false">mdi-close</v-icon>
           </v-card-actions>
@@ -54,7 +55,7 @@
 </template>
 <script>
 export default {
-  props: ["recipe"],
+  props: ["auth_user","recipe"],
   data: function() {
     return {
       modalFlg:false,
@@ -73,6 +74,6 @@ export default {
     modalFlg: function(modalFlg){
       if (this.recipe && this.modalFlg == false) this.$emit('reset');
     }
-  }
+  },
 }
 </script>

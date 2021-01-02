@@ -27,3 +27,40 @@
 .button_small {
     font-size: 12px;
 }
+
+.p-pagination {
+    display: flex;
+    justify-content: center;
+    padding-left: 0;
+    margin: 20px auto;
+    padding-bottom: 20px;
+    border-radius: 4px;
+}
+
+.page {
+    &__item {
+        color: black!important;
+        width: 24px;
+        padding: 8px;
+        border: none;
+        &.active {
+            background-color: #fff;
+            .p-page__item-link{
+                color: #fff;
+            }
+        }
+        &-link {
+            color: black!important;
+        }
+    }
+    &__prev {
+        color: black!important;
+        line-height: 40px;
+        margin-right: 5px;
+    }
+    &__next {
+        color: black!important;
+        line-height: 40px;
+        margin-left: 5px;
+    }
+}
