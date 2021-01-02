@@ -17,7 +17,7 @@
                   name="recipe_name"
                   prepend-icon="fas fa-utensils"
                   type="text"
-                  :rules="[rule.required, rule.limit_max_length]"
+                  :rules="[rule.required, rule.limit_max_name]"
                   :error-messages="errors.recipe_name"
                 />
                 <v-text-field

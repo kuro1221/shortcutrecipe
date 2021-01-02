@@ -4,7 +4,7 @@
       <v-row justify="center" red>
         <v-col cols="12" sm="8" md="9">
       <recipe-filter :filter_data.sync="filter_data" :search.sync="search" :sort_order.sync="sort_order" :application_list="application_list" :product_list="product_list" :situation_list="situation_list"></recipe-filter>
-      <recipe :recipe_list="filterdList"></recipe>
+      <recipe :auth_user="auth_user" :recipe_list="filterdList"></recipe>
       </v-col>
       </v-row>
     </v-content>
@@ -15,7 +15,7 @@ import defaultCSS from '../../default.js'
 import recipeFilter from '../recipe/RecipeFilterComponent.vue';
 import recipe from '../recipe/RecipeComponent.vue';
 export default {
-  props: ["recipes","application_list","product_list","situation_list"],
+  props: ["auth_user","recipes","application_list","product_list","situation_list"],
   components: {
     'recipe-filter': recipeFilter,
     'recipe': recipe

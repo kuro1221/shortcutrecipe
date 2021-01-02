@@ -1,7 +1,7 @@
 <template>
   <div>
       <v-layout wrap>
-        <recipeModal :recipe="recipeDetail" @reset="resetRecipe"></recipeModal>
+        <recipeModal :auth_user="auth_user" :recipe="recipeDetail" @reset="resetRecipe"></recipeModal>
         <v-flex xs6 md4 shrink v-for="(recipe, i) in sliceRecipes" :key="i" class="no-border" >
           <v-card
             class="ma-2"
@@ -26,20 +26,22 @@
           </v-card>
         </v-flex>
       </v-layout>
-      <paginate
-        :page-count="getPageCount"
-        :page-range="3"
-        :margin-pages="2"
-        :click-handler="clickCallback"
-        :prev-text="'<'"
-        :prev-link-class="'p-page__prev'"
-        :next-text="'>'"
-        :next-link-class="'p-page__next'"
-        :container-class="'p-pagination'"
-        :page-class="'p-page__item'"
-        :page-link-class="'p-page__item-link'"
-        :hide-prev-next="true"
-      ></paginate>
+      <v-row justify="center" class="my-4" red>
+        <paginate
+          :page-count="getPageCount"
+          :page-range="3"
+          :margin-pages="2"
+          :click-handler="clickCallback"
+          :prev-text="'<'"
+          :prev-link-class="'page__prev'"
+          :next-text="'>'"
+          :next-link-class="'page__next'"
+          :container-class="'pagination'"
+          :page-class="'page__item'"
+          :page-link-class="'page__item-link'"
+          :hide-prev-next="true"
+        ></paginate>
+      </v-row>
   </div>
 </template>
 <script>
@@ -47,7 +49,7 @@ import Paginate from "vuejs-paginate";
 import recipeModal from '../recipe/RecipeModalComponent.vue';
 Vue.component("paginate", Paginate);
 export default {
-  props: ["recipe_list"],
+  props: ["auth_user","recipe_list"],
   components: {
     'recipeModal': recipeModal,
   },
