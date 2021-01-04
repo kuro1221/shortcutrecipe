@@ -30,6 +30,26 @@ Vue.component(
 );
 
 Vue.component(
+    "login-component",
+    require("./components/auth/LoginComponent.vue").default
+);
+
+Vue.component(
+    "register-component",
+    require("./components/auth/RegisterComponent.vue").default
+);
+
+Vue.component(
+    "forget-password-component",
+    require("./components/auth/ForgetPasswordComponent.vue").default
+);
+
+Vue.component(
+    "reset-password-component",
+    require("./components/auth/ResetPasswordComponent.vue").default
+);
+
+Vue.component(
     "header-component",
     require("./components/HeaderComponent.vue").default
 );
@@ -68,4 +88,10 @@ const app = new Vue({
         background: "#BFDCFA"
     }),
 });
+
+
+// フラッシュメッセージのfadeout
+setTimeout(function () {
+    $('.js-flash').fadeOut();
+}, 5000);
 

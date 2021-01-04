@@ -11088,6 +11088,11 @@ img {
   background-color: #BFDCFA;
 }
 
+.page-title {
+  font-size: 20px;
+  font-weight: 700;
+}
+
 .card_comment {
   height: 45px;
   line-height: 15px !important;
@@ -11095,6 +11100,12 @@ img {
   overflow: hidden;
   -webkit-line-clamp: 3;
   -webkit-box-orient: vertical;
+}
+
+.button {
+  width: 70%;
+  margin: 0 auto;
+  font-size: 20px;
 }
 
 .button_small {
@@ -11139,5 +11150,17 @@ img {
   color: black !important;
   line-height: 40px;
   margin-left: 5px;
+}
+
+.flash {
+  width: 50%;
+  height: 60px;
+  color: black;
+  margin-top: 55px;
+  line-height: 60px;
+  text-align: center;
+  z-index: 20;
+  position: absolute;
+  background-color: #5cb85c;
 }
 
