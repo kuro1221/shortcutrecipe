@@ -66,6 +66,7 @@ class UserController extends Controller
         }
         $user->fill($request->all());
         $user->save();
+        session()->flash('flash_message', '編集しました');
     }
 
     public function passwordEdit(Request $request)

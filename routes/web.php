@@ -19,7 +19,9 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 
-//ユーゼー関係
+Route::get('/auth/passwords/successful', 'Auth\ResetPasswordController@showSuccessful');
+
+//ユーザー関係
 Route::get('/userDetail/{id}', 'UserController@userDetailShow')->name('userDetailShow');
 Route::get('/profileEdit', 'UserController@profileEditShow')->name('profileEditShow');
 Route::post('/profileEdit', 'UserController@profileEdit');

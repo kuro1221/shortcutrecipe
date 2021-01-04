@@ -37,6 +37,7 @@ class RecipeController extends Controller
         if ($request->select_application) $this->addLoop($request->select_application, "application", $recipe->id);
         if ($request->select_product) $this->addLoop($request->select_product, "product", $recipe->id);
         if ($request->select_situation) $this->addLoop($request->select_situation, "situation", $recipe->id);
+        session()->flash('flash_message', '登録しました');
     }
 
     //選択したアプリや製品、状況を複数追加するための処理
@@ -87,6 +88,7 @@ class RecipeController extends Controller
             'recipe.editRecipe',
             ['recipe' => $recipe, 'select_application' => $select_application, 'select_situation' => $select_situation, 'select_product' => $select_product]
         );
+        session()->flash('flash_message', '編集しました');
     }
 
     public function editRecipe($id, Request $request)
@@ -115,6 +117,7 @@ class RecipeController extends Controller
         $this->editLoop($request->select_product, $old_select_product, "product", "product_id", $recipe->id);
         $this->editLoop($request->select_application, $old_select_application, "application", "application_id", $recipe->id);
         $this->editLoop($request->select_situation, $old_select_situation, "situation", "situation_id", $recipe->id);
+        session()->flash('flash_message', '編集しました');
     }
 
     //選択したアプリや製品、状況を編集するための処理

@@ -25,4 +25,9 @@ class HomeController extends Controller
     {
         return view('home');
     }
+
+    // public function showSuccessful()
+    // {
+    //     return view('auth.passwords.successful');
+    // }
 }
