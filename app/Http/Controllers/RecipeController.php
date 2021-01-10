@@ -161,9 +161,26 @@ class RecipeController extends Controller
         }
     }
 
+
+    public function deleteRecipe($recipe_id)
+    {
+        //数値以外が入力された場合、不正な入力とみなす
+        if (!is_numeric($recipe_id))
+            return redirect()->action('HomeController@index')->with('flash_message', '不正な値が入力されました');
+        $recipe = Recipe::find($recipe_id);
+        $user_id = Auth::id();
+        //レシピが存在しない、またはログインユーザーがレシピの作成者ではない、またはレシピが削除されている場合は不正とみなす
+        if (!$recipe || $recipe->user_id !== $user_id  || $recipe->delete_flg !== 0)
+            return redirect()->action('HomeController@index')->with('flash_message', '不正な値が入力されました');
+
+        $recipe->delete_flg = true;
+        $recipe->save();
+        session()->flash('flash_message', '削除しました');
+    }
+
     public function recipeListShow()
     {
-        $recipes = Recipe::select()
+        $recipes = Recipe::select('recipes.*', 'users.id as user_id', 'users.name', 'users.img')
             ->join('users', 'recipes.user_id', '=', 'users.id')
             ->where('recipes.delete_flg', false)->get();
         // $recipes = Recipe::where("delete_flg", false)->get();

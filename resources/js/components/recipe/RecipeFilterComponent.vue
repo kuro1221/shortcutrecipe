@@ -1,14 +1,6 @@
 <template>
   <div >
-      <v-col cols="12" sm="8" md="9">
-      <v-select
-        v-model="child_sort_order"
-        :items="sort_orders"
-        item-text="label"
-        item-value="value"
-        label="並べ替え"
-        dense
-      ></v-select>
+      <v-col cols="12" sm="8" md="9" class="pt-0">
       <v-text-field
         v-model="child_search"
         label="検索"
@@ -17,14 +9,21 @@
         :rules="[rule.limit_max_length]"
       />
       <v-select
+        v-model="child_sort_order"
+        :items="sort_orders"
+        item-text="label"
+        item-value="value"
+        label="並べ替え"
+        dense
+      ></v-select>
+      <div>
+      <v-select
         v-model="filter_data.filter_product"
         :items="product_list"
         item-text="product_name"
         item-value="id"
         multiple
         label="製品(複数選択可能)"
-        chips
-        dense
       >
       </v-select>
       <v-select
@@ -37,6 +36,7 @@
         chips
         >
       </v-select>
+      </div>
       </v-col>
     <!-- <v-content class="fill-height" fluid>
       <v-select
