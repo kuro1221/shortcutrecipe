@@ -21,6 +21,16 @@
             <v-list-item-title>プロフィール編集</v-list-item-title>
           </v-list-item-content>
         </v-list-item>
+        <v-list-item link href="/passwordEdit">
+          <v-list-item-content>
+            <v-list-item-title>パスワード変更</v-list-item-title>
+          </v-list-item-content>
+        </v-list-item>
+        <v-list-item link href="/withdrawalShow">
+          <v-list-item-content>
+            <v-list-item-title>退会</v-list-item-title>
+          </v-list-item-content>
+        </v-list-item>
         <v-list-item>
           <v-list-item-content>
             <v-list-item-title><button @click="logout">ログアウト</button></v-list-item-title>

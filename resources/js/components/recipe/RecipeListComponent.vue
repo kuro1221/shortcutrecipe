@@ -1,7 +1,7 @@
 <template>
   <div>
-    <v-content class="fill-height" red >
-      <v-row justify="center" red>
+    <v-content class="fill-height pt-0" red >
+      <v-row justify="center" red class="pt-0">
         <v-col cols="12" sm="8" md="9">
       <recipe-filter :filter_data.sync="filter_data" :search.sync="search" :sort_order.sync="sort_order" :application_list="application_list" :product_list="product_list" :situation_list="situation_list"></recipe-filter>
       <recipe :auth_user="auth_user" :recipe_list="filterdList"></recipe>

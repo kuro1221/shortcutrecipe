@@ -52,6 +52,11 @@ class UserController extends Controller
         return view('user.profileEdit');
     }
 
+    public function passwordEditShow()
+    {
+        return view('user.passwordEdit');
+    }
+
     public function profileEdit(Request $request)
     {
         log::debug($request->all());
@@ -76,9 +81,20 @@ class UserController extends Controller
         $this->passwordValidator($request->all())->validate();
         $user->password = Hash::make($request->password);
         $user->save();
-        // $this->validator($request->all())->validate();
-        // $user->fill($request->all());
-        // $user->save();
+    }
+
+    public function withdrawalShow()
+    {
+        return view('user.withdrawal');
+    }
+
+    public function withdrawal()
+    {
+        $user = Auth::user();
+        $user->delete_flg = true;
+        $user->save();
+        Auth::logout();
+        session()->flash('flash_message', '退会しました');
     }
 
     protected function validator(array $data)

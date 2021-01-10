@@ -3,7 +3,7 @@
     <v-content class="fill-height pt-0" fluid>
       <v-row justify="center">
         <v-col cols="12" sm="8" md="4">
-            <h2 class="page-title">ログイン</h2>
+            <h2 class="page-title">パスワードリセット</h2>
             <v-form ref="form" class="mt-4">
                <span>パスワードをリセットするためのメールが送信されます。</span>
                <v-text-field

@@ -1,53 +1,42 @@
 <template>
-  <v-app>
-    <v-content class="fill-height" fluid>
+  <div>
+    <h2 class="page-title">パスワード変更</h2>
+      <v-form ref="form">
+        <v-text-field
+          class="font-weight-bold"
+          v-model="old_password"
+          label="古いパスワード"
+          name="old_password"
+          prepend-icon="fas fa-utensils"
+          type="password"
+          :rules="[rule.required, rule.limit_min_length,rule.limit_max_length]"
+          :error-messages="errors.old_password"
+        />
+        <v-text-field
+          class="font-weight-bold"
+          v-model="password"
+          label="新しいパスワード"
+          name="password"
+          prepend-icon="fas fa-utensils"
+          type="password"
+          :rules="[rule.required, rule.limit_min_length,rule.limit_max_length]"
+          :error-messages="errors.password"
+        />
+        <v-text-field
+          class="font-weight-bold"
+          v-model="password_confirmation"
+          label="新しいパスワード(再)"
+          name="password_confirmation"
+          prepend-icon="fas fa-utensils"
+          type="password"
+          :rules="[rule.required, rule.limit_min_length,rule.limit_max_length]"
+          :error-messages="errors.password_confirmation"
+        />
+      </v-form>
       <v-row justify="center">
-        <v-col cols="12" sm="8" md="4">
-          <v-card class="elevation-12">
-            <v-toolbar color="primary" dark flat>
-              <v-toolbar-title>パスワード編集</v-toolbar-title>
-              <v-spacer />
-            </v-toolbar>
-            <v-card-text>
-              <v-form ref="form">
-                <v-text-field
-                  v-model="old_password"
-                  label="古いパスワード"
-                  name="old_password"
-                  prepend-icon="fas fa-utensils"
-                  type="password"
-                  :rules="[rule.required, rule.limit_min_length,rule.limit_max_length]"
-                  :error-messages="errors.old_password"
-                />
-                <v-text-field
-                  v-model="password"
-                  label="新しいパスワード"
-                  name="password"
-                  prepend-icon="fas fa-utensils"
-                  type="password"
-                  :rules="[rule.required, rule.limit_min_length,rule.limit_max_length]"
-                  :error-messages="errors.password"
-                />
-                <v-text-field
-                  v-model="password_confirmation"
-                  label="新しいパスワード(再)"
-                  name="password_confirmation"
-                  prepend-icon="fas fa-utensils"
-                  type="password"
-                  :rules="[rule.required, rule.limit_min_length,rule.limit_max_length]"
-                  :error-messages="errors.password_confirmation"
-                />
-              </v-form>
-            </v-card-text>
-            <v-card-actions>
-              <v-spacer />
-              <v-btn color="primary" @click="passwordEdit">編集</v-btn>
-            </v-card-actions>
-          </v-card>
-        </v-col>
+        <v-btn class="button font-weight-bold my-5" color="#FFD500" rounded large @click="passwordEdit">編集</v-btn>
       </v-row>
-    </v-content>
-  </v-app>
+  </div>
 </template>
 <script>
 import validation_rule from '../../validation.js'

@@ -11,6 +11,18 @@
           </v-card-text>
           <v-card-text class="pt-0"><a :href="recipe.iCloud_link">{{recipe.iCloud_link}}</a></v-card-text>
         </div>
+        <div v-else-if="deleteRecipeId">
+          <v-card-text class="font-weight-bold">
+            本当に削除してもよろしいですか？
+          </v-card-text>
+          <v-card-actions class="mb-2">
+            <v-spacer></v-spacer>
+            <v-btn class="button_small font-weight-bold" color="#FFD500" rounded small @click="deleteRecipe">はい</v-btn>
+            <v-spacer></v-spacer>
+            <v-btn class="button_small font-weight-bold" color="#FFD500" rounded small @click="modalFlg = false">いいえ</v-btn>
+            <v-spacer></v-spacer>
+          </v-card-actions>
+        </div>
         <div v-else>
           <v-card-title class="pa-0 ma-2 subtitle-1 font-weight-bold">
             {{recipe.recipe_name}}
@@ -35,18 +47,21 @@
           >{{ select_applications.application_name }}
           </v-chip>
           <v-card-actions>
-            <v-avatar size="50px">
+            <v-avatar size="60px">
               <v-img
                 v-bind:src="'../storage/' + recipe.img"
                 aspect-ratio="1.7"
                 contain
               />
             </v-avatar>
-            <v-card-text class="ml-2 font-weight-bold text-truncate">{{ recipe.name }}</v-card-text>
+            <v-card-text class="ml-1 font-weight-bold text-truncate">{{ recipe.name }}</v-card-text>
+          </v-card-actions>
+          <v-card-actions>
             <v-spacer></v-spacer>
-            <v-btn class="button_small" color="#FFD500" rounded small v-if="recipe.user_id === auth_user.id" :href="'/userDetail/' + recipe.user_id">編集</v-btn>
-            <v-btn class="button_small" color="#FFD500" rounded small @click="showURL = true">GET</v-btn>
-            <v-icon class="ml-1" @click="modalFlg = false">mdi-close</v-icon>
+            <v-btn class="button_small ml-3" color="#FFD500" rounded small v-if="recipe.user_id === auth_user.id" :href="'/editRecipe/' + recipe.id">編集</v-btn>
+            <v-btn class="button_small ml-3" color="#FFD500" rounded small v-if="recipe.user_id === auth_user.id" @click="deleteRecipeId = recipe.id">削除</v-btn>
+            <v-btn class="button_small ml-3" color="#FFD500" rounded small @click="showURL = true">GET</v-btn>
+            <v-icon class="ml-2" @click="modalFlg = false">mdi-close</v-icon>
           </v-card-actions>
         </div>
       </v-card>
@@ -59,7 +74,8 @@ export default {
   data: function() {
     return {
       modalFlg:false,
-      showURL: false
+      showURL: false,
+      deleteRecipeId: '',
     }
   },
   watch: {
@@ -69,11 +85,21 @@ export default {
       } else {
         this.modFlg = false;
         this.showURL = false;
+        this.deleteRecipeId = '';
       }
     },
     modalFlg: function(modalFlg){
       if (this.recipe && this.modalFlg == false) this.$emit('reset');
     }
   },
+  methods: {
+    deleteRecipe: function(){
+      axios.post('deleteRecipe/' + this.deleteRecipeId,
+      ).then(function(){
+        self.errors = [];
+        location.href = '/home'
+      })
+    }
+  }
 }
 </script>

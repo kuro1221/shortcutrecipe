@@ -55,13 +55,25 @@ Vue.component(
 );
 
 Vue.component(
-    "profile-all-component",
-    require("./components/user/ProfileAllComponent.vue").default
+    "profile-edit-component",
+    require("./components/user/ProfileEditComponent.vue").default
 );
+
 Vue.component(
-    "user-detail-component",
-    require("./components/user/UserDetailComponent.vue").default
+    "password-edit-component",
+    require("./components/user/PasswordEditComponent.vue").default
 );
+
+Vue.component(
+    'withdrawal-component',
+    require("./components/user/WithdrawalComponent.vue").default
+);
+
+Vue.component(
+    'add-recipe-component',
+    require("./components/recipe/AddRecipeComponent.vue").default
+);
+
 Vue.component(
     'add-recipe-component',
     require("./components/recipe/AddRecipeComponent.vue").default
