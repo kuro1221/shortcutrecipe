@@ -11,9 +11,6 @@
                                 contain
                             />
                         </v-avatar>
-                        <a :href="user.twitter" class="ml-2"><v-icon>fab fa-twitter</v-icon></a>
-                        <a :href="user.instagram" class="ml-2"><v-icon>fab fa-instagram</v-icon></a>
-                        <a :href="user.youtube" class="ml-2"><v-icon>fab fa-youtube</v-icon></a>
                     </div>
                 </v-col>
             </v-row>

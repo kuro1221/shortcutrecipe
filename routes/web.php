@@ -11,13 +11,11 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', 'RecipeController@recipeListShow')->name('recipeListShow');
 
 Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
+// Route::get('/', 'HomeController@index')->name('home');
 
 Route::get('/auth/passwords/successful', 'Auth\ResetPasswordController@showSuccessful');
 

@@ -31,7 +31,7 @@
               v-model="auth_user.email"
               label="e-mail"
               name="email"
-              prepend-icon="fas fa-utensils"
+              prepend-icon="far fa-envelope"
               type="text"
               :rules="[rule.required, rule.limit_max_length,rule.email]"
               :error-messages="errors.email"
@@ -41,17 +41,18 @@
               v-model="auth_user.name"
               label="名前"
               name="name"
-              prepend-icon="fas fa-utensils"
+              prepend-icon="far fa-user"
               type="text"
               :rules="[rule.required, rule.limit_max_length]"
               :error-messages="errors.name"
             />
+            <!--
             <v-text-field
               class="font-weight-bold"
               v-model="auth_user.twitter"
               label="Twitter_id"
               name="twitter"
-              prepend-icon="fas fa-utensils"
+              prepend-icon="fab fa-twitter"
               type="text"
               :rules="[rule.limit_max_length]"
               :error-messages="errors.twitter"
@@ -61,7 +62,7 @@
               v-model="auth_user.youtube"
               label="youtube_id"
               name="youtube"
-              prepend-icon="fas fa-utensils"
+              prepend-icon="fab fa-youtube"
               type="text"
               :rules="[rule.limit_max_length]"
               :error-messages="errors.youtube"
@@ -71,7 +72,7 @@
               v-model="auth_user.website"
               label="website_id"
               name="website"
-              prepend-icon="fas fa-utensils"
+              prepend-icon="fab fa-safari"
               type="text"
               :rules="[rule.limit_max_length]"
               :error-messages="errors.website"
@@ -81,11 +82,12 @@
               v-model="auth_user.instaglam"
               label="instaglam_id"
               name="instaglam"
-              prepend-icon="fas fa-utensils"
+              prepend-icon="fab fa-instagram"
               type="text"
               :rules="[rule.limit_max_length]"
               :error-messages="errors.instaglam"
             />
+            -->
             <v-textarea
               class="font-weight-bold"
               v-model="auth_user.comment"
@@ -145,7 +147,7 @@ export default {
         axios.post('/profileEdit',formData
         ).then(function(){
           self.errors = [];
-          location.href = '/home'
+          location.href = '/'
         }).catch(function(error){
           for(let key in error.response.data.errors) {
             self.errors[key] = error.response.data.errors[key][0];

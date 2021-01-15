@@ -50,7 +50,6 @@ export default {
         }
         ).then(function(){
           self.errors = [];
-        //   location.href = '/home'
           self.showMessage = true;
         }).catch(function(error){
             console.log('error発生?');

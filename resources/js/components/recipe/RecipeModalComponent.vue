@@ -54,7 +54,7 @@
                 contain
               />
             </v-avatar>
-            <v-card-text class="ml-1 font-weight-bold text-truncate">{{ recipe.name }}</v-card-text>
+            <v-card-text class="ml-1 font-weight-bold text-truncate"><a :href="'/userDetail/' + recipe.user_id">{{ recipe.name }}</a></v-card-text>
           </v-card-actions>
           <v-card-actions>
             <v-spacer></v-spacer>
@@ -97,7 +97,7 @@ export default {
       axios.post('deleteRecipe/' + this.deleteRecipeId,
       ).then(function(){
         self.errors = [];
-        location.href = '/home'
+        location.href = '/'
       })
     }
   }

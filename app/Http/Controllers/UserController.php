@@ -21,15 +21,17 @@ class UserController extends Controller
     {
         //数値以外が入力された場合、不正な入力とみなす
         if (!is_numeric($id))
-            return redirect()->action('HomeController@index')->with('flash_message', '不正な値が入力されました');
+            return redirect()->action('RecipeController@recipeListShow')->with('flash_message', '不正な値が入力されました');
         $user = User::find($id);
         //ユーザーが存在しない、またはユーザーが削除されている場合は不正とみなす
         if (!$user || $user->delete_flg !== 0)
-            return redirect()->action('HomeController@index')->with('flash_message', '不正な値が入力されました');
+            return redirect()->action('RecipeController@recipeListShow')->with('flash_message', '不正な値が入力されました');
+
+        Auth::user() ? $login_user = AUth::user() : $login_user = new User;
 
         $recipes = Recipe::select()
             ->join('users', 'recipes.user_id', '=', 'users.id')
-            ->where('user_id', Auth::id())
+            ->where('user_id', $user->id)
             ->where('recipes.delete_flg', false)->get();
 
         $select_products = RecipesRelationProduct::select()
@@ -43,7 +45,7 @@ class UserController extends Controller
         RecipeController::relationStoring($recipes, $select_products, "select_products");
         RecipeController::relationStoring($recipes, $select_applications, "select_applications");
 
-        return view('user.userDetail', ['recipes' => $recipes, 'user' => $user]);
+        return view('user.userDetail', ['recipes' => $recipes, 'user' => $user, 'login_user' => $login_user]);
     }
 
 
@@ -59,7 +61,6 @@ class UserController extends Controller
 
     public function profileEdit(Request $request)
     {
-        log::debug($request->all());
         $user = Auth::user();
         $this->validator($request->all())->validate();
         //画像アップロード処理
@@ -76,11 +77,11 @@ class UserController extends Controller
 
     public function passwordEdit(Request $request)
     {
-        log::debug($request->all());
         $user = Auth::user();
         $this->passwordValidator($request->all())->validate();
         $user->password = Hash::make($request->password);
         $user->save();
+        session()->flash('flash_message', 'パスワードを変更しました');
     }
 
     public function withdrawalShow()
@@ -91,9 +92,11 @@ class UserController extends Controller
     public function withdrawal()
     {
         $user = Auth::user();
-        $user->delete_flg = true;
-        $user->save();
-        Auth::logout();
+        log::debug("退会");
+        $user->forceDelete();
+        // $user->delete_flg = true;
+        // $user->save();
+        // Auth::logout();
         session()->flash('flash_message', '退会しました');
     }
 
