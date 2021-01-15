@@ -2094,6 +2094,90 @@ module.exports = {
 
 /***/ }),
 
+/***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/AuthHeaderComponent.vue?vue&type=script&lang=js&":
+/*!******************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/AuthHeaderComponent.vue?vue&type=script&lang=js& ***!
+  \******************************************************************************************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _default_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../default.js */ "./resources/js/default.js");
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+/* harmony default export */ __webpack_exports__["default"] = ({
+  props: ["auth_user"],
+  data: function data() {
+    return {
+      defaultCSS: _default_js__WEBPACK_IMPORTED_MODULE_0__["default"],
+      drawer: null
+    };
+  },
+  methods: {
+    logout: function logout() {
+      axios.post('/logout').then(function () {
+        location.href = '/login';
+      });
+    }
+  }
+});
+
+/***/ }),
+
 /***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/ExampleComponent.vue?vue&type=script&lang=js&":
 /*!***************************************************************************************************************************************************************************!*\
   !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/ExampleComponent.vue?vue&type=script&lang=js& ***!
@@ -2126,29 +2210,16 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
-/***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/HeaderComponent.vue?vue&type=script&lang=js&":
-/*!**************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/HeaderComponent.vue?vue&type=script&lang=js& ***!
-  \**************************************************************************************************************************************************************************/
+/***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/GuestHeaderComponent.vue?vue&type=script&lang=js&":
+/*!*******************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/GuestHeaderComponent.vue?vue&type=script&lang=js& ***!
+  \*******************************************************************************************************************************************************************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _default_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../default.js */ "./resources/js/default.js");
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
 //
 //
 //
@@ -2261,8 +2332,7 @@ __webpack_require__.r(__webpack_exports__);
         axios.post('email', {
           email: this.email
         }).then(function () {
-          self.errors = []; //   location.href = '/home'
-
+          self.errors = [];
           self.showMessage = true;
         })["catch"](function (error) {
           console.log('error発生?');
@@ -2346,12 +2416,12 @@ __webpack_require__.r(__webpack_exports__);
           email: '',
           password: ''
         };
-        axios.post('login', {
+        axios.post('/login', {
           email: this.email,
           password: this.password
         }).then(function () {
           self.errors = [];
-          location.href = '/home';
+          location.href = '/';
         })["catch"](function (error) {
           for (var key in error.response.data.errors) {
             self.errors[key] = error.response.data.errors[key][0];
@@ -2459,7 +2529,7 @@ __webpack_require__.r(__webpack_exports__);
           password_confirmation: this.password_confirmation
         }).then(function () {
           self.errors = [];
-          location.href = '/home';
+          location.href = '/';
         })["catch"](function (error) {
           for (var key in error.response.data.errors) {
             self.errors[key] = error.response.data.errors[key][0];
@@ -2640,26 +2710,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: ['application_list', 'product_list', 'situation_list', 'csrf'],
@@ -2687,7 +2737,8 @@ __webpack_require__.r(__webpack_exports__);
           comment: ''
         };
         axios.post('addRecipe', this.recipe).then(function () {
-          self.errors = []; // location.href = '/home'
+          self.errors = [];
+          location.href = '/';
         })["catch"](function (error) {
           for (var key in error.response.data.errors) {
             self.errors[key] = error.response.data.errors[key][0];
@@ -2710,26 +2761,6 @@ __webpack_require__.r(__webpack_exports__);
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _validation__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../validation */ "./resources/js/validation.js");
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
 //
 //
 //
@@ -2831,7 +2862,7 @@ __webpack_require__.r(__webpack_exports__);
         };
         axios.post('/editRecipe/' + this.recipe.id, this.recipe).then(function () {
           self.errors = [];
-          location.href = '/home';
+          location.href = '/';
         })["catch"](function (error) {
           for (var key in error.response.data.errors) {
             self.errors[key] = error.response.data.errors[key][0];
@@ -2959,19 +2990,6 @@ Vue.component("paginate", vuejs_paginate__WEBPACK_IMPORTED_MODULE_0___default.a)
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _validation_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../validation.js */ "./resources/js/validation.js");
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
 //
 //
 //
@@ -3295,7 +3313,7 @@ __webpack_require__.r(__webpack_exports__);
     deleteRecipe: function deleteRecipe() {
       axios.post('deleteRecipe/' + this.deleteRecipeId).then(function () {
         self.errors = [];
-        location.href = '/home';
+        location.href = '/';
       });
     }
   }
@@ -3385,7 +3403,7 @@ __webpack_require__.r(__webpack_exports__);
           password_confirmation: this.password_confirmation
         }).then(function () {
           self.errors = [];
-          location.href = '/home';
+          location.href = '/';
         })["catch"](function (error) {
           for (var key in error.response.data.errors) {
             self.errors[key] = error.response.data.errors[key][0];
@@ -3408,6 +3426,8 @@ __webpack_require__.r(__webpack_exports__);
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _validation_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../validation.js */ "./resources/js/validation.js");
+//
+//
 //
 //
 //
@@ -3543,7 +3563,7 @@ __webpack_require__.r(__webpack_exports__);
         var formData = new FormData();
         formData.append('img', self.file_info), formData.append('name', self.auth_user.name), formData.append('email', self.auth_user.email), formData.append('comment', self.auth_user.comment), formData.append('instaglam', self.auth_user.instaglam), formData.append('twitter', self.auth_user.twitter), formData.append('website', self.auth_user.website), formData.append('youtube', self.auth_user.youtube), axios.post('/profileEdit', formData).then(function () {
           self.errors = [];
-          location.href = '/home';
+          location.href = '/';
         })["catch"](function (error) {
           for (var key in error.response.data.errors) {
             self.errors[key] = error.response.data.errors[key][0];
@@ -3566,6 +3586,53 @@ __webpack_require__.r(__webpack_exports__);
         reader.readAsDataURL(this.file_info);
       }
     }
+  }
+});
+
+/***/ }),
+
+/***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/user/UserDetailComponent.vue?vue&type=script&lang=js&":
+/*!***********************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/user/UserDetailComponent.vue?vue&type=script&lang=js& ***!
+  \***********************************************************************************************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _recipe_RecipeComponent_vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../recipe/RecipeComponent.vue */ "./resources/js/components/recipe/RecipeComponent.vue");
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+/* harmony default export */ __webpack_exports__["default"] = ({
+  props: ["auth_user", "recipes", "user"],
+  components: {
+    'recipe': _recipe_RecipeComponent_vue__WEBPACK_IMPORTED_MODULE_0__["default"]
+  },
+  data: function data() {
+    return {};
   }
 });
 
@@ -39963,6 +40030,184 @@ exports.clearImmediate = (typeof self !== "undefined" && self.clearImmediate) ||
 
 /***/ }),
 
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/AuthHeaderComponent.vue?vue&type=template&id=6ddbc80d&":
+/*!**********************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/AuthHeaderComponent.vue?vue&type=template&id=6ddbc80d& ***!
+  \**********************************************************************************************************************************************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c(
+    "div",
+    [
+      _c(
+        "v-navigation-drawer",
+        {
+          attrs: { app: "", right: "" },
+          model: {
+            value: _vm.drawer,
+            callback: function($$v) {
+              _vm.drawer = $$v
+            },
+            expression: "drawer"
+          }
+        },
+        [
+          _c(
+            "v-row",
+            { attrs: { justify: "center" } },
+            [
+              _c(
+                "v-list",
+                { staticClass: "mt-8 font-weight-bold" },
+                [
+                  _c(
+                    "v-list-item",
+                    {
+                      attrs: {
+                        link: "",
+                        href: "/userDetail/" + _vm.auth_user.id
+                      }
+                    },
+                    [
+                      _c(
+                        "v-list-item-content",
+                        [_c("v-list-item-title", [_vm._v("マイページ")])],
+                        1
+                      )
+                    ],
+                    1
+                  ),
+                  _vm._v(" "),
+                  _c(
+                    "v-list-item",
+                    { attrs: { link: "", href: "/recipeList" } },
+                    [
+                      _c(
+                        "v-list-item-content",
+                        [_c("v-list-item-title", [_vm._v("レシピ一覧")])],
+                        1
+                      )
+                    ],
+                    1
+                  ),
+                  _vm._v(" "),
+                  _c(
+                    "v-list-item",
+                    { attrs: { link: "", href: "/addRecipe" } },
+                    [
+                      _c(
+                        "v-list-item-content",
+                        [_c("v-list-item-title", [_vm._v("レシピ追加")])],
+                        1
+                      )
+                    ],
+                    1
+                  ),
+                  _vm._v(" "),
+                  _c(
+                    "v-list-item",
+                    { attrs: { link: "", href: "/profileEdit" } },
+                    [
+                      _c(
+                        "v-list-item-content",
+                        [_c("v-list-item-title", [_vm._v("プロフィール編集")])],
+                        1
+                      )
+                    ],
+                    1
+                  ),
+                  _vm._v(" "),
+                  _c(
+                    "v-list-item",
+                    { attrs: { link: "", href: "/passwordEdit" } },
+                    [
+                      _c(
+                        "v-list-item-content",
+                        [_c("v-list-item-title", [_vm._v("パスワード変更")])],
+                        1
+                      )
+                    ],
+                    1
+                  ),
+                  _vm._v(" "),
+                  _c(
+                    "v-list-item",
+                    { attrs: { link: "", href: "/withdrawalShow" } },
+                    [
+                      _c(
+                        "v-list-item-content",
+                        [_c("v-list-item-title", [_vm._v("退会")])],
+                        1
+                      )
+                    ],
+                    1
+                  ),
+                  _vm._v(" "),
+                  _c(
+                    "v-list-item",
+                    [
+                      _c(
+                        "v-list-item-content",
+                        [
+                          _c("v-list-item-title", [
+                            _c("button", { on: { click: _vm.logout } }, [
+                              _vm._v("ログアウト")
+                            ])
+                          ])
+                        ],
+                        1
+                      )
+                    ],
+                    1
+                  )
+                ],
+                1
+              )
+            ],
+            1
+          )
+        ],
+        1
+      ),
+      _vm._v(" "),
+      _c(
+        "v-app-bar",
+        { attrs: { app: "", color: _vm.defaultCSS.backgroundColor } },
+        [
+          _c("v-toolbar-title", [_vm._v("Shortcut Recipe")]),
+          _vm._v(" "),
+          _c("v-spacer"),
+          _vm._v(" "),
+          _c("v-app-bar-nav-icon", {
+            on: {
+              click: function($event) {
+                _vm.drawer = !_vm.drawer
+              }
+            }
+          })
+        ],
+        1
+      )
+    ],
+    1
+  )
+}
+var staticRenderFns = []
+render._withStripped = true
+
+
+
+/***/ }),
+
 /***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/ExampleComponent.vue?vue&type=template&id=299e239e&":
 /*!*******************************************************************************************************************************************************************************************************************!*\
   !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/ExampleComponent.vue?vue&type=template&id=299e239e& ***!
@@ -40008,10 +40253,10 @@ render._withStripped = true
 
 /***/ }),
 
-/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/HeaderComponent.vue?vue&type=template&id=153bfd55&":
-/*!******************************************************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/HeaderComponent.vue?vue&type=template&id=153bfd55& ***!
-  \******************************************************************************************************************************************************************************************************************/
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/GuestHeaderComponent.vue?vue&type=template&id=273fbce3&":
+/*!***********************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/GuestHeaderComponent.vue?vue&type=template&id=273fbce3& ***!
+  \***********************************************************************************************************************************************************************************************************************/
 /*! exports provided: render, staticRenderFns */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -40040,84 +40285,48 @@ var render = function() {
         },
         [
           _c(
-            "v-list",
+            "v-row",
+            { attrs: { justify: "center" } },
             [
               _c(
-                "v-list-item",
-                { attrs: { link: "", href: "/recipeList" } },
+                "v-list",
+                { staticClass: "mt-8 font-weight-bold" },
                 [
                   _c(
-                    "v-list-item-content",
-                    [_c("v-list-item-title", [_vm._v("レシピ一覧")])],
-                    1
-                  )
-                ],
-                1
-              ),
-              _vm._v(" "),
-              _c(
-                "v-list-item",
-                { attrs: { link: "", href: "/addRecipe" } },
-                [
-                  _c(
-                    "v-list-item-content",
-                    [_c("v-list-item-title", [_vm._v("レシピ追加")])],
-                    1
-                  )
-                ],
-                1
-              ),
-              _vm._v(" "),
-              _c(
-                "v-list-item",
-                { attrs: { link: "", href: "/profileEdit" } },
-                [
-                  _c(
-                    "v-list-item-content",
-                    [_c("v-list-item-title", [_vm._v("プロフィール編集")])],
-                    1
-                  )
-                ],
-                1
-              ),
-              _vm._v(" "),
-              _c(
-                "v-list-item",
-                { attrs: { link: "", href: "/passwordEdit" } },
-                [
-                  _c(
-                    "v-list-item-content",
-                    [_c("v-list-item-title", [_vm._v("パスワード変更")])],
-                    1
-                  )
-                ],
-                1
-              ),
-              _vm._v(" "),
-              _c(
-                "v-list-item",
-                { attrs: { link: "", href: "/withdrawalShow" } },
-                [
-                  _c(
-                    "v-list-item-content",
-                    [_c("v-list-item-title", [_vm._v("退会")])],
-                    1
-                  )
-                ],
-                1
-              ),
-              _vm._v(" "),
-              _c(
-                "v-list-item",
-                [
-                  _c(
-                    "v-list-item-content",
+                    "v-list-item",
+                    { attrs: { link: "", href: "/recipeList" } },
                     [
-                      _c("v-list-item-title", [
-                        _c("button", { on: { click: _vm.logout } }, [
-                          _vm._v("ログアウト")
-                        ])
-                      ])
+                      _c(
+                        "v-list-item-content",
+                        [_c("v-list-item-title", [_vm._v("レシピ一覧")])],
+                        1
+                      )
+                    ],
+                    1
+                  ),
+                  _vm._v(" "),
+                  _c(
+                    "v-list-item",
+                    { attrs: { link: "", href: "/login" } },
+                    [
+                      _c(
+                        "v-list-item-content",
+                        [_c("v-list-item-title", [_vm._v("ログイン")])],
+                        1
+                      )
+                    ],
+                    1
+                  ),
+                  _vm._v(" "),
+                  _c(
+                    "v-list-item",
+                    { attrs: { link: "", href: "/register" } },
+                    [
+                      _c(
+                        "v-list-item-content",
+                        [_c("v-list-item-title", [_vm._v("新規登録")])],
+                        1
+                      )
                     ],
                     1
                   )
@@ -40135,7 +40344,9 @@ var render = function() {
         "v-app-bar",
         { attrs: { app: "", color: _vm.defaultCSS.backgroundColor } },
         [
-          _c("v-toolbar-title", [_vm._v("Shortcut Recipe")]),
+          _c("v-toolbar-title", [
+            _c("a", { attrs: { href: "/" } }, [_vm._v("Shortcut Recipe")])
+          ]),
           _vm._v(" "),
           _c("v-spacer"),
           _vm._v(" "),
@@ -40709,7 +40920,7 @@ var render = function() {
     [
       _c(
         "v-content",
-        { staticClass: "fill-height", attrs: { fluid: "" } },
+        { staticClass: "fill-height pt-0", attrs: { fluid: "" } },
         [
           _c(
             "v-row",
@@ -40719,178 +40930,123 @@ var render = function() {
                 "v-col",
                 { attrs: { cols: "12", sm: "8", md: "4" } },
                 [
+                  _c("h2", { staticClass: "page-title" }, [
+                    _vm._v("レシピ投稿")
+                  ]),
+                  _vm._v(" "),
                   _c(
-                    "v-card",
-                    { staticClass: "elevation-12" },
+                    "v-form",
+                    { ref: "form" },
+                    [
+                      _c("input", {
+                        attrs: { type: "hidden", name: "_token" },
+                        domProps: { value: _vm.csrf }
+                      }),
+                      _vm._v(" "),
+                      _c("v-text-field", {
+                        attrs: {
+                          label: "レシピ名",
+                          name: "recipe_name",
+                          "prepend-icon": "fas fa-font",
+                          type: "text",
+                          rules: [_vm.rule.required, _vm.rule.limit_max_name],
+                          "error-messages": _vm.errors.recipe_name
+                        },
+                        model: {
+                          value: _vm.recipe.recipe_name,
+                          callback: function($$v) {
+                            _vm.$set(_vm.recipe, "recipe_name", $$v)
+                          },
+                          expression: "recipe.recipe_name"
+                        }
+                      }),
+                      _vm._v(" "),
+                      _c("v-text-field", {
+                        attrs: {
+                          label: "iCloudリンク",
+                          name: "iCloud_link",
+                          "prepend-icon": "fab fa-apple",
+                          type: "text",
+                          rules: [_vm.rule.required, _vm.rule.limit_max_recipe],
+                          "error-messages": _vm.errors.iCloud_link
+                        },
+                        model: {
+                          value: _vm.recipe.iCloud_link,
+                          callback: function($$v) {
+                            _vm.$set(_vm.recipe, "iCloud_link", $$v)
+                          },
+                          expression: "recipe.iCloud_link"
+                        }
+                      }),
+                      _vm._v(" "),
+                      _c("v-select", {
+                        attrs: {
+                          items: _vm.product_list,
+                          "item-text": "product_name",
+                          "item-value": "id",
+                          multiple: "",
+                          label: "使用する製品(複数選択可能)",
+                          "prepend-icon": "fas fa-mobile-alt"
+                        },
+                        model: {
+                          value: _vm.recipe.select_product,
+                          callback: function($$v) {
+                            _vm.$set(_vm.recipe, "select_product", $$v)
+                          },
+                          expression: "recipe.select_product"
+                        }
+                      }),
+                      _vm._v(" "),
+                      _c("v-select", {
+                        attrs: {
+                          items: _vm.application_list,
+                          "item-text": "application_name",
+                          "item-value": "id",
+                          multiple: "",
+                          label: "対象アプリ(複数選択可能)",
+                          "prepend-icon": "fas fa-database"
+                        },
+                        model: {
+                          value: _vm.recipe.select_application,
+                          callback: function($$v) {
+                            _vm.$set(_vm.recipe, "select_application", $$v)
+                          },
+                          expression: "recipe.select_application"
+                        }
+                      }),
+                      _vm._v(" "),
+                      _c("v-textarea", {
+                        attrs: {
+                          label: "コメント",
+                          autocomplete: "comment",
+                          "prepend-icon": "far fa-comment",
+                          rules: [_vm.rule.limit_max_comment],
+                          counter: "200"
+                        },
+                        model: {
+                          value: _vm.recipe.comment,
+                          callback: function($$v) {
+                            _vm.$set(_vm.recipe, "comment", $$v)
+                          },
+                          expression: "recipe.comment"
+                        }
+                      })
+                    ],
+                    1
+                  ),
+                  _vm._v(" "),
+                  _c(
+                    "v-row",
+                    { attrs: { justify: "center" } },
                     [
                       _c(
-                        "v-toolbar",
-                        { attrs: { color: "primary", dark: "", flat: "" } },
-                        [
-                          _c("v-toolbar-title", [_vm._v("レシピ登録")]),
-                          _vm._v(" "),
-                          _c("v-spacer")
-                        ],
-                        1
-                      ),
-                      _vm._v(" "),
-                      _c(
-                        "v-card-text",
-                        [
-                          _c(
-                            "v-form",
-                            { ref: "form" },
-                            [
-                              _c("input", {
-                                attrs: { type: "hidden", name: "_token" },
-                                domProps: { value: _vm.csrf }
-                              }),
-                              _vm._v(" "),
-                              _c("v-text-field", {
-                                attrs: {
-                                  label: "レシピ名",
-                                  name: "recipe_name",
-                                  "prepend-icon": "fas fa-utensils",
-                                  type: "text",
-                                  rules: [
-                                    _vm.rule.required,
-                                    _vm.rule.limit_max_name
-                                  ],
-                                  "error-messages": _vm.errors.recipe_name
-                                },
-                                model: {
-                                  value: _vm.recipe.recipe_name,
-                                  callback: function($$v) {
-                                    _vm.$set(_vm.recipe, "recipe_name", $$v)
-                                  },
-                                  expression: "recipe.recipe_name"
-                                }
-                              }),
-                              _vm._v(" "),
-                              _c("v-text-field", {
-                                attrs: {
-                                  label: "iCloudリンク",
-                                  name: "iCloud_link",
-                                  "prepend-icon": "fas fa-utensils",
-                                  type: "text",
-                                  rules: [
-                                    _vm.rule.required,
-                                    _vm.rule.limit_max_recipe
-                                  ],
-                                  "error-messages": _vm.errors.iCloud_link
-                                },
-                                model: {
-                                  value: _vm.recipe.iCloud_link,
-                                  callback: function($$v) {
-                                    _vm.$set(_vm.recipe, "iCloud_link", $$v)
-                                  },
-                                  expression: "recipe.iCloud_link"
-                                }
-                              }),
-                              _vm._v(" "),
-                              _c("v-select", {
-                                attrs: {
-                                  items: _vm.product_list,
-                                  "item-text": "product_name",
-                                  "item-value": "id",
-                                  multiple: "",
-                                  label: "使用する製品(複数選択可能)",
-                                  chips: "",
-                                  "prepend-icon": "fas fa-utensils"
-                                },
-                                model: {
-                                  value: _vm.recipe.select_product,
-                                  callback: function($$v) {
-                                    _vm.$set(_vm.recipe, "select_product", $$v)
-                                  },
-                                  expression: "recipe.select_product"
-                                }
-                              }),
-                              _vm._v(" "),
-                              _c("v-select", {
-                                attrs: {
-                                  items: _vm.application_list,
-                                  "item-text": "application_name",
-                                  "item-value": "id",
-                                  multiple: "",
-                                  label: "対象アプリ(複数選択可能)",
-                                  chips: "",
-                                  "prepend-icon": "fas fa-utensils"
-                                },
-                                model: {
-                                  value: _vm.recipe.select_application,
-                                  callback: function($$v) {
-                                    _vm.$set(
-                                      _vm.recipe,
-                                      "select_application",
-                                      $$v
-                                    )
-                                  },
-                                  expression: "recipe.select_application"
-                                }
-                              }),
-                              _vm._v(" "),
-                              _c("v-select", {
-                                attrs: {
-                                  items: _vm.situation_list,
-                                  "item-text": "situation_name",
-                                  "item-value": "id",
-                                  multiple: "",
-                                  label: "使用状況(複数選択可能)",
-                                  chips: "",
-                                  "prepend-icon": "fas fa-utensils"
-                                },
-                                model: {
-                                  value: _vm.recipe.select_situation,
-                                  callback: function($$v) {
-                                    _vm.$set(
-                                      _vm.recipe,
-                                      "select_situation",
-                                      $$v
-                                    )
-                                  },
-                                  expression: "recipe.select_situation"
-                                }
-                              }),
-                              _vm._v(" "),
-                              _c("v-textarea", {
-                                attrs: {
-                                  label: "コメント",
-                                  autocomplete: "comment",
-                                  "prepend-icon": "far fa-comment",
-                                  rules: [_vm.rule.limit_max_comment],
-                                  counter: "200"
-                                },
-                                model: {
-                                  value: _vm.recipe.comment,
-                                  callback: function($$v) {
-                                    _vm.$set(_vm.recipe, "comment", $$v)
-                                  },
-                                  expression: "recipe.comment"
-                                }
-                              })
-                            ],
-                            1
-                          )
-                        ],
-                        1
-                      ),
-                      _vm._v(" "),
-                      _c(
-                        "v-card-actions",
-                        [
-                          _c("v-spacer"),
-                          _vm._v(" "),
-                          _c(
-                            "v-btn",
-                            {
-                              attrs: { color: "primary" },
-                              on: { click: _vm.addRecipe }
-                            },
-                            [_vm._v("登録")]
-                          )
-                        ],
-                        1
+                        "v-btn",
+                        {
+                          staticClass: "button font-weight-bold my-5",
+                          attrs: { color: "#FFD500", rounded: "", large: "" },
+                          on: { click: _vm.addRecipe }
+                        },
+                        [_vm._v("登録")]
                       )
                     ],
                     1
@@ -40935,7 +41091,7 @@ var render = function() {
     [
       _c(
         "v-content",
-        { staticClass: "fill-height", attrs: { fluid: "" } },
+        { staticClass: "fill-height pt-0", attrs: { fluid: "" } },
         [
           _c(
             "v-row",
@@ -40945,173 +41101,118 @@ var render = function() {
                 "v-col",
                 { attrs: { cols: "12", sm: "8", md: "4" } },
                 [
+                  _c("h2", { staticClass: "page-title" }, [
+                    _vm._v("レシピ編集")
+                  ]),
+                  _vm._v(" "),
                   _c(
-                    "v-card",
-                    { staticClass: "elevation-12" },
+                    "v-form",
+                    { ref: "form" },
+                    [
+                      _c("v-text-field", {
+                        attrs: {
+                          label: "レシピ名",
+                          name: "recipe_name",
+                          "prepend-icon": "fas fa-font",
+                          type: "text",
+                          rules: [_vm.rule.required, _vm.rule.limit_max_name],
+                          "error-messages": _vm.errors.recipe_name
+                        },
+                        model: {
+                          value: _vm.recipe.recipe_name,
+                          callback: function($$v) {
+                            _vm.$set(_vm.recipe, "recipe_name", $$v)
+                          },
+                          expression: "recipe.recipe_name"
+                        }
+                      }),
+                      _vm._v(" "),
+                      _c("v-text-field", {
+                        attrs: {
+                          label: "iCloudリンク",
+                          name: "iCloud_link",
+                          "prepend-icon": "fab fa-apple",
+                          type: "text",
+                          rules: [_vm.rule.required, _vm.rule.limit_max_link],
+                          "error-messages": _vm.errors.iCloud_link
+                        },
+                        model: {
+                          value: _vm.recipe.iCloud_link,
+                          callback: function($$v) {
+                            _vm.$set(_vm.recipe, "iCloud_link", $$v)
+                          },
+                          expression: "recipe.iCloud_link"
+                        }
+                      }),
+                      _vm._v(" "),
+                      _c("v-select", {
+                        attrs: {
+                          items: _vm.product_list,
+                          "item-text": "product_name",
+                          "item-value": "id",
+                          multiple: "",
+                          label: "使用する製品(複数選択可能)",
+                          "prepend-icon": "fas fa-mobile-alt"
+                        },
+                        model: {
+                          value: _vm.recipe.select_product,
+                          callback: function($$v) {
+                            _vm.$set(_vm.recipe, "select_product", $$v)
+                          },
+                          expression: "recipe.select_product"
+                        }
+                      }),
+                      _vm._v(" "),
+                      _c("v-select", {
+                        attrs: {
+                          items: _vm.application_list,
+                          "item-text": "application_name",
+                          "item-value": "id",
+                          multiple: "",
+                          label: "対象アプリ(複数選択可能)",
+                          "prepend-icon": "fas fa-database"
+                        },
+                        model: {
+                          value: _vm.recipe.select_application,
+                          callback: function($$v) {
+                            _vm.$set(_vm.recipe, "select_application", $$v)
+                          },
+                          expression: "recipe.select_application"
+                        }
+                      }),
+                      _vm._v(" "),
+                      _c("v-textarea", {
+                        attrs: {
+                          label: "コメント",
+                          autocomplete: "comment",
+                          "prepend-icon": "far fa-comment",
+                          rules: [_vm.rule.limit_max_comment],
+                          counter: "200"
+                        },
+                        model: {
+                          value: _vm.recipe.comment,
+                          callback: function($$v) {
+                            _vm.$set(_vm.recipe, "comment", $$v)
+                          },
+                          expression: "recipe.comment"
+                        }
+                      })
+                    ],
+                    1
+                  ),
+                  _vm._v(" "),
+                  _c(
+                    "v-row",
+                    { attrs: { justify: "center" } },
                     [
                       _c(
-                        "v-toolbar",
-                        { attrs: { color: "primary", dark: "", flat: "" } },
-                        [
-                          _c("v-toolbar-title", [_vm._v("レシピ登録")]),
-                          _vm._v(" "),
-                          _c("v-spacer")
-                        ],
-                        1
-                      ),
-                      _vm._v(" "),
-                      _c(
-                        "v-card-text",
-                        [
-                          _c(
-                            "v-form",
-                            { ref: "form" },
-                            [
-                              _c("v-text-field", {
-                                attrs: {
-                                  label: "レシピ名",
-                                  name: "recipe_name",
-                                  "prepend-icon": "fas fa-utensils",
-                                  type: "text",
-                                  rules: [
-                                    _vm.rule.required,
-                                    _vm.rule.limit_max_name
-                                  ],
-                                  "error-messages": _vm.errors.recipe_name
-                                },
-                                model: {
-                                  value: _vm.recipe.recipe_name,
-                                  callback: function($$v) {
-                                    _vm.$set(_vm.recipe, "recipe_name", $$v)
-                                  },
-                                  expression: "recipe.recipe_name"
-                                }
-                              }),
-                              _vm._v(" "),
-                              _c("v-text-field", {
-                                attrs: {
-                                  label: "iCloudリンク",
-                                  name: "iCloud_link",
-                                  "prepend-icon": "fas fa-utensils",
-                                  type: "text",
-                                  rules: [
-                                    _vm.rule.required,
-                                    _vm.rule.limit_max_link
-                                  ],
-                                  "error-messages": _vm.errors.iCloud_link
-                                },
-                                model: {
-                                  value: _vm.recipe.iCloud_link,
-                                  callback: function($$v) {
-                                    _vm.$set(_vm.recipe, "iCloud_link", $$v)
-                                  },
-                                  expression: "recipe.iCloud_link"
-                                }
-                              }),
-                              _vm._v(" "),
-                              _c("v-select", {
-                                attrs: {
-                                  items: _vm.product_list,
-                                  "item-text": "product_name",
-                                  "item-value": "id",
-                                  multiple: "",
-                                  label: "使用する製品(複数選択可能)",
-                                  chips: "",
-                                  "prepend-icon": "fas fa-utensils"
-                                },
-                                model: {
-                                  value: _vm.recipe.select_product,
-                                  callback: function($$v) {
-                                    _vm.$set(_vm.recipe, "select_product", $$v)
-                                  },
-                                  expression: "recipe.select_product"
-                                }
-                              }),
-                              _vm._v(" "),
-                              _c("v-select", {
-                                attrs: {
-                                  items: _vm.application_list,
-                                  "item-text": "application_name",
-                                  "item-value": "id",
-                                  multiple: "",
-                                  label: "対象アプリ(複数選択可能)",
-                                  chips: "",
-                                  "prepend-icon": "fas fa-utensils"
-                                },
-                                model: {
-                                  value: _vm.recipe.select_application,
-                                  callback: function($$v) {
-                                    _vm.$set(
-                                      _vm.recipe,
-                                      "select_application",
-                                      $$v
-                                    )
-                                  },
-                                  expression: "recipe.select_application"
-                                }
-                              }),
-                              _vm._v(" "),
-                              _c("v-select", {
-                                attrs: {
-                                  items: _vm.situation_list,
-                                  "item-text": "situation_name",
-                                  "item-value": "id",
-                                  multiple: "",
-                                  label: "使用状況(複数選択可能)",
-                                  chips: "",
-                                  "prepend-icon": "fas fa-utensils"
-                                },
-                                model: {
-                                  value: _vm.recipe.select_situation,
-                                  callback: function($$v) {
-                                    _vm.$set(
-                                      _vm.recipe,
-                                      "select_situation",
-                                      $$v
-                                    )
-                                  },
-                                  expression: "recipe.select_situation"
-                                }
-                              }),
-                              _vm._v(" "),
-                              _c("v-textarea", {
-                                attrs: {
-                                  label: "コメント",
-                                  autocomplete: "comment",
-                                  "prepend-icon": "far fa-comment",
-                                  rules: [_vm.rule.limit_max_comment],
-                                  counter: "200"
-                                },
-                                model: {
-                                  value: _vm.recipe.comment,
-                                  callback: function($$v) {
-                                    _vm.$set(_vm.recipe, "comment", $$v)
-                                  },
-                                  expression: "recipe.comment"
-                                }
-                              })
-                            ],
-                            1
-                          )
-                        ],
-                        1
-                      ),
-                      _vm._v(" "),
-                      _c(
-                        "v-card-actions",
-                        [
-                          _c("v-spacer"),
-                          _vm._v(" "),
-                          _c(
-                            "v-btn",
-                            {
-                              attrs: { color: "primary" },
-                              on: { click: _vm.editRecipe }
-                            },
-                            [_vm._v("編集")]
-                          )
-                        ],
-                        1
+                        "v-btn",
+                        {
+                          staticClass: "button font-weight-bold my-5",
+                          attrs: { color: "#FFD500", rounded: "", large: "" },
+                          on: { click: _vm.editRecipe }
+                        },
+                        [_vm._v("編集")]
                       )
                     ],
                     1
@@ -41373,8 +41474,7 @@ var render = function() {
                   "item-text": "application_name",
                   "item-value": "id",
                   multiple: "",
-                  label: "アプリ(複数選択可能)",
-                  chips: ""
+                  label: "アプリ(複数選択可能)"
                 },
                 model: {
                   value: _vm.filter_data.filter_application,
@@ -41671,7 +41771,17 @@ var render = function() {
                           {
                             staticClass: "ml-1 font-weight-bold text-truncate"
                           },
-                          [_vm._v(_vm._s(_vm.recipe.name))]
+                          [
+                            _c(
+                              "a",
+                              {
+                                attrs: {
+                                  href: "/userDetail/" + _vm.recipe.user_id
+                                }
+                              },
+                              [_vm._v(_vm._s(_vm.recipe.name))]
+                            )
+                          ]
                         )
                       ],
                       1
@@ -41794,7 +41904,7 @@ var render = function() {
             attrs: {
               label: "古いパスワード",
               name: "old_password",
-              "prepend-icon": "fas fa-utensils",
+              "prepend-icon": "fas fa-key",
               type: "password",
               rules: [
                 _vm.rule.required,
@@ -41817,7 +41927,7 @@ var render = function() {
             attrs: {
               label: "新しいパスワード",
               name: "password",
-              "prepend-icon": "fas fa-utensils",
+              "prepend-icon": "fas fa-key",
               type: "password",
               rules: [
                 _vm.rule.required,
@@ -41840,7 +41950,7 @@ var render = function() {
             attrs: {
               label: "新しいパスワード(再)",
               name: "password_confirmation",
-              "prepend-icon": "fas fa-utensils",
+              "prepend-icon": "fas fa-key",
               type: "password",
               rules: [
                 _vm.rule.required,
@@ -41996,7 +42106,7 @@ var render = function() {
                         attrs: {
                           label: "e-mail",
                           name: "email",
-                          "prepend-icon": "fas fa-utensils",
+                          "prepend-icon": "far fa-envelope",
                           type: "text",
                           rules: [
                             _vm.rule.required,
@@ -42019,7 +42129,7 @@ var render = function() {
                         attrs: {
                           label: "名前",
                           name: "name",
-                          "prepend-icon": "fas fa-utensils",
+                          "prepend-icon": "far fa-user",
                           type: "text",
                           rules: [_vm.rule.required, _vm.rule.limit_max_length],
                           "error-messages": _vm.errors.name
@@ -42030,82 +42140,6 @@ var render = function() {
                             _vm.$set(_vm.auth_user, "name", $$v)
                           },
                           expression: "auth_user.name"
-                        }
-                      }),
-                      _vm._v(" "),
-                      _c("v-text-field", {
-                        staticClass: "font-weight-bold",
-                        attrs: {
-                          label: "Twitter_id",
-                          name: "twitter",
-                          "prepend-icon": "fas fa-utensils",
-                          type: "text",
-                          rules: [_vm.rule.limit_max_length],
-                          "error-messages": _vm.errors.twitter
-                        },
-                        model: {
-                          value: _vm.auth_user.twitter,
-                          callback: function($$v) {
-                            _vm.$set(_vm.auth_user, "twitter", $$v)
-                          },
-                          expression: "auth_user.twitter"
-                        }
-                      }),
-                      _vm._v(" "),
-                      _c("v-text-field", {
-                        staticClass: "font-weight-bold",
-                        attrs: {
-                          label: "youtube_id",
-                          name: "youtube",
-                          "prepend-icon": "fas fa-utensils",
-                          type: "text",
-                          rules: [_vm.rule.limit_max_length],
-                          "error-messages": _vm.errors.youtube
-                        },
-                        model: {
-                          value: _vm.auth_user.youtube,
-                          callback: function($$v) {
-                            _vm.$set(_vm.auth_user, "youtube", $$v)
-                          },
-                          expression: "auth_user.youtube"
-                        }
-                      }),
-                      _vm._v(" "),
-                      _c("v-text-field", {
-                        staticClass: "font-weight-bold",
-                        attrs: {
-                          label: "website_id",
-                          name: "website",
-                          "prepend-icon": "fas fa-utensils",
-                          type: "text",
-                          rules: [_vm.rule.limit_max_length],
-                          "error-messages": _vm.errors.website
-                        },
-                        model: {
-                          value: _vm.auth_user.website,
-                          callback: function($$v) {
-                            _vm.$set(_vm.auth_user, "website", $$v)
-                          },
-                          expression: "auth_user.website"
-                        }
-                      }),
-                      _vm._v(" "),
-                      _c("v-text-field", {
-                        staticClass: "font-weight-bold",
-                        attrs: {
-                          label: "instaglam_id",
-                          name: "instaglam",
-                          "prepend-icon": "fas fa-utensils",
-                          type: "text",
-                          rules: [_vm.rule.limit_max_length],
-                          "error-messages": _vm.errors.instaglam
-                        },
-                        model: {
-                          value: _vm.auth_user.instaglam,
-                          callback: function($$v) {
-                            _vm.$set(_vm.auth_user, "instaglam", $$v)
-                          },
-                          expression: "auth_user.instaglam"
                         }
                       }),
                       _vm._v(" "),
@@ -42149,6 +42183,95 @@ var render = function() {
                 ],
                 1
               )
+            ],
+            1
+          )
+        ],
+        1
+      )
+    ],
+    1
+  )
+}
+var staticRenderFns = []
+render._withStripped = true
+
+
+
+/***/ }),
+
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/user/UserDetailComponent.vue?vue&type=template&id=009b8670&":
+/*!***************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/user/UserDetailComponent.vue?vue&type=template&id=009b8670& ***!
+  \***************************************************************************************************************************************************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c(
+    "div",
+    [
+      _c(
+        "v-content",
+        { staticClass: "fill-height pt-0", attrs: { red: "" } },
+        [
+          _c(
+            "v-row",
+            { attrs: { justify: "center", red: "" } },
+            [
+              _c(
+                "v-col",
+                {
+                  staticClass: "pb-0",
+                  attrs: { cols: "12", sm: "8", md: "9" }
+                },
+                [
+                  _c(
+                    "div",
+                    [
+                      _c(
+                        "v-avatar",
+                        { attrs: { size: "120px" } },
+                        [
+                          _c("v-img", {
+                            attrs: {
+                              src: "../storage/" + _vm.user.img,
+                              "aspect-ratio": "1.7",
+                              contain: ""
+                            }
+                          })
+                        ],
+                        1
+                      )
+                    ],
+                    1
+                  )
+                ]
+              )
+            ],
+            1
+          ),
+          _vm._v(" "),
+          _c("h1", { staticClass: "font-weight-bold" }, [
+            _vm._v(_vm._s(_vm.user.name))
+          ]),
+          _vm._v(" "),
+          _c("p", [_vm._v(_vm._s(_vm.user.comment))]),
+          _vm._v(" "),
+          _c(
+            "v-row",
+            { attrs: { justify: "center", red: "" } },
+            [
+              _c("recipe", {
+                attrs: { auth_user: _vm.auth_user, recipe_list: _vm.recipes }
+              })
             ],
             1
           )
@@ -98376,12 +98499,14 @@ Vue.use(vuetify__WEBPACK_IMPORTED_MODULE_0___default.a);
 // files.keys().map(key => Vue.component(key.split('/').pop().split('.')[0], files(key).default));
 
 Vue.component("example-component", __webpack_require__(/*! ./components/ExampleComponent.vue */ "./resources/js/components/ExampleComponent.vue")["default"]);
+Vue.component("guest-header-component", __webpack_require__(/*! ./components/GuestHeaderComponent.vue */ "./resources/js/components/GuestHeaderComponent.vue")["default"]);
+Vue.component("auth-header-component", __webpack_require__(/*! ./components/AuthHeaderComponent.vue */ "./resources/js/components/AuthHeaderComponent.vue")["default"]);
 Vue.component("login-component", __webpack_require__(/*! ./components/auth/LoginComponent.vue */ "./resources/js/components/auth/LoginComponent.vue")["default"]);
 Vue.component("register-component", __webpack_require__(/*! ./components/auth/RegisterComponent.vue */ "./resources/js/components/auth/RegisterComponent.vue")["default"]);
 Vue.component("forget-password-component", __webpack_require__(/*! ./components/auth/ForgetPasswordComponent.vue */ "./resources/js/components/auth/ForgetPasswordComponent.vue")["default"]);
 Vue.component("reset-password-component", __webpack_require__(/*! ./components/auth/ResetPasswordComponent.vue */ "./resources/js/components/auth/ResetPasswordComponent.vue")["default"]);
-Vue.component("header-component", __webpack_require__(/*! ./components/HeaderComponent.vue */ "./resources/js/components/HeaderComponent.vue")["default"]);
 Vue.component("profile-edit-component", __webpack_require__(/*! ./components/user/ProfileEditComponent.vue */ "./resources/js/components/user/ProfileEditComponent.vue")["default"]);
+Vue.component("user-detail-component", __webpack_require__(/*! ./components/user/UserDetailComponent.vue */ "./resources/js/components/user/UserDetailComponent.vue")["default"]);
 Vue.component("password-edit-component", __webpack_require__(/*! ./components/user/PasswordEditComponent.vue */ "./resources/js/components/user/PasswordEditComponent.vue")["default"]);
 Vue.component('withdrawal-component', __webpack_require__(/*! ./components/user/WithdrawalComponent.vue */ "./resources/js/components/user/WithdrawalComponent.vue")["default"]);
 Vue.component('add-recipe-component', __webpack_require__(/*! ./components/recipe/AddRecipeComponent.vue */ "./resources/js/components/recipe/AddRecipeComponent.vue")["default"]);
@@ -98403,7 +98528,7 @@ var app = new Vue({
 
 setTimeout(function () {
   $('.js-flash').fadeOut();
-}, 5000);
+}, 3000);
 
 /***/ }),
 
@@ -98449,6 +98574,75 @@ window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
 //     cluster: process.env.MIX_PUSHER_APP_CLUSTER,
 //     encrypted: true
 // });
+
+/***/ }),
+
+/***/ "./resources/js/components/AuthHeaderComponent.vue":
+/*!*********************************************************!*\
+  !*** ./resources/js/components/AuthHeaderComponent.vue ***!
+  \*********************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _AuthHeaderComponent_vue_vue_type_template_id_6ddbc80d___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./AuthHeaderComponent.vue?vue&type=template&id=6ddbc80d& */ "./resources/js/components/AuthHeaderComponent.vue?vue&type=template&id=6ddbc80d&");
+/* harmony import */ var _AuthHeaderComponent_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./AuthHeaderComponent.vue?vue&type=script&lang=js& */ "./resources/js/components/AuthHeaderComponent.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport *//* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+
+
+
+
+
+/* normalize component */
+
+var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
+  _AuthHeaderComponent_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
+  _AuthHeaderComponent_vue_vue_type_template_id_6ddbc80d___WEBPACK_IMPORTED_MODULE_0__["render"],
+  _AuthHeaderComponent_vue_vue_type_template_id_6ddbc80d___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
+  false,
+  null,
+  null,
+  null
+  
+)
+
+/* hot reload */
+if (false) { var api; }
+component.options.__file = "resources/js/components/AuthHeaderComponent.vue"
+/* harmony default export */ __webpack_exports__["default"] = (component.exports);
+
+/***/ }),
+
+/***/ "./resources/js/components/AuthHeaderComponent.vue?vue&type=script&lang=js&":
+/*!**********************************************************************************!*\
+  !*** ./resources/js/components/AuthHeaderComponent.vue?vue&type=script&lang=js& ***!
+  \**********************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_AuthHeaderComponent_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/babel-loader/lib??ref--4-0!../../../node_modules/vue-loader/lib??vue-loader-options!./AuthHeaderComponent.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/AuthHeaderComponent.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_AuthHeaderComponent_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
+
+/***/ }),
+
+/***/ "./resources/js/components/AuthHeaderComponent.vue?vue&type=template&id=6ddbc80d&":
+/*!****************************************************************************************!*\
+  !*** ./resources/js/components/AuthHeaderComponent.vue?vue&type=template&id=6ddbc80d& ***!
+  \****************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_AuthHeaderComponent_vue_vue_type_template_id_6ddbc80d___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../node_modules/vue-loader/lib??vue-loader-options!./AuthHeaderComponent.vue?vue&type=template&id=6ddbc80d& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/AuthHeaderComponent.vue?vue&type=template&id=6ddbc80d&");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_AuthHeaderComponent_vue_vue_type_template_id_6ddbc80d___WEBPACK_IMPORTED_MODULE_0__["render"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_AuthHeaderComponent_vue_vue_type_template_id_6ddbc80d___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
+
+
 
 /***/ }),
 
@@ -98521,17 +98715,17 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
-/***/ "./resources/js/components/HeaderComponent.vue":
-/*!*****************************************************!*\
-  !*** ./resources/js/components/HeaderComponent.vue ***!
-  \*****************************************************/
+/***/ "./resources/js/components/GuestHeaderComponent.vue":
+/*!**********************************************************!*\
+  !*** ./resources/js/components/GuestHeaderComponent.vue ***!
+  \**********************************************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _HeaderComponent_vue_vue_type_template_id_153bfd55___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./HeaderComponent.vue?vue&type=template&id=153bfd55& */ "./resources/js/components/HeaderComponent.vue?vue&type=template&id=153bfd55&");
-/* harmony import */ var _HeaderComponent_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./HeaderComponent.vue?vue&type=script&lang=js& */ "./resources/js/components/HeaderComponent.vue?vue&type=script&lang=js&");
+/* harmony import */ var _GuestHeaderComponent_vue_vue_type_template_id_273fbce3___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./GuestHeaderComponent.vue?vue&type=template&id=273fbce3& */ "./resources/js/components/GuestHeaderComponent.vue?vue&type=template&id=273fbce3&");
+/* harmony import */ var _GuestHeaderComponent_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./GuestHeaderComponent.vue?vue&type=script&lang=js& */ "./resources/js/components/GuestHeaderComponent.vue?vue&type=script&lang=js&");
 /* empty/unused harmony star reexport *//* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
 
 
@@ -98541,9 +98735,9 @@ __webpack_require__.r(__webpack_exports__);
 /* normalize component */
 
 var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
-  _HeaderComponent_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
-  _HeaderComponent_vue_vue_type_template_id_153bfd55___WEBPACK_IMPORTED_MODULE_0__["render"],
-  _HeaderComponent_vue_vue_type_template_id_153bfd55___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
+  _GuestHeaderComponent_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
+  _GuestHeaderComponent_vue_vue_type_template_id_273fbce3___WEBPACK_IMPORTED_MODULE_0__["render"],
+  _GuestHeaderComponent_vue_vue_type_template_id_273fbce3___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
   false,
   null,
   null,
@@ -98553,38 +98747,38 @@ var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_
 
 /* hot reload */
 if (false) { var api; }
-component.options.__file = "resources/js/components/HeaderComponent.vue"
+component.options.__file = "resources/js/components/GuestHeaderComponent.vue"
 /* harmony default export */ __webpack_exports__["default"] = (component.exports);
 
 /***/ }),
 
-/***/ "./resources/js/components/HeaderComponent.vue?vue&type=script&lang=js&":
-/*!******************************************************************************!*\
-  !*** ./resources/js/components/HeaderComponent.vue?vue&type=script&lang=js& ***!
-  \******************************************************************************/
+/***/ "./resources/js/components/GuestHeaderComponent.vue?vue&type=script&lang=js&":
+/*!***********************************************************************************!*\
+  !*** ./resources/js/components/GuestHeaderComponent.vue?vue&type=script&lang=js& ***!
+  \***********************************************************************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_HeaderComponent_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/babel-loader/lib??ref--4-0!../../../node_modules/vue-loader/lib??vue-loader-options!./HeaderComponent.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/HeaderComponent.vue?vue&type=script&lang=js&");
-/* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_HeaderComponent_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_GuestHeaderComponent_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/babel-loader/lib??ref--4-0!../../../node_modules/vue-loader/lib??vue-loader-options!./GuestHeaderComponent.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/GuestHeaderComponent.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_GuestHeaderComponent_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
 
 /***/ }),
 
-/***/ "./resources/js/components/HeaderComponent.vue?vue&type=template&id=153bfd55&":
-/*!************************************************************************************!*\
-  !*** ./resources/js/components/HeaderComponent.vue?vue&type=template&id=153bfd55& ***!
-  \************************************************************************************/
+/***/ "./resources/js/components/GuestHeaderComponent.vue?vue&type=template&id=273fbce3&":
+/*!*****************************************************************************************!*\
+  !*** ./resources/js/components/GuestHeaderComponent.vue?vue&type=template&id=273fbce3& ***!
+  \*****************************************************************************************/
 /*! exports provided: render, staticRenderFns */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_HeaderComponent_vue_vue_type_template_id_153bfd55___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../node_modules/vue-loader/lib??vue-loader-options!./HeaderComponent.vue?vue&type=template&id=153bfd55& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/HeaderComponent.vue?vue&type=template&id=153bfd55&");
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_HeaderComponent_vue_vue_type_template_id_153bfd55___WEBPACK_IMPORTED_MODULE_0__["render"]; });
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_GuestHeaderComponent_vue_vue_type_template_id_273fbce3___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../node_modules/vue-loader/lib??vue-loader-options!./GuestHeaderComponent.vue?vue&type=template&id=273fbce3& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/GuestHeaderComponent.vue?vue&type=template&id=273fbce3&");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_GuestHeaderComponent_vue_vue_type_template_id_273fbce3___WEBPACK_IMPORTED_MODULE_0__["render"]; });
 
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_HeaderComponent_vue_vue_type_template_id_153bfd55___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_GuestHeaderComponent_vue_vue_type_template_id_273fbce3___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
 
 
 
@@ -99413,6 +99607,75 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_ProfileEditComponent_vue_vue_type_template_id_db2a07da___WEBPACK_IMPORTED_MODULE_0__["render"]; });
 
 /* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_ProfileEditComponent_vue_vue_type_template_id_db2a07da___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
+
+
+
+/***/ }),
+
+/***/ "./resources/js/components/user/UserDetailComponent.vue":
+/*!**************************************************************!*\
+  !*** ./resources/js/components/user/UserDetailComponent.vue ***!
+  \**************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _UserDetailComponent_vue_vue_type_template_id_009b8670___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./UserDetailComponent.vue?vue&type=template&id=009b8670& */ "./resources/js/components/user/UserDetailComponent.vue?vue&type=template&id=009b8670&");
+/* harmony import */ var _UserDetailComponent_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./UserDetailComponent.vue?vue&type=script&lang=js& */ "./resources/js/components/user/UserDetailComponent.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport *//* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+
+
+
+
+
+/* normalize component */
+
+var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
+  _UserDetailComponent_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
+  _UserDetailComponent_vue_vue_type_template_id_009b8670___WEBPACK_IMPORTED_MODULE_0__["render"],
+  _UserDetailComponent_vue_vue_type_template_id_009b8670___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
+  false,
+  null,
+  null,
+  null
+  
+)
+
+/* hot reload */
+if (false) { var api; }
+component.options.__file = "resources/js/components/user/UserDetailComponent.vue"
+/* harmony default export */ __webpack_exports__["default"] = (component.exports);
+
+/***/ }),
+
+/***/ "./resources/js/components/user/UserDetailComponent.vue?vue&type=script&lang=js&":
+/*!***************************************************************************************!*\
+  !*** ./resources/js/components/user/UserDetailComponent.vue?vue&type=script&lang=js& ***!
+  \***************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_UserDetailComponent_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/babel-loader/lib??ref--4-0!../../../../node_modules/vue-loader/lib??vue-loader-options!./UserDetailComponent.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/user/UserDetailComponent.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_UserDetailComponent_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
+
+/***/ }),
+
+/***/ "./resources/js/components/user/UserDetailComponent.vue?vue&type=template&id=009b8670&":
+/*!*********************************************************************************************!*\
+  !*** ./resources/js/components/user/UserDetailComponent.vue?vue&type=template&id=009b8670& ***!
+  \*********************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_UserDetailComponent_vue_vue_type_template_id_009b8670___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../../node_modules/vue-loader/lib??vue-loader-options!./UserDetailComponent.vue?vue&type=template&id=009b8670& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/user/UserDetailComponent.vue?vue&type=template&id=009b8670&");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_UserDetailComponent_vue_vue_type_template_id_009b8670___WEBPACK_IMPORTED_MODULE_0__["render"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_UserDetailComponent_vue_vue_type_template_id_009b8670___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
 
 
 

@@ -23,7 +23,11 @@
 <body>
     <div id="app">
         <v-app color="#BFDCFA">
-            <header-component></header-component>
+            @guest
+            <guest-header-component></guest-header-component>
+            @else
+            <auth-header-component :auth_user="{{ $auth_user }}"></auth-header-component>
+            @endguest
             @if (session('flash_message'))
             <div class="flash js-flash" role="alert">
                 {{ session('flash_message') }}

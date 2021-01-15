@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Recipe;
+use App\User;
 use App\RecipesRelationApplication;
 use App\RecipesRelationSituation;
 use App\RecipesRelationProduct;
@@ -13,10 +14,9 @@ use Illuminate\Support\Facades\Validator;
 
 class RecipeController extends Controller
 {
-    //
     public function __construct()
     {
-        $this->middleware('auth');
+        $this->middleware('auth')->except('recipeListShow');
     }
 
     public function addRecipeShow()
@@ -26,7 +26,6 @@ class RecipeController extends Controller
 
     public function addRecipe(Request $request)
     {
-        log::debug($request->all());
         $this->validator($request->all())->validate();
         $recipe = new Recipe;
         $recipe->fill($request->all());
@@ -61,7 +60,6 @@ class RecipeController extends Controller
                         break;
                 }
                 $select_data->recipe_id = $recipe_id;
-                log::debug($select_data);
                 $select_data->save();
             }
         }
@@ -71,12 +69,12 @@ class RecipeController extends Controller
     {
         //数値以外が入力された場合、不正な入力とみなす
         if (!is_numeric($id))
-            return redirect()->action('HomeController@index')->with('flash_message', '不正な値が入力されました');
+            return redirect()->action('RecipeController@recipeListShow')->with('flash_message', '不正な値が入力されました');
         $recipe = Recipe::find($id);
         $user_id = Auth::id();
         //レシピが存在しない、またはログインユーザーがレシピの作成者ではない、またはレシピが削除されている場合は不正とみなす
         if (!$recipe || $recipe->user_id !== $user_id  || $recipe->delete_flg !== 0)
-            return redirect()->action('HomeController@index')->with('flash_message', '不正な値が入力されました');
+            return redirect()->action('RecipeController@recipeListShow')->with('flash_message', '不正な値が入力されました');
 
         $select_application = RecipesRelationApplication::where("recipe_id", $id)
             ->get();
@@ -93,15 +91,14 @@ class RecipeController extends Controller
 
     public function editRecipe($id, Request $request)
     {
-        log::debug($request->all());
         //数値以外が入力された場合、不正な入力とみなす
         if (!is_numeric($id))
-            return redirect()->action('HomeController@index')->with('flash_message', '不正な値が入力されました');
+            return redirect()->action('RecipeController@recipeListShow')->with('flash_message', '不正な値が入力されました');
         $recipe = Recipe::find($id);
         $user_id = Auth::id();
         //レシピが存在しない、またはログインユーザーがレシピの作成者ではない、またはレシピが削除されている場合は不正とみなす
         if (!$recipe || $recipe->user_id !== $user_id  || $recipe->delete_flg !== 0)
-            return redirect()->action('HomeController@index')->with('flash_message', '不正な値が入力されました');
+            return redirect()->action('RecipeController@recipeListShow')->with('flash_message', '不正な値が入力されました');
         $this->validator($request->all())->validate();
 
         $recipe->fill($request->all());
@@ -166,12 +163,12 @@ class RecipeController extends Controller
     {
         //数値以外が入力された場合、不正な入力とみなす
         if (!is_numeric($recipe_id))
-            return redirect()->action('HomeController@index')->with('flash_message', '不正な値が入力されました');
+            return redirect()->action('RecipeController@recipeListShow')->with('flash_message', '不正な値が入力されました');
         $recipe = Recipe::find($recipe_id);
         $user_id = Auth::id();
         //レシピが存在しない、またはログインユーザーがレシピの作成者ではない、またはレシピが削除されている場合は不正とみなす
         if (!$recipe || $recipe->user_id !== $user_id  || $recipe->delete_flg !== 0)
-            return redirect()->action('HomeController@index')->with('flash_message', '不正な値が入力されました');
+            return redirect()->action('RecipeController@recipeListShow')->with('flash_message', '不正な値が入力されました');
 
         $recipe->delete_flg = true;
         $recipe->save();
@@ -180,6 +177,9 @@ class RecipeController extends Controller
 
     public function recipeListShow()
     {
+        //ログイン中ではないユーザーでも閲覧できるように、$user変数に空のUserインスタンスを格納
+        Auth::user() ? $user = AUth::user() : $user = new User;
+
         $recipes = Recipe::select('recipes.*', 'users.id as user_id', 'users.name', 'users.img')
             ->join('users', 'recipes.user_id', '=', 'users.id')
             ->where('recipes.delete_flg', false)->get();
@@ -190,16 +190,10 @@ class RecipeController extends Controller
         $select_applications = RecipesRelationApplication::select()
             ->join('applications', 'recipes_relation_applications.application_id', '=', 'applications.id')
             ->get();
-        $select_situations = RecipesRelationSituation::select()
-            ->join('situations', 'recipes_relation_situations.situation_id', '=', 'situations.id')
-            ->get();
 
-        log::debug($recipes);
         $this->relationStoring($recipes, $select_products, "select_products");
         $this->relationStoring($recipes, $select_applications, "select_applications");
-        $this->relationStoring($recipes, $select_situations, "select_situations");
-        log::debug($recipes);
-        return view('recipe.recipeList', ['recipes' => $recipes]);
+        return view('recipe.recipeList', ['recipes' => $recipes, 'user' => $user]);
     }
 
     public static function relationStoring($recipes, $relations, $type)
@@ -209,7 +203,6 @@ class RecipeController extends Controller
             foreach ($relations as $relation) {
                 if ($relation->recipe_id == $recipe->id) {
                     array_push($tempArray, $relation);
-                    // log::debug($relation->products);
                 }
             }
             $recipe[$type] = $tempArray;

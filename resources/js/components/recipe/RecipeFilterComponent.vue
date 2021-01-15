@@ -1,5 +1,5 @@
 <template>
-  <div >
+  <div>
       <v-col cols="12" sm="8" md="9" class="pt-0">
       <v-text-field
         v-model="child_search"
@@ -33,23 +33,10 @@
         item-value="id"
         multiple
         label="アプリ(複数選択可能)"
-        chips
         >
       </v-select>
       </div>
       </v-col>
-    <!-- <v-content class="fill-height" fluid>
-      <v-select
-        v-model="filter_data.filter_situation"
-        :items="situation_list"
-        item-text="situation_name"
-        item-value="id"
-        multiple
-        label="状況(複数選択可能)"
-        chips
-        prepend-icon="fas fa-utensils">
-      </v-select>
-    </v-content> -->
   </div>
 </template>
 <script>

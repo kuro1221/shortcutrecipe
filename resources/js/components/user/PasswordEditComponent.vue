@@ -7,7 +7,7 @@
           v-model="old_password"
           label="古いパスワード"
           name="old_password"
-          prepend-icon="fas fa-utensils"
+          prepend-icon="fas fa-key"
           type="password"
           :rules="[rule.required, rule.limit_min_length,rule.limit_max_length]"
           :error-messages="errors.old_password"
@@ -17,7 +17,7 @@
           v-model="password"
           label="新しいパスワード"
           name="password"
-          prepend-icon="fas fa-utensils"
+          prepend-icon="fas fa-key"
           type="password"
           :rules="[rule.required, rule.limit_min_length,rule.limit_max_length]"
           :error-messages="errors.password"
@@ -27,7 +27,7 @@
           v-model="password_confirmation"
           label="新しいパスワード(再)"
           name="password_confirmation"
-          prepend-icon="fas fa-utensils"
+          prepend-icon="fas fa-key"
           type="password"
           :rules="[rule.required, rule.limit_min_length,rule.limit_max_length]"
           :error-messages="errors.password_confirmation"
@@ -72,7 +72,7 @@ export default {
         }
         ).then(function(){
           self.errors = [];
-          location.href = '/home'
+          location.href = '/'
         }).catch(function(error){
           for(let key in error.response.data.errors) {
             self.errors[key] = error.response.data.errors[key][0];

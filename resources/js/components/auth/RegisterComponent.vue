@@ -86,7 +86,7 @@ export default {
         }
         ).then(function(){
           self.errors = [];
-          location.href = '/home'
+          location.href = '/'
         }).catch(function(error){
           for(let key in error.response.data.errors) {
             self.errors[key] = error.response.data.errors[key][0];

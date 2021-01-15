@@ -8,7 +8,7 @@
                 <span class="font-weight-bold">パスワード初期化が完了しました</span>
             </div>
             <div>
-                <a href="{{ route('home') }}">ホーム画面へ移動</a>
+                <a href="{{ route('/') }}">ホーム画面へ移動</a>
             </div>
         </div>
     </div>

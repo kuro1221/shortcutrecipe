@@ -30,6 +30,16 @@ Vue.component(
 );
 
 Vue.component(
+    "guest-header-component",
+    require("./components/GuestHeaderComponent.vue").default
+);
+
+Vue.component(
+    "auth-header-component",
+    require("./components/AuthHeaderComponent.vue").default
+);
+
+Vue.component(
     "login-component",
     require("./components/auth/LoginComponent.vue").default
 );
@@ -50,13 +60,13 @@ Vue.component(
 );
 
 Vue.component(
-    "header-component",
-    require("./components/HeaderComponent.vue").default
+    "profile-edit-component",
+    require("./components/user/ProfileEditComponent.vue").default
 );
 
 Vue.component(
-    "profile-edit-component",
-    require("./components/user/ProfileEditComponent.vue").default
+    "user-detail-component",
+    require("./components/user/UserDetailComponent.vue").default
 );
 
 Vue.component(
@@ -105,5 +115,5 @@ const app = new Vue({
 // フラッシュメッセージのfadeout
 setTimeout(function () {
     $('.js-flash').fadeOut();
-}, 5000);
+}, 3000);
 

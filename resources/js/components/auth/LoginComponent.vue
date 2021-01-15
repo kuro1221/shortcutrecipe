@@ -57,13 +57,13 @@ export default {
             email: '',
             password:'',
         }
-        axios.post('login',{
+        axios.post('/login',{
             email:this.email,
             password: this.password
         }
         ).then(function(){
           self.errors = [];
-          location.href = '/home'
+          location.href = '/'
         }).catch(function(error){
           for(let key in error.response.data.errors) {
             self.errors[key] = error.response.data.errors[key][0];

@@ -11043,6 +11043,10 @@ table {
   border-spacing: 0;
 }
 
+a {
+  color: black !important;
+}
+
 *,
 *:before,
 *:after {
