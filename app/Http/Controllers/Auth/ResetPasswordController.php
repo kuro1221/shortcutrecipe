@@ -198,7 +198,6 @@ class ResetPasswordController extends Controller
         $user->save();
 
         event(new PasswordReset($user));
-        Log::debug("フラッシュ");
         session()->flash('flash_message', 'パスワードを変更しました');
         $this->guard()->login($user);
     }
