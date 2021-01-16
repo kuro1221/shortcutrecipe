@@ -11095,6 +11095,7 @@ img {
 
 .card {
   min-width: 170px;
+  border-radius: 0 0 5px 5px !important;
 }
 
 .card_comment {
