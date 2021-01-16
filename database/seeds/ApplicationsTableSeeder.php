@@ -14,37 +14,31 @@ class ApplicationsTableSeeder extends Seeder
     {
         $applications = [
             [
-                'application_name' => 'メモ',
+                'application_name' => '純正メモ',
                 'delete_flg' => false,
                 'created_at' => Carbon::now(),
                 'updated_at' => Carbon::now(),
             ],
             [
-                'application_name' => 'applemusic',
+                'application_name' => '純正写真',
                 'delete_flg' => false,
                 'created_at' => Carbon::now(),
                 'updated_at' => Carbon::now(),
             ],
             [
-                'application_name' => 'リマインダー',
+                'application_name' => '純正リマインダー',
                 'delete_flg' => false,
                 'created_at' => Carbon::now(),
                 'updated_at' => Carbon::now(),
             ],
             [
-                'application_name' => 'メール',
+                'application_name' => 'apple music',
                 'delete_flg' => false,
                 'created_at' => Carbon::now(),
                 'updated_at' => Carbon::now(),
             ],
             [
-                'application_name' => '時計',
-                'delete_flg' => false,
-                'created_at' => Carbon::now(),
-                'updated_at' => Carbon::now(),
-            ],
-            [
-                'application_name' => '天気',
+                'application_name' => 'その他',
                 'delete_flg' => false,
                 'created_at' => Carbon::now(),
                 'updated_at' => Carbon::now(),

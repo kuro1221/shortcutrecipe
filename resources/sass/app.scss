@@ -20,6 +20,10 @@
     font-weight: 700;
 }
 
+.card {
+    min-width: 170px;
+}
+
 .card_comment {
     height: 45px;
     line-height: 15px !important;
@@ -83,12 +87,15 @@
     margin-top: 55px;
     line-height: 60px;
     text-align: center;
-    // font-weight: bold;
     z-index: 20;
     position: absolute;
     background-color: #5cb85c;
-    // @include mq($breakpoint: md){
-    //     height: 60px;
-    //     line-height: 60px;
-    // }
+}
+
+.link {
+    color: black!important;
+  }
+
+.statement {
+    width: 80%;
 }

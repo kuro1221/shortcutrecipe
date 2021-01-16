@@ -29,7 +29,7 @@ class UserController extends Controller
 
         Auth::user() ? $login_user = AUth::user() : $login_user = new User;
 
-        $recipes = Recipe::select()
+        $recipes = Recipe::select('recipes.*', 'users.id as user_id', 'users.name', 'users.img')
             ->join('users', 'recipes.user_id', '=', 'users.id')
             ->where('user_id', $user->id)
             ->where('recipes.delete_flg', false)->get();

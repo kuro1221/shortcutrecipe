@@ -11043,10 +11043,6 @@ table {
   border-spacing: 0;
 }
 
-a {
-  color: black !important;
-}
-
 *,
 *:before,
 *:after {
@@ -11095,6 +11091,10 @@ img {
 .page-title {
   font-size: 20px;
   font-weight: 700;
+}
+
+.card {
+  min-width: 170px;
 }
 
 .card_comment {
@@ -11166,5 +11166,13 @@ img {
   z-index: 20;
   position: absolute;
   background-color: #5cb85c;
+}
+
+.link {
+  color: black !important;
+}
+
+.statement {
+  width: 80%;
 }
 

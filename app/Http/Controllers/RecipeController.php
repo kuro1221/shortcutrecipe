@@ -72,6 +72,8 @@ class RecipeController extends Controller
             return redirect()->action('RecipeController@recipeListShow')->with('flash_message', '不正な値が入力されました');
         $recipe = Recipe::find($id);
         $user_id = Auth::id();
+        log::debug($recipe);
+        log::debug($user_id);
         //レシピが存在しない、またはログインユーザーがレシピの作成者ではない、またはレシピが削除されている場合は不正とみなす
         if (!$recipe || $recipe->user_id !== $user_id  || $recipe->delete_flg !== 0)
             return redirect()->action('RecipeController@recipeListShow')->with('flash_message', '不正な値が入力されました');
@@ -161,6 +163,7 @@ class RecipeController extends Controller
 
     public function deleteRecipe($recipe_id)
     {
+        log::debug($recipe_id);
         //数値以外が入力された場合、不正な入力とみなす
         if (!is_numeric($recipe_id))
             return redirect()->action('RecipeController@recipeListShow')->with('flash_message', '不正な値が入力されました');

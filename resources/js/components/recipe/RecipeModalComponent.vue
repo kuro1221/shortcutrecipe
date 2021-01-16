@@ -49,12 +49,19 @@
           <v-card-actions>
             <v-avatar size="60px">
               <v-img
+                v-if="recipe.img"
                 v-bind:src="'../storage/' + recipe.img"
                 aspect-ratio="1.7"
                 contain
               />
+              <v-img
+                v-else
+                :src="'/../storage/no-image.png'"
+                aspect-ratio="1.7"
+                contain
+              />
             </v-avatar>
-            <v-card-text class="ml-1 font-weight-bold text-truncate"><a :href="'/userDetail/' + recipe.user_id">{{ recipe.name }}</a></v-card-text>
+            <v-card-text class="ml-1 font-weight-bold text-truncate"><a class="link" :href="'/userDetail/' + recipe.user_id">{{ recipe.name }}</a></v-card-text>
           </v-card-actions>
           <v-card-actions>
             <v-spacer></v-spacer>
@@ -94,7 +101,7 @@ export default {
   },
   methods: {
     deleteRecipe: function(){
-      axios.post('deleteRecipe/' + this.deleteRecipeId,
+      axios.post('/deleteRecipe/' + this.deleteRecipeId,
       ).then(function(){
         self.errors = [];
         location.href = '/'

@@ -13,7 +13,7 @@
                   prepend-icon="fas fa-user"
                   type="text"
                   :rules="[rule.required, rule.limit_max_name]"
-                  :error-messages="errors.name"
+                  :error-messagPes="errors.name"
                 />
                <v-text-field
                   class="font-weight-bold"
@@ -22,7 +22,7 @@
                   name="email"
                   prepend-icon="fas fa-envelope"
                   type="text"
-                  :rules="[rule.required, rule.limit_max_length]"
+                  :rules="[rule.required, rule.limit_max_length,rule.email]"
                   :error-messages="errors.email"
                 />
                 <v-text-field
@@ -32,7 +32,7 @@
                   name="password"
                   prepend-icon="fas fa-key"
                   type="password"
-                  :rules="[rule.required,rule.limit_max_name]"
+                  :rules="[rule.required,rule.limit_max_length]"
                   :error-messages="errors.password"
                 />
                 <v-text-field
@@ -42,7 +42,7 @@
                   name="password_confirmation"
                   prepend-icon="fas fa-key"
                   type="password"
-                  :rules="[rule.required,rule.limit_max_name]"
+                  :rules="[rule.required,rule.limit_max_length]"
                   :error-messages="errors.password_confirmation"
                 />
             </v-form>
