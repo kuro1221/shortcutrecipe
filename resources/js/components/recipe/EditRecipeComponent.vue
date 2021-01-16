@@ -84,7 +84,6 @@ export default {
       for(let i =0; i<this.props_select_situation.length;i++) {
         this.recipe.select_situation.push(this.props_select_situation[i].situation_id);
       }
-      this.recipe.comment = "書き換え"
   },
   methods: {
     editRecipe: function(e) {

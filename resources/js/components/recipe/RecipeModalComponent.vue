@@ -52,13 +52,11 @@
                 v-if="recipe.img"
                 v-bind:src="'../storage/' + recipe.img"
                 aspect-ratio="1.7"
-                contain
               />
               <v-img
                 v-else
                 :src="'/../storage/no-image.png'"
                 aspect-ratio="1.7"
-                contain
               />
             </v-avatar>
             <v-card-text class="ml-1 font-weight-bold text-truncate"><a class="link" :href="'/userDetail/' + recipe.user_id">{{ recipe.name }}</a></v-card-text>

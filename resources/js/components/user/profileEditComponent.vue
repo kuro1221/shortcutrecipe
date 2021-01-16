@@ -4,17 +4,16 @@
       <v-row justify="center">
         <v-col cols="12" sm="8" md="4">
           <h2 class="page-title">プロフィール編集</h2>
-          <v-form ref="form">
+          <v-form ref="form" class="mt-4">
             <v-row justify="center">
-              <v-avatar v-if="preview_image" size="200px"><v-img  :src="preview_image" aspect-ratio="1.7" contain /></v-avatar>
+              <v-avatar v-if="preview_image" size="200px"><v-img  :src="preview_image" aspect-ratio="1.7"  /></v-avatar>
               <v-avatar v-else-if="auth_user.img" size="200px">
                 <v-img
                   v-bind:src="'../storage/' + auth_user.img"
                   aspect-ratio="1.7"
-                  contain
                 />
               </v-avatar>
-              <v-avatar v-else size="200px"><v-img :src="'/../storage/no-image.png'" alt="Avatar" contain /></v-avatar>
+              <v-avatar v-else size="200px"><v-img :src="'/../storage/no-image.png'" alt="Avatar" /></v-avatar>
             </v-row>
             <v-file-input
               class="font-weight-bold"

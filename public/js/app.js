@@ -2849,8 +2849,6 @@ __webpack_require__.r(__webpack_exports__);
     for (var _i2 = 0; _i2 < this.props_select_situation.length; _i2++) {
       this.recipe.select_situation.push(this.props_select_situation[_i2].situation_id);
     }
-
-    this.recipe.comment = "書き換え";
   },
   methods: {
     editRecipe: function editRecipe(e) {
@@ -3274,8 +3272,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: ["auth_user", "recipe"],
   data: function data() {
@@ -3523,7 +3519,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: ["props_auth_user"],
@@ -3591,8 +3586,6 @@ __webpack_require__.r(__webpack_exports__);
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _recipe_RecipeComponent_vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../recipe/RecipeComponent.vue */ "./resources/js/components/recipe/RecipeComponent.vue");
-//
-//
 //
 //
 //
@@ -41772,15 +41765,13 @@ var render = function() {
                               ? _c("v-img", {
                                   attrs: {
                                     src: "../storage/" + _vm.recipe.img,
-                                    "aspect-ratio": "1.7",
-                                    contain: ""
+                                    "aspect-ratio": "1.7"
                                   }
                                 })
                               : _c("v-img", {
                                   attrs: {
                                     src: "/../storage/no-image.png",
-                                    "aspect-ratio": "1.7",
-                                    contain: ""
+                                    "aspect-ratio": "1.7"
                                   }
                                 })
                           ],
@@ -42056,7 +42047,7 @@ var render = function() {
                   _vm._v(" "),
                   _c(
                     "v-form",
-                    { ref: "form" },
+                    { ref: "form", staticClass: "mt-4" },
                     [
                       _c(
                         "v-row",
@@ -42070,8 +42061,7 @@ var render = function() {
                                   _c("v-img", {
                                     attrs: {
                                       src: _vm.preview_image,
-                                      "aspect-ratio": "1.7",
-                                      contain: ""
+                                      "aspect-ratio": "1.7"
                                     }
                                   })
                                 ],
@@ -42085,8 +42075,7 @@ var render = function() {
                                   _c("v-img", {
                                     attrs: {
                                       src: "../storage/" + _vm.auth_user.img,
-                                      "aspect-ratio": "1.7",
-                                      contain: ""
+                                      "aspect-ratio": "1.7"
                                     }
                                   })
                                 ],
@@ -42099,8 +42088,7 @@ var render = function() {
                                   _c("v-img", {
                                     attrs: {
                                       src: "/../storage/no-image.png",
-                                      alt: "Avatar",
-                                      contain: ""
+                                      alt: "Avatar"
                                     }
                                   })
                                 ],
@@ -42260,21 +42248,19 @@ var render = function() {
                     [
                       _c(
                         "v-avatar",
-                        { attrs: { size: "120px" } },
+                        { attrs: { size: "140px" } },
                         [
                           _vm.user.img
                             ? _c("v-img", {
                                 attrs: {
                                   src: "../storage/" + _vm.user.img,
-                                  "aspect-ratio": "1.7",
-                                  contain: ""
+                                  "aspect-ratio": "1.7"
                                 }
                               })
                             : _c("v-img", {
                                 attrs: {
                                   src: "../storage/no-image.png",
-                                  "aspect-ratio": "1.7",
-                                  contain: ""
+                                  "aspect-ratio": "1.7"
                                 }
                               })
                         ],
@@ -42289,7 +42275,7 @@ var render = function() {
             1
           ),
           _vm._v(" "),
-          _c("h1", { staticClass: "font-weight-bold ml-1" }, [
+          _c("h1", { staticClass: "font-weight-bold ml-1 mt-4" }, [
             _vm._v(_vm._s(_vm.user.name))
           ]),
           _vm._v(" "),

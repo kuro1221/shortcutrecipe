@@ -15,7 +15,6 @@
                   <v-img
                     v-bind:src="'../storage/' + auth_user.img"
                     aspect-ratio="1.7"
-                    contain
                   />
                 </v-avatar>
                 <v-avatar v-else size="200px"><v-img :src="'/../storage/no-image.png'" alt="Avatar" contain /></v-avatar>
