@@ -6,7 +6,14 @@
                     <div>
                         <v-avatar size="120px">
                             <v-img
+                                v-if="user.img"
                                 v-bind:src="'../storage/' + user.img"
+                                aspect-ratio="1.7"
+                                contain
+                            />
+                            <v-img
+                                v-else
+                                v-bind:src="'../storage/no-image.png'"
                                 aspect-ratio="1.7"
                                 contain
                             />
@@ -14,8 +21,8 @@
                     </div>
                 </v-col>
             </v-row>
-            <h1 class="font-weight-bold">{{ user.name }}</h1>
-            <p>{{ user.comment }}</p>
+            <h1 class="font-weight-bold ml-1">{{ user.name }}</h1>
+            <p class="ml-1">{{ user.comment }}</p>
             <v-row justify="center" red>
                 <recipe :auth_user="auth_user" :recipe_list="recipes"></recipe>
             </v-row>

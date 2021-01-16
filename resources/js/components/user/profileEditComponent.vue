@@ -43,7 +43,7 @@
               name="name"
               prepend-icon="far fa-user"
               type="text"
-              :rules="[rule.required, rule.limit_max_length]"
+              :rules="[rule.required, rule.limit_max_name]"
               :error-messages="errors.name"
             />
             <!--

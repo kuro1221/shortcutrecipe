@@ -53,6 +53,7 @@
           </v-form>
           <v-row justify="center">
             <v-btn class="button font-weight-bold my-5" color="#FFD500" rounded large @click="addRecipe">登録</v-btn>
+            <span class="statement mt-2">※定期的に対象アプリの選択肢を変更します。その他を選んだ場合、他の選択肢に振り分けられる場合があります</span>
           </v-row>
         </v-col>
       </v-row>

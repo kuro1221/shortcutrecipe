@@ -2710,6 +2710,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: ['application_list', 'product_list', 'situation_list', 'csrf'],
@@ -3142,11 +3143,9 @@ __webpack_require__.r(__webpack_exports__);
 
 
         if (_this.search.length > 0) {
-          console.log(recipe);
-
-          if (!(recipe.recipe_name.match(_this.search) || recipe.comment && recipe.comment.match(_this.search) || _this.filterSelection(_this.search, recipe.select_products, "product_name") || _this.filterSelection(_this.search, recipe.select_applications, "application_name") || _this.filterSelection(_this.search, recipe.select_situations, "situation_name") // this.includeSearch(recipe.select_products,"product_name",this.search) ||
+          if (!(recipe.recipe_name.match(_this.search) || recipe.comment && recipe.comment.match(_this.search) || _this.filterSelection(_this.search, recipe.select_products, "product_name") || _this.filterSelection(_this.search, recipe.select_applications, "application_name") // this.filterSelection(this.search,recipe.select_situations,"situation_name")
+          // this.includeSearch(recipe.select_products,"product_name",this.search) ||
           // this.includeSearch(recipe.select_applications,"application_name",this.search) ||
-          // this.includeSearch(recipe.select_situations,"situation_name",this.search)
           )) {
             isShow = false;
           }
@@ -3185,23 +3184,7 @@ __webpack_require__.r(__webpack_exports__);
       });
       console.log(result);
       if (result && result.id) return result;
-    } // includeSearch: function(selections,type,search) {
-    //   console.log(selections)
-    //   let result = selections.find(function(selection){
-    //     // return selection[type].match(search);
-    //         return search.includes(selection[type])
-    //   })
-    //   console.log(result);
-    //   return result;
-    //   // selections.forEach(selection => {
-    //   //   console.log(selection.application_name)
-    //   //   console.log(search)
-    //   //   console.log("結果"+selection.application_name.match(search))
-    //   //  return true;
-    //   // })
-    //   // return false;
-    // }
-
+    }
   }
 });
 
@@ -3216,6 +3199,13 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+//
+//
+//
+//
+//
+//
+//
 //
 //
 //
@@ -3311,7 +3301,7 @@ __webpack_require__.r(__webpack_exports__);
   },
   methods: {
     deleteRecipe: function deleteRecipe() {
-      axios.post('deleteRecipe/' + this.deleteRecipeId).then(function () {
+      axios.post('/deleteRecipe/' + this.deleteRecipeId).then(function () {
         self.errors = [];
         location.href = '/';
       });
@@ -3601,6 +3591,13 @@ __webpack_require__.r(__webpack_exports__);
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _recipe_RecipeComponent_vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../recipe/RecipeComponent.vue */ "./resources/js/components/recipe/RecipeComponent.vue");
+//
+//
+//
+//
+//
+//
+//
 //
 //
 //
@@ -40183,7 +40180,11 @@ var render = function() {
         "v-app-bar",
         { attrs: { app: "", color: _vm.defaultCSS.backgroundColor } },
         [
-          _c("v-toolbar-title", [_vm._v("Shortcut Recipe")]),
+          _c("v-toolbar-title", [
+            _c("a", { staticClass: "link", attrs: { href: "/" } }, [
+              _vm._v("Shortcut Recipe")
+            ])
+          ]),
           _vm._v(" "),
           _c("v-spacer"),
           _vm._v(" "),
@@ -40345,7 +40346,9 @@ var render = function() {
         { attrs: { app: "", color: _vm.defaultCSS.backgroundColor } },
         [
           _c("v-toolbar-title", [
-            _c("a", { attrs: { href: "/" } }, [_vm._v("Shortcut Recipe")])
+            _c("a", { staticClass: "link", attrs: { href: "/" } }, [
+              _vm._v("Shortcut Recipe")
+            ])
           ]),
           _vm._v(" "),
           _c("v-spacer"),
@@ -40655,7 +40658,7 @@ var render = function() {
                           "prepend-icon": "fas fa-user",
                           type: "text",
                           rules: [_vm.rule.required, _vm.rule.limit_max_name],
-                          "error-messages": _vm.errors.name
+                          "error-messagPes": _vm.errors.name
                         },
                         model: {
                           value: _vm.name,
@@ -40673,7 +40676,11 @@ var render = function() {
                           name: "email",
                           "prepend-icon": "fas fa-envelope",
                           type: "text",
-                          rules: [_vm.rule.required, _vm.rule.limit_max_length],
+                          rules: [
+                            _vm.rule.required,
+                            _vm.rule.limit_max_length,
+                            _vm.rule.email
+                          ],
                           "error-messages": _vm.errors.email
                         },
                         model: {
@@ -40692,7 +40699,7 @@ var render = function() {
                           name: "password",
                           "prepend-icon": "fas fa-key",
                           type: "password",
-                          rules: [_vm.rule.required, _vm.rule.limit_max_name],
+                          rules: [_vm.rule.required, _vm.rule.limit_max_length],
                           "error-messages": _vm.errors.password
                         },
                         model: {
@@ -40711,7 +40718,7 @@ var render = function() {
                           name: "password_confirmation",
                           "prepend-icon": "fas fa-key",
                           type: "password",
-                          rules: [_vm.rule.required, _vm.rule.limit_max_name],
+                          rules: [_vm.rule.required, _vm.rule.limit_max_length],
                           "error-messages": _vm.errors.password_confirmation
                         },
                         model: {
@@ -41047,7 +41054,13 @@ var render = function() {
                           on: { click: _vm.addRecipe }
                         },
                         [_vm._v("登録")]
-                      )
+                      ),
+                      _vm._v(" "),
+                      _c("span", { staticClass: "statement mt-2" }, [
+                        _vm._v(
+                          "※定期的に対象アプリの選択肢を変更します。その他を選んだ場合、他の選択肢に振り分けられる場合があります"
+                        )
+                      ])
                     ],
                     1
                   )
@@ -41276,7 +41289,7 @@ var render = function() {
                 _c(
                   "v-card",
                   {
-                    staticClass: "ma-2",
+                    staticClass: "ma-2 card",
                     attrs: { outlined: "", tile: "", height: "120" }
                   },
                   [
@@ -41755,13 +41768,21 @@ var render = function() {
                           "v-avatar",
                           { attrs: { size: "60px" } },
                           [
-                            _c("v-img", {
-                              attrs: {
-                                src: "../storage/" + _vm.recipe.img,
-                                "aspect-ratio": "1.7",
-                                contain: ""
-                              }
-                            })
+                            _vm.recipe.img
+                              ? _c("v-img", {
+                                  attrs: {
+                                    src: "../storage/" + _vm.recipe.img,
+                                    "aspect-ratio": "1.7",
+                                    contain: ""
+                                  }
+                                })
+                              : _c("v-img", {
+                                  attrs: {
+                                    src: "/../storage/no-image.png",
+                                    "aspect-ratio": "1.7",
+                                    contain: ""
+                                  }
+                                })
                           ],
                           1
                         ),
@@ -41775,6 +41796,7 @@ var render = function() {
                             _c(
                               "a",
                               {
+                                staticClass: "link",
                                 attrs: {
                                   href: "/userDetail/" + _vm.recipe.user_id
                                 }
@@ -42131,7 +42153,7 @@ var render = function() {
                           name: "name",
                           "prepend-icon": "far fa-user",
                           type: "text",
-                          rules: [_vm.rule.required, _vm.rule.limit_max_length],
+                          rules: [_vm.rule.required, _vm.rule.limit_max_name],
                           "error-messages": _vm.errors.name
                         },
                         model: {
@@ -42240,13 +42262,21 @@ var render = function() {
                         "v-avatar",
                         { attrs: { size: "120px" } },
                         [
-                          _c("v-img", {
-                            attrs: {
-                              src: "../storage/" + _vm.user.img,
-                              "aspect-ratio": "1.7",
-                              contain: ""
-                            }
-                          })
+                          _vm.user.img
+                            ? _c("v-img", {
+                                attrs: {
+                                  src: "../storage/" + _vm.user.img,
+                                  "aspect-ratio": "1.7",
+                                  contain: ""
+                                }
+                              })
+                            : _c("v-img", {
+                                attrs: {
+                                  src: "../storage/no-image.png",
+                                  "aspect-ratio": "1.7",
+                                  contain: ""
+                                }
+                              })
                         ],
                         1
                       )
@@ -42259,11 +42289,11 @@ var render = function() {
             1
           ),
           _vm._v(" "),
-          _c("h1", { staticClass: "font-weight-bold" }, [
+          _c("h1", { staticClass: "font-weight-bold ml-1" }, [
             _vm._v(_vm._s(_vm.user.name))
           ]),
           _vm._v(" "),
-          _c("p", [_vm._v(_vm._s(_vm.user.comment))]),
+          _c("p", { staticClass: "ml-1" }, [_vm._v(_vm._s(_vm.user.comment))]),
           _vm._v(" "),
           _c(
             "v-row",

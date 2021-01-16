@@ -46,7 +46,7 @@
       </v-row>
     </v-navigation-drawer>
     <v-app-bar app :color="defaultCSS.backgroundColor">
-      <v-toolbar-title>Shortcut Recipe</v-toolbar-title>
+      <v-toolbar-title><a href="/" class="link">Shortcut Recipe</a></v-toolbar-title>
       <v-spacer></v-spacer>
       <v-app-bar-nav-icon @click="drawer = !drawer"></v-app-bar-nav-icon>
     </v-app-bar>

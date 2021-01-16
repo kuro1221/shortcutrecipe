@@ -58,25 +58,21 @@ export default {
             isShow = false;
           }
         }
-
         //検索値からフィルタリング
         if (this.search.length > 0) {
-          console.log(recipe)
           if(!(recipe.recipe_name.match(this.search) ||
           (recipe.comment && recipe.comment.match(this.search)) ||
             this.filterSelection(this.search,recipe.select_products,"product_name") ||
-            this.filterSelection(this.search,recipe.select_applications,"application_name") ||
-            this.filterSelection(this.search,recipe.select_situations,"situation_name")
+            this.filterSelection(this.search,recipe.select_applications,"application_name")
+            // this.filterSelection(this.search,recipe.select_situations,"situation_name")
             // this.includeSearch(recipe.select_products,"product_name",this.search) ||
             // this.includeSearch(recipe.select_applications,"application_name",this.search) ||
-            // this.includeSearch(recipe.select_situations,"situation_name",this.search)
           )){
             isShow = false;
           }
         }
         if (isShow) newList.push(recipe)
       })
-
       switch (this.sort_order){
         case 1: //新しい順
           newList.sort(function(a,b){
@@ -102,23 +98,7 @@ export default {
       })
       console.log(result);
       if(result && result.id) return result;
-    },
-    // includeSearch: function(selections,type,search) {
-    //   console.log(selections)
-    //   let result = selections.find(function(selection){
-    //     // return selection[type].match(search);
-    //         return search.includes(selection[type])
-    //   })
-    //   console.log(result);
-    //   return result;
-    //   // selections.forEach(selection => {
-    //   //   console.log(selection.application_name)
-    //   //   console.log(search)
-    //   //   console.log("結果"+selection.application_name.match(search))
-    //   //  return true;
-    //   // })
-    //   // return false;
-    // }
+    }
   }
 }
 </script>
