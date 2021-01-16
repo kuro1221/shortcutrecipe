@@ -4,7 +4,7 @@
             <v-row justify="center">
               <v-col cols="12" sm="8" md="4">
                   <h2 class="page-title">退会</h2>
-                  <p class="mt-4">退会後はログインできなくなりますが、作成したレシピは残り続けますのでご注意ください。</br>必要に応じて退会前にレシピを削除してください。</p>
+                  <p class="mt-4">退会後はログインできなくなりますが、作成したレシピは残る可能性がありますのでご注意ください。</br>必要に応じて退会前にレシピを削除してください。</p>
                   <v-row justify="center">
                     <v-btn class="button font-weight-bold my-5" color="#FFD500" rounded large @click="modalFlg = true">退会</v-btn>
                   </v-row>

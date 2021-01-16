@@ -5,10 +5,10 @@
     <div class="row">
         <div class="col-md-10 col-md-offset-1">
             <div>
-                <span class="font-weight-bold">パスワード初期化が完了しました</span>
+                <span class="font-weight-bold">パスワードを再設定しました</span>
             </div>
             <div>
-                <a href="{{ route('/') }}">ホーム画面へ移動</a>
+                <a href="/">レシピ一覧画面に移動</a>
             </div>
         </div>
     </div>
