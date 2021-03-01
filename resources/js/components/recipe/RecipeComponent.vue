@@ -4,7 +4,7 @@
         <recipeModal :auth_user="auth_user" :recipe="recipeDetail" @reset="resetRecipe"></recipeModal>
         <v-flex xs6 md4 shrink v-for="(recipe, i) in sliceRecipes" :key="i" class="no-border" >
           <v-card
-            class="ma-2 card"
+            class="ma-2 mb-4 card"
             outlined
             tile
             height="120"

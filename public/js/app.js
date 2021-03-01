@@ -2398,6 +2398,12 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
@@ -40583,7 +40589,26 @@ var render = function() {
                             "\n                  パスワードを忘れた方\n              "
                           )
                         ]
-                      )
+                      ),
+                      _vm._v(" "),
+                      _c("a", { attrs: { href: "auth/line" } }, [
+                        _vm._v("LINEでログイン")
+                      ]),
+                      _vm._v(" "),
+                      _c("p", [
+                        _c("br"),
+                        _vm._v(
+                          "\n                Lineアカウントを利用してログインを行います。"
+                        ),
+                        _c("br"),
+                        _vm._v(
+                          "\n                本WEBサービスでは、ログイン時の認証画面で許可を頂いた場合のみ、Lineアカウントに登録されているメールアドレスを取得します。"
+                        ),
+                        _c("br"),
+                        _vm._v(
+                          "\n                取得したメールアドレスはユーザーIDとしてアカウントの管理のみでしか使用いたしません。\n              "
+                        )
+                      ])
                     ],
                     1
                   )
@@ -41282,7 +41307,7 @@ var render = function() {
                 _c(
                   "v-card",
                   {
-                    staticClass: "ma-2 card",
+                    staticClass: "ma-2 mb-4 card",
                     attrs: { outlined: "", tile: "", height: "120" }
                   },
                   [
@@ -41415,11 +41440,12 @@ var render = function() {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c(
-    "div",
+    "v-row",
+    { staticClass: "pt-0", attrs: { justify: "center", red: "" } },
     [
       _c(
         "v-col",
-        { staticClass: "pt-0", attrs: { cols: "12", sm: "8", md: "9" } },
+        { staticClass: "pt-0 mr-0", attrs: { cols: "12", sm: "8", md: "9" } },
         [
           _c("v-text-field", {
             attrs: {
