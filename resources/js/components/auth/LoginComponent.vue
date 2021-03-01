@@ -31,12 +31,12 @@
                 <a class="btn btn-link" href="password/reset">
                     パスワードを忘れた方
                 </a>
-                <a href="auth/line">LINEでログイン</a>
+                <!--<a href="auth/line">LINEでログイン</a>
                 <p><br>
                   Lineアカウントを利用してログインを行います。<br>
                   本WEBサービスでは、ログイン時の認証画面で許可を頂いた場合のみ、Lineアカウントに登録されているメールアドレスを取得します。<br>
                   取得したメールアドレスはユーザーIDとしてアカウントの管理のみでしか使用いたしません。
-                </p>
+                </p> -->
             </v-row>
         </v-col>
       </v-row>
