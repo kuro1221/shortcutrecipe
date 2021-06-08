@@ -11085,7 +11085,7 @@ img {
 }
 
 #app {
-  background-color: #BFDCFA;
+  background-color: #bfdcfa;
 }
 
 .page-title {
@@ -11175,5 +11175,9 @@ img {
 
 .statement {
   width: 80%;
+}
+
+.pc-header-list {
+  max-height: 55px;
 }
 
