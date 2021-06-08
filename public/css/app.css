@@ -11085,7 +11085,7 @@ img {
 }
 
 #app {
-  background-color: #BFDCFA;
+  background-color: #bfdcfa;
 }
 
 .page-title {
@@ -11095,7 +11095,6 @@ img {
 
 .card {
   min-width: 170px;
-  max-width: 280px !important;
   border-radius: 0 0 5px 5px !important;
 }
 
@@ -11176,5 +11175,9 @@ img {
 
 .statement {
   width: 80%;
+}
+
+.pc-header-list {
+  max-height: 55px;
 }
 

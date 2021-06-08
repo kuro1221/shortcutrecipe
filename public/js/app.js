@@ -2158,13 +2158,58 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: ["auth_user"],
   data: function data() {
     return {
       defaultCSS: _default_js__WEBPACK_IMPORTED_MODULE_0__["default"],
-      drawer: null
+      drawer: false
     };
   },
   methods: {
@@ -2254,13 +2299,32 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   components: {},
   data: function data() {
     return {
       defaultCSS: _default_js__WEBPACK_IMPORTED_MODULE_0__["default"],
-      drawer: null
+      drawer: false
     };
   },
   methods: {
@@ -2996,6 +3060,15 @@ Vue.component("paginate", vuejs_paginate__WEBPACK_IMPORTED_MODULE_0___default.a)
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _validation_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../validation.js */ "./resources/js/validation.js");
+//
+//
+//
+//
+//
+//
+//
+//
+//
 //
 //
 //
@@ -40188,13 +40261,161 @@ var render = function() {
           _vm._v(" "),
           _c("v-spacer"),
           _vm._v(" "),
-          _c("v-app-bar-nav-icon", {
-            on: {
-              click: function($event) {
-                _vm.drawer = !_vm.drawer
-              }
-            }
-          })
+          _c(
+            "v-app-bar",
+            { attrs: { app: "", color: _vm.defaultCSS.backgroundColor } },
+            [
+              _c("v-toolbar-title", [
+                _c("a", { staticClass: "link", attrs: { href: "/" } }, [
+                  _vm._v("Shortcut Recipe")
+                ])
+              ]),
+              _vm._v(" "),
+              _c("v-spacer"),
+              _vm._v(" "),
+              _c(
+                "div",
+                { staticClass: "hidden-xs-only" },
+                [
+                  _c(
+                    "v-list",
+                    {
+                      staticClass: "pc-header-list d-flex",
+                      attrs: { color: _vm.defaultCSS.backgroundColor }
+                    },
+                    [
+                      _c(
+                        "v-list-item",
+                        {
+                          attrs: {
+                            link: "",
+                            href: "/userDetail/" + _vm.auth_user.id
+                          }
+                        },
+                        [
+                          _c(
+                            "v-list-item-content",
+                            [_c("v-list-item-title", [_vm._v("マイページ")])],
+                            1
+                          )
+                        ],
+                        1
+                      ),
+                      _vm._v(" "),
+                      _c(
+                        "v-list-item",
+                        { attrs: { link: "", href: "/recipeList" } },
+                        [
+                          _c(
+                            "v-list-item-content",
+                            [_c("v-list-item-title", [_vm._v("レシピ一覧")])],
+                            1
+                          )
+                        ],
+                        1
+                      ),
+                      _vm._v(" "),
+                      _c(
+                        "v-list-item",
+                        { attrs: { link: "", href: "/addRecipe" } },
+                        [
+                          _c(
+                            "v-list-item-content",
+                            [_c("v-list-item-title", [_vm._v("レシピ追加")])],
+                            1
+                          )
+                        ],
+                        1
+                      ),
+                      _vm._v(" "),
+                      _c(
+                        "v-list-item",
+                        { attrs: { link: "", href: "/profileEdit" } },
+                        [
+                          _c(
+                            "v-list-item-content",
+                            [
+                              _c("v-list-item-title", [
+                                _vm._v("プロフィール編集")
+                              ])
+                            ],
+                            1
+                          )
+                        ],
+                        1
+                      ),
+                      _vm._v(" "),
+                      _c(
+                        "v-list-item",
+                        { attrs: { link: "", href: "/passwordEdit" } },
+                        [
+                          _c(
+                            "v-list-item-content",
+                            [
+                              _c("v-list-item-title", [
+                                _vm._v("パスワード変更")
+                              ])
+                            ],
+                            1
+                          )
+                        ],
+                        1
+                      ),
+                      _vm._v(" "),
+                      _c(
+                        "v-list-item",
+                        { attrs: { link: "", href: "/withdrawalShow" } },
+                        [
+                          _c(
+                            "v-list-item-content",
+                            [_c("v-list-item-title", [_vm._v("退会")])],
+                            1
+                          )
+                        ],
+                        1
+                      ),
+                      _vm._v(" "),
+                      _c(
+                        "v-list-item",
+                        [
+                          _c(
+                            "v-list-item-content",
+                            [
+                              _c("v-list-item-title", [
+                                _c("button", { on: { click: _vm.logout } }, [
+                                  _vm._v("ログアウト")
+                                ])
+                              ])
+                            ],
+                            1
+                          )
+                        ],
+                        1
+                      )
+                    ],
+                    1
+                  )
+                ],
+                1
+              ),
+              _vm._v(" "),
+              _c(
+                "div",
+                { staticClass: "hidden-sm-and-up" },
+                [
+                  _c("v-app-bar-nav-icon", {
+                    on: {
+                      click: function($event) {
+                        _vm.drawer = !_vm.drawer
+                      }
+                    }
+                  })
+                ],
+                1
+              )
+            ],
+            1
+          )
         ],
         1
       )
@@ -40353,13 +40574,70 @@ var render = function() {
           _vm._v(" "),
           _c("v-spacer"),
           _vm._v(" "),
-          _c("v-app-bar-nav-icon", {
-            on: {
-              click: function($event) {
-                _vm.drawer = !_vm.drawer
-              }
-            }
-          })
+          _c(
+            "div",
+            { staticClass: "hidden-xs-only" },
+            [
+              _c(
+                "v-list",
+                {
+                  staticClass: "pc-header-list d-flex",
+                  attrs: { color: _vm.defaultCSS.backgroundColor }
+                },
+                [
+                  _c(
+                    "v-list-item",
+                    { attrs: { link: "", href: "/recipeList" } },
+                    [
+                      _c(
+                        "v-list-item-content",
+                        [_c("v-list-item-title", [_vm._v("レシピ一覧")])],
+                        1
+                      )
+                    ],
+                    1
+                  ),
+                  _vm._v(" "),
+                  _c(
+                    "v-list-item",
+                    { attrs: { link: "", href: "/login" } },
+                    [
+                      _c(
+                        "v-list-item-content",
+                        [_c("v-list-item-title", [_vm._v("ログイン")])],
+                        1
+                      )
+                    ],
+                    1
+                  ),
+                  _vm._v(" "),
+                  _c(
+                    "v-list-item",
+                    { attrs: { link: "", href: "/register" } },
+                    [_c("v-list-item-title", [_vm._v("新規登録")])],
+                    1
+                  )
+                ],
+                1
+              )
+            ],
+            1
+          ),
+          _vm._v(" "),
+          _c(
+            "div",
+            { staticClass: "hidden-sm-and-up" },
+            [
+              _c("v-app-bar-nav-icon", {
+                on: {
+                  click: function($event) {
+                    _vm.drawer = !_vm.drawer
+                  }
+                }
+              })
+            ],
+            1
+          )
         ],
         1
       )
@@ -41417,99 +41695,8 @@ render._withStripped = true
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
-var render = function() {
-  var _vm = this
-  var _h = _vm.$createElement
-  var _c = _vm._self._c || _h
-  return _c(
-    "v-row",
-    { staticClass: "pt-0", attrs: { justify: "center", red: "" } },
-    [
-      _c(
-        "v-col",
-        { staticClass: "pt-0 mr-0", attrs: { cols: "12", sm: "8", md: "9" } },
-        [
-          _c("v-text-field", {
-            attrs: {
-              label: "検索",
-              name: "検索",
-              type: "text",
-              rules: [_vm.rule.limit_max_length]
-            },
-            model: {
-              value: _vm.child_search,
-              callback: function($$v) {
-                _vm.child_search = $$v
-              },
-              expression: "child_search"
-            }
-          }),
-          _vm._v(" "),
-          _c("v-select", {
-            attrs: {
-              items: _vm.sort_orders,
-              "item-text": "label",
-              "item-value": "value",
-              label: "並べ替え",
-              dense: ""
-            },
-            model: {
-              value: _vm.child_sort_order,
-              callback: function($$v) {
-                _vm.child_sort_order = $$v
-              },
-              expression: "child_sort_order"
-            }
-          }),
-          _vm._v(" "),
-          _c(
-            "div",
-            [
-              _c("v-select", {
-                attrs: {
-                  items: _vm.product_list,
-                  "item-text": "product_name",
-                  "item-value": "id",
-                  multiple: "",
-                  label: "製品(複数選択可能)"
-                },
-                model: {
-                  value: _vm.filter_data.filter_product,
-                  callback: function($$v) {
-                    _vm.$set(_vm.filter_data, "filter_product", $$v)
-                  },
-                  expression: "filter_data.filter_product"
-                }
-              }),
-              _vm._v(" "),
-              _c("v-select", {
-                attrs: {
-                  items: _vm.application_list,
-                  "item-text": "application_name",
-                  "item-value": "id",
-                  multiple: "",
-                  label: "アプリ(複数選択可能)"
-                },
-                model: {
-                  value: _vm.filter_data.filter_application,
-                  callback: function($$v) {
-                    _vm.$set(_vm.filter_data, "filter_application", $$v)
-                  },
-                  expression: "filter_data.filter_application"
-                }
-              })
-            ],
-            1
-          )
-        ],
-        1
-      )
-    ],
-    1
-  )
-}
+var render = function () {}
 var staticRenderFns = []
-render._withStripped = true
 
 
 

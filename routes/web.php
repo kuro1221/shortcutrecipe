@@ -15,6 +15,10 @@ Route::get('/', 'RecipeController@recipeListShow')->name('recipeListShow');
 
 Auth::routes();
 
+//LINEログイン
+Route::get('/linelogin', 'Auth\LineLoginController@lineLogin')->name('linelogin');
+Route::get('/callback', 'Auth\LineLoginController@callback')->name('callback');
+
 // Route::get('/', 'HomeController@index')->name('home');
 
 Route::get('/auth/passwords/successful', 'Auth\ResetPasswordController@showSuccessful');
