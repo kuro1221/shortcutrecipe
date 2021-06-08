@@ -31,6 +31,7 @@
                 <a class="btn btn-link" href="password/reset">
                     パスワードを忘れた方
                 </a>
+                <a href="linelogin">LINEログイン</a>
             </v-row>
         </v-col>
       </v-row>

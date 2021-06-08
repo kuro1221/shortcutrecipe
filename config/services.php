@@ -33,5 +33,10 @@ return [
     'sparkpost' => [
         'secret' => env('SPARKPOST_SECRET'),
     ],
+    'line' => [
+        'client_id' => env('LINE_CHANNEL_ID'),
+        'client_secret' => env('LINE_CHANNEL_SECRET'),
+        'redirect' => env('LINE_CALLBACK_URL'),
+    ],
 
 ];

@@ -2254,6 +2254,33 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   components: {},
@@ -2359,6 +2386,7 @@ __webpack_require__.r(__webpack_exports__);
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _validation_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../validation.js */ "./resources/js/validation.js");
+//
 //
 //
 //
@@ -40262,103 +40290,174 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c(
-    "div",
-    [
-      _c(
-        "v-navigation-drawer",
-        {
-          attrs: { app: "", right: "" },
-          model: {
-            value: _vm.drawer,
-            callback: function($$v) {
-              _vm.drawer = $$v
-            },
-            expression: "drawer"
-          }
-        },
-        [
-          _c(
-            "v-row",
-            { attrs: { justify: "center" } },
-            [
-              _c(
-                "v-list",
-                { staticClass: "mt-8 font-weight-bold" },
-                [
-                  _c(
-                    "v-list-item",
-                    { attrs: { link: "", href: "/recipeList" } },
-                    [
-                      _c(
-                        "v-list-item-content",
-                        [_c("v-list-item-title", [_vm._v("レシピ一覧")])],
-                        1
-                      )
-                    ],
-                    1
-                  ),
-                  _vm._v(" "),
-                  _c(
-                    "v-list-item",
-                    { attrs: { link: "", href: "/login" } },
-                    [
-                      _c(
-                        "v-list-item-content",
-                        [_c("v-list-item-title", [_vm._v("ログイン")])],
-                        1
-                      )
-                    ],
-                    1
-                  ),
-                  _vm._v(" "),
-                  _c(
-                    "v-list-item",
-                    { attrs: { link: "", href: "/register" } },
-                    [
-                      _c(
-                        "v-list-item-content",
-                        [_c("v-list-item-title", [_vm._v("新規登録")])],
-                        1
-                      )
-                    ],
-                    1
-                  )
-                ],
-                1
-              )
-            ],
-            1
-          )
-        ],
-        1
-      ),
-      _vm._v(" "),
-      _c(
-        "v-app-bar",
-        { attrs: { app: "", color: _vm.defaultCSS.backgroundColor } },
-        [
-          _c("v-toolbar-title", [
-            _c("a", { staticClass: "link", attrs: { href: "/" } }, [
-              _vm._v("Shortcut Recipe")
-            ])
-          ]),
-          _vm._v(" "),
-          _c("v-spacer"),
-          _vm._v(" "),
-          _c("v-app-bar-nav-icon", {
-            on: {
-              click: function($event) {
-                _vm.drawer = !_vm.drawer
-              }
+  return _c("div", [
+    _c(
+      "div",
+      { staticClass: "hidden-md-and-up" },
+      [
+        _c(
+          "v-navigation-drawer",
+          {
+            attrs: { app: "", right: "" },
+            model: {
+              value: _vm.drawer,
+              callback: function($$v) {
+                _vm.drawer = $$v
+              },
+              expression: "drawer"
             }
-          })
-        ],
-        1
-      )
-    ],
-    1
-  )
+          },
+          [
+            _c(
+              "v-row",
+              { attrs: { justify: "center" } },
+              [
+                _c(
+                  "v-list",
+                  { staticClass: "mt-8 font-weight-bold" },
+                  [
+                    _c(
+                      "v-list-item",
+                      { attrs: { link: "", href: "/recipeList" } },
+                      [
+                        _c(
+                          "v-list-item-content",
+                          [_c("v-list-item-title", [_vm._v("レシピ一覧")])],
+                          1
+                        )
+                      ],
+                      1
+                    ),
+                    _vm._v(" "),
+                    _c(
+                      "v-list-item",
+                      { attrs: { link: "", href: "/login" } },
+                      [
+                        _c(
+                          "v-list-item-content",
+                          [_c("v-list-item-title", [_vm._v("ログイン")])],
+                          1
+                        )
+                      ],
+                      1
+                    ),
+                    _vm._v(" "),
+                    _c(
+                      "v-list-item",
+                      { attrs: { link: "", href: "/register" } },
+                      [
+                        _c(
+                          "v-list-item-content",
+                          [_c("v-list-item-title", [_vm._v("新規登録")])],
+                          1
+                        )
+                      ],
+                      1
+                    )
+                  ],
+                  1
+                )
+              ],
+              1
+            )
+          ],
+          1
+        ),
+        _vm._v(" "),
+        _c(
+          "v-app-bar",
+          { attrs: { app: "", color: _vm.defaultCSS.backgroundColor } },
+          [
+            _c("v-toolbar-title", [
+              _c("a", { staticClass: "link", attrs: { href: "/" } }, [
+                _vm._v("Shortcut Recipe")
+              ])
+            ]),
+            _vm._v(" "),
+            _c("v-spacer"),
+            _vm._v(" "),
+            _c("v-app-bar-nav-icon", {
+              on: {
+                click: function($event) {
+                  _vm.drawer = !_vm.drawer
+                }
+              }
+            })
+          ],
+          1
+        )
+      ],
+      1
+    ),
+    _vm._v(" "),
+    _c(
+      "div",
+      { staticClass: "hidden-sm-and-down" },
+      [
+        _c(
+          "v-app-bar",
+          { attrs: { app: "", color: _vm.defaultCSS.backgroundColor } },
+          [
+            _c("v-toolbar-title", [
+              _c("a", { staticClass: "link", attrs: { href: "/" } }, [
+                _vm._v("Shortcut Recipe")
+              ])
+            ]),
+            _vm._v(" "),
+            _c("v-spacer"),
+            _vm._v(" "),
+            _c(
+              "v-list",
+              { staticClass: "mt-8 font-weight-bold d-flex" },
+              [
+                _c(
+                  "v-list-item",
+                  { attrs: { link: "", href: "/recipeList" } },
+                  [
+                    _c(
+                      "v-list-item-content",
+                      [_c("v-list-item-title", [_vm._v("レシピ一覧")])],
+                      1
+                    )
+                  ],
+                  1
+                ),
+                _vm._v(" "),
+                _c(
+                  "v-list-item",
+                  { attrs: { link: "", href: "/login" } },
+                  [
+                    _c(
+                      "v-list-item-content",
+                      [_c("v-list-item-title", [_vm._v("ログイン")])],
+                      1
+                    )
+                  ],
+                  1
+                ),
+                _vm._v(" "),
+                _c(
+                  "v-list-item",
+                  { attrs: { link: "", href: "/register" } },
+                  [
+                    _c(
+                      "v-list-item-content",
+                      [_c("v-list-item-title", [_vm._v("新規登録")])],
+                      1
+                    )
+                  ],
+                  1
+                )
+              ],
+              1
+            )
+          ],
+          1
+        )
+      ],
+      1
+    )
+  ])
 }
 var staticRenderFns = []
 render._withStripped = true
@@ -40583,7 +40682,11 @@ var render = function() {
                             "\n                  パスワードを忘れた方\n              "
                           )
                         ]
-                      )
+                      ),
+                      _vm._v(" "),
+                      _c("a", { attrs: { href: "linelogin" } }, [
+                        _vm._v("LINEログイン")
+                      ])
                     ],
                     1
                   )
