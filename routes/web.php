@@ -40,3 +40,9 @@ Route::get('/editRecipe/{id}', 'RecipeController@editRecipeShow');
 Route::post('/editRecipe/{id}', 'RecipeController@editRecipe');
 Route::get('/recipeList', 'RecipeController@recipeListShow')->name('recipeListShow');
 Route::post('/deleteRecipe/{id}', 'RecipeController@deleteRecipe');
+
+// LINEの認証画面に遷移
+Route::get('auth/line', 'Auth\LineOAuthController@redirectToProvider')->name('line.login');
+// 認証後にリダイレクトされるURL(コールバックURL)
+Route::get('auth/line/callback', 'Auth\LineOAuthController@handleProviderCallback');
+

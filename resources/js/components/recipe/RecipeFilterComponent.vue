@@ -34,10 +34,19 @@
         multiple
         label="アプリ(複数選択可能)"
         >
-      </v-select>
-      </div>
-      </v-col>
-  </div>
+        </v-select>
+        <v-select
+          v-model="filter_data.filter_application"
+          :items="application_list"
+          item-text="application_name"
+          item-value="id"
+          multiple
+          label="アプリ(複数選択可能)"
+          >
+        </v-select>
+        </div>
+        </v-col>
+      </v-row>
 </template>
 <script>
 import validation_rule from '../../validation.js'
