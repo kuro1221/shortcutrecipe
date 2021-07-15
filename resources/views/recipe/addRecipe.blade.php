@@ -1,3 +1,4 @@
+@section('title', 'ショートカット投稿')
 @extends('layouts.app')
 
 @section('content')

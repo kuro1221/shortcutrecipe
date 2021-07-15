@@ -1,3 +1,4 @@
+@section('title', 'ショートカット編集')
 @extends('layouts.app')
 
 @section('content')

@@ -3003,20 +3003,38 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 
 Vue.component("paginate", vuejs_paginate__WEBPACK_IMPORTED_MODULE_0___default.a);
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: ["auth_user", "recipe_list"],
   components: {
-    'recipeModal': _recipe_RecipeModalComponent_vue__WEBPACK_IMPORTED_MODULE_1__["default"]
+    recipeModal: _recipe_RecipeModalComponent_vue__WEBPACK_IMPORTED_MODULE_1__["default"]
   },
   data: function data() {
     return {
       perPage: 9,
       //1ページあたりの表示商品数
       currentPage: 1,
-      recipeDetail: '',
+      recipeDetail: "",
       modalFlg: false
     };
   },
@@ -41576,9 +41594,9 @@ var render = function() {
                               { staticClass: "subtitle-1 font-weight-bold" },
                               [
                                 _vm._v(
-                                  "\n              " +
+                                  "\n                            " +
                                     _vm._s(recipe.recipe_name) +
-                                    "\n            "
+                                    "\n                        "
                                 )
                               ]
                             ),
@@ -41592,9 +41610,9 @@ var render = function() {
                               },
                               [
                                 _vm._v(
-                                  "\n              " +
+                                  "\n                            " +
                                     _vm._s(recipe.comment) +
-                                    "\n            "
+                                    "\n                        "
                                 )
                               ]
                             ),
