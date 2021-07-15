@@ -1,3 +1,5 @@
+@section('title', '退会画面')
+
 @extends('layouts.app')
 
 @section('content')
