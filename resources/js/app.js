@@ -3,10 +3,10 @@
  * includes Vue and other libraries. It is a great starting point when
  * building robust, powerful web applications using Vue and Laravel.
  */
-import Vuetify from 'vuetify';
-import 'vuetify/dist/vuetify.min.css';
-import 'material-design-icons-iconfont/dist/material-design-icons.css';
-import '@fortawesome/fontawesome-free/css/all.css'
+import Vuetify from "vuetify";
+import "vuetify/dist/vuetify.min.css";
+// import "material-design-icons-iconfont/dist/material-design-icons.css";
+// import '@fortawesome/fontawesome-free/css/all.css'
 
 require("./bootstrap");
 
@@ -75,27 +75,27 @@ Vue.component(
 );
 
 Vue.component(
-    'withdrawal-component',
+    "withdrawal-component",
     require("./components/user/WithdrawalComponent.vue").default
 );
 
 Vue.component(
-    'add-recipe-component',
+    "add-recipe-component",
     require("./components/recipe/AddRecipeComponent.vue").default
 );
 
 Vue.component(
-    'add-recipe-component',
+    "add-recipe-component",
     require("./components/recipe/AddRecipeComponent.vue").default
 );
 
 Vue.component(
-    'edit-recipe-component',
+    "edit-recipe-component",
     require("./components/recipe/EditRecipeComponent.vue").default
 );
 
 Vue.component(
-    'recipe-list-component',
+    "recipe-list-component",
     require("./components/recipe/RecipeListComponent.vue").default
 );
 /**
@@ -108,12 +108,10 @@ const app = new Vue({
     el: "#app",
     vuetify: new Vuetify({
         background: "#BFDCFA"
-    }),
+    })
 });
 
-
 // フラッシュメッセージのfadeout
-setTimeout(function () {
-    $('.js-flash').fadeOut();
+setTimeout(function() {
+    $(".js-flash").fadeOut();
 }, 3000);
-
