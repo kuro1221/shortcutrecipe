@@ -1,24 +1,21 @@
 <?php
 
-namespace Tests\Unit;
+namespace Tests\Feature;
 
-use Tests\TestCase;
 use Illuminate\Foundation\Testing\RefreshDatabase;
+use Tests\TestCase;
 
 class ExampleTest extends TestCase
 {
     use RefreshDatabase;
+
     public function setUp(): void
     {
         dd(env('APP_ENV'), env('DB_DATABASE'), env('DB_CONNECTION'));
     }
-    /**
-     * A basic test example.
-     *
-     * @return void
-     */
-    // public function testBasicTest()
-    // {
-    //     $this->assertTrue(true);
-    // }
+
+    public function testDB()
+    {
+        dd(env('APP_ENV'), env('DB_DATABASE'), env('DB_CONNECTION'));
+    }
 }
