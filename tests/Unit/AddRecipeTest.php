@@ -37,7 +37,6 @@ class AddRecipeTest extends TestCase
      */
     public function testRecipeAdd(array $keys, array $values, bool $expect)
     {
-        // dd($keys);
         $dataList = array_combine($keys, $values);
 
         $request = new AddRecipeRequest();
@@ -52,14 +51,40 @@ class AddRecipeTest extends TestCase
         return [
             'OK' => [
                 ['recipe_name', 'iCloud_link', 'comment'],
-                ['testaaaaaaaaaaaa', 'http:test.com', 'test1'],
+                [str_repeat('a', 20), 'http://example.com', 'test1'],
                 true
             ],
-            'false' => [
+            'recipi_name空エラー' => [
                 ['recipe_name', 'iCloud_link', 'comment'],
-                ['testaaaaaaaaaaaaaaaaaaa', 'http:test.com', 'test1'],
+                ['', 'http://example.com', 'test1'],
                 false
-            ]
+            ],
+
+            'recipi_name最大文字数エラー' => [
+                ['recipe_name', 'iCloud_link', 'comment'],
+                [str_repeat('a', 21), 'http://example.com', 'test1'],
+                false
+            ],
+            'iCloud_link最大文字数エラー' => [
+                ['recipe_name', 'iCloud_link', 'comment'],
+                [str_repeat('a', 20), '', 'test1'],
+                false
+            ],
+            'iCloud_link最大文字数エラー' => [
+                ['recipe_name', 'iCloud_link', 'comment'],
+                [str_repeat('a', 20), 'http://example.com' . str_repeat('a', 133), 'test1'],
+                false
+            ],
+            'comment空OK' => [
+                ['recipe_name', 'iCloud_link', 'comment'],
+                [str_repeat('a', 20), 'http://example.com', ''],
+                true
+            ],
+            'comment最大文字数エラー' => [
+                ['recipe_name', 'iCloud_link', 'comment'],
+                [str_repeat('a', 20), 'http://example.com', str_repeat('a', 251)],
+                false
+            ],
         ];
     }
 }
