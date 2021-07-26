@@ -11,6 +11,8 @@ use Illuminate\Support\Facades\Log;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Validator;
+use App\Http\Requests\AddRecipeRequest;
+use Illuminate\Foundation\Http\FormRequest;
 
 class RecipeController extends Controller
 {
@@ -24,9 +26,9 @@ class RecipeController extends Controller
         return view('recipe.addRecipe');
     }
 
-    public function addRecipe(Request $request)
+    public function addRecipe(AddRecipeRequest $request)
     {
-        $this->validator($request->all())->validate();
+        // $this->validator($request->all())->validate();
         $recipe = new Recipe;
         $recipe->fill($request->all());
         $recipe->user_id = Auth::id();
@@ -72,8 +74,6 @@ class RecipeController extends Controller
             return redirect()->action('RecipeController@recipeListShow')->with('flash_message', '不正な値が入力されました');
         $recipe = Recipe::find($id);
         $user_id = Auth::id();
-        log::debug($recipe);
-        log::debug($user_id);
         //レシピが存在しない、またはログインユーザーがレシピの作成者ではない、またはレシピが削除されている場合は不正とみなす
         if (!$recipe || $recipe->user_id !== $user_id  || $recipe->delete_flg !== 0)
             return redirect()->action('RecipeController@recipeListShow')->with('flash_message', '不正な値が入力されました');
@@ -88,7 +88,6 @@ class RecipeController extends Controller
             'recipe.editRecipe',
             ['recipe' => $recipe, 'select_application' => $select_application, 'select_situation' => $select_situation, 'select_product' => $select_product]
         );
-        session()->flash('flash_message', '編集しました');
     }
 
     public function editRecipe($id, Request $request)
@@ -163,7 +162,6 @@ class RecipeController extends Controller
 
     public function deleteRecipe($recipe_id)
     {
-        log::debug($recipe_id);
         //数値以外が入力された場合、不正な入力とみなす
         if (!is_numeric($recipe_id))
             return redirect()->action('RecipeController@recipeListShow')->with('flash_message', '不正な値が入力されました');
