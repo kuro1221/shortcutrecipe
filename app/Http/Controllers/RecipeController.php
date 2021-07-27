@@ -28,7 +28,6 @@ class RecipeController extends Controller
 
     public function addRecipe(AddRecipeRequest $request)
     {
-        // $this->validator($request->all())->validate();
         $recipe = new Recipe;
         $recipe->fill($request->all());
         $recipe->user_id = Auth::id();
