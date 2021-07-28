@@ -8,7 +8,17 @@ use Illuminate\Foundation\Testing\RefreshDatabase;
 class ExampleTest extends TestCase
 {
     use RefreshDatabase;
-    public function setUp(): void
+
+
+    public function setup(): void
+    {
+        parent::setUp();
+        $this->seed('UsersTableSeeder');
+        $this->seed('ProductsTableSeeder');
+    }
+
+
+    public function test()
     {
         dd(env('APP_ENV'), env('DB_DATABASE'), env('DB_CONNECTION'));
     }
