@@ -12,7 +12,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Validator;
 use App\Http\Requests\AddRecipeRequest;
-use Illuminate\Foundation\Http\FormRequest;
+use App\Http\Requests\EditRecipeRequest;
 
 class RecipeController extends Controller
 {
@@ -89,7 +89,7 @@ class RecipeController extends Controller
         );
     }
 
-    public function editRecipe($id, Request $request)
+    public function editRecipe($id, EditRecipeRequest $request)
     {
         //数値以外が入力された場合、不正な入力とみなす
         if (!is_numeric($id))
