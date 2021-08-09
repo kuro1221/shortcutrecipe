@@ -28,52 +28,20 @@ class RecipeController extends Controller
         return view('recipe.addRecipe');
     }
 
-    public function addRecipe(AddRecipeRequest $request)
+    /**
+     *  [POST]レシピ追加処理
+     */
+    public function addRecipe(Request $request)
     {
         $recipe = new Recipe;
-        log::debug(print_r($request->select_application, true));
         DB::transaction(function () use ($recipe, $request) {
             $recipe->fill($request->all());
             $recipe->user_id = Auth::id();
             $recipe->save();
-            Log::debug(print_r($recipe, true));
             $recipe->applications()->sync($request->select_application);
+            $recipe->products()->sync($request->select_product);
         });
-        // $recipe->fill($request->all());
-        // $recipe->user_id = Auth::id();
-        // $recipe->save();
-
-        // //以下は選択したアプリや製品、状況を複数追加するための処理
-        // if ($request->select_application) $this->addLoop($request->select_application, "application", $recipe->id);
-        // if ($request->select_product) $this->addLoop($request->select_product, "product", $recipe->id);
-        // if ($request->select_situation) $this->addLoop($request->select_situation, "situation", $recipe->id);
-        // session()->flash('flash_message', '登録しました');
-    }
-
-    //選択したアプリや製品、状況を複数追加するための処理
-    public function addLoop($datas, $type, $recipe_id)
-    {
-        // log::debug($applications);
-        foreach ($datas as $data) {
-            if ($data) {
-                switch ($type) {
-                    case "application":
-                        $select_data = new RecipesRelationApplication;
-                        $select_data->application_id = $data;
-                        break;
-                    case "situation":
-                        $select_data = new RecipesRelationSituation;
-                        $select_data->situation_id = $data;
-                        break;
-                    case "product":
-                        $select_data = new RecipesRelationProduct;
-                        $select_data->product_id = $data;
-                        break;
-                }
-                $select_data->recipe_id = $recipe_id;
-                $select_data->save();
-            }
-        }
+        session()->flash('flash_message', '登録しました');
     }
 
     public function editRecipeShow($recipe_id)

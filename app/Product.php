@@ -9,8 +9,12 @@ class Product extends Model
     //
     protected $fillable = ['product_name', 'delete_flg'];
 
-    public function RecipeRelationProduct()
+    // public function RecipeRelationProduct()
+    // {
+    //     return $this->belongsTo('App\RecipesRelationProduct');
+    // }
+    public function recipes()
     {
-        return $this->belongsTo('App\RecipesRelationProduct');
+        return $this->belongsToMany('App\Recipe', 'recipes_relation_products')->withTimestamps();
     }
 }
