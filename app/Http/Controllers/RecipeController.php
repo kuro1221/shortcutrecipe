@@ -14,6 +14,7 @@ use Illuminate\Support\Facades\Validator;
 use App\Http\Requests\AddRecipeRequest;
 use App\Http\Requests\EditRecipeRequest;
 use App\Recipe\UseCase\ParamNumericCheckUseCase;
+use Illuminate\Support\Facades\DB;
 
 class RecipeController extends Controller
 {
@@ -30,15 +31,23 @@ class RecipeController extends Controller
     public function addRecipe(AddRecipeRequest $request)
     {
         $recipe = new Recipe;
-        $recipe->fill($request->all());
-        $recipe->user_id = Auth::id();
-        $recipe->save();
+        log::debug(print_r($request->select_application, true));
+        DB::transaction(function () use ($recipe, $request) {
+            $recipe->fill($request->all());
+            $recipe->user_id = Auth::id();
+            $recipe->save();
+            Log::debug(print_r($recipe, true));
+            $recipe->applications()->sync($request->select_application);
+        });
+        // $recipe->fill($request->all());
+        // $recipe->user_id = Auth::id();
+        // $recipe->save();
 
-        //以下は選択したアプリや製品、状況を複数追加するための処理
-        if ($request->select_application) $this->addLoop($request->select_application, "application", $recipe->id);
-        if ($request->select_product) $this->addLoop($request->select_product, "product", $recipe->id);
-        if ($request->select_situation) $this->addLoop($request->select_situation, "situation", $recipe->id);
-        session()->flash('flash_message', '登録しました');
+        // //以下は選択したアプリや製品、状況を複数追加するための処理
+        // if ($request->select_application) $this->addLoop($request->select_application, "application", $recipe->id);
+        // if ($request->select_product) $this->addLoop($request->select_product, "product", $recipe->id);
+        // if ($request->select_situation) $this->addLoop($request->select_situation, "situation", $recipe->id);
+        // session()->flash('flash_message', '登録しました');
     }
 
     //選択したアプリや製品、状況を複数追加するための処理
@@ -188,16 +197,15 @@ class RecipeController extends Controller
         $recipes = Recipe::select('recipes.*', 'users.id as user_id', 'users.name', 'users.img')
             ->join('users', 'recipes.user_id', '=', 'users.id')
             ->where('recipes.delete_flg', false)->get();
-        // $recipes = Recipe::where("delete_flg", false)->get();
-        $select_products = RecipesRelationProduct::select()
-            ->join('products', 'recipes_relation_products.product_id', '=', 'products.id')
-            ->get();
-        $select_applications = RecipesRelationApplication::select()
-            ->join('applications', 'recipes_relation_applications.application_id', '=', 'applications.id')
-            ->get();
+        // $select_products = RecipesRelationProduct::select()
+        //     ->join('products', 'recipes_relation_products.product_id', '=', 'products.id')
+        //     ->get();
+        // $select_applications = RecipesRelationApplication::select()
+        //     ->join('applications', 'recipes_relation_applications.application_id', '=', 'applications.id')
+        //     ->get();
 
-        $this->relationStoring($recipes, $select_products, "select_products");
-        $this->relationStoring($recipes, $select_applications, "select_applications");
+        // $this->relationStoring($recipes, $select_products, "select_products");
+        // $this->relationStoring($recipes, $select_applications, "select_applications");
         return view('recipe.recipeList', ['recipes' => $recipes, 'user' => $user]);
     }
 
