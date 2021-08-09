@@ -13,6 +13,7 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Validator;
 use App\Http\Requests\AddRecipeRequest;
 use App\Http\Requests\EditRecipeRequest;
+use App\Recipe\UseCase\ParamNumericCheckUseCase;
 
 class RecipeController extends Controller
 {
@@ -66,22 +67,26 @@ class RecipeController extends Controller
         }
     }
 
-    public function editRecipeShow($id)
+    public function editRecipeShow($recipe_id)
     {
-        //数値以外が入力された場合、不正な入力とみなす
-        if (!is_numeric($id))
-            return redirect()->action('RecipeController@recipeListShow')->with('flash_message', '不正な値が入力されました');
-        $recipe = Recipe::find($id);
+        // //数値以外が入力された場合、不正な入力とみなす
+        // if (!is_numeric($recipe_id))
+        //     return redirect()->action('RecipeController@recipeListShow')->with('flash_message', '不正な値が入力されました');
+        $useCase = new ParamNumericCheckUseCase();
+        if ($useCase)
+            return $useCase->handle($recipe_id);
+        (new ParamNumericCheckUseCase())->handle($recipe_id);
+        $recipe = Recipe::find($recipe_id);
         $user_id = Auth::id();
-        //レシピが存在しない、またはログインユーザーがレシピの作成者ではない、またはレシピが削除されている場合は不正とみなす
-        if (!$recipe || $recipe->user_id !== $user_id  || $recipe->delete_flg !== 0)
-            return redirect()->action('RecipeController@recipeListShow')->with('flash_message', '不正な値が入力されました');
+        // //レシピが存在しない、またはログインユーザーがレシピの作成者ではない、またはレシピが削除されている場合は不正とみなす
+        // if (!$recipe || $recipe->user_id !== $user_id  || $recipe->delete_flg !== 0)
+        //     return redirect()->action('RecipeController@recipeListShow')->with('flash_message', '不正な値が入力されました');
 
-        $select_application = RecipesRelationApplication::where("recipe_id", $id)
+        $select_application = RecipesRelationApplication::where("recipe_id", $recipe_id)
             ->get();
-        $select_product = RecipesRelationProduct::where("recipe_id", $id)
+        $select_product = RecipesRelationProduct::where("recipe_id", $recipe_id)
             ->get();
-        $select_situation = RecipesRelationSituation::where("recipe_id", $id)
+        $select_situation = RecipesRelationSituation::where("recipe_id", $recipe_id)
             ->get();
         return view(
             'recipe.editRecipe',

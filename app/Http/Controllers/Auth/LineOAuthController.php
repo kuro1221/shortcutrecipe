@@ -18,7 +18,8 @@ class LineOAuthController extends Controller
     private $client_secret;
     private $callback_url;
 
-    public function __construct() {
+    public function __construct()
+    {
         $this->client_id = Config('line.client_id');
         $this->client_secret = Config('line.client_secret');
         $this->callback_url = Config('line.callback_url');
@@ -59,13 +60,14 @@ class LineOAuthController extends Controller
         $base_uri = ['base_uri' => self::LINE_PROFILE_API_URI];
         $method = 'GET';
         $path = 'profile';
-        $headers = ['headers' =>
+        $headers = [
+            'headers' =>
             [
                 'Authorization' => 'Bearer ' . $access_token
             ]
         ];
         $user_info = $this->sendRequest($base_uri, $method, $path, $headers);
-        Log::debug(print_r($user_info,true));
+        Log::debug(print_r($user_info, true));
         return $user_info;
     }
 
@@ -76,12 +78,14 @@ class LineOAuthController extends Controller
         $base_uri = ['base_uri' => self::LINE_TOKEN_API_URI];
         $method = 'POST';
         $path = 'token';
-        $headers = ['headers' => 
+        $headers = [
+            'headers' =>
             [
                 'Content-Type' => 'application/x-www-form-urlencoded'
             ]
         ];
-        $form_params = ['form_params' => 
+        $form_params = [
+            'form_params' =>
             [
                 'code'          => $code,
                 'client_id' => $this->client_id,
@@ -104,7 +108,7 @@ class LineOAuthController extends Controller
             } else {
                 $response = $client->request($method, $path, $headers);
             }
-        } catch(\Exception $ex) {
+        } catch (\Exception $ex) {
             //　例外処理
         }
         $result_json = $response->getbody()->getcontents();
