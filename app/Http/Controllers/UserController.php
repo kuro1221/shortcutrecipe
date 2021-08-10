@@ -27,7 +27,7 @@ class UserController extends Controller
         if (!$user || $user->delete_flg !== 0)
             return redirect()->action('RecipeController@recipeListShow')->with('flash_message', '不正な値が入力されました');
 
-        Auth::user() ? $login_user = AUth::user() : $login_user = new User;
+        Auth::user() ? $login_user = Auth::user() : $login_user = new User;
 
         $recipes = Recipe::select('recipes.*', 'users.id as user_id', 'users.name', 'users.img')
             ->join('users', 'recipes.user_id', '=', 'users.id')

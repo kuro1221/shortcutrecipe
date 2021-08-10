@@ -61,7 +61,7 @@
 <script>
 import validation_rule from '../../validation'
 export default {
-  props: ['props_recipe','props_select_application','props_select_product','props_select_situation','application_list', 'product_list', 'situation_list'],
+  props: ['props_recipe','props_select_application','props_select_product','application_list', 'product_list', 'situation_list'],
   data: function() {
     return {
       rule: validation_rule,
@@ -74,15 +74,11 @@ export default {
       this.recipe = this.props_recipe
       this.recipe.select_application = [];
       this.recipe.select_product = [];
-      this.recipe.select_situation = [];
       for(let i =0; i<this.props_select_product.length;i++) {
-        this.recipe.select_product.push(this.props_select_product[i].product_id);
+        this.recipe.select_product.push(this.props_select_product[i].id);
       }
       for(let i =0; i<this.props_select_application.length;i++) {
-        this.recipe.select_application.push(this.props_select_application[i].application_id);
-      }
-      for(let i =0; i<this.props_select_situation.length;i++) {
-        this.recipe.select_situation.push(this.props_select_situation[i].situation_id);
+        this.recipe.select_application.push(this.props_select_application[i].id);
       }
   },
   methods: {

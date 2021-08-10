@@ -44,6 +44,10 @@ class RecipeController extends Controller
         session()->flash('flash_message', '登録しました');
     }
 
+    /**
+     *  [POST]レシピ編集画面表示
+     *  @param int $recipe_id
+     */
     public function editRecipeShow($recipe_id)
     {
         // //数値以外が入力された場合、不正な入力とみなす
@@ -59,20 +63,14 @@ class RecipeController extends Controller
         if (!$recipe || $recipe->user_id !== $user_id  || $recipe->delete_flg !== 0)
             return redirect()->action('RecipeController@recipeListShow')->with('flash_message', '不正な値が入力されました');
 
-        $select_application = RecipesRelationApplication::where("recipe_id", $recipe_id)
-            ->get();
-        $select_product = RecipesRelationProduct::where("recipe_id", $recipe_id)
-            ->get();
-        $select_situation = RecipesRelationSituation::where("recipe_id", $recipe_id)
-            ->get();
         return view(
             'recipe.editRecipe',
-            ['recipe' => $recipe, 'select_application' => $select_application, 'select_situation' => $select_situation, 'select_product' => $select_product]
+            ['recipe' => $recipe, 'select_application' => $recipe->applications, 'select_product' => $recipe->products]
         );
     }
 
     /**
-     *  [POST]レシピ追加処理
+     *  [POST]レシピ編集処理
      *  @param int $id
      */
     public function editRecipe($id, EditRecipeRequest $request)
@@ -121,15 +119,15 @@ class RecipeController extends Controller
         $recipes = Recipe::select('recipes.*', 'users.id as user_id', 'users.name', 'users.img')
             ->join('users', 'recipes.user_id', '=', 'users.id')
             ->where('recipes.delete_flg', false)->get();
-        // $select_products = RecipesRelationProduct::select()
-        //     ->join('products', 'recipes_relation_products.product_id', '=', 'products.id')
-        //     ->get();
-        // $select_applications = RecipesRelationApplication::select()
-        //     ->join('applications', 'recipes_relation_applications.application_id', '=', 'applications.id')
-        //     ->get();
+        $select_products = RecipesRelationProduct::select()
+            ->join('products', 'recipes_relation_products.product_id', '=', 'products.id')
+            ->get();
+        $select_applications = RecipesRelationApplication::select()
+            ->join('applications', 'recipes_relation_applications.application_id', '=', 'applications.id')
+            ->get();
 
-        // $this->relationStoring($recipes, $select_products, "select_products");
-        // $this->relationStoring($recipes, $select_applications, "select_applications");
+        $this->relationStoring($recipes, $select_products, "select_products");
+        $this->relationStoring($recipes, $select_applications, "select_applications");
         return view('recipe.recipeList', ['recipes' => $recipes, 'user' => $user]);
     }
 

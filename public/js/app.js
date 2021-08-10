@@ -2700,7 +2700,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 
 /* harmony default export */ __webpack_exports__["default"] = ({
-  props: ['props_recipe', 'props_select_application', 'props_select_product', 'props_select_situation', 'application_list', 'product_list', 'situation_list'],
+  props: ['props_recipe', 'props_select_application', 'props_select_product', 'application_list', 'product_list', 'situation_list'],
   data: function data() {
     return {
       rule: _validation__WEBPACK_IMPORTED_MODULE_0__["default"],
@@ -2712,18 +2712,13 @@ __webpack_require__.r(__webpack_exports__);
     this.recipe = this.props_recipe;
     this.recipe.select_application = [];
     this.recipe.select_product = [];
-    this.recipe.select_situation = [];
 
     for (var i = 0; i < this.props_select_product.length; i++) {
-      this.recipe.select_product.push(this.props_select_product[i].product_id);
+      this.recipe.select_product.push(this.props_select_product[i].id);
     }
 
     for (var _i = 0; _i < this.props_select_application.length; _i++) {
-      this.recipe.select_application.push(this.props_select_application[_i].application_id);
-    }
-
-    for (var _i2 = 0; _i2 < this.props_select_situation.length; _i2++) {
-      this.recipe.select_situation.push(this.props_select_situation[_i2].situation_id);
+      this.recipe.select_application.push(this.props_select_application[_i].id);
     }
   },
   methods: {
