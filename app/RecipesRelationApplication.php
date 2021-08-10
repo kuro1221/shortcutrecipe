@@ -4,8 +4,9 @@ namespace App;
 
 use App\Application;
 use Illuminate\Database\Eloquent\Relations\Pivot;
+use Illuminate\Database\Eloquent\Model;
 
-class RecipesRelationApplication extends Pivot
+class RecipesRelationApplication extends Model
 {
 
     public $incrementing = true;

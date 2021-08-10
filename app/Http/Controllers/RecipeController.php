@@ -47,17 +47,17 @@ class RecipeController extends Controller
     public function editRecipeShow($recipe_id)
     {
         // //数値以外が入力された場合、不正な入力とみなす
-        // if (!is_numeric($recipe_id))
-        //     return redirect()->action('RecipeController@recipeListShow')->with('flash_message', '不正な値が入力されました');
-        $useCase = new ParamNumericCheckUseCase();
-        if ($useCase)
-            return $useCase->handle($recipe_id);
-        (new ParamNumericCheckUseCase())->handle($recipe_id);
+        if (!is_numeric($recipe_id))
+            return redirect()->action('RecipeController@recipeListShow')->with('flash_message', '不正な値が入力されました');
+        // $useCase = new ParamNumericCheckUseCase();
+        // if ($useCase)
+        //     return $useCase->handle($recipe_id);
+        // (new ParamNumericCheckUseCase())->handle($recipe_id);
         $recipe = Recipe::find($recipe_id);
         $user_id = Auth::id();
         // //レシピが存在しない、またはログインユーザーがレシピの作成者ではない、またはレシピが削除されている場合は不正とみなす
-        // if (!$recipe || $recipe->user_id !== $user_id  || $recipe->delete_flg !== 0)
-        //     return redirect()->action('RecipeController@recipeListShow')->with('flash_message', '不正な値が入力されました');
+        if (!$recipe || $recipe->user_id !== $user_id  || $recipe->delete_flg !== 0)
+            return redirect()->action('RecipeController@recipeListShow')->with('flash_message', '不正な値が入力されました');
 
         $select_application = RecipesRelationApplication::where("recipe_id", $recipe_id)
             ->get();
@@ -71,6 +71,10 @@ class RecipeController extends Controller
         );
     }
 
+    /**
+     *  [POST]レシピ追加処理
+     *  @param int $id
+     */
     public function editRecipe($id, EditRecipeRequest $request)
     {
         //数値以外が入力された場合、不正な入力とみなす
@@ -83,63 +87,15 @@ class RecipeController extends Controller
             return redirect()->action('RecipeController@recipeListShow')->with('flash_message', '不正な値が入力されました');
         $this->validator($request->all())->validate();
 
-        $recipe->fill($request->all());
-        $recipe->save();
-        $old_select_application = RecipesRelationApplication::where("recipe_id", $id)
-            ->get();
-        $old_select_product = RecipesRelationProduct::where("recipe_id", $id)
-            ->get();
-        $old_select_situation = RecipesRelationSituation::where("recipe_id", $id)
-            ->get();
-
-        //以下は選択したアプリや製品、状況を編集するための処理
-        $this->editLoop($request->select_product, $old_select_product, "product", "product_id", $recipe->id);
-        $this->editLoop($request->select_application, $old_select_application, "application", "application_id", $recipe->id);
-        $this->editLoop($request->select_situation, $old_select_situation, "situation", "situation_id", $recipe->id);
+        DB::transaction(function () use ($recipe, $request) {
+            $recipe->fill($request->all());
+            $recipe->user_id = Auth::id();
+            $recipe->save();
+            $recipe->applications()->sync($request->select_application);
+            $recipe->products()->sync($request->select_product);
+        });
         session()->flash('flash_message', '編集しました');
     }
-
-    //選択したアプリや製品、状況を編集するための処理
-    public function editLoop($datas, $old_select_datas, $type, $type_id, $recipe_id)
-    {
-        //選んだデータがなければ以前選択したデータは全て削除
-        if (!$datas) {
-            foreach ($old_select_datas as $old_select_data) {
-                $old_select_data->delete();
-            }
-        }
-
-        foreach ($datas as $data) {
-            $match_flg = false;
-            foreach ($old_select_datas as $old_select_data) {
-                if (!in_array($old_select_data[$type_id], $datas)) { //今回選択されていないデータは削除
-                    $old_select_data->delete();
-                }
-                if ($data === $old_select_data[$type_id]) {
-                    $match_flg = true;
-                }
-            }
-            if (!$match_flg) { //新たに選択されたデータを追加
-                switch ($type) {
-                    case "application":
-                        $new_select_data = new RecipesRelationApplication;
-                        $new_select_data->application_id = $data;
-                        break;
-                    case "situation":
-                        $new_select_data = new RecipesRelationSituation;
-                        $new_select_data->situation_id = $data;
-                        break;
-                    case "product":
-                        $new_select_data = new RecipesRelationProduct;
-                        $new_select_data->product_id = $data;
-                        break;
-                }
-                $new_select_data->recipe_id = $recipe_id;
-                $new_select_data->save();
-            }
-        }
-    }
-
 
     public function deleteRecipe($recipe_id)
     {
