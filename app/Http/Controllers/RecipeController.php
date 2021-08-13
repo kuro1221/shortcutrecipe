@@ -14,6 +14,7 @@ use Illuminate\Support\Facades\Validator;
 use App\Http\Requests\AddRecipeRequest;
 use App\Http\Requests\EditRecipeRequest;
 use App\Recipe\UseCase\ParamNumericCheckUseCase;
+use App\Recipe\UseCase\AddRecipeUseCase;
 use Illuminate\Support\Facades\DB;
 
 class RecipeController extends Controller
@@ -26,6 +27,7 @@ class RecipeController extends Controller
     public function addRecipeShow()
     {
         return view('recipe.addRecipe');
+        session()->flash('flash_message', '登録しました');
     }
 
     /**
@@ -33,14 +35,8 @@ class RecipeController extends Controller
      */
     public function addRecipe(Request $request)
     {
-        $recipe = new Recipe;
-        DB::transaction(function () use ($recipe, $request) {
-            $recipe->fill($request->all());
-            $recipe->user_id = Auth::id();
-            $recipe->save();
-            $recipe->applications()->sync($request->select_application);
-            $recipe->products()->sync($request->select_product);
-        });
+        $addRecipeUseCase = new AddRecipeUseCase();
+        $addRecipeUseCase->handle($request);
         session()->flash('flash_message', '登録しました');
     }
 
@@ -126,8 +122,11 @@ class RecipeController extends Controller
             ->join('applications', 'recipes_relation_applications.application_id', '=', 'applications.id')
             ->get();
 
+
         $this->relationStoring($recipes, $select_products, "select_products");
         $this->relationStoring($recipes, $select_applications, "select_applications");
+        // log::debug(print_r($recipes[15], true));
+        log::debug(print_r($recipes[15]->applications, true));
         return view('recipe.recipeList', ['recipes' => $recipes, 'user' => $user]);
     }
 
