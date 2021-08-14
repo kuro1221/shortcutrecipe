@@ -119,11 +119,9 @@ class RecipeController extends Controller
             ->join('applications', 'recipes_relation_applications.application_id', '=', 'applications.id')
             ->get();
 
-
         $this->relationStoring($recipes, $select_products, "select_products");
         $this->relationStoring($recipes, $select_applications, "select_applications");
-        // log::debug(print_r($recipes[15], true));
-        // log::debug(print_r($recipes[15]->applications, true));
+
         return view('recipe.recipeList', ['recipes' => $recipes, 'user' => $user]);
     }
 

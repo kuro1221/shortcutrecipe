@@ -3031,10 +3031,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
         if (_this.search.length > 0) {
-          if (!(recipe.recipe_name.match(_this.search) || recipe.comment && recipe.comment.match(_this.search) || _this.filterSelection(_this.search, recipe.select_products, "product_name") || _this.filterSelection(_this.search, recipe.select_applications, "application_name") // this.filterSelection(this.search,recipe.select_situations,"situation_name")
-          // this.includeSearch(recipe.select_products,"product_name",this.search) ||
-          // this.includeSearch(recipe.select_applications,"application_name",this.search) ||
-          )) {
+          if (!(recipe.recipe_name.match(_this.search) || recipe.comment && recipe.comment.match(_this.search) || _this.filterSelection(_this.search, recipe.select_products, "product_name") || _this.filterSelection(_this.search, recipe.select_applications, "application_name"))) {
             isShow = false;
           }
         }
@@ -3087,6 +3084,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+//
 //
 //
 //
@@ -41561,7 +41559,7 @@ var render = function() {
       _c(
         "v-dialog",
         {
-          attrs: { "min-width": "350", height: "250" },
+          attrs: { "min-width": "350", "max-width": "600", height: "250" },
           model: {
             value: _vm.modalFlg,
             callback: function($$v) {

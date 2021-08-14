@@ -3,6 +3,7 @@
     <v-dialog
       v-model="modalFlg"
       min-width="350"
+      max-width="600"
       height="250"
     >
       <v-card class="pa-2">
