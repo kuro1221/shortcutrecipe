@@ -64,9 +64,6 @@ export default {
           (recipe.comment && recipe.comment.match(this.search)) ||
             this.filterSelection(this.search,recipe.select_products,"product_name") ||
             this.filterSelection(this.search,recipe.select_applications,"application_name")
-            // this.filterSelection(this.search,recipe.select_situations,"situation_name")
-            // this.includeSearch(recipe.select_products,"product_name",this.search) ||
-            // this.includeSearch(recipe.select_applications,"application_name",this.search) ||
           )){
             isShow = false;
           }
