@@ -2985,7 +2985,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
-  props: ["auth_user", "recipes", "application_list", "product_list", "situation_list"],
+  props: ["auth_user", "recipes", "application_list", "product_list"],
   components: {
     'recipe-filter': _recipe_RecipeFilterComponent_vue__WEBPACK_IMPORTED_MODULE_1__["default"],
     'recipe': _recipe_RecipeComponent_vue__WEBPACK_IMPORTED_MODULE_2__["default"]
@@ -2995,8 +2995,7 @@ __webpack_require__.r(__webpack_exports__);
       defaultCSS: _default_js__WEBPACK_IMPORTED_MODULE_0__["default"],
       filter_data: {
         filter_application: [],
-        filter_product: [],
-        filter_situation: []
+        filter_product: []
       },
       search: '',
       sort_order: 1,
@@ -3012,26 +3011,20 @@ __webpack_require__.r(__webpack_exports__);
         var isShow = true; //選択結果からフィルタリング
 
         if (_this.filter_data.filter_product.length > 0) {
-          if (!_this.filterSelection(_this.filter_data.filter_product, recipe.select_products, "product_id")) {
-            isShow = false;
-          }
-        }
-
-        if (_this.filter_data.filter_situation.length > 0) {
-          if (!_this.filterSelection(_this.filter_data.filter_situation, recipe.select_situations, "situation_id")) {
+          if (!_this.filterSelection(_this.filter_data.filter_product, recipe.products, "id")) {
             isShow = false;
           }
         }
 
         if (_this.filter_data.filter_application.length > 0) {
-          if (!_this.filterSelection(_this.filter_data.filter_application, recipe.select_applications, "application_id")) {
+          if (!_this.filterSelection(_this.filter_data.filter_application, recipe.applications, "id")) {
             isShow = false;
           }
         } //検索値からフィルタリング
 
 
         if (_this.search.length > 0) {
-          if (!(recipe.recipe_name.match(_this.search) || recipe.comment && recipe.comment.match(_this.search) || _this.filterSelection(_this.search, recipe.select_products, "product_name") || _this.filterSelection(_this.search, recipe.select_applications, "application_name"))) {
+          if (!(recipe.recipe_name.match(_this.search) || recipe.comment && recipe.comment.match(_this.search) || _this.filterSelection(_this.search, recipe.products, "product_name") || _this.filterSelection(_this.search, recipe.applications, "application_name"))) {
             isShow = false;
           }
         }
@@ -3059,15 +3052,9 @@ __webpack_require__.r(__webpack_exports__);
   },
   methods: {
     filterSelection: function filterSelection(filters, selections, type) {
-      console.log("filterしたやつ:" + filters); //[0,1,2]みたいな形で選択した製品IDが送られる
-
-      console.log(selections); //レシピの選択した製品ID [product_id:1,product_id:2]みたいな感じ？
-
       var result = selections.find(function (selection) {
-        console.log("index結果" + filters.indexOf(selection[type]));
         return filters.includes(selection[type]);
       });
-      console.log(result);
       if (result && result.id) return result;
     }
   }
@@ -41495,8 +41482,7 @@ var render = function() {
                       search: _vm.search,
                       sort_order: _vm.sort_order,
                       application_list: _vm.application_list,
-                      product_list: _vm.product_list,
-                      situation_list: _vm.situation_list
+                      product_list: _vm.product_list
                     },
                     on: {
                       "update:filter_data": function($event) {
@@ -41665,7 +41651,7 @@ var render = function() {
                       [_vm._v(_vm._s(_vm.recipe.comment))]
                     ),
                     _vm._v(" "),
-                    _vm._l(_vm.recipe.select_products, function(
+                    _vm._l(_vm.recipe.products, function(
                       select_product,
                       key,
                       index
@@ -41685,7 +41671,7 @@ var render = function() {
                       )
                     }),
                     _vm._v(" "),
-                    _vm._l(_vm.recipe.select_applications, function(
+                    _vm._l(_vm.recipe.applications, function(
                       select_applications,
                       key,
                       index
