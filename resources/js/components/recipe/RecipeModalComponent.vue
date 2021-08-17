@@ -34,7 +34,7 @@
             color="primary"
             outlined
             pill
-            v-for="(select_product,key,index) in recipe.select_products"
+            v-for="(select_product,key,index) in recipe.products"
             :key="index"
           >{{ select_product.product_name }}
           </v-chip>
@@ -43,7 +43,7 @@
             color="primary"
             outlined
             pill
-            v-for="(select_applications,key,index) in recipe.select_applications"
+            v-for="(select_applications,key,index) in recipe.applications"
             :key="index"
           >{{ select_applications.application_name }}
           </v-chip>

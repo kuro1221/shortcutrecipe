@@ -28,7 +28,6 @@ class RecipeController extends Controller
     public function addRecipeShow()
     {
         return view('recipe.addRecipe');
-        session()->flash('flash_message', '登録しました');
     }
 
     /**
@@ -108,19 +107,21 @@ class RecipeController extends Controller
     {
         //ログイン中ではないユーザーでも閲覧できるように、$user変数に空のUserインスタンスを格納
         Auth::user() ? $user = AUth::user() : $user = new User;
+        $recipes = Recipe::with(['products', 'applications'])->where('recipes.delete_flg', false)->get();
+        // $recipes = Recipe::select('recipes.*', 'users.id as user_id', 'users.name', 'users.img')
+        //     ->join('users', 'recipes.user_id', '=', 'users.id')
+        //     ->where('recipes.delete_flg', false)->get();
+        // $select_products = RecipesRelationProduct::select()
+        //     ->join('products', 'recipes_relation_products.product_id', '=', 'products.id')
+        //     ->get();
+        // $select_applications = RecipesRelationApplication::select()
+        //     ->join('applications', 'recipes_relation_applications.application_id', '=', 'applications.id')
+        //     ->get();
 
-        $recipes = Recipe::select('recipes.*', 'users.id as user_id', 'users.name', 'users.img')
-            ->join('users', 'recipes.user_id', '=', 'users.id')
-            ->where('recipes.delete_flg', false)->get();
-        $select_products = RecipesRelationProduct::select()
-            ->join('products', 'recipes_relation_products.product_id', '=', 'products.id')
-            ->get();
-        $select_applications = RecipesRelationApplication::select()
-            ->join('applications', 'recipes_relation_applications.application_id', '=', 'applications.id')
-            ->get();
 
-        $this->relationStoring($recipes, $select_products, "select_products");
-        $this->relationStoring($recipes, $select_applications, "select_applications");
+        // $this->relationStoring($recipes, $select_products, "select_products");
+        // $this->relationStoring($recipes, $select_applications, "select_applications");
+        // log::debug(print_r(Recipe::with(['products', 'applications'])->where('recipes.delete_flg', false)->get(), true));
 
         return view('recipe.recipeList', ['recipes' => $recipes, 'user' => $user]);
     }

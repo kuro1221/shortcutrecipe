@@ -14,7 +14,7 @@
     <!-- TDK -->
     <title>@yield('title') {{ config('app.name') }}</title>
     <meta name="description" content="Shortcut RecipeはiPhoneやiPadを便利に操作するための機能「ショートカット」のレシピ共有サイトです！" />
-    <meta name=”keywords” content="ショートカット,iPhone,iPad,Apple Watch,AirPods">
+    <meta name=”keywords” content="ショートカット,レシピ,recipe,shortcut,iPhone,iPad,Apple Watch,AirPods">
 
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}" defer></script>
