@@ -8,7 +8,7 @@ class Recipe extends Model
 {
     //
     protected $fillable = [
-        'recipe_name', 'comment', 'iCloud_link'
+        'recipe_name', 'comment', 'iCloud_link', 'reference_title', 'reference_url'
     ];
 
     public function applications()

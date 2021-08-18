@@ -2587,9 +2587,28 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
-  props: ['application_list', 'product_list', 'situation_list', 'csrf'],
+  props: ['application_list', 'product_list', 'csrf'],
   data: function data() {
     return {
       rule: _validation_js__WEBPACK_IMPORTED_MODULE_0__["default"],
@@ -2597,6 +2616,8 @@ __webpack_require__.r(__webpack_exports__);
         recipe_name: '',
         iCloud_link: '',
         comment: '',
+        reference_title: '',
+        reference_url: '',
         select_application: [],
         select_product: [],
         select_situation: []
@@ -2611,7 +2632,9 @@ __webpack_require__.r(__webpack_exports__);
         self.errors = {
           recipe_name: '',
           iCloud_link: '',
-          comment: ''
+          comment: '',
+          reference_title: '',
+          reference_url: ''
         };
         axios.post('addRecipe', this.recipe).then(function () {
           self.errors = [];
@@ -2698,9 +2721,37 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
-  props: ['props_recipe', 'props_select_application', 'props_select_product', 'application_list', 'product_list', 'situation_list'],
+  props: ['props_recipe', 'props_select_application', 'props_select_product', 'application_list', 'product_list'],
   data: function data() {
     return {
       rule: _validation__WEBPACK_IMPORTED_MODULE_0__["default"],
@@ -2728,7 +2779,9 @@ __webpack_require__.r(__webpack_exports__);
         self.errors = {
           recipe_name: '',
           iCloud_link: '',
-          comment: ''
+          comment: '',
+          reference_title: '',
+          reference_url: ''
         };
         axios.post('/editRecipe/' + this.recipe.id, this.recipe).then(function () {
           self.errors = [];
@@ -3071,6 +3124,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+//
 //
 //
 //
@@ -40906,7 +40960,7 @@ var render = function() {
                           name: "iCloud_link",
                           "prepend-icon": "fab fa-apple",
                           type: "text",
-                          rules: [_vm.rule.required, _vm.rule.limit_max_recipe],
+                          rules: [_vm.rule.required, _vm.rule.limit_max_link],
                           "error-messages": _vm.errors.iCloud_link
                         },
                         model: {
@@ -40954,13 +41008,50 @@ var render = function() {
                         }
                       }),
                       _vm._v(" "),
+                      _c("v-text-field", {
+                        attrs: {
+                          label: "参考物タイトル",
+                          name: "reference_title",
+                          "prepend-icon": "fas fa-font",
+                          type: "text",
+                          rules: [_vm.rule.limit_max_name],
+                          "error-messages": _vm.errors.reference_title
+                        },
+                        model: {
+                          value: _vm.recipe.reference_title,
+                          callback: function($$v) {
+                            _vm.$set(_vm.recipe, "reference_title", $$v)
+                          },
+                          expression: "recipe.reference_title"
+                        }
+                      }),
+                      _vm._v(" "),
+                      _c("v-text-field", {
+                        attrs: {
+                          label: "参考URL",
+                          name: "reference_url",
+                          "prepend-icon": "fas fa-paperclip",
+                          type: "text",
+                          rules: [_vm.rule.required, _vm.rule.limit_max_link],
+                          "error-messages": _vm.errors.reference_url
+                        },
+                        model: {
+                          value: _vm.recipe.reference_url,
+                          callback: function($$v) {
+                            _vm.$set(_vm.recipe, "reference_url", $$v)
+                          },
+                          expression: "recipe.reference_url"
+                        }
+                      }),
+                      _vm._v(" "),
                       _c("v-textarea", {
                         attrs: {
                           label: "コメント",
                           autocomplete: "comment",
                           "prepend-icon": "far fa-comment",
                           rules: [_vm.rule.limit_max_comment],
-                          counter: "200"
+                          counter: "200",
+                          "error-messages": _vm.errors.comment
                         },
                         model: {
                           value: _vm.recipe.comment,
@@ -41126,13 +41217,68 @@ var render = function() {
                         }
                       }),
                       _vm._v(" "),
+                      _c("v-select", {
+                        attrs: {
+                          items: _vm.application_list,
+                          "item-text": "application_name",
+                          "item-value": "id",
+                          multiple: "",
+                          label: "対象アプリ(複数選択可能)",
+                          "prepend-icon": "fas fa-database"
+                        },
+                        model: {
+                          value: _vm.recipe.select_application,
+                          callback: function($$v) {
+                            _vm.$set(_vm.recipe, "select_application", $$v)
+                          },
+                          expression: "recipe.select_application"
+                        }
+                      }),
+                      _vm._v(" "),
+                      _c("v-text-field", {
+                        attrs: {
+                          label: "参考物タイトル",
+                          name: "reference_title",
+                          "prepend-icon": "fas fa-font",
+                          type: "text",
+                          rules: [_vm.rule.limit_max_name],
+                          "error-messages": _vm.errors.reference_title
+                        },
+                        model: {
+                          value: _vm.recipe.reference_title,
+                          callback: function($$v) {
+                            _vm.$set(_vm.recipe, "reference_title", $$v)
+                          },
+                          expression: "recipe.reference_title"
+                        }
+                      }),
+                      _vm._v(" "),
+                      _c("v-text-field", {
+                        attrs: {
+                          label: "参考URL",
+                          name: "reference_url",
+                          "prepend-icon": "fas fa-paperclip",
+                          type: "text",
+                          rules: [_vm.rule.required, _vm.rule.limit_max_link],
+                          "error-messages": _vm.errors.reference_url
+                        },
+                        model: {
+                          value: _vm.recipe.reference_url,
+                          callback: function($$v) {
+                            _vm.$set(_vm.recipe, "reference_url", $$v)
+                          },
+                          expression: "recipe.reference_url"
+                        }
+                      }),
+                      _vm._v(" "),
                       _c("v-textarea", {
                         attrs: {
                           label: "コメント",
                           autocomplete: "comment",
                           "prepend-icon": "far fa-comment",
                           rules: [_vm.rule.limit_max_comment],
-                          counter: "200"
+                          counter: "200",
+                          "error-messages": _vm.errors.comment
                         },
                         model: {
                           value: _vm.recipe.comment,
@@ -41649,6 +41795,27 @@ var render = function() {
                           "pa-0 ma-2 button text--secondary font-weight-bold"
                       },
                       [_vm._v(_vm._s(_vm.recipe.comment))]
+                    ),
+                    _vm._v(" "),
+                    _c(
+                      "v-card-text",
+                      {
+                        staticClass:
+                          "pa-0 ma-2 button text--secondary font-weight-bold"
+                      },
+                      [
+                        _c(
+                          "a",
+                          {
+                            attrs: {
+                              href: _vm.recipe.reference_url,
+                              target: "_blank",
+                              rel: "noopener noreferrer"
+                            }
+                          },
+                          [_vm._v(_vm._s(_vm.recipe.reference_title))]
+                        )
+                      ]
                     ),
                     _vm._v(" "),
                     _vm._l(_vm.recipe.products, function(
@@ -98431,7 +98598,7 @@ __webpack_require__.r(__webpack_exports__);
  */
 
  // import "material-design-icons-iconfont/dist/material-design-icons.css";
-// import '@fortawesome/fontawesome-free/css/all.css'
+// import "@fortawesome/fontawesome-free/css/all.css";
 
 __webpack_require__(/*! ./bootstrap */ "./resources/js/bootstrap.js");
 
@@ -99752,10 +99919,10 @@ __webpack_require__.r(__webpack_exports__);
     return !!value || "必ず選択してください";
   },
   email: function email(v) {
-    return !!v.match(/^[a-zA-Z0-9.!#$%&'*+\/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/) || '正しい形式で入力してください';
+    return !!v.match(/^[a-zA-Z0-9.!#$%&'*+\/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/) || "正しい形式で入力してください";
   },
   tel: function tel(value) {
-    return !!value.match(/^(0[5-9]0[0-9]{8}|0[1-9][1-9][0-c9]{7})$/) || '電話番号を正しく入力してください';
+    return !!value.match(/^(0[5-9]0[0-9]{8}|0[1-9][1-9][0-c9]{7})$/) || "電話番号を正しく入力してください";
   },
   // number: value => Number.isInteger(value) || '数値を入力してください',
   limit_max_digits: function limit_max_digits(value) {
@@ -99763,7 +99930,7 @@ __webpack_require__.r(__webpack_exports__);
   },
   // 文字数の制約
   limit_image_size: function limit_image_size(value) {
-    return !value || value.size < 8500000 || '8MB以下のファイルを選択してください';
+    return !value || value.size < 8500000 || "8MB以下のファイルを選択してください";
   },
   select_category: function select_category(value) {
     return value.length > 0 || "１つ以上必ず選択してください";

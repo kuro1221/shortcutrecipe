@@ -29,6 +29,7 @@
             {{recipe.recipe_name}}
           </v-card-title>
           <v-card-text class="pa-0 ma-2 button text--secondary font-weight-bold">{{recipe.comment}}</v-card-text>
+          <v-card-text class="pa-0 ma-2 button text--secondary font-weight-bold"><a :href="recipe.reference_url" target="_blank" rel="noopener noreferrer">{{recipe.reference_title}}</a></v-card-text>
           <v-chip
             class="ma-1 mb-2"
             color="primary"
