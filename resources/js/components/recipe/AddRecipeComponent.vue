@@ -21,7 +21,7 @@
               name="iCloud_link"
               prepend-icon="fab fa-apple"
               type="text"
-              :rules="[rule.required, rule.limit_max_recipe]"
+              :rules="[rule.required, rule.limit_max_link]"
               :error-messages="errors.iCloud_link"
             />
             <v-select
@@ -42,6 +42,24 @@
               label="対象アプリ(複数選択可能)"
               prepend-icon="fas fa-database"
             ></v-select>
+            <v-text-field
+              v-model="recipe.reference_title"
+              label="参考物タイトル"
+              name="reference_title"
+              prepend-icon="fas fa-font"
+              type="text"
+              :rules="[rule.limit_max_name]"
+              :error-messages="errors.reference_title"
+            />
+            <v-text-field
+              v-model="recipe.reference_url"
+              label="参考URL"
+              name="reference_url"
+              prepend-icon="fas fa-paperclip"
+              type="text"
+              :rules="[rule.required, rule.limit_max_link]"
+              :error-messages="errors.reference_url"
+            />
             <v-textarea
               v-model="recipe.comment"
               label="コメント"
@@ -49,6 +67,7 @@
               prepend-icon="far fa-comment"
               :rules="[rule.limit_max_comment]"
               counter="200"
+              :error-messages="errors.comment"
             ></v-textarea>
           </v-form>
           <v-row justify="center">
@@ -63,7 +82,7 @@
 <script>
 import validation_rule from '../../validation.js'
 export default {
-  props: ['application_list', 'product_list', 'situation_list','csrf'],
+  props: ['application_list', 'product_list','csrf'],
   data: function() {
     return {
       rule: validation_rule,
@@ -71,6 +90,8 @@ export default {
         recipe_name: '',
         iCloud_link: '',
         comment: '',
+        reference_title: '',
+        reference_url: '',
         select_application: [],
         select_product: [],
         select_situation: [],
@@ -87,6 +108,8 @@ export default {
           recipe_name: '',
           iCloud_link: '',
           comment: '',
+          reference_title: '',
+          reference_url: ''
         }
         axios.post('addRecipe',this.recipe
         ).then(function(){

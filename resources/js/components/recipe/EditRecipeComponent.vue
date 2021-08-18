@@ -41,6 +41,33 @@
               label="対象アプリ(複数選択可能)"
               prepend-icon="fas fa-database"
             ></v-select>
+            <v-select
+              v-model="recipe.select_application"
+              :items="application_list"
+              item-text="application_name"
+              item-value="id"
+              multiple
+              label="対象アプリ(複数選択可能)"
+              prepend-icon="fas fa-database"
+            ></v-select>
+            <v-text-field
+              v-model="recipe.reference_title"
+              label="参考物タイトル"
+              name="reference_title"
+              prepend-icon="fas fa-font"
+              type="text"
+              :rules="[rule.limit_max_name]"
+              :error-messages="errors.reference_title"
+            />
+            <v-text-field
+              v-model="recipe.reference_url"
+              label="参考URL"
+              name="reference_url"
+              prepend-icon="fas fa-paperclip"
+              type="text"
+              :rules="[rule.required, rule.limit_max_link]"
+              :error-messages="errors.reference_url"
+            />
             <v-textarea
               v-model="recipe.comment"
               label="コメント"
@@ -48,6 +75,7 @@
               prepend-icon="far fa-comment"
               :rules="[rule.limit_max_comment]"
               counter="200"
+              :error-messages="errors.comment"
             ></v-textarea>
           </v-form>
           <v-row justify="center">
@@ -61,7 +89,7 @@
 <script>
 import validation_rule from '../../validation'
 export default {
-  props: ['props_recipe','props_select_application','props_select_product','application_list', 'product_list', 'situation_list'],
+  props: ['props_recipe','props_select_application','props_select_product','application_list', 'product_list'],
   data: function() {
     return {
       rule: validation_rule,
@@ -89,6 +117,8 @@ export default {
           recipe_name: '',
           iCloud_link: '',
           comment: '',
+          reference_title: '',
+          reference_url: ''
         }
         axios.post('/editRecipe/'+this.recipe.id,this.recipe
         ).then(function(){
