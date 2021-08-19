@@ -3533,8 +3533,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: ["auth_user", "recipes", "user"],
@@ -42343,29 +42341,27 @@ var render = function() {
                               })
                         ],
                         1
-                      )
+                      ),
+                      _vm._v(" "),
+                      _c("h1", { staticClass: "font-weight-bold ml-1 mt-4" }, [
+                        _vm._v(_vm._s(_vm.user.name))
+                      ]),
+                      _vm._v(" "),
+                      _c("p", { staticClass: "ml-1" }, [
+                        _vm._v(_vm._s(_vm.user.comment))
+                      ]),
+                      _vm._v(" "),
+                      _c("recipe", {
+                        attrs: {
+                          auth_user: _vm.auth_user,
+                          recipe_list: _vm.recipes
+                        }
+                      })
                     ],
                     1
                   )
                 ]
               )
-            ],
-            1
-          ),
-          _vm._v(" "),
-          _c("h1", { staticClass: "font-weight-bold ml-1 mt-4" }, [
-            _vm._v(_vm._s(_vm.user.name))
-          ]),
-          _vm._v(" "),
-          _c("p", { staticClass: "ml-1" }, [_vm._v(_vm._s(_vm.user.comment))]),
-          _vm._v(" "),
-          _c(
-            "v-row",
-            { attrs: { justify: "center", red: "" } },
-            [
-              _c("recipe", {
-                attrs: { auth_user: _vm.auth_user, recipe_list: _vm.recipes }
-              })
             ],
             1
           )
