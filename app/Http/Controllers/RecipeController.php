@@ -106,7 +106,9 @@ class RecipeController extends Controller
     {
         //ログイン中ではないユーザーでも閲覧できるように、$user変数に空のUserインスタンスを格納
         Auth::user() ? $user = AUth::user() : $user = new User;
-        $recipes = Recipe::with(['products', 'applications'])->where('recipes.delete_flg', false)->get();
+        $recipes = Recipe::with(['products', 'applications'])->select('recipes.*', 'users.id as user_id', 'users.name', 'users.img')
+            ->join('users', 'recipes.user_id', '=', 'users.id')
+            ->where('recipes.delete_flg', false)->get();
         return view('recipe.recipeList', ['recipes' => $recipes, 'user' => $user]);
     }
 

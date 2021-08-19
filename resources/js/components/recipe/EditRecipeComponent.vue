@@ -41,15 +41,6 @@
               label="対象アプリ(複数選択可能)"
               prepend-icon="fas fa-database"
             ></v-select>
-            <v-select
-              v-model="recipe.select_application"
-              :items="application_list"
-              item-text="application_name"
-              item-value="id"
-              multiple
-              label="対象アプリ(複数選択可能)"
-              prepend-icon="fas fa-database"
-            ></v-select>
             <v-text-field
               v-model="recipe.reference_title"
               label="参考物タイトル"

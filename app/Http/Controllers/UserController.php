@@ -28,23 +28,10 @@ class UserController extends Controller
             return redirect()->action('RecipeController@recipeListShow')->with('flash_message', '不正な値が入力されました');
 
         Auth::user() ? $login_user = Auth::user() : $login_user = new User;
-
-        $recipes = Recipe::select('recipes.*', 'users.id as user_id', 'users.name', 'users.img')
+        $recipes = Recipe::with(['products', 'applications'])->select('recipes.*', 'users.id as user_id', 'users.name', 'users.img')
             ->join('users', 'recipes.user_id', '=', 'users.id')
             ->where('user_id', $user->id)
             ->where('recipes.delete_flg', false)->get();
-
-        $select_products = RecipesRelationProduct::select()
-            ->join('products', 'recipes_relation_products.product_id', '=', 'products.id')
-            ->get();
-
-        $select_applications = RecipesRelationApplication::select()
-            ->join('applications', 'recipes_relation_applications.application_id', '=', 'applications.id')
-            ->get();
-
-        RecipeController::relationStoring($recipes, $select_products, "select_products");
-        RecipeController::relationStoring($recipes, $select_applications, "select_applications");
-
         return view('user.userDetail', ['recipes' => $recipes, 'user' => $user, 'login_user' => $login_user]);
     }
 

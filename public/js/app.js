@@ -2740,15 +2740,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: ['props_recipe', 'props_select_application', 'props_select_product', 'application_list', 'product_list'],
@@ -41032,7 +41023,7 @@ var render = function() {
                           name: "reference_url",
                           "prepend-icon": "fas fa-paperclip",
                           type: "text",
-                          rules: [_vm.rule.required, _vm.rule.limit_max_link],
+                          rules: [_vm.rule.limit_max_link],
                           "error-messages": _vm.errors.reference_url
                         },
                         model: {
@@ -41196,24 +41187,6 @@ var render = function() {
                             _vm.$set(_vm.recipe, "select_product", $$v)
                           },
                           expression: "recipe.select_product"
-                        }
-                      }),
-                      _vm._v(" "),
-                      _c("v-select", {
-                        attrs: {
-                          items: _vm.application_list,
-                          "item-text": "application_name",
-                          "item-value": "id",
-                          multiple: "",
-                          label: "対象アプリ(複数選択可能)",
-                          "prepend-icon": "fas fa-database"
-                        },
-                        model: {
-                          value: _vm.recipe.select_application,
-                          callback: function($$v) {
-                            _vm.$set(_vm.recipe, "select_application", $$v)
-                          },
-                          expression: "recipe.select_application"
                         }
                       }),
                       _vm._v(" "),
