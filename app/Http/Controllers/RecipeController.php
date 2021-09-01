@@ -104,6 +104,7 @@ class RecipeController extends Controller
 
     public function recipeListShow()
     {
+        log::debug(env('DB_HOST'));
         //ログイン中ではないユーザーでも閲覧できるように、$user変数に空のUserインスタンスを格納
         Auth::user() ? $user = AUth::user() : $user = new User;
         $recipes = Recipe::with(['products', 'applications'])->select('recipes.*', 'users.id as user_id', 'users.name', 'users.img')

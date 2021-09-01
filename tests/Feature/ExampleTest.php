@@ -11,7 +11,7 @@ class ExampleTest extends TestCase
 
     public function setUp(): void
     {
-        dd(env('APP_ENV'), env('DB_DATABASE'), env('DB_CONNECTION'));
+        dd(env('APP_ENV'), env('DB_HOST'), env('DB_DATABASE'), env('DB_CONNECTION'));
     }
 
     public function testDB()
