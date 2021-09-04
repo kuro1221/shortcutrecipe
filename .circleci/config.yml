@@ -15,10 +15,10 @@ jobs:
       - run: npm ci
       - run: npm install
       - run: npm run production
-      # - run: cp .env.example .env.testing
+      - run: cp .env.example .env.testing
       # - run: echo "APP_KEY=" > .env.testing
-      # - run: php artisan key:generate
-      # # - run: php artisan migrate
+      - run: php artisan key:generate
+      - run: php artisan migrate
       - run:
           name: php test
           command: vendor/bin/phpunit
