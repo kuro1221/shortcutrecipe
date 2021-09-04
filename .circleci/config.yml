@@ -15,7 +15,7 @@ jobs:
         environment:
           - MYSQL_DATABASE: test_shortcutrecipe
           - MYSQL_USER: root
-          - MYSQL_PASSWORD: root
+          - MYSQL_PASSWORD: root22
           - MYSQL_ROOT_PASSWORD: root22
           - TZ: "Asia/Tokyo"
 
