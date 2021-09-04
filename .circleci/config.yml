@@ -3,24 +3,11 @@ jobs:
   build:
     docker:
       - image: circleci/php:7.3-node-browsers
-        environment:
-          - APP_DEBUG: true
-          - APP_ENV: testing
-          - DB_HOST: localhost
-          - DB_CONNECTION: mysql_testing
-          - DB_DATABASE: test_shortcutrecipe
-          - DB_USERNAME: root
-          - DB_PASSWORD: root22
       - image: circleci/mysql:8.0-ram
-        environment:
-          - MYSQL_DATABASE: test_shortcutrecipe
-          - MYSQL_USER: test22
-          - MYSQL_PASSWORD: test22
-          - MYSQL_ROOT_PASSWORD: root22
-          - TZ: "Asia/Tokyo"
+    environment:
+      - DB_CONNECTION: circle_testing
 
     steps:
-      # - run: echo "Hello World"
       - checkout
       - run: sudo composer self-update --1
       - run: composer install -n --prefer-dist
@@ -30,7 +17,7 @@ jobs:
       - run: cp .env.example .env.testing
       - run: echo "APP_KEY=" > .env.testing
       - run: php artisan key:generate
-      - run: php artisan migrate
+      # - run: php artisan migrate
       - run:
           name: php test
           command: vendor/bin/phpunit
