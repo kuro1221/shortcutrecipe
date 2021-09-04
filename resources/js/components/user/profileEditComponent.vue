@@ -85,21 +85,13 @@ export default {
           name: '',
           email: '',
           comment: '',
-          instaglam: '',
-          twitter: '',
-          website: '',
-          youtube: '',
         }
         //画像を送信するためformDataを使用
         const formData = new FormData();
-        formData.append('img',self.file_info),
-        formData.append('name',self.auth_user.name),
-        formData.append('email',self.auth_user.email),
-        formData.append('comment',self.auth_user.comment),
-        formData.append('instaglam',self.auth_user.instaglam),
-        formData.append('twitter',self.auth_user.twitter),
-        formData.append('website',self.auth_user.website),
-        formData.append('youtube',self.auth_user.youtube),
+        formData.append('img',self.file_info);
+        formData.append('name',self.auth_user.name);
+        formData.append('email',self.auth_user.email);
+        formData.append('comment',self.auth_user.comment);
 
         axios.post('/profileEdit',formData
         ).then(function(){
