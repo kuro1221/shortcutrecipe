@@ -45,48 +45,6 @@
               :rules="[rule.required, rule.limit_max_name]"
               :error-messages="errors.name"
             />
-            <!--
-            <v-text-field
-              class="font-weight-bold"
-              v-model="auth_user.twitter"
-              label="Twitter_id"
-              name="twitter"
-              prepend-icon="fab fa-twitter"
-              type="text"
-              :rules="[rule.limit_max_length]"
-              :error-messages="errors.twitter"
-            />
-            <v-text-field
-              class="font-weight-bold"
-              v-model="auth_user.youtube"
-              label="youtube_id"
-              name="youtube"
-              prepend-icon="fab fa-youtube"
-              type="text"
-              :rules="[rule.limit_max_length]"
-              :error-messages="errors.youtube"
-            />
-            <v-text-field
-              class="font-weight-bold"
-              v-model="auth_user.website"
-              label="website_id"
-              name="website"
-              prepend-icon="fab fa-safari"
-              type="text"
-              :rules="[rule.limit_max_length]"
-              :error-messages="errors.website"
-            />
-            <v-text-field
-              class="font-weight-bold"
-              v-model="auth_user.instaglam"
-              label="instaglam_id"
-              name="instaglam"
-              prepend-icon="fab fa-instagram"
-              type="text"
-              :rules="[rule.limit_max_length]"
-              :error-messages="errors.instaglam"
-            />
-            -->
             <v-textarea
               class="font-weight-bold"
               v-model="auth_user.comment"
@@ -104,7 +62,7 @@
         </v-row>
       </v-content>
     </v-app>
-  </template>
+</template>
 <script>
 import validation_rule from '../../validation.js'
 export default {
