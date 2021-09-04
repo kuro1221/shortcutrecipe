@@ -18,10 +18,10 @@ class ExampleTest extends TestCase
     }
 
 
-    public function test()
-    {
-        dd(env('APP_ENV'), env('DB_DATABASE'), env('DB_CONNECTION'));
-    }
+    // public function test()
+    // {
+    //     dd(env('APP_ENV'), env('DB_DATABASE'), env('DB_CONNECTION'));
+    // }
     /**
      * A basic test example.
      *

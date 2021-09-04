@@ -9,13 +9,13 @@ class ExampleTest extends TestCase
 {
     use RefreshDatabase;
 
-    public function setUp(): void
-    {
-        dd(env('APP_ENV'), env('DB_HOST'), env('DB_DATABASE'), env('DB_CONNECTION'));
-    }
+    // public function setUp(): void
+    // {
+    //     dd(env('APP_ENV'), env('DB_HOST'), env('DB_DATABASE'), env('DB_CONNECTION'));
+    // }
 
-    public function testDB()
-    {
-        dd(env('APP_ENV'), env('DB_DATABASE'), env('DB_CONNECTION'));
-    }
+    // public function testDB()
+    // {
+    //     dd(env('APP_ENV'), env('DB_DATABASE'), env('DB_CONNECTION'));
+    // }
 }
