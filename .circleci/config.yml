@@ -9,15 +9,18 @@ jobs:
 
     steps:
       - checkout
+      - run:
+        name: Docker php extensions install
+        command: sudo docker-php-ext-install pdo_mysql
       - run: sudo composer self-update --1
       - run: composer install -n --prefer-dist
       - run: npm ci
       - run: npm install
       - run: npm run production
-      - run: cp .env.example .env.testing
-      - run: echo "APP_KEY=" > .env.testing
-      - run: php artisan key:generate
-      # - run: php artisan migrate
+      # - run: cp .env.example .env.testing
+      # - run: echo "APP_KEY=" > .env.testing
+      # - run: php artisan key:generate
+      # # - run: php artisan migrate
       - run:
           name: php test
           command: vendor/bin/phpunit
