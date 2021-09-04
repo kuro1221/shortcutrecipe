@@ -17,7 +17,7 @@ jobs:
       - run: npm run production
       - run: cp .env.example .env.testing
       # - run: echo "APP_KEY=" > .env.testing
-      - run: php artisan key:generate
+      - run: php artisan key:generate --env=testing
       - run: php artisan migrate
       - run:
           name: php test
