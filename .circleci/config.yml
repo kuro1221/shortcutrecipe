@@ -12,11 +12,12 @@ jobs:
           - DB_USERNAME: root
           - DB_PASSWORD: root22
       - image: circleci/mysql:8.0-ram
-        MYSQL_DATABASE: test_shortcutrecipe
-        MYSQL_USER: root
-        MYSQL_PASSWORD: root
-        MYSQL_ROOT_PASSWORD: root22
-        TZ: "Asia/Tokyo"
+        environment:
+          - MYSQL_DATABASE: test_shortcutrecipe
+          - MYSQL_USER: root
+          - MYSQL_PASSWORD: root
+          - MYSQL_ROOT_PASSWORD: root22
+          - TZ: "Asia/Tokyo"
 
     steps:
       # - run: echo "Hello World"
