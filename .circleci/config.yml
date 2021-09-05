@@ -7,7 +7,7 @@ jobs:
         environment:
           MYSQL_DB: test_shortcutrecipe
           MYSQL_USER: root
-          MYSQL_PASSWORD: root
+          MYSQL_PASSWORD: root22
     environment:
       - DB_CONNECTION: circle_testing
 
