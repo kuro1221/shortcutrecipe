@@ -3,7 +3,7 @@ jobs:
   build:
     docker:
       - image: circleci/php:7.3-node-browsers
-      - image: circleci/mysql:8.0-ram
+      - image: circleci/mysql:5.7
         environment:
           MYSQL_DB: test_shortcutrecipe
           MYSQL_PASSWORD: root22
