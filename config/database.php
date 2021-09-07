@@ -83,7 +83,7 @@ return [
         'circle_testing' => [
             'driver' => 'mysql',
             'url' => env('DATABASE_URL'),
-            'host' => 'localhost',
+            'host' => '127.0.0.1',
             'port' => '3306',
             'database' => 'test_shortcutrecipe',
             'username' => 'root',
