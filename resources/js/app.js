@@ -59,10 +59,10 @@ Vue.component(
     require("./components/auth/ResetPasswordComponent.vue").default
 );
 
-// Vue.component(
-//     "profile-edit-component",
-//     require("./components/user/ProfileEditComponent.vue").default
-// );
+Vue.component(
+    "profile-edit-component",
+    require("./components/user/ProfileEditComponent.vue").default
+);
 
 Vue.component(
     "user-detail-component",
