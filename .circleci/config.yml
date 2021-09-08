@@ -12,7 +12,7 @@ jobs:
     environment:
       APP_ENV: testing
       DB_CONNECTION: circle_testing
-      DB_HOST: 127.0.0.1
+      DB_HOST: circle_db
       DB_PORT: 3306
       DB_DATABASE: test_shortcutrecipe
       DB_USERNAME: root
