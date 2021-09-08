@@ -31,3 +31,7 @@ jobs:
       - run:
           name: php test
           command: vendor/bin/phpunit
+<<<<<<< HEAD
+=======
+
+>>>>>>> e67001abcc6b9ef7b09f29eadc917b8c0881fddf
