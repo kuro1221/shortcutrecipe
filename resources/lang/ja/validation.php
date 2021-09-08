@@ -155,6 +155,8 @@ return [
         'iCloud_link' => 'iCloudのリンク',
         'old_password' => '現在のパスワード',
         'comment' => 'コメント',
+        'reference_title' => '参考物タイトル',
+        'reference_url' => '参考URL'
     ],
 
 ];

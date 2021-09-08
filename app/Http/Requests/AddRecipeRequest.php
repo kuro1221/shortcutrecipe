@@ -27,8 +27,8 @@ class AddRecipeRequest extends FormRequest
             'recipe_name' => ['required', 'string', 'max:20'],
             'iCloud_link' => ['required', 'string', 'max:150'],
             'comment' => ['sometimes', 'max:250'],
-            'reference_title' => ['sometimes', 'string', 'max:20'],
-            'reference_url' => ['sometimes', 'string', 'max:150'],
+            'reference_title' => ['sometimes', 'max:20'],
+            'reference_url' => ['sometimes', 'max:150'],
         ];
     }
 }

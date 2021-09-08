@@ -3,5 +3,31 @@ jobs:
   build:
     docker:
       - image: circleci/php:7.3-node-browsers
+      - image: circleci/mysql:5.7
+        name: circle_db
+        environment:
+          MYSQL_DATABASE: test_shortcutrecipe
+          MYSQL_PASSWORD: root22
+          MYSQL_ROOT_PASSWORD: root22
+    environment:
+      APP_ENV: testing
+      DB_CONNECTION: circle_testing
+      DB_HOST: 127.0.0.1
+      DB_PORT: 3306
+      DB_DATABASE: test_shortcutrecipe
+      DB_USERNAME: root
+      DB_PASSWORD: root22
     steps:
-      - run: echo "Hello World"
+      - checkout
+      - run: sudo docker-php-ext-install pdo_mysql
+      - run: sudo composer self-update --1
+      - run: composer install -n --prefer-dist
+      - run: npm ci
+      - run: npm install
+      - run: npm run production
+      - run: cp .env.example .env.testing
+      - run: php artisan key:generate --env=testing
+      - run: php artisan migrate --env=testing
+      - run:
+          name: php test
+          command: vendor/bin/phpunit

@@ -16,13 +16,11 @@
                                 aspect-ratio="1.7"
                             />
                         </v-avatar>
+                        <h1 class="font-weight-bold ml-1 mt-4">{{ user.name }}</h1>
+                        <p class="ml-1">{{ user.comment }}</p>
+                        <recipe :auth_user="auth_user" :recipe_list="recipes"></recipe>
                     </div>
                 </v-col>
-            </v-row>
-            <h1 class="font-weight-bold ml-1 mt-4">{{ user.name }}</h1>
-            <p class="ml-1">{{ user.comment }}</p>
-            <v-row justify="center" red>
-                <recipe :auth_user="auth_user" :recipe_list="recipes"></recipe>
             </v-row>
         </v-content>
     </div>

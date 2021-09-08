@@ -50,8 +50,8 @@ class AddRecipeTest extends TestCase
     {
         return [
             'OK' => [
-                ['recipe_name', 'iCloud_link', 'comment'],
-                [str_repeat('a', 20), 'http://example.com', 'test1'],
+                ['recipe_name', 'iCloud_link', 'comment', 'reference_title', 'reference_url'],
+                [str_repeat('a', 20), 'http://example.com/' . str_repeat('a', 131), str_repeat('a', 200), str_repeat('a', 20), 'http://example.com/' . str_repeat('a', 131)],
                 true
             ],
             'recipi_name空エラー' => [

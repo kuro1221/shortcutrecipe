@@ -17,7 +17,7 @@ class UsersTableSeeder extends Seeder
         $users = [
             [
                 'name' => 'TestUser',
-                'email' => 'tdest1@teest.com',
+                'email' => 'tdest2@teest.com',
                 'password' => bcrypt('tttttttt'),
                 'delete_flg' => false,
                 'created_at' => Carbon::now(),
