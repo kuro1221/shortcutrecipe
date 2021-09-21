@@ -56,7 +56,7 @@
               name="reference_url"
               prepend-icon="fas fa-paperclip"
               type="text"
-              :rules="[rule.required, rule.limit_max_link]"
+              :rules="[rule.limit_max_link]"
               :error-messages="errors.reference_url"
             />
             <v-textarea
