@@ -25,13 +25,13 @@
           </v-card-actions>
         </div>
         <div v-else>
-          <v-card-title class="pa-0 ma-2 subtitle-1 font-weight-bold">
+          <v-card-title class="px-2 subtitle-1 font-weight-bold">
             {{recipe.recipe_name}}
           </v-card-title>
-          <v-card-text class="pa-0 ma-2 button text--secondary font-weight-bold">{{recipe.comment}}</v-card-text>
-          <v-card-text class="pa-0 ma-2 button text--secondary font-weight-bold"><a :href="recipe.reference_url" target="_blank" rel="noopener noreferrer">{{recipe.reference_title}}</a></v-card-text>
+          <v-card-text class="px-2 py-1 button text--secondary font-weight-bold">{{recipe.comment}}</v-card-text>
+          <v-card-text class="px-2 py-1 button text--secondary font-weight-bold"><a :href="recipe.reference_url" target="_blank" rel="noopener noreferrer">{{recipe.reference_title}}</a></v-card-text>
           <v-chip
-            class="ma-1 mb-2"
+            class="my-2 mx-1"
             color="primary"
             outlined
             pill
