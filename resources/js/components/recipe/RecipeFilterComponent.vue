@@ -1,6 +1,6 @@
 <template>
   <div>
-      <v-col cols="12" sm="8" md="12" class="pt-0 mr-0">
+      <v-col cols="12" md="12" class="pt-0 mr-0">
       <v-text-field
         v-model="child_search"
         label="検索"

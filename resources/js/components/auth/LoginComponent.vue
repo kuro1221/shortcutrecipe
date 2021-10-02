@@ -1,6 +1,6 @@
 <template>
   <v-app>
-    <v-content class="fill-height pt-0" fluid>
+    <v-content class="fill-height pa-1" fluid>
       <v-row justify="center">
         <v-col cols="12" sm="8" md="4">
             <h2 class="page-title">ログイン</h2>
@@ -31,13 +31,6 @@
                 <a class="btn btn-link" href="password/reset">
                     パスワードを忘れた方
                 </a>
-                <!--<a href="auth/line">LINEでログイン</a>
-                
-                <p><br>
-                  Lineアカウントを利用してログインを行います。<br>
-                  本WEBサービスでは、ログイン時の認証画面で許可を頂いた場合のみ、Lineアカウントに登録されているメールアドレスを取得します。<br>
-                  取得したメールアドレスはユーザーIDとしてアカウントの管理のみでしか使用いたしません。
-                </p> -->
             </v-row>
         </v-col>
       </v-row>
