@@ -28,7 +28,7 @@
     <v-app-bar app :color="defaultCSS.backgroundColor">
       <v-toolbar-title><a href="/" class="link">Shortcut Recipe</a></v-toolbar-title>
       <v-spacer></v-spacer>
-      <div class="hidden-xs-only">
+      <div class="hidden-md-and-down">
         <v-list class="pc-header-list d-flex" :color="defaultCSS.backgroundColor">
           <v-list-item link href="/recipeList">
             <v-list-item-content>
@@ -45,7 +45,7 @@
           </v-list-item>
         </v-list>
       </div>
-      <div class="hidden-sm-and-up">
+      <div class="hidden-lg-and-up">
         <v-app-bar-nav-icon @click="drawer = !drawer"></v-app-bar-nav-icon>
       </div>
     </v-app-bar>
