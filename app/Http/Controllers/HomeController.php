@@ -11,23 +11,23 @@ class HomeController extends Controller
      *
      * @return void
      */
-    public function __construct()
-    {
-        $this->middleware('auth');
-    }
-
-    /**
-     * Show the application dashboard.
-     *
-     * @return \Illuminate\Contracts\Support\Renderable
-     */
-    public function index()
-    {
-        return view('recipe.recipeList');
-    }
-
-    // public function showSuccessful()
+    // public function __construct()
     // {
-    //     return view('auth.passwords.successful');
+    //     $this->middleware('auth');
     // }
+
+    // /**
+    //  * Show the application dashboard.
+    //  *
+    //  * @return \Illuminate\Contracts\Support\Renderable
+    //  */
+    // public function index()
+    // {
+    //     return view('recipe.recipeList');
+    // }
+
+    public function introducePageShow()
+    {
+        return view('introducePage');
+    }
 }
