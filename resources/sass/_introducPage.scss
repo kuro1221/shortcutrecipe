@@ -1,0 +1,73 @@
+.introducePageDive {
+    text-align: center;
+    @include mq() {
+        text-align: left;
+    }
+}
+
+.introducePageTitle {
+    margin-bottom: 40px;
+    font-size: 40px;
+    font-weight: 700;
+    @include mq() {
+        font-size: 28px;
+        margin-bottom: 20px;
+    }
+}
+
+.introduceImgWrapper {
+    display: flex;
+    @include mq() {
+        display: block;
+    }
+}
+.introduceImgDiv {
+    width: 70%;
+    margin: 20px auto;
+    text-align: center;
+}
+
+.introduceImage {
+    width: 50%;
+    margin: 20px auto;
+    @include mq() {
+        width: 80%;
+    }
+}
+
+.introduceText {
+    font-size: 20px;
+    font-weight: 700;
+    margin-bottom: 20px;
+    @include mq() {
+        font-size: 16px;
+    }
+}
+
+.gyazo {
+    width: 50%;
+    margin: 20px auto;
+    @include mq() {
+        width: 80%;
+    }
+}
+
+.imageDescription {
+    font-weight: 700;
+}
+
+.usefulImgDiv {
+    width: 50%;
+    margin: 20px auto;
+    text-align: center;
+    @include mq() {
+        width: 80%;
+    }
+}
+
+.introduceButton {
+    width: 40%;
+    @include mq() {
+        width: 80%;
+    }
+}

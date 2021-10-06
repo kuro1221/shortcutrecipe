@@ -9,11 +9,6 @@ window.Vue = require("vue");
 Vue.use(Vuetify);
 
 Vue.component(
-    "example-component",
-    require("./components/ExampleComponent.vue").default
-);
-
-Vue.component(
     "guest-header-component",
     require("./components/GuestHeaderComponent.vue").default
 );

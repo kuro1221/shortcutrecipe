@@ -27,6 +27,7 @@
     </v-navigation-drawer>
     <v-app-bar app :color="defaultCSS.backgroundColor">
       <v-toolbar-title><a href="/" class="link">Shortcut Recipe</a></v-toolbar-title>
+      <a class="headerItem" href="/introducePage">使い方</a>
       <v-spacer></v-spacer>
       <div class="hidden-md-and-down">
         <v-list class="pc-header-list d-flex" :color="defaultCSS.backgroundColor">

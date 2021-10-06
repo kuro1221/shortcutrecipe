@@ -1,6 +1,22 @@
 // Fonts
 // @import url("https://fonts.googleapis.com/css?family=Nunito");
 
+// メディアクエリ
+@mixin mq($breakpoint: md) {
+    @media #{map-get($breakpoints, $breakpoint)} {
+        @content;
+    }
+}
+
+//ブレークポイント変数
+$breakpoints: (
+    "xs": "screen and (max-width: 600px)",
+    "sm": "screen and (max-width: 960px)",
+    "md": "screen and (max-width: 1264px)",
+    "lg": "screen and (max-width: 1904px)",
+    "xl": "screen and (max-width: 3000px)"
+) !default;
+
 // Variables
 @import "variables";
 
@@ -10,6 +26,8 @@
 /* Foundation ------------ */
 @import "foundation/_reset";
 @import "foundation/_base";
+
+@import "_introducPage";
 
 #app {
     background-color: #bfdcfa;
@@ -103,4 +121,12 @@
 
 .pc-header-list {
     max-height: 55px;
+}
+
+.headerItem {
+    margin-left: 40px;
+    color: black !important;
+    @include mq() {
+        margin-left: 15px;
+    }
 }
