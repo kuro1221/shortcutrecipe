@@ -1,26 +1,8 @@
 // Fonts
 // @import url("https://fonts.googleapis.com/css?family=Nunito");
 
-// Variables
-@import "variables";
-
-// Bootstrap
-@import "~bootstrap/scss/bootstrap";
-
-/* Foundation ------------ */
-@import "foundation/_reset";
-@import "foundation/_base";
-
-@import "_introducPage";
-
-@mixin mq($breakpoint: sm) {
-    @media #{map-get($breakpoints, $breakpoint)} {
-        @content;
-    }
-}
-
 // メディアクエリ
-@mixin mq($breakpoint: lg) {
+@mixin mq($breakpoint: md) {
     @media #{map-get($breakpoints, $breakpoint)} {
         @content;
     }
@@ -35,6 +17,18 @@ $breakpoints: (
     "xl": "screen and (max-width: 3000px)"
 ) !default;
 
+// Variables
+@import "variables";
+
+// Bootstrap
+@import "~bootstrap/scss/bootstrap";
+
+/* Foundation ------------ */
+@import "foundation/_reset";
+@import "foundation/_base";
+
+@import "_introducPage";
+
 #app {
     background-color: #bfdcfa;
 }
@@ -42,11 +36,6 @@ $breakpoints: (
 .page-title {
     font-size: 20px;
     font-weight: 700;
-    &__large {
-        margin-bottom: 20px;
-        font-size: 28px;
-        font-weight: 700;
-    }
 }
 
 .card {
@@ -138,6 +127,6 @@ $breakpoints: (
     margin-left: 40px;
     color: black !important;
     @include mq() {
-        margin-left: 20px;
+        margin-left: 15px;
     }
 }
