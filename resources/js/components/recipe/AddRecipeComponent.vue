@@ -43,22 +43,26 @@
               prepend-icon="fas fa-database"
             ></v-select>
             <v-text-field
-              v-model="recipe.reference_title"
-              label="参考物タイトル"
-              name="reference_title"
-              prepend-icon="fas fa-font"
-              type="text"
-              :rules="[rule.limit_max_name]"
-              :error-messages="errors.reference_title"
-            />
-            <v-text-field
               v-model="recipe.reference_url"
               label="参考URL"
               name="reference_url"
               prepend-icon="fas fa-paperclip"
               type="text"
+              hint="※参考にしたサイトや動画があればURLを入力してください"
+              persistent-hint
               :rules="[rule.limit_max_link]"
               :error-messages="errors.reference_url"
+            />
+            <v-text-field
+              v-model="recipe.reference_title"
+              label="参考タイトル"
+              name="reference_title"
+              prepend-icon="fas fa-font"
+              type="text"
+              hint="※参考にしたサイトや動画があればタイトルを入力してください"
+              persistent-hint
+              :rules="[rule.limit_max_name]"
+              :error-messages="errors.reference_title"
             />
             <v-textarea
               v-model="recipe.comment"

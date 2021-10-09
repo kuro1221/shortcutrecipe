@@ -99,7 +99,7 @@
           </v-list-item>
           <v-list-item>
             <v-list-item-content>
-              <v-list-item-title><button @click="logout"><v-icon class="mr-2">fas fa-sign-out-alt</v-icon>ログアウト</button></v-list-item-title>
+              <v-list-item-title><button @click="logout">ログアウト</button></v-list-item-title>
             </v-list-item-content>
           </v-list-item>
         </v-list>

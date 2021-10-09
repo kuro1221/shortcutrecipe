@@ -22,7 +22,7 @@
                   name="email"
                   prepend-icon="fas fa-envelope"
                   type="text"
-                  :rules="[rule.required, rule.limit_max_length,rule.email]"
+                  :rules="[rule.required, rule.limit_max_length]"
                   :error-messages="errors.email"
                 />
                 <v-text-field
@@ -32,6 +32,8 @@
                   name="password"
                   prepend-icon="fas fa-key"
                   type="password"
+                  hint="※8文字以上入力する必要があります"
+                  persistent-hint
                   :rules="[rule.required,rule.limit_max_length]"
                   :error-messages="errors.password"
                 />
@@ -42,6 +44,8 @@
                   name="password_confirmation"
                   prepend-icon="fas fa-key"
                   type="password"
+                  hint="※8文字以上入力する必要があります"
+                  persistent-hint
                   :rules="[rule.required,rule.limit_max_length]"
                   :error-messages="errors.password_confirmation"
                 />
