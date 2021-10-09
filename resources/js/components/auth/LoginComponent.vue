@@ -12,7 +12,7 @@
                   name="email"
                   prepend-icon="fas fa-envelope"
                   type="text"
-                  :rules="[rule.required, rule.limit_max_length,rule.email]"
+                  :rules="[rule.required, rule.limit_max_length]"
                   :error-messages="errors.email"
                 />
                 <v-text-field
