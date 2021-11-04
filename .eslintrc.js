@@ -1,29 +1,29 @@
 module.exports = {
     root: true,
     parserOptions: {
-        parser: 'babel-eslint',
+        parser: "babel-eslint"
     },
     env: {
         browser: true,
-        es6: true,
+        es6: true
     },
     extends: [
-        'standard',
-        'plugin:vue/recommended',
-        'plugin:prettier/recommended',
-        'prettier/vue',
+        "standard",
+        "plugin:vue/recommended",
+        "plugin:prettier/recommended",
+        "prettier/vue"
     ],
     plugins: [
-        'vue',
-        'prettier', // prettierをESLintと併用します
+        "vue",
+        "prettier" // prettierをESLintと併用します
     ],
     rules: {
         // ESLintが使用する整形ルールのうち、自分がoffにしたいルールなどを指定する
-        'vue/no-v-html': 'off', // v-htmlの使用について
-        'vue/prop-name-casing': 'off', // Propsの変数の命名規則について
-        'no-console': 'off', // console.log()の使用について
-        'no-unused-vars': 'off', // 使われていない変数について
-        'camelcase': 'off', // camelcaseについて
+        "vue/no-v-html": "off", // v-htmlの使用について
+        "vue/prop-name-casing": "off", // Propsの変数の命名規則について
+        "no-console": "off", // console.log()の使用について
+        "no-unused-vars": "off", // 使われていない変数について
+        camelcase: "off", // camelcaseについて
 
         // この先はPrettierのルール
         "prettier/prettier": [
@@ -33,11 +33,11 @@ module.exports = {
                 tabWidth: 2,
                 useTabs: false,
                 singleQuote: true,
-                trailingComma: 'all',
+                trailingComma: "all",
                 bracketSpacing: true,
-                arrowParens: 'avoid',
-                semi: false,
-            },
+                arrowParens: "avoid",
+                semi: false
+            }
         ]
     }
-}
+};
