@@ -1,6 +1,6 @@
 <template>
     <div>
-        <v-content class="fill-height pt-0" red >
+        <v-content class="fill-height pt-0" red>
             <v-row justify="center" red>
                 <v-col cols="12" sm="8" md="9" class="pb-0">
                     <div>
@@ -16,9 +16,14 @@
                                 aspect-ratio="1.7"
                             />
                         </v-avatar>
-                        <h1 class="font-weight-bold ml-1 mt-4">{{ user.name }}</h1>
+                        <h1 class="font-weight-bold ml-1 mt-4">
+                            {{ user.name }}
+                        </h1>
                         <p class="ml-1">{{ user.comment }}</p>
-                        <recipe :auth_user="auth_user" :recipe_list="recipes"></recipe>
+                        <recipe
+                            :auth_user="auth_user"
+                            :recipe_list="recipes"
+                        ></recipe>
                     </div>
                 </v-col>
             </v-row>
@@ -26,15 +31,14 @@
     </div>
 </template>
 <script>
-import recipe from '../recipe/RecipeComponent.vue';
+import recipe from "../recipe/RecipeComponent.vue";
 export default {
-    props: ["auth_user","recipes","user"],
+    props: ["auth_user", "recipes", "user"],
     components: {
-        'recipe': recipe
+        recipe: recipe
     },
     data: function() {
-        return {
-        }
-    },
-}
+        return {};
+    }
+};
 </script>

@@ -15,35 +15,40 @@
                 class="no-border"
             >
                 <v-row justify="space-around" class="pt-0">
-                        <v-card class="mx-1 mt-2 mb-4 card" outlined tile height="120">
-                            <v-list-item three-line class="px-2">
-                                <v-list-item-content class="py-2">
-                                    <v-list-item-title
-                                        class="subtitle-1 font-weight-bold"
+                    <v-card
+                        class="mx-1 mt-2 mb-4 card"
+                        outlined
+                        tile
+                        height="120"
+                    >
+                        <v-list-item three-line class="px-2">
+                            <v-list-item-content class="py-2">
+                                <v-list-item-title
+                                    class="subtitle-1 font-weight-bold"
+                                >
+                                    {{ recipe.recipe_name }}
+                                </v-list-item-title>
+                                <v-card-text
+                                    class="pa-0 my-1 button text--secondary card_comment"
+                                    height="60"
+                                >
+                                    {{ recipe.comment }}
+                                </v-card-text>
+                                <v-card-actions class="pa-0">
+                                    <v-spacer></v-spacer>
+                                    <v-btn
+                                        class="button_small"
+                                        color="#FFD500"
+                                        rounded
+                                        small
+                                        v-on:click="showModal(recipe)"
+                                        >詳細</v-btn
                                     >
-                                        {{ recipe.recipe_name }}
-                                    </v-list-item-title>
-                                    <v-card-text
-                                        class="pa-0 my-1 button text--secondary card_comment"
-                                        height="60"
-                                    >
-                                        {{ recipe.comment }}
-                                    </v-card-text>
-                                    <v-card-actions class="pa-0">
-                                        <v-spacer></v-spacer>
-                                        <v-btn
-                                            class="button_small"
-                                            color="#FFD500"
-                                            rounded
-                                            small
-                                            v-on:click="showModal(recipe)"
-                                            >詳細</v-btn
-                                        >
-                                    </v-card-actions>
-                                </v-list-item-content>
-                            </v-list-item>
-                        </v-card>
-                    </v-row>
+                                </v-card-actions>
+                            </v-list-item-content>
+                        </v-list-item>
+                    </v-card>
+                </v-row>
             </v-flex>
         </v-layout>
         <v-row justify="center" class="my-4" red>
