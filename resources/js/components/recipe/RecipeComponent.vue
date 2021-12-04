@@ -8,7 +8,7 @@
             ></recipeModal>
             <v-flex
                 xs6
-                md4
+                md6
                 shrink
                 v-for="(recipe, i) in sliceRecipes"
                 :key="i"
@@ -80,7 +80,7 @@ export default {
     },
     data: function() {
         return {
-            perPage: 9, //1ページあたりの表示商品数
+            perPage: 8, //1ページあたりの表示商品数
             currentPage: 1,
             recipeDetail: "",
             modalFlg: false

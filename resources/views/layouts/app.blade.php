@@ -9,7 +9,7 @@
 
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
-    <title>{{ config('app.name', 'Laravel') }}</title>
+    <title class="">{{ config('app.name', 'Laravel') }}</title>
 
     <!-- TDK -->
     <title>@yield('title') {{ config('app.name') }}</title>

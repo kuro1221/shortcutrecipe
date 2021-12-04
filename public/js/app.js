@@ -3220,7 +3220,7 @@ Vue.component("paginate", vuejs_paginate__WEBPACK_IMPORTED_MODULE_0___default.a)
   },
   data: function data() {
     return {
-      perPage: 9,
+      perPage: 8,
       //1ページあたりの表示商品数
       currentPage: 1,
       recipeDetail: "",
@@ -42010,7 +42010,7 @@ var render = function() {
               {
                 key: i,
                 staticClass: "no-border",
-                attrs: { xs6: "", md4: "", shrink: "" }
+                attrs: { xs6: "", md6: "", shrink: "" }
               },
               [
                 _c(

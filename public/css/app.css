@@ -11270,6 +11270,7 @@ img {
 
 .link {
   color: black !important;
+  font-weight: 0;
 }
 
 .statement {
