@@ -3210,6 +3210,8 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
 
 
 Vue.component("paginate", vuejs_paginate__WEBPACK_IMPORTED_MODULE_0___default.a);
@@ -3238,6 +3240,7 @@ Vue.component("paginate", vuejs_paginate__WEBPACK_IMPORTED_MODULE_0___default.a)
     },
     resetRecipe: function resetRecipe() {
       this.recipeDetail = "";
+      this.modalFlg = false;
     }
   },
   computed: {
@@ -42000,6 +42003,14 @@ var render = function() {
         { attrs: { wrap: "" } },
         [
           _c("recipeModal", {
+            directives: [
+              {
+                name: "show",
+                rawName: "v-show",
+                value: _vm.modalFlg,
+                expression: "modalFlg"
+              }
+            ],
             attrs: { auth_user: _vm.auth_user, recipe: _vm.recipeDetail },
             on: { reset: _vm.resetRecipe }
           }),
@@ -42278,7 +42289,7 @@ var render = function() {
             [
               _c(
                 "v-col",
-                { attrs: { cols: "12", sm: "8", md: "9" } },
+                { attrs: { cols: "12", sm: "8", md: "8" } },
                 [
                   _c("recipe-filter", {
                     attrs: {

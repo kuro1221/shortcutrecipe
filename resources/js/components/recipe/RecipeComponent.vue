@@ -5,6 +5,7 @@
                 :auth_user="auth_user"
                 :recipe="recipeDetail"
                 @reset="resetRecipe"
+                v-show="modalFlg"
             ></recipeModal>
             <v-flex
                 xs6
@@ -51,6 +52,7 @@
                 </v-row>
             </v-flex>
         </v-layout>
+        <!-- ページネーション -->
         <v-row justify="center" class="my-4" red>
             <paginate
                 :page-count="getPageCount"
@@ -97,6 +99,7 @@ export default {
         },
         resetRecipe: function() {
             this.recipeDetail = "";
+            this.modalFlg = false;
         }
     },
     computed: {

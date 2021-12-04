@@ -74,8 +74,8 @@
                         <v-list-item-title>新規登録</v-list-item-title>
                     </v-list-item>
                     <v-list-item link href="/introducePage">
-                            <v-list-item-title>使い方</v-list-item-title>
-                        </v-list-item>
+                        <v-list-item-title>使い方</v-list-item-title>
+                    </v-list-item>
                 </v-list>
             </div>
             <div class="hidden-lg-and-up">
