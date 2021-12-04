@@ -14,7 +14,7 @@
                             v-model="recipe.recipe_name"
                             label="レシピ名"
                             name="recipe_name"
-                            prepend-icon="fas fa-font"
+                            prepend-icon="fas fa-edit"
                             type="text"
                             :rules="[rule.required, rule.limit_max_name]"
                             :error-messages="errors.recipe_name"
@@ -50,7 +50,7 @@
                             v-model="recipe.reference_url"
                             label="参考URL"
                             name="reference_url"
-                            prepend-icon="fas fa-paperclip"
+                            prepend-icon="fas fa-link"
                             type="text"
                             hint="※参考にしたサイトや動画があればURLを入力してください"
                             persistent-hint

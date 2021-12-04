@@ -2268,6 +2268,22 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: ["auth_user"],
@@ -2298,6 +2314,19 @@ __webpack_require__.r(__webpack_exports__);
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _default_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../default.js */ "./resources/js/default.js");
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 //
 //
 //
@@ -40489,6 +40518,38 @@ var render = function() {
                       )
                     ],
                     1
+                  ),
+                  _vm._v(" "),
+                  _c(
+                    "v-list-item",
+                    { attrs: { link: "", href: "/introducePage" } },
+                    [
+                      _c(
+                        "v-list-item-content",
+                        [
+                          _c("v-list-item-title", [
+                            _c(
+                              "span",
+                              { staticClass: "icon_area" },
+                              [
+                                _c(
+                                  "v-icon",
+                                  {
+                                    staticClass: "mr-3",
+                                    attrs: { width: "30" }
+                                  },
+                                  [_vm._v("fas fa-question-circle")]
+                                )
+                              ],
+                              1
+                            ),
+                            _vm._v("使い方")
+                          ])
+                        ],
+                        1
+                      )
+                    ],
+                    1
                   )
                 ],
                 1
@@ -40640,6 +40701,19 @@ var render = function() {
                                 ])
                               ])
                             ],
+                            1
+                          )
+                        ],
+                        1
+                      ),
+                      _vm._v(" "),
+                      _c(
+                        "v-list-item",
+                        { attrs: { link: "", href: "/introducePage" } },
+                        [
+                          _c(
+                            "v-list-item-content",
+                            [_c("v-list-item-title", [_vm._v("使い方")])],
                             1
                           )
                         ],
@@ -40811,6 +40885,38 @@ var render = function() {
                       )
                     ],
                     1
+                  ),
+                  _vm._v(" "),
+                  _c(
+                    "v-list-item",
+                    { attrs: { link: "", href: "/introducePage" } },
+                    [
+                      _c(
+                        "v-list-item-content",
+                        [
+                          _c("v-list-item-title", [
+                            _c(
+                              "span",
+                              { staticClass: "icon_area" },
+                              [
+                                _c(
+                                  "v-icon",
+                                  {
+                                    staticClass: "mr-3",
+                                    attrs: { width: "30" }
+                                  },
+                                  [_vm._v("fas fa-question-circle")]
+                                )
+                              ],
+                              1
+                            ),
+                            _vm._v("使い方")
+                          ])
+                        ],
+                        1
+                      )
+                    ],
+                    1
                   )
                 ],
                 1
@@ -40831,12 +40937,6 @@ var render = function() {
               _vm._v("Shortcut Recipe")
             ])
           ]),
-          _vm._v(" "),
-          _c(
-            "a",
-            { staticClass: "headerItem", attrs: { href: "/introducePage" } },
-            [_vm._v("使い方")]
-          ),
           _vm._v(" "),
           _c("v-spacer"),
           _vm._v(" "),
@@ -40881,6 +40981,13 @@ var render = function() {
                     "v-list-item",
                     { attrs: { link: "", href: "/register" } },
                     [_c("v-list-item-title", [_vm._v("新規登録")])],
+                    1
+                  ),
+                  _vm._v(" "),
+                  _c(
+                    "v-list-item",
+                    { attrs: { link: "", href: "/introducePage" } },
+                    [_c("v-list-item-title", [_vm._v("使い方")])],
                     1
                   )
                 ],
@@ -41494,7 +41601,7 @@ var render = function() {
                         attrs: {
                           label: "レシピ名",
                           name: "recipe_name",
-                          "prepend-icon": "fas fa-font",
+                          "prepend-icon": "fas fa-edit",
                           type: "text",
                           rules: [_vm.rule.required, _vm.rule.limit_max_name],
                           "error-messages": _vm.errors.recipe_name
@@ -41566,7 +41673,7 @@ var render = function() {
                         attrs: {
                           label: "参考URL",
                           name: "reference_url",
-                          "prepend-icon": "fas fa-paperclip",
+                          "prepend-icon": "fas fa-link",
                           type: "text",
                           hint:
                             "※参考にしたサイトや動画があればURLを入力してください",

@@ -36,6 +36,17 @@
                             >
                         </v-list-item-content>
                     </v-list-item>
+                    <v-list-item link href="/introducePage">
+                        <v-list-item-content>
+                            <v-list-item-title
+                                ><span class="icon_area"
+                                    ><v-icon class="mr-3" width="30"
+                                        >fas fa-question-circle</v-icon
+                                    ></span
+                                >使い方</v-list-item-title
+                            >
+                        </v-list-item-content>
+                    </v-list-item>
                 </v-list>
             </v-row>
         </v-navigation-drawer>
@@ -43,7 +54,6 @@
             <v-toolbar-title
                 ><a href="/" class="link">Shortcut Recipe</a></v-toolbar-title
             >
-            <a class="headerItem" href="/introducePage">使い方</a>
             <v-spacer></v-spacer>
             <div class="hidden-md-and-down">
                 <v-list
@@ -63,6 +73,9 @@
                     <v-list-item link href="/register">
                         <v-list-item-title>新規登録</v-list-item-title>
                     </v-list-item>
+                    <v-list-item link href="/introducePage">
+                            <v-list-item-title>使い方</v-list-item-title>
+                        </v-list-item>
                 </v-list>
             </div>
             <div class="hidden-lg-and-up">

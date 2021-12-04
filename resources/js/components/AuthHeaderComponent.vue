@@ -82,6 +82,17 @@
                             </v-list-item-title>
                         </v-list-item-content>
                     </v-list-item>
+                    <v-list-item link href="/introducePage">
+                        <v-list-item-content>
+                            <v-list-item-title
+                                ><span class="icon_area"
+                                    ><v-icon class="mr-3" width="30"
+                                        >fas fa-question-circle</v-icon
+                                    ></span
+                                >使い方</v-list-item-title
+                            >
+                        </v-list-item-content>
+                    </v-list-item>
                 </v-list>
             </v-row>
         </v-navigation-drawer>
@@ -149,6 +160,11 @@
                                         ログアウト
                                     </button></v-list-item-title
                                 >
+                            </v-list-item-content>
+                        </v-list-item>
+                        <v-list-item link href="/introducePage">
+                            <v-list-item-content>
+                                <v-list-item-title>使い方</v-list-item-title>
                             </v-list-item-content>
                         </v-list-item>
                     </v-list>
