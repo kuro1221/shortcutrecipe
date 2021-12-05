@@ -1,22 +1,25 @@
 <template>
     <div>
-        <v-col cols="12" md="12" class="pt-0 mr-0">
-            <v-text-field
-                v-model="child_search"
-                label="検索"
-                name="検索"
-                type="text"
-                :rules="[rule.limit_max_length]"
-            />
-            <v-select
-                v-model="child_sort_order"
-                :items="sort_orders"
-                item-text="label"
-                item-value="value"
-                label="並べ替え"
-                dense
-            ></v-select>
-            <div>
+        <v-row>
+            <v-col cols="6">
+                <v-text-field
+                    v-model="child_search"
+                    label="検索"
+                    name="検索"
+                    type="text"
+                    :rules="[rule.limit_max_length]"
+                ></v-text-field>
+            </v-col>
+            <v-col cols="6">
+                <v-select
+                    v-model="child_sort_order"
+                    :items="sort_orders"
+                    item-text="label"
+                    item-value="value"
+                    label="並べ替え"
+                ></v-select>
+            </v-col>
+            <v-col cols="6">
                 <v-select
                     v-model="filter_data.filter_product"
                     :items="product_list"
@@ -26,6 +29,8 @@
                     label="製品(複数選択可能)"
                 >
                 </v-select>
+            </v-col>
+            <v-col cols="6">
                 <v-select
                     v-model="filter_data.filter_application"
                     :items="application_list"
@@ -35,8 +40,8 @@
                     label="アプリ(複数選択可能)"
                 >
                 </v-select>
-            </div>
-        </v-col>
+            </v-col>
+        </v-row>
     </div>
 </template>
 <script>

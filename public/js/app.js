@@ -3311,6 +3311,11 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: ["filter_data", "search", "sort_order", "application_list", "product_list", "situation_list"],
@@ -42172,44 +42177,57 @@ var render = function() {
     "div",
     [
       _c(
-        "v-col",
-        { staticClass: "pt-0 mr-0", attrs: { cols: "12", md: "12" } },
+        "v-row",
         [
-          _c("v-text-field", {
-            attrs: {
-              label: "検索",
-              name: "検索",
-              type: "text",
-              rules: [_vm.rule.limit_max_length]
-            },
-            model: {
-              value: _vm.child_search,
-              callback: function($$v) {
-                _vm.child_search = $$v
-              },
-              expression: "child_search"
-            }
-          }),
-          _vm._v(" "),
-          _c("v-select", {
-            attrs: {
-              items: _vm.sort_orders,
-              "item-text": "label",
-              "item-value": "value",
-              label: "並べ替え",
-              dense: ""
-            },
-            model: {
-              value: _vm.child_sort_order,
-              callback: function($$v) {
-                _vm.child_sort_order = $$v
-              },
-              expression: "child_sort_order"
-            }
-          }),
+          _c(
+            "v-col",
+            { attrs: { cols: "6" } },
+            [
+              _c("v-text-field", {
+                attrs: {
+                  label: "検索",
+                  name: "検索",
+                  type: "text",
+                  rules: [_vm.rule.limit_max_length]
+                },
+                model: {
+                  value: _vm.child_search,
+                  callback: function($$v) {
+                    _vm.child_search = $$v
+                  },
+                  expression: "child_search"
+                }
+              })
+            ],
+            1
+          ),
           _vm._v(" "),
           _c(
-            "div",
+            "v-col",
+            { attrs: { cols: "6" } },
+            [
+              _c("v-select", {
+                attrs: {
+                  items: _vm.sort_orders,
+                  "item-text": "label",
+                  "item-value": "value",
+                  label: "並べ替え"
+                },
+                model: {
+                  value: _vm.child_sort_order,
+                  callback: function($$v) {
+                    _vm.child_sort_order = $$v
+                  },
+                  expression: "child_sort_order"
+                }
+              })
+            ],
+            1
+          ),
+          _vm._v(" "),
+          _c(
+            "v-col",
+            { attrs: { cols: "6" } },
             [
               _c("v-select", {
                 attrs: {
@@ -42226,8 +42244,15 @@ var render = function() {
                   },
                   expression: "filter_data.filter_product"
                 }
-              }),
-              _vm._v(" "),
+              })
+            ],
+            1
+          ),
+          _vm._v(" "),
+          _c(
+            "v-col",
+            { attrs: { cols: "6" } },
+            [
               _c("v-select", {
                 attrs: {
                   items: _vm.application_list,
