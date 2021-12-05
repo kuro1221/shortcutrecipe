@@ -42235,7 +42235,7 @@ var render = function() {
                   "item-text": "product_name",
                   "item-value": "id",
                   multiple: "",
-                  label: "製品(複数選択可能)"
+                  label: "製品(複数選択可)"
                 },
                 model: {
                   value: _vm.filter_data.filter_product,
@@ -42259,7 +42259,7 @@ var render = function() {
                   "item-text": "application_name",
                   "item-value": "id",
                   multiple: "",
-                  label: "アプリ(複数選択可能)"
+                  label: "アプリ(複数選択可)"
                 },
                 model: {
                   value: _vm.filter_data.filter_application,
