@@ -9,13 +9,13 @@
             ></recipeModal>
             <v-flex
                 xs6
-                md6
+                md4
                 shrink
                 v-for="(recipe, i) in sliceRecipes"
                 :key="i"
                 class="no-border"
             >
-                <v-row justify="space-around" class="pt-0">
+                <v-row justify="space-around" class="pt-2">
                     <v-card
                         class="mx-1 mt-2 mb-4 card"
                         outlined
@@ -82,7 +82,6 @@ export default {
     },
     data: function() {
         return {
-            perPage: 8, //1ページあたりの表示商品数
             currentPage: 1,
             recipeDetail: "",
             modalFlg: false
@@ -113,6 +112,15 @@ export default {
         //トータルページ数を取得
         getPageCount: function() {
             return Math.ceil(this.recipe_list.length / this.perPage);
+        },
+        perPage: function() {
+        switch (this.$vuetify.breakpoint.name) {
+          case 'xs': return 8
+          case 'sm': return 8
+          case 'md': return 9
+          case 'lg': return 9
+          case 'xl': return 9
+        }
         }
     }
 };

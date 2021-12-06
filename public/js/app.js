@@ -3222,8 +3222,6 @@ Vue.component("paginate", vuejs_paginate__WEBPACK_IMPORTED_MODULE_0___default.a)
   },
   data: function data() {
     return {
-      perPage: 8,
-      //1ページあたりの表示商品数
       currentPage: 1,
       recipeDetail: "",
       modalFlg: false
@@ -3254,6 +3252,24 @@ Vue.component("paginate", vuejs_paginate__WEBPACK_IMPORTED_MODULE_0___default.a)
     //トータルページ数を取得
     getPageCount: function getPageCount() {
       return Math.ceil(this.recipe_list.length / this.perPage);
+    },
+    perPage: function perPage() {
+      switch (this.$vuetify.breakpoint.name) {
+        case 'xs':
+          return 8;
+
+        case 'sm':
+          return 8;
+
+        case 'md':
+          return 9;
+
+        case 'lg':
+          return 9;
+
+        case 'xl':
+          return 9;
+      }
     }
   }
 });
@@ -3920,6 +3936,34 @@ __webpack_require__.r(__webpack_exports__);
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _recipe_RecipeComponent_vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../recipe/RecipeComponent.vue */ "./resources/js/components/recipe/RecipeComponent.vue");
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 //
 //
 //
@@ -42026,12 +42070,12 @@ var render = function() {
               {
                 key: i,
                 staticClass: "no-border",
-                attrs: { xs6: "", md6: "", shrink: "" }
+                attrs: { xs6: "", md4: "", shrink: "" }
               },
               [
                 _c(
                   "v-row",
-                  { staticClass: "pt-0", attrs: { justify: "space-around" } },
+                  { staticClass: "pt-2", attrs: { justify: "space-around" } },
                   [
                     _c(
                       "v-card",
@@ -42181,7 +42225,7 @@ var render = function() {
         [
           _c(
             "v-col",
-            { attrs: { cols: "6" } },
+            { staticClass: "pt-0", attrs: { cols: "6" } },
             [
               _c("v-text-field", {
                 attrs: {
@@ -42204,7 +42248,7 @@ var render = function() {
           _vm._v(" "),
           _c(
             "v-col",
-            { attrs: { cols: "6" } },
+            { staticClass: "pt-0", attrs: { cols: "6" } },
             [
               _c("v-select", {
                 attrs: {
@@ -42227,7 +42271,7 @@ var render = function() {
           _vm._v(" "),
           _c(
             "v-col",
-            { attrs: { cols: "6" } },
+            { staticClass: "pt-0", attrs: { cols: "6" } },
             [
               _c("v-select", {
                 attrs: {
@@ -42251,7 +42295,7 @@ var render = function() {
           _vm._v(" "),
           _c(
             "v-col",
-            { attrs: { cols: "6" } },
+            { staticClass: "pt-0", attrs: { cols: "6" } },
             [
               _c("v-select", {
                 attrs: {
@@ -42306,7 +42350,7 @@ var render = function() {
     [
       _c(
         "v-content",
-        { staticClass: "fill-height pt-0", attrs: { red: "" } },
+        { staticClass: "fill-height pt-0" },
         [
           _c(
             "v-row",
@@ -43091,6 +43135,76 @@ var render = function() {
                       _c("p", { staticClass: "ml-1" }, [
                         _vm._v(_vm._s(_vm.user.comment))
                       ]),
+                      _vm._v(" "),
+                      _c(
+                        "v-container",
+                        { staticClass: "my-4" },
+                        [
+                          _c(
+                            "v-row",
+                            { attrs: { justify: "space-between" } },
+                            [
+                              _c(
+                                "v-col",
+                                { attrs: { cols: "6" } },
+                                [
+                                  _c(
+                                    "v-row",
+                                    [
+                                      _c(
+                                        "v-btn",
+                                        {
+                                          staticClass:
+                                            "button font-weight-bold",
+                                          attrs: {
+                                            color: "#FFD500",
+                                            rounded: "",
+                                            href: "/profileEdit",
+                                            "min-width": "150"
+                                          }
+                                        },
+                                        [_vm._v("プロフィール編集")]
+                                      )
+                                    ],
+                                    1
+                                  )
+                                ],
+                                1
+                              ),
+                              _vm._v(" "),
+                              _c(
+                                "v-col",
+                                { attrs: { cols: "6" } },
+                                [
+                                  _c(
+                                    "v-row",
+                                    [
+                                      _c(
+                                        "v-btn",
+                                        {
+                                          staticClass:
+                                            "button font-weight-bold",
+                                          attrs: {
+                                            color: "#FFD500",
+                                            rounded: "",
+                                            href: "/addRecipe",
+                                            "min-width": "150"
+                                          }
+                                        },
+                                        [_vm._v("レシピ追加")]
+                                      )
+                                    ],
+                                    1
+                                  )
+                                ],
+                                1
+                              )
+                            ],
+                            1
+                          )
+                        ],
+                        1
+                      ),
                       _vm._v(" "),
                       _c("recipe", {
                         attrs: {

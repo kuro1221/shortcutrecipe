@@ -20,6 +20,34 @@
                             {{ user.name }}
                         </h1>
                         <p class="ml-1">{{ user.comment }}</p>
+                        <v-container class="my-4">
+                            <v-row :justify="'space-between'">
+                                <v-col cols="6">
+                                    <v-row>
+                                    <v-btn
+                                        class="button font-weight-bold"
+                                        color="#FFD500"
+                                        rounded
+                                        :href="'/profileEdit'"
+                                        min-width="150"
+                                        >プロフィール編集</v-btn
+                                    >
+                                    </v-row>
+                                </v-col>
+                                <v-col cols="6">
+                                    <v-row>
+                                    <v-btn
+                                        class="button font-weight-bold"
+                                        color="#FFD500"
+                                        rounded
+                                        :href="'/addRecipe'"
+                                        min-width="150"
+                                        >レシピ追加</v-btn
+                                    >
+                                    </v-row>
+                                </v-col>
+                            </v-row>
+                        </v-container>
                         <recipe
                             :auth_user="auth_user"
                             :recipe_list="recipes"

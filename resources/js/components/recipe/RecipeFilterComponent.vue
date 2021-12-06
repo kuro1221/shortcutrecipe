@@ -1,7 +1,7 @@
 <template>
     <div>
         <v-row>
-            <v-col cols="6">
+            <v-col cols="6" class="pt-0">
                 <v-text-field
                     v-model="child_search"
                     label="検索"
@@ -10,7 +10,7 @@
                     :rules="[rule.limit_max_length]"
                 ></v-text-field>
             </v-col>
-            <v-col cols="6">
+            <v-col cols="6" class="pt-0">
                 <v-select
                     v-model="child_sort_order"
                     :items="sort_orders"
@@ -19,7 +19,7 @@
                     label="並べ替え"
                 ></v-select>
             </v-col>
-            <v-col cols="6">
+            <v-col cols="6" class="pt-0">
                 <v-select
                     v-model="filter_data.filter_product"
                     :items="product_list"
@@ -30,7 +30,7 @@
                 >
                 </v-select>
             </v-col>
-            <v-col cols="6">
+            <v-col cols="6" class="pt-0">
                 <v-select
                     v-model="filter_data.filter_application"
                     :items="application_list"
