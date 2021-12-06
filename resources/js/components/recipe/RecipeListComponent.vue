@@ -1,6 +1,6 @@
 <template>
     <div>
-        <v-content class="fill-height pt-0" >
+        <v-content class="fill-height pt-0">
             <v-row justify="center" red class="pt-0">
                 <v-col cols="12" sm="8" md="8">
                     <recipe-filter

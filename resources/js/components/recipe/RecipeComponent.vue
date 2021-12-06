@@ -114,13 +114,18 @@ export default {
             return Math.ceil(this.recipe_list.length / this.perPage);
         },
         perPage: function() {
-        switch (this.$vuetify.breakpoint.name) {
-          case 'xs': return 8
-          case 'sm': return 8
-          case 'md': return 9
-          case 'lg': return 9
-          case 'xl': return 9
-        }
+            switch (this.$vuetify.breakpoint.name) {
+                case "xs":
+                    return 8;
+                case "sm":
+                    return 8;
+                case "md":
+                    return 9;
+                case "lg":
+                    return 9;
+                case "xl":
+                    return 9;
+            }
         }
     }
 };

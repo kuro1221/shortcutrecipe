@@ -24,26 +24,26 @@
                             <v-row :justify="'space-between'">
                                 <v-col cols="6">
                                     <v-row>
-                                    <v-btn
-                                        class="button font-weight-bold"
-                                        color="#FFD500"
-                                        rounded
-                                        :href="'/profileEdit'"
-                                        min-width="150"
-                                        >プロフィール編集</v-btn
-                                    >
+                                        <v-btn
+                                            class="button font-weight-bold"
+                                            color="#FFD500"
+                                            rounded
+                                            :href="'/profileEdit'"
+                                            min-width="150"
+                                            >プロフィール編集</v-btn
+                                        >
                                     </v-row>
                                 </v-col>
                                 <v-col cols="6">
                                     <v-row>
-                                    <v-btn
-                                        class="button font-weight-bold"
-                                        color="#FFD500"
-                                        rounded
-                                        :href="'/addRecipe'"
-                                        min-width="150"
-                                        >レシピ追加</v-btn
-                                    >
+                                        <v-btn
+                                            class="button font-weight-bold"
+                                            color="#FFD500"
+                                            rounded
+                                            :href="'/addRecipe'"
+                                            min-width="150"
+                                            >レシピ追加</v-btn
+                                        >
                                     </v-row>
                                 </v-col>
                             </v-row>

@@ -2284,6 +2284,11 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: ["auth_user"],
@@ -2314,6 +2319,11 @@ __webpack_require__.r(__webpack_exports__);
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _default_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../default.js */ "./resources/js/default.js");
+//
+//
+//
+//
+//
 //
 //
 //
@@ -3255,19 +3265,19 @@ Vue.component("paginate", vuejs_paginate__WEBPACK_IMPORTED_MODULE_0___default.a)
     },
     perPage: function perPage() {
       switch (this.$vuetify.breakpoint.name) {
-        case 'xs':
+        case "xs":
           return 8;
 
-        case 'sm':
+        case "sm":
           return 8;
 
-        case 'md':
+        case "md":
           return 9;
 
-        case 'lg':
+        case "lg":
           return 9;
 
-        case 'xl':
+        case "xl":
           return 9;
       }
     }
@@ -40364,6 +40374,26 @@ var render = function() {
         [
           _c(
             "v-row",
+            { attrs: { justify: "end" } },
+            [
+              _c(
+                "v-icon",
+                {
+                  staticClass: "mt-4 mr-10",
+                  on: {
+                    click: function($event) {
+                      _vm.drawer = !_vm.drawer
+                    }
+                  }
+                },
+                [_vm._v("\n                fas fa-times\n            ")]
+              )
+            ],
+            1
+          ),
+          _vm._v(" "),
+          _c(
+            "v-row",
             { attrs: { justify: "center" } },
             [
               _c(
@@ -40840,6 +40870,26 @@ var render = function() {
           }
         },
         [
+          _c(
+            "v-row",
+            { attrs: { justify: "end" } },
+            [
+              _c(
+                "v-icon",
+                {
+                  staticClass: "mt-4 mr-10",
+                  on: {
+                    click: function($event) {
+                      _vm.drawer = !_vm.drawer
+                    }
+                  }
+                },
+                [_vm._v("\n                fas fa-times\n            ")]
+              )
+            ],
+            1
+          ),
+          _vm._v(" "),
           _c(
             "v-row",
             { attrs: { justify: "center" } },
