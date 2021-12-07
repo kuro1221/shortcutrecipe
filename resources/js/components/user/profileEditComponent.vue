@@ -34,7 +34,7 @@
                         <v-text-field
                             class="font-weight-bold"
                             v-model="auth_user.email"
-                            label="e-mail"
+                            label="e-mail（必須）"
                             name="email"
                             prepend-icon="far fa-envelope"
                             type="text"
@@ -44,7 +44,7 @@
                         <v-text-field
                             class="font-weight-bold"
                             v-model="auth_user.name"
-                            label="名前"
+                            label="名前（必須）"
                             name="name"
                             prepend-icon="far fa-user"
                             type="text"

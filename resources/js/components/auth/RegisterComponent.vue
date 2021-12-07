@@ -8,7 +8,7 @@
                         <v-text-field
                             class="font-weight-bold"
                             v-model="name"
-                            label="ユーザー名"
+                            label="ユーザー名（必須）"
                             name="name"
                             prepend-icon="fas fa-user"
                             type="text"
@@ -18,7 +18,7 @@
                         <v-text-field
                             class="font-weight-bold"
                             v-model="email"
-                            label="Eメール"
+                            label="Eメール（必須）"
                             name="email"
                             prepend-icon="fas fa-envelope"
                             type="text"
@@ -28,7 +28,7 @@
                         <v-text-field
                             class="font-weight-bold"
                             v-model="password"
-                            label="パスワード"
+                            label="パスワード（必須）"
                             name="password"
                             prepend-icon="fas fa-key"
                             type="password"
@@ -40,7 +40,7 @@
                         <v-text-field
                             class="font-weight-bold"
                             v-model="password_confirmation"
-                            label="パスワード(再確認)"
+                            label="パスワード(再確認:必須)"
                             name="password_confirmation"
                             prepend-icon="fas fa-key"
                             type="password"

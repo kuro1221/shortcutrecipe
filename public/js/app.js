@@ -41174,7 +41174,7 @@ var render = function() {
                       _c("v-text-field", {
                         staticClass: "font-weight-bold",
                         attrs: {
-                          label: "Eメール",
+                          label: "Eメール（必須）",
                           name: "email",
                           "prepend-icon": "fas fa-envelope",
                           type: "text",
@@ -41402,7 +41402,7 @@ var render = function() {
                       _c("v-text-field", {
                         staticClass: "font-weight-bold",
                         attrs: {
-                          label: "ユーザー名",
+                          label: "ユーザー名（必須）",
                           name: "name",
                           "prepend-icon": "fas fa-user",
                           type: "text",
@@ -41421,7 +41421,7 @@ var render = function() {
                       _c("v-text-field", {
                         staticClass: "font-weight-bold",
                         attrs: {
-                          label: "Eメール",
+                          label: "Eメール（必須）",
                           name: "email",
                           "prepend-icon": "fas fa-envelope",
                           type: "text",
@@ -41440,7 +41440,7 @@ var render = function() {
                       _c("v-text-field", {
                         staticClass: "font-weight-bold",
                         attrs: {
-                          label: "パスワード",
+                          label: "パスワード（必須）",
                           name: "password",
                           "prepend-icon": "fas fa-key",
                           type: "password",
@@ -41461,7 +41461,7 @@ var render = function() {
                       _c("v-text-field", {
                         staticClass: "font-weight-bold",
                         attrs: {
-                          label: "パスワード(再確認)",
+                          label: "パスワード(再確認:必須)",
                           name: "password_confirmation",
                           "prepend-icon": "fas fa-key",
                           type: "password",
@@ -41559,7 +41559,7 @@ var render = function() {
                       _c("v-text-field", {
                         staticClass: "font-weight-bold",
                         attrs: {
-                          label: "Eメール",
+                          label: "Eメール（必須）",
                           name: "email",
                           "prepend-icon": "fas fa-envelope",
                           type: "text",
@@ -41582,7 +41582,7 @@ var render = function() {
                       _c("v-text-field", {
                         staticClass: "font-weight-bold",
                         attrs: {
-                          label: "パスワード",
+                          label: "パスワード（必須）",
                           name: "password",
                           "prepend-icon": "fas fa-key",
                           type: "password",
@@ -41601,7 +41601,7 @@ var render = function() {
                       _c("v-text-field", {
                         staticClass: "font-weight-bold",
                         attrs: {
-                          label: "パスワード(再確認)",
+                          label: "パスワード(再確認:必須)",
                           name: "password_confirmation",
                           "prepend-icon": "fas fa-key",
                           type: "password",
@@ -41701,7 +41701,7 @@ var render = function() {
                       _vm._v(" "),
                       _c("v-text-field", {
                         attrs: {
-                          label: "レシピ名",
+                          label: "レシピ名（必須）",
                           name: "recipe_name",
                           "prepend-icon": "fas fa-edit",
                           type: "text",
@@ -41719,7 +41719,7 @@ var render = function() {
                       _vm._v(" "),
                       _c("v-text-field", {
                         attrs: {
-                          label: "iCloudリンク",
+                          label: "iCloudリンク（必須）",
                           name: "iCloud_link",
                           "prepend-icon": "fab fa-apple",
                           type: "text",
@@ -41916,7 +41916,7 @@ var render = function() {
                     [
                       _c("v-text-field", {
                         attrs: {
-                          label: "レシピ名",
+                          label: "レシピ名（必須）",
                           name: "recipe_name",
                           "prepend-icon": "fas fa-font",
                           type: "text",
@@ -41934,7 +41934,7 @@ var render = function() {
                       _vm._v(" "),
                       _c("v-text-field", {
                         attrs: {
-                          label: "iCloudリンク",
+                          label: "iCloudリンク（必須）",
                           name: "iCloud_link",
                           "prepend-icon": "fab fa-apple",
                           type: "text",
@@ -42823,7 +42823,7 @@ var render = function() {
                       _c("v-text-field", {
                         staticClass: "font-weight-bold",
                         attrs: {
-                          label: "古いパスワード",
+                          label: "古いパスワード（必須）",
                           name: "old_password",
                           "prepend-icon": "fas fa-key",
                           type: "password",
@@ -42844,7 +42844,7 @@ var render = function() {
                       _c("v-text-field", {
                         staticClass: "font-weight-bold",
                         attrs: {
-                          label: "新しいパスワード",
+                          label: "新しいパスワード（必須）",
                           name: "password",
                           "prepend-icon": "fas fa-key",
                           type: "password",
@@ -42865,7 +42865,7 @@ var render = function() {
                       _c("v-text-field", {
                         staticClass: "font-weight-bold",
                         attrs: {
-                          label: "新しいパスワード(再)",
+                          label: "新しいパスワード（再確認：必須）",
                           name: "password_confirmation",
                           "prepend-icon": "fas fa-key",
                           type: "password",
@@ -43025,7 +43025,7 @@ var render = function() {
                       _c("v-text-field", {
                         staticClass: "font-weight-bold",
                         attrs: {
-                          label: "e-mail",
+                          label: "e-mail（必須）",
                           name: "email",
                           "prepend-icon": "far fa-envelope",
                           type: "text",
@@ -43044,7 +43044,7 @@ var render = function() {
                       _c("v-text-field", {
                         staticClass: "font-weight-bold",
                         attrs: {
-                          label: "名前",
+                          label: "名前（必須）",
                           name: "name",
                           "prepend-icon": "far fa-user",
                           type: "text",

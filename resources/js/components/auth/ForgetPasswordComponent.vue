@@ -11,7 +11,7 @@
                         <v-text-field
                             class="font-weight-bold"
                             v-model="email"
-                            label="Eメール"
+                            label="Eメール（必須）"
                             name="email"
                             prepend-icon="fas fa-envelope"
                             type="text"

@@ -12,7 +12,7 @@
                         />
                         <v-text-field
                             v-model="recipe.recipe_name"
-                            label="レシピ名"
+                            label="レシピ名（必須）"
                             name="recipe_name"
                             prepend-icon="fas fa-edit"
                             type="text"
@@ -21,7 +21,7 @@
                         />
                         <v-text-field
                             v-model="recipe.iCloud_link"
-                            label="iCloudリンク"
+                            label="iCloudリンク（必須）"
                             name="iCloud_link"
                             prepend-icon="fab fa-apple"
                             type="text"
