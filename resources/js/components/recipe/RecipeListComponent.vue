@@ -1,8 +1,8 @@
 <template>
     <div>
-        <v-content class="fill-height pt-0" red>
+        <v-content class="fill-height pt-0">
             <v-row justify="center" red class="pt-0">
-                <v-col cols="12" sm="8" md="9">
+                <v-col cols="12" sm="8" md="8">
                     <recipe-filter
                         :filter_data.sync="filter_data"
                         :search.sync="search"

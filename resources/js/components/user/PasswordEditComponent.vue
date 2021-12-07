@@ -8,7 +8,7 @@
                         <v-text-field
                             class="font-weight-bold"
                             v-model="old_password"
-                            label="古いパスワード"
+                            label="古いパスワード（必須）"
                             name="old_password"
                             prepend-icon="fas fa-key"
                             type="password"
@@ -20,7 +20,7 @@
                         <v-text-field
                             class="font-weight-bold"
                             v-model="password"
-                            label="新しいパスワード"
+                            label="新しいパスワード（必須）"
                             name="password"
                             prepend-icon="fas fa-key"
                             type="password"
@@ -32,7 +32,7 @@
                         <v-text-field
                             class="font-weight-bold"
                             v-model="password_confirmation"
-                            label="新しいパスワード(再)"
+                            label="新しいパスワード（再確認：必須）"
                             name="password_confirmation"
                             prepend-icon="fas fa-key"
                             type="password"

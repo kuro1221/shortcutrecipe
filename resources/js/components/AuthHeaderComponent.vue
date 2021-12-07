@@ -1,6 +1,11 @@
 <template>
     <div>
         <v-navigation-drawer v-model="drawer" app right>
+            <v-row justify="end">
+                <v-icon class="mt-4 mr-10" @click="drawer = !drawer">
+                    fas fa-times
+                </v-icon>
+            </v-row>
             <v-row justify="center">
                 <v-list class="mt-8 font-weight-bold">
                     <v-list-item link :href="'/userDetail/' + auth_user.id">
@@ -82,6 +87,17 @@
                             </v-list-item-title>
                         </v-list-item-content>
                     </v-list-item>
+                    <v-list-item link href="/introducePage">
+                        <v-list-item-content>
+                            <v-list-item-title
+                                ><span class="icon_area"
+                                    ><v-icon class="mr-3" width="30"
+                                        >fas fa-question-circle</v-icon
+                                    ></span
+                                >使い方</v-list-item-title
+                            >
+                        </v-list-item-content>
+                    </v-list-item>
                 </v-list>
             </v-row>
         </v-navigation-drawer>
@@ -149,6 +165,11 @@
                                         ログアウト
                                     </button></v-list-item-title
                                 >
+                            </v-list-item-content>
+                        </v-list-item>
+                        <v-list-item link href="/introducePage">
+                            <v-list-item-content>
+                                <v-list-item-title>使い方</v-list-item-title>
                             </v-list-item-content>
                         </v-list-item>
                     </v-list>

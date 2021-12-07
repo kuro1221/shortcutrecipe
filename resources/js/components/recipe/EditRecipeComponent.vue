@@ -7,7 +7,7 @@
                     <v-form ref="form">
                         <v-text-field
                             v-model="recipe.recipe_name"
-                            label="レシピ名"
+                            label="レシピ名（必須）"
                             name="recipe_name"
                             prepend-icon="fas fa-font"
                             type="text"
@@ -16,7 +16,7 @@
                         />
                         <v-text-field
                             v-model="recipe.iCloud_link"
-                            label="iCloudリンク"
+                            label="iCloudリンク（必須）"
                             name="iCloud_link"
                             prepend-icon="fab fa-apple"
                             type="text"
@@ -76,7 +76,7 @@
                             rounded
                             large
                             @click="editRecipe"
-                            >編集</v-btn
+                            >更新</v-btn
                         >
                     </v-row>
                 </v-col>
