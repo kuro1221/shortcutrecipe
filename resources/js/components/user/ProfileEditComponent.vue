@@ -68,7 +68,7 @@
                             rounded
                             large
                             @click="profileEdit"
-                            >編集</v-btn
+                            >更新</v-btn
                         >
                     </v-row>
                 </v-col>

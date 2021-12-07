@@ -42054,7 +42054,7 @@ var render = function() {
                           attrs: { color: "#FFD500", rounded: "", large: "" },
                           on: { click: _vm.editRecipe }
                         },
-                        [_vm._v("編集")]
+                        [_vm._v("更新")]
                       )
                     ],
                     1
@@ -43092,7 +43092,7 @@ var render = function() {
                           attrs: { color: "#FFD500", rounded: "", large: "" },
                           on: { click: _vm.profileEdit }
                         },
-                        [_vm._v("編集")]
+                        [_vm._v("更新")]
                       )
                     ],
                     1

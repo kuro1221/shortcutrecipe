@@ -76,7 +76,7 @@
                             rounded
                             large
                             @click="editRecipe"
-                            >編集</v-btn
+                            >更新</v-btn
                         >
                     </v-row>
                 </v-col>
