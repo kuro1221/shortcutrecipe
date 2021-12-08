@@ -6,13 +6,15 @@
         <div class="col-md-8 ">
             <div class="introducePageDive">
                 <h1 class="introducePageTitle">iPhoneをより便利に</h1>
-                <p class="introduceText">iPhoneやiPadには複数の機能や操作を自動化する
-                    ”ショートカット”という機能があります。</p>
+                <div class="introduceTextWrapper">
+                    <p class="introduceText">iPhoneやiPadには複数の機能や操作を自動化する
+                        ”ショートカット”という機能があります。</p>
+                </div>
                 <div class="introduceImgDiv">
                     <img class="introduceImage" src="{{ asset('image/topImage.png') }}">
                 </div>
                 <p class="introduceText">
-                    壁紙を1タップで変更したり、
+                    ショートカットを使うと、例えば壁紙を1タップで変更したり、
                     決済アプリを一覧から表示したりすることができます。
                 </p>
                 <div class="introduceImgWrapper">
@@ -30,7 +32,7 @@
                     </div>
                 </div>
                 <p class="introduceText">“Shortcut Recipe”では様々な”ショートカット”を
-                    簡単にダウンロードできます。</p>
+                    簡単にダウンロードしたり、作ったショートカットを投稿したりすることができます。</p>
                 <div class="usefulImgDiv">
                     <a href="https://gyazo.com/399c4ab0c6445b3c9260ddfa1fc592e7"><img　class="gyazo" src="https://i.gyazo.com/399c4ab0c6445b3c9260ddfa1fc592e7.gif" alt="Image from Gyazo" /></a>
                 </div>
