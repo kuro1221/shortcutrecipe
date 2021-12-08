@@ -35,7 +35,14 @@
     }
 }
 
+.introduceTextWrapper {
+    width: 100%;
+    margin: 0 auto;
+    text-align: center;
+}
+
 .introduceText {
+    display: inline-block;
     font-size: 20px;
     font-weight: 700;
     margin-bottom: 20px;
