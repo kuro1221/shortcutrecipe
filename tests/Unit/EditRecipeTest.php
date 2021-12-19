@@ -53,7 +53,6 @@ class EditRecipeTest extends TestCase
         $request->select_product = $product->id;
         $editRecipeUseCase = new EditRecipeUseCase();
         $editRecipeUseCase->handle($recipe, $request);
-        log::debug(1);
         $this->assertDatabaseHas('recipes_relation_products', [
             'recipe_id' => $recipe->id,
             'product_id' => $product->id

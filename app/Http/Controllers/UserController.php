@@ -79,7 +79,6 @@ class UserController extends Controller
     public function withdrawal()
     {
         $user = Auth::user();
-        log::debug("退会");
         $user->forceDelete();
         // $user->delete_flg = true;
         // $user->save();

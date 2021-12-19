@@ -4,16 +4,12 @@ namespace App\Http\Controllers;
 
 use App\Recipe;
 use App\User;
-use App\RecipesRelationApplication;
-use App\RecipesRelationSituation;
-use App\RecipesRelationProduct;
 use Illuminate\Support\Facades\Log;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Validator;
 use App\Http\Requests\AddRecipeRequest;
 use App\Http\Requests\EditRecipeRequest;
-use App\Recipe\UseCase\ParamNumericCheckUseCase;
 use App\Recipe\UseCase\AddRecipeUseCase;
 use App\Recipe\UseCase\EditRecipeUseCase;
 use Illuminate\Support\Facades\DB;
@@ -49,10 +45,6 @@ class RecipeController extends Controller
         // //数値以外が入力された場合、不正な入力とみなす
         if (!is_numeric($recipe_id))
             return redirect()->action('RecipeController@recipeListShow')->with('flash_message', '不正な値が入力されました');
-        // $useCase = new ParamNumericCheckUseCase();
-        // if ($useCase)
-        //     return $useCase->handle($recipe_id);
-        // (new ParamNumericCheckUseCase())->handle($recipe_id);
         $recipe = Recipe::find($recipe_id);
         $user_id = Auth::id();
         // //レシピが存在しない、またはログインユーザーがレシピの作成者ではない、またはレシピが削除されている場合は不正とみなす
@@ -104,7 +96,6 @@ class RecipeController extends Controller
 
     public function recipeListShow()
     {
-        log::debug(env('DB_HOST'));
         //ログイン中ではないユーザーでも閲覧できるように、$user変数に空のUserインスタンスを格納
         Auth::user() ? $user = AUth::user() : $user = new User;
         $recipes = Recipe::with(['products', 'applications'])->select('recipes.*', 'users.id as user_id', 'users.name', 'users.img')
@@ -112,27 +103,4 @@ class RecipeController extends Controller
             ->where('recipes.delete_flg', false)->get();
         return view('recipe.recipeList', ['recipes' => $recipes, 'user' => $user]);
     }
-
-    // public static function relationStoring($recipes, $relations, $type)
-    // {
-    //     foreach ($recipes as $recipe) {
-    //         $tempArray = array();
-    //         foreach ($relations as $relation) {
-    //             if ($relation->recipe_id == $recipe->id) {
-    //                 array_push($tempArray, $relation);
-    //             }
-    //         }
-    //         $recipe[$type] = $tempArray;
-    //     }
-    //     return $recipes;
-    // }
-
-    // protected function validator(array $data)
-    // {
-    //     return  Validator::make($data, [
-    //         'recipe_name' => ['required', 'string', 'max:20'],
-    //         'iCloud_link' => ['required', 'string', 'max:150'],
-    //         'comment' => ['sometimes', 'max:250']
-    //     ]);
-    // }
 }
