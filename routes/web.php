@@ -12,7 +12,7 @@
 */
 
 use App\Http\Controllers\HomeController;
-use Illuminate\Routing\Route;
+// use Illuminate\Routing\Route;
 use Illuminate\Support\Facades\Auth;
 
 Route::get('/', 'RecipeController@recipeListShow')->name('recipeListShow');

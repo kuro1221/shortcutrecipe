@@ -41407,7 +41407,7 @@ var render = function() {
                           "prepend-icon": "fas fa-user",
                           type: "text",
                           rules: [_vm.rule.required, _vm.rule.limit_max_name],
-                          "error-messagPes": _vm.errors.name
+                          "error-messages": _vm.errors.name
                         },
                         model: {
                           value: _vm.name,

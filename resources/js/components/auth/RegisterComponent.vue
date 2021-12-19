@@ -13,7 +13,7 @@
                             prepend-icon="fas fa-user"
                             type="text"
                             :rules="[rule.required, rule.limit_max_name]"
-                            :error-messagPes="errors.name"
+                            :error-messages="errors.name"
                         />
                         <v-text-field
                             class="font-weight-bold"
