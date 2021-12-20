@@ -40362,7 +40362,7 @@ var render = function() {
       _c(
         "v-navigation-drawer",
         {
-          attrs: { app: "", right: "" },
+          attrs: { app: "", right: "", "disable-resize-watcher": "" },
           model: {
             value: _vm.drawer,
             callback: function($$v) {
@@ -40860,7 +40860,7 @@ var render = function() {
       _c(
         "v-navigation-drawer",
         {
-          attrs: { app: "", right: "" },
+          attrs: { app: "", right: "", "disable-resize-watcher": "" },
           model: {
             value: _vm.drawer,
             callback: function($$v) {
