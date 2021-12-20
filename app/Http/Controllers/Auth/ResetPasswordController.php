@@ -63,7 +63,6 @@ class ResetPasswordController extends Controller
 
     public function showSuccessful()
     {
-        log::debug('変更した');
         return view('auth.passwords.successful');
     }
 

@@ -12,15 +12,13 @@
 */
 
 use App\Http\Controllers\HomeController;
+// use Illuminate\Routing\Route;
+use Illuminate\Support\Facades\Auth;
 
 Route::get('/', 'RecipeController@recipeListShow')->name('recipeListShow');
 Route::get('/introducePage', 'HomeController@introducePageShow')->name('introducePageShow');
 
 Auth::routes();
-
-// //LINEログイン
-// Route::get('/linelogin', 'Auth\LineLoginController@lineLogin')->name('linelogin');
-// Route::get('/callback', 'Auth\LineLoginController@callback')->name('callback');
 
 Route::get('/auth/passwords/successful', 'Auth\ResetPasswordController@showSuccessful');
 

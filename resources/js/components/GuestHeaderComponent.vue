@@ -1,6 +1,6 @@
 <template>
     <div>
-        <v-navigation-drawer v-model="drawer" app right>
+        <v-navigation-drawer v-model="drawer" app right disable-resize-watcher>
             <v-row justify="end">
                 <v-icon class="mt-4 mr-10" @click="drawer = !drawer">
                     fas fa-times

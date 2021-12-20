@@ -40362,7 +40362,7 @@ var render = function() {
       _c(
         "v-navigation-drawer",
         {
-          attrs: { app: "", right: "" },
+          attrs: { app: "", right: "", "disable-resize-watcher": "" },
           model: {
             value: _vm.drawer,
             callback: function($$v) {
@@ -40860,7 +40860,7 @@ var render = function() {
       _c(
         "v-navigation-drawer",
         {
-          attrs: { app: "", right: "" },
+          attrs: { app: "", right: "", "disable-resize-watcher": "" },
           model: {
             value: _vm.drawer,
             callback: function($$v) {
@@ -41407,7 +41407,7 @@ var render = function() {
                           "prepend-icon": "fas fa-user",
                           type: "text",
                           rules: [_vm.rule.required, _vm.rule.limit_max_name],
-                          "error-messagPes": _vm.errors.name
+                          "error-messages": _vm.errors.name
                         },
                         model: {
                           value: _vm.name,
