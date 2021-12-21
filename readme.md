@@ -23,7 +23,6 @@ https://shortcutrecipe.com/
     -   VPC
     -   EC2
     -   RDS
-    -   S3
 -   CentOS
 -   Appache
 -   Let's Encrypt(SSL 証明書)
