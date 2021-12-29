@@ -30,6 +30,17 @@
                             >
                         </v-list-item-content>
                     </v-list-item>
+                    <v-list-item link href="/guestLogin">
+                        <v-list-item-content>
+                            <v-list-item-title
+                                ><span class="icon_area"
+                                    ><v-icon class="mr-3" font-size="40"
+                                        >fas fa-sign-in-alt</v-icon
+                                    ></span
+                                >ゲストログイン</v-list-item-title
+                            >
+                        </v-list-item-content>
+                    </v-list-item>
                     <v-list-item link href="/register">
                         <v-list-item-content>
                             <v-list-item-title
@@ -73,6 +84,11 @@
                     <v-list-item link href="/login">
                         <v-list-item-content>
                             <v-list-item-title>ログイン</v-list-item-title>
+                        </v-list-item-content>
+                    </v-list-item>
+                    <v-list-item link href="/guestLogin">
+                        <v-list-item-content>
+                            <v-list-item-title>ゲストログイン</v-list-item-title>
                         </v-list-item-content>
                     </v-list-item>
                     <v-list-item link href="/register">

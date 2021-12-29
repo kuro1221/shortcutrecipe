@@ -35,6 +35,14 @@
                             v-on:click="login"
                             >ログイン</v-btn
                         >
+                        <v-btn
+                            class="button font-weight-bold mb-5"
+                            color="#FFD500"
+                            rounded
+                            large
+                            v-on:click="guestLogin"
+                            >ゲストログイン</v-btn
+                        >
                         <a class="btn btn-link" href="password/reset">
                             パスワードを忘れた方
                         </a>
@@ -79,6 +87,9 @@ export default {
                         }
                     });
             }
+        },
+        guestLogin: function() {
+            location.href = "/guestLogin";
         }
     }
 };
