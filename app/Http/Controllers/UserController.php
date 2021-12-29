@@ -16,7 +16,14 @@ use App\Http\Controllers\RecipeController;
 
 class UserController extends Controller
 {
-    //
+    public function checkGuestUser()
+    {
+        if (Auth::user()->email === env('GUEST_EMAIL')) {
+            return redirect()->action('RecipeController@recipeListShow')->with('flash_message', 'ゲストユーザーはこの機能を利用できません');
+        }
+        return true;
+    }
+
     public function userDetailShow($id)
     {
         //数値以外が入力された場合、不正な入力とみなす
@@ -38,11 +45,17 @@ class UserController extends Controller
 
     public function profileEditShow()
     {
+        if (Auth::user()->email === env('GUEST_EMAIL')) {
+            return redirect()->action('RecipeController@recipeListShow')->with('flash_message', 'ゲストユーザーはこの機能を利用できません');
+        }
         return view('user.profileEdit');
     }
 
     public function passwordEditShow()
     {
+        if (Auth::user()->email === env('GUEST_EMAIL')) {
+            return redirect()->action('RecipeController@recipeListShow')->with('flash_message', 'ゲストユーザーはこの機能を利用できません');
+        }
         return view('user.passwordEdit');
     }
 
@@ -73,6 +86,9 @@ class UserController extends Controller
 
     public function withdrawalShow()
     {
+        if (Auth::user()->email === env('GUEST_EMAIL')) {
+            return redirect()->action('RecipeController@recipeListShow')->with('flash_message', 'ゲストユーザーはこの機能を利用できません');
+        }
         return view('user.withdrawal');
     }
 

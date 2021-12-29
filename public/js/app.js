@@ -2412,6 +2412,22 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   components: {},
@@ -2576,6 +2592,14 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
@@ -2606,6 +2630,9 @@ __webpack_require__.r(__webpack_exports__);
           }
         });
       }
+    },
+    guestLogin: function guestLogin() {
+      location.href = "/guestLogin";
     }
   }
 });
@@ -40959,6 +40986,38 @@ var render = function() {
                   _vm._v(" "),
                   _c(
                     "v-list-item",
+                    { attrs: { link: "", href: "/guestLogin" } },
+                    [
+                      _c(
+                        "v-list-item-content",
+                        [
+                          _c("v-list-item-title", [
+                            _c(
+                              "span",
+                              { staticClass: "icon_area" },
+                              [
+                                _c(
+                                  "v-icon",
+                                  {
+                                    staticClass: "mr-3",
+                                    attrs: { "font-size": "40" }
+                                  },
+                                  [_vm._v("fas fa-sign-in-alt")]
+                                )
+                              ],
+                              1
+                            ),
+                            _vm._v("ゲストログイン")
+                          ])
+                        ],
+                        1
+                      )
+                    ],
+                    1
+                  ),
+                  _vm._v(" "),
+                  _c(
+                    "v-list-item",
                     { attrs: { link: "", href: "/register" } },
                     [
                       _c(
@@ -41073,6 +41132,19 @@ var render = function() {
                       _c(
                         "v-list-item-content",
                         [_c("v-list-item-title", [_vm._v("ログイン")])],
+                        1
+                      )
+                    ],
+                    1
+                  ),
+                  _vm._v(" "),
+                  _c(
+                    "v-list-item",
+                    { attrs: { link: "", href: "/guestLogin" } },
+                    [
+                      _c(
+                        "v-list-item-content",
+                        [_c("v-list-item-title", [_vm._v("ゲストログイン")])],
                         1
                       )
                     ],
@@ -41326,6 +41398,16 @@ var render = function() {
                           on: { click: _vm.login }
                         },
                         [_vm._v("ログイン")]
+                      ),
+                      _vm._v(" "),
+                      _c(
+                        "v-btn",
+                        {
+                          staticClass: "button font-weight-bold mb-5",
+                          attrs: { color: "#FFD500", rounded: "", large: "" },
+                          on: { click: _vm.guestLogin }
+                        },
+                        [_vm._v("ゲストログイン")]
                       ),
                       _vm._v(" "),
                       _c(

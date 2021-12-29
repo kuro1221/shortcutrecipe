@@ -12,7 +12,6 @@
 */
 
 use App\Http\Controllers\HomeController;
-// use Illuminate\Routing\Route;
 use Illuminate\Support\Facades\Auth;
 
 Route::get('/', 'RecipeController@recipeListShow')->name('recipeListShow');
@@ -23,6 +22,7 @@ Auth::routes();
 Route::get('/auth/passwords/successful', 'Auth\ResetPasswordController@showSuccessful');
 
 //ユーザー関係
+Route::get('/guestLogin', 'Auth\LoginController@guestLogin');
 Route::get('/userDetail/{id}', 'UserController@userDetailShow')->name('userDetailShow');
 Route::get('/profileEdit', 'UserController@profileEditShow')->name('profileEditShow');
 Route::post('/profileEdit', 'UserController@profileEdit');
@@ -39,8 +39,3 @@ Route::get('/editRecipe/{id}', 'RecipeController@editRecipeShow');
 Route::post('/editRecipe/{id}', 'RecipeController@editRecipe');
 Route::get('/recipeList', 'RecipeController@recipeListShow')->name('recipeListShow');
 Route::post('/deleteRecipe/{id}', 'RecipeController@deleteRecipe');
-
-// LINEの認証画面に遷移
-Route::get('auth/line', 'Auth\LineOAuthController@redirectToProvider')->name('line.login');
-// 認証後にリダイレクトされるURL(コールバックURL)
-Route::get('auth/line/callback', 'Auth\LineOAuthController@handleProviderCallback');

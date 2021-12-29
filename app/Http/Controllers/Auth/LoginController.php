@@ -8,7 +8,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Log;
 use Illuminate\Validation\ValidationException;
 use Illuminate\Support\Str;
-
+use Illuminate\Support\Facades\Auth;
 
 class LoginController extends Controller
 {
@@ -40,6 +40,15 @@ class LoginController extends Controller
     public function __construct()
     {
         $this->middleware('guest')->except('logout');
+    }
+
+    public function guestLogin()
+    {
+        if (Auth::attempt(['email' =>  env('GUEST_EMAIL'), 'password' => env('GUEST_PASSWORD')])) {
+            return redirect()->action('RecipeController@recipeListShow')->with('flash_message', 'ゲストユーザーとしてログインしました。プロフィール及びパスワード編集・退会は行えません。');
+        } else {
+            return false;
+        }
     }
 
     protected function sendFailedLoginResponse(Request $request)
