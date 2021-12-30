@@ -166,7 +166,7 @@ export default {
         deleteRecipe: function() {
             axios.post("/deleteRecipe/" + this.deleteRecipeId).then(function() {
                 self.errors = [];
-                location.href = "/";
+                location.href = "/recipeList";
             });
         }
     }

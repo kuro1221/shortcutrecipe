@@ -67,7 +67,7 @@ export default {
         withdrawal: function(e) {
             axios.post("withdrawal").then(function() {
                 self.errors = [];
-                location.href = "/login";
+                location.href = "/";
             });
         }
     }

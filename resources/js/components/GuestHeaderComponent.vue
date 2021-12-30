@@ -88,7 +88,9 @@
                     </v-list-item>
                     <v-list-item link href="/guestLogin">
                         <v-list-item-content>
-                            <v-list-item-title>ゲストログイン</v-list-item-title>
+                            <v-list-item-title
+                                >ゲストログイン</v-list-item-title
+                            >
                         </v-list-item-content>
                     </v-list-item>
                     <v-list-item link href="/register">

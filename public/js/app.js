@@ -2428,6 +2428,8 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   components: {},
@@ -2623,7 +2625,7 @@ __webpack_require__.r(__webpack_exports__);
           password: this.password
         }).then(function () {
           self.errors = [];
-          location.href = "/";
+          location.href = "/recipeList";
         })["catch"](function (error) {
           for (var key in error.response.data.errors) {
             self.errors[key] = error.response.data.errors[key][0];
@@ -2745,7 +2747,7 @@ __webpack_require__.r(__webpack_exports__);
           password_confirmation: this.password_confirmation
         }).then(function () {
           self.errors = [];
-          location.href = "/";
+          location.href = "/recipeList";
         })["catch"](function (error) {
           for (var key in error.response.data.errors) {
             self.errors[key] = error.response.data.errors[key][0];
@@ -3006,7 +3008,7 @@ __webpack_require__.r(__webpack_exports__);
         };
         axios.post("addRecipe", this.recipe).then(function () {
           self.errors = [];
-          location.href = "/";
+          location.href = "/recipeList";
         })["catch"](function (error) {
           for (var key in error.response.data.errors) {
             self.errors[key] = error.response.data.errors[key][0];
@@ -3151,7 +3153,7 @@ __webpack_require__.r(__webpack_exports__);
         };
         axios.post("/editRecipe/" + this.recipe.id, this.recipe).then(function () {
           self.errors = [];
-          location.href = "/";
+          location.href = "/recipeList";
         })["catch"](function (error) {
           for (var key in error.response.data.errors) {
             self.errors[key] = error.response.data.errors[key][0];
@@ -3696,7 +3698,7 @@ __webpack_require__.r(__webpack_exports__);
     deleteRecipe: function deleteRecipe() {
       axios.post("/deleteRecipe/" + this.deleteRecipeId).then(function () {
         self.errors = [];
-        location.href = "/";
+        location.href = "/recipeList";
       });
     }
   }
@@ -3805,7 +3807,7 @@ __webpack_require__.r(__webpack_exports__);
           password_confirmation: this.password_confirmation
         }).then(function () {
           self.errors = [];
-          location.href = "/";
+          location.href = "/recipeList";
         })["catch"](function (error) {
           for (var key in error.response.data.errors) {
             self.errors[key] = error.response.data.errors[key][0];
@@ -3935,7 +3937,7 @@ __webpack_require__.r(__webpack_exports__);
         formData.append("comment", self.auth_user.comment);
         axios.post("/profileEdit", formData).then(function () {
           self.errors = [];
-          location.href = "/";
+          location.href = "/recipeList";
         })["catch"](function (error) {
           for (var key in error.response.data.errors) {
             self.errors[key] = error.response.data.errors[key][0];
@@ -4123,7 +4125,7 @@ __webpack_require__.r(__webpack_exports__);
     withdrawal: function withdrawal(e) {
       axios.post("withdrawal").then(function () {
         self.errors = [];
-        location.href = "/login";
+        location.href = "/";
       });
     }
   }
@@ -43274,11 +43276,11 @@ var render = function() {
                         [
                           _c(
                             "v-row",
-                            { attrs: { justify: "space-between" } },
+                            { attrs: { justify: "space-around" } },
                             [
                               _c(
                                 "v-col",
-                                { attrs: { cols: "6" } },
+                                { attrs: { cols: "4" } },
                                 [
                                   _c(
                                     "v-row",
@@ -43306,7 +43308,7 @@ var render = function() {
                               _vm._v(" "),
                               _c(
                                 "v-col",
-                                { attrs: { cols: "6" } },
+                                { attrs: { cols: "4 " } },
                                 [
                                   _c(
                                     "v-row",
