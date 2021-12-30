@@ -14,7 +14,7 @@
 use App\Http\Controllers\HomeController;
 use Illuminate\Support\Facades\Auth;
 
-Route::get('/', 'RecipeController@recipeListShow')->name('recipeListShow');
+Route::get('/', 'HomeController@introducePageShow')->name('introducePageShow');
 Route::get('/introducePage', 'HomeController@introducePageShow')->name('introducePageShow');
 
 Auth::routes();

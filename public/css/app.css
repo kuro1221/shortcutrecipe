@@ -11182,13 +11182,9 @@ img {
 }
 
 .introduceButton {
-  width: 40%;
-}
-
-@media screen and (max-width: 1264px) {
-  .introduceButton {
-    width: 80%;
-  }
+  width: 80%;
+  margin: 0 auto;
+  font-size: 16px;
 }
 
 #app {

@@ -78,7 +78,7 @@ export default {
                     })
                     .then(function() {
                         self.errors = [];
-                        location.href = "/";
+                        location.href = "/recipeList";
                     })
                     .catch(function(error) {
                         for (let key in error.response.data.errors) {

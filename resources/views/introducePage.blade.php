@@ -34,10 +34,19 @@
                 <p class="introduceText">“Shortcut Recipe”では様々な”ショートカット”を
                     簡単にダウンロードしたり、作ったショートカットを投稿したりすることができます。</p>
                 <div class="usefulImgDiv">
-                    <a href="https://gyazo.com/399c4ab0c6445b3c9260ddfa1fc592e7"><img　class="gyazo" src="https://i.gyazo.com/399c4ab0c6445b3c9260ddfa1fc592e7.gif" alt="Image from Gyazo" /></a>
+                    <a href="https://gyazo.com/399c4ab0c6445b3c9260ddfa1fc592e7"><img class="gyazo" src="https://i.gyazo.com/399c4ab0c6445b3c9260ddfa1fc592e7.gif" alt="Image from Gyazo" /></a>
                 </div>
-                <v-row justify="center">
-                    <v-btn class="introduceButton font-weight-bold my-5" color="#FFD500" rounded large onclick="location.href='/'">ショートカットを探す</v-btn>
+                <v-row :justify="space-around">
+                    <v-col cols="6">
+                        <v-row>
+                            <v-btn class="introduceButton font-weight-bold my-5" color="#FFD500" rounded large min-width="160" onclick="location.href='/recipeList'">ショートカットを探す</v-btn>
+                        </v-row>
+                    </v-col>
+                    <v-col cols="6">
+                        <v-row>
+                            <v-btn class="introduceButton font-weight-bold my-5" color="#FFD500" rounded large min-width="160" onclick="location.href='/guestLogin'">ゲストログイン</v-btn>
+                        </v-row>
+                    </v-col>
                 </v-row>
             </div>
         </div>
