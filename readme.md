@@ -34,5 +34,5 @@ https://qiita.com/kuro221/items/43bca202088de2ea0421<br>
 -   Vuetify 2.2.26
 -   MySQL 8.0.23
 -   AWS（EC2,ACM,RDS,Route53,VPC,EIP）
--　　　　　　Docker 20.10.7 /Docker Compose 1.29.2
+-   Docker 20.10.7 /Docker Compose 1.29.2
 -   CircleCI 2.1
