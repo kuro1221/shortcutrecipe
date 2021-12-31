@@ -46,7 +46,7 @@ jobs:
               composer install -n --no-dev --prefer-dist && \
               npm ci && \
               php artisan migrate --force && \
-              php artisan config:cache"
+              php artisan config:clear"
 
 workflows:
   version: 2
