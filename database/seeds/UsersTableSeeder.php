@@ -22,7 +22,15 @@ class UsersTableSeeder extends Seeder
                 'delete_flg' => false,
                 'created_at' => Carbon::now(),
                 'updated_at' => Carbon::now(),
-            ]
+            ],
+            [
+                'name' => 'ゲストユーザー',
+                'email' => env('GUEST_EMAIL'),
+                'password' => bcrypt(env('GUEST_PASSWORD')),
+                'delete_flg' => false,
+                'created_at' => Carbon::now(),
+                'updated_at' => Carbon::now(),
+            ],
         ];
         foreach ($users as $user) {
             DB::table('users')->insert($user);

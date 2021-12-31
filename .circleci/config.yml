@@ -25,7 +25,8 @@ jobs:
       - run: npm ci
       - run: npm install
       - run: npm run production
-      - run: cp .env.example .env.testing
+      - run: echo $ENV_FILE | base64 -di > .env.testing
+      ##- run: cp .env.example .env.testing
       - run: php artisan key:generate --env=testing
       - run: php artisan migrate --env=testing
       - run:
