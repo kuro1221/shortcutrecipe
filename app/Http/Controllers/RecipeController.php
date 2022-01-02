@@ -13,7 +13,9 @@ use App\Http\Requests\EditRecipeRequest;
 use App\Recipe\UseCase\AddRecipeUseCase;
 use App\Recipe\UseCase\EditRecipeUseCase;
 use App\Recipe\UseCase\ParamNumericCheckUseCase;
+use App\Recipe\UseCase\RecipeUnauthorizedAccessUseCase;
 use Illuminate\Support\Facades\DB;
+
 
 class RecipeController extends Controller
 {
@@ -48,9 +50,8 @@ class RecipeController extends Controller
 
         $recipe = Recipe::find($recipe_id);
         $user_id = Auth::id();
-        // //レシピが存在しない、またはログインユーザーがレシピの作成者ではない、またはレシピが削除されている場合は不正とみなす
-        if (!$recipe || $recipe->user_id !== $user_id  || $recipe->delete_flg !== 0)
-            return redirect()->action('RecipeController@recipeListShow')->with('flash_message', '不正な値が入力されました');
+        $recipeUnauthorizedAccessUseCase = new RecipeUnauthorizedAccessUseCase();
+        $recipeUnauthorizedAccessUseCase->handle($recipe, $user_id);
 
         return view(
             'recipe.editRecipe',
@@ -69,9 +70,8 @@ class RecipeController extends Controller
 
         $recipe = Recipe::find($id);
         $user_id = Auth::id();
-        //レシピが存在しない、またはログインユーザーがレシピの作成者ではない、またはレシピが削除されている場合は不正とみなす
-        if (!$recipe || $recipe->user_id !== $user_id  || $recipe->delete_flg !== 0)
-            return redirect()->action('RecipeController@recipeListShow')->with('flash_message', '不正な値が入力されました');
+        $recipeUnauthorizedAccessUseCase = new RecipeUnauthorizedAccessUseCase();
+        $recipeUnauthorizedAccessUseCase->handle($recipe, $user_id);
 
         $editRecipeUseCase = new EditRecipeUseCase();
         $editRecipeUseCase->handle($recipe, $request);
@@ -86,9 +86,8 @@ class RecipeController extends Controller
 
         $recipe = Recipe::find($recipe_id);
         $user_id = Auth::id();
-        //レシピが存在しない、またはログインユーザーがレシピの作成者ではない、またはレシピが削除されている場合は不正とみなす
-        if (!$recipe || $recipe->user_id !== $user_id  || $recipe->delete_flg !== 0)
-            return redirect()->action('RecipeController@recipeListShow')->with('flash_message', '不正な値が入力されました');
+        $recipeUnauthorizedAccessUseCase = new RecipeUnauthorizedAccessUseCase();
+        $recipeUnauthorizedAccessUseCase->handle($recipe, $user_id);
 
         $recipe->delete_flg = true;
         $recipe->save();
