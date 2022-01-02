@@ -12,6 +12,7 @@ use Illuminate\Support\Facades\Hash;
 use Illuminate\Validation\Rule;
 use App\User\UseCase\GuestUserNotAccessUseCase;
 use App\Recipe\UseCase\ParamNumericCheckUseCase;
+use App\User\UseCase\NonExistentUserCheckUseCase;
 
 class UserController extends Controller
 {
@@ -21,9 +22,8 @@ class UserController extends Controller
         $paramNumericCheckUseCase->handle($id);
 
         $user = User::find($id);
-        //ユーザーが存在しない、またはユーザーが削除されている場合は不正とみなす
-        if (!$user || $user->delete_flg !== 0)
-            return redirect()->action('RecipeController@recipeListShow')->with('flash_message', '不正な値が入力されました');
+        $nonExistentUserCheckUseCase = new NonExistentUserCheckUseCase();
+        $nonExistentUserCheckUseCase->handle($user);
 
         Auth::user() ? $login_user = Auth::user() : $login_user = new User;
         $recipes = Recipe::with(['products', 'applications'])->select('recipes.*', 'users.id as user_id', 'users.name', 'users.img')
