@@ -20,12 +20,14 @@ class UserController extends Controller
 {
     public function userDetailShow($id)
     {
+
         $paramNumericCheckUseCase = new ParamNumericCheckUseCase();
-        $paramNumericCheckUseCase->handle($id);
+        $paramNumericCheckUseCase->handle($id); //数値以外が入力された場合、不正な入力とみなす
+
 
         $user = User::find($id);
         $nonExistentUserCheckUseCase = new NonExistentUserCheckUseCase();
-        $nonExistentUserCheckUseCase->handle($user);
+        $nonExistentUserCheckUseCase->handle($user); //ユーザーが存在しない、またはユーザーが削除されている場合は不正とみなす
 
         Auth::user() ? $login_user = Auth::user() : $login_user = new User;
         $recipes = Recipe::with(['products', 'applications'])->select('recipes.*', 'users.id as user_id', 'users.name', 'users.img')
@@ -68,7 +70,6 @@ class UserController extends Controller
     public function passwordEdit(PasswordEditRequest $request)
     {
         $user = Auth::user();
-        // $this->passwordValidator($request->all())->validate();
         $user->password = Hash::make($request->password);
         $user->save();
         session()->flash('flash_message', 'パスワードを変更しました');
@@ -86,30 +87,5 @@ class UserController extends Controller
         $user = Auth::user();
         $user->forceDelete();
         session()->flash('flash_message', '退会しました');
-    }
-
-    // protected function validator(array $data)
-    // {
-    //     return  Validator::make($data, [
-    //         'img' => ['nullable', 'file', 'mimes:png,jpeg,jpg,gif', 'max:85000'],
-    //         'email' => ['required', 'string', 'email', 'max:50', Rule::unique('users', 'email')->whereNot('email', Auth::user()->email)],
-    //         'name' => ['required', 'string', 'max:20'],
-    //         'twitter' => ['nullable', 'string', 'max:100'],
-    //         'website' => ['nullable', 'string', 'max:100'],
-    //         'youtube' => ['nullable', 'string', 'max:100'],
-    //         'instaglam' => ['nullable', 'string', 'max:100'],
-    //         'comment' => ['nullable', 'max:250'],
-    //     ]);
-    // }
-
-    //パスワード編集バリデーション処理
-    public function passwordValidator(array $data)
-    {
-        $hashed_password = Auth::user()->password;
-        return Validator::make($data, [
-            'old_password' => ['required', 'string', 'min:8', 'max:50', "password_hash_check:$hashed_password"],
-            'password' => ['required', 'string', 'min:8', 'max:50', 'confirmed'],
-            'password_confirmation' => ['required', 'string', 'min:8', 'max:50'],
-        ]);
     }
 }
