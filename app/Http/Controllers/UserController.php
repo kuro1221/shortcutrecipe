@@ -10,29 +10,22 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Validation\Rule;
-use App\RecipesRelationApplication;
-use App\RecipesRelationProduct;
-use App\Http\Controllers\RecipeController;
+use App\User\UseCase\GuestUserNotAccessUseCase;
+use App\Recipe\UseCase\ParamNumericCheckUseCase;
+use App\User\UseCase\NonExistentUserCheckUseCase;
+use App\Http\Requests\ProfileEditRequest;
+use App\Http\Requests\PasswordEditRequest;
 
 class UserController extends Controller
 {
-    public function checkGuestUser()
-    {
-        if (Auth::user()->email === env('GUEST_EMAIL')) {
-            return redirect()->action('RecipeController@recipeListShow')->with('flash_message', 'ゲストユーザーはこの機能を利用できません');
-        }
-        return true;
-    }
-
     public function userDetailShow($id)
     {
-        //数値以外が入力された場合、不正な入力とみなす
-        if (!is_numeric($id))
-            return redirect()->action('RecipeController@recipeListShow')->with('flash_message', '不正な値が入力されました');
+        $paramNumericCheckUseCase = new ParamNumericCheckUseCase();
+        $paramNumericCheckUseCase->handle($id);
+
         $user = User::find($id);
-        //ユーザーが存在しない、またはユーザーが削除されている場合は不正とみなす
-        if (!$user || $user->delete_flg !== 0)
-            return redirect()->action('RecipeController@recipeListShow')->with('flash_message', '不正な値が入力されました');
+        $nonExistentUserCheckUseCase = new NonExistentUserCheckUseCase();
+        $nonExistentUserCheckUseCase->handle($user);
 
         Auth::user() ? $login_user = Auth::user() : $login_user = new User;
         $recipes = Recipe::with(['products', 'applications'])->select('recipes.*', 'users.id as user_id', 'users.name', 'users.img')
@@ -45,24 +38,21 @@ class UserController extends Controller
 
     public function profileEditShow()
     {
-        if (Auth::user()->email === env('GUEST_EMAIL')) {
-            return redirect()->action('RecipeController@recipeListShow')->with('flash_message', 'ゲストユーザーはこの機能を利用できません');
-        }
+        $guestUserNotAccessUseCase = new GuestUserNotAccessUseCase();
+        $guestUserNotAccessUseCase->handle();
         return view('user.profileEdit');
     }
 
     public function passwordEditShow()
     {
-        if (Auth::user()->email === env('GUEST_EMAIL')) {
-            return redirect()->action('RecipeController@recipeListShow')->with('flash_message', 'ゲストユーザーはこの機能を利用できません');
-        }
+        $guestUserNotAccessUseCase = new GuestUserNotAccessUseCase();
+        $guestUserNotAccessUseCase->handle();
         return view('user.passwordEdit');
     }
 
-    public function profileEdit(Request $request)
+    public function profileEdit(ProfileEditRequest $request)
     {
         $user = Auth::user();
-        $this->validator($request->all())->validate();
         //画像アップロード処理
         if (!empty($request->img)) {
             if ($request->file('img')->isValid()) {
@@ -75,10 +65,10 @@ class UserController extends Controller
         session()->flash('flash_message', '編集しました');
     }
 
-    public function passwordEdit(Request $request)
+    public function passwordEdit(PasswordEditRequest $request)
     {
         $user = Auth::user();
-        $this->passwordValidator($request->all())->validate();
+        // $this->passwordValidator($request->all())->validate();
         $user->password = Hash::make($request->password);
         $user->save();
         session()->flash('flash_message', 'パスワードを変更しました');
@@ -86,9 +76,8 @@ class UserController extends Controller
 
     public function withdrawalShow()
     {
-        if (Auth::user()->email === env('GUEST_EMAIL')) {
-            return redirect()->action('RecipeController@recipeListShow')->with('flash_message', 'ゲストユーザーはこの機能を利用できません');
-        }
+        $guestUserNotAccessUseCase = new GuestUserNotAccessUseCase();
+        $guestUserNotAccessUseCase->handle();
         return view('user.withdrawal');
     }
 
@@ -96,25 +85,22 @@ class UserController extends Controller
     {
         $user = Auth::user();
         $user->forceDelete();
-        // $user->delete_flg = true;
-        // $user->save();
-        // Auth::logout();
         session()->flash('flash_message', '退会しました');
     }
 
-    protected function validator(array $data)
-    {
-        return  Validator::make($data, [
-            'img' => ['nullable', 'file', 'mimes:png,jpeg,jpg,gif', 'max:85000'],
-            'email' => ['required', 'string', 'email', 'max:50', Rule::unique('users', 'email')->whereNot('email', Auth::user()->email)],
-            'name' => ['required', 'string', 'max:20'],
-            'twitter' => ['nullable', 'string', 'max:100'],
-            'website' => ['nullable', 'string', 'max:100'],
-            'youtube' => ['nullable', 'string', 'max:100'],
-            'instaglam' => ['nullable', 'string', 'max:100'],
-            'comment' => ['nullable', 'max:250'],
-        ]);
-    }
+    // protected function validator(array $data)
+    // {
+    //     return  Validator::make($data, [
+    //         'img' => ['nullable', 'file', 'mimes:png,jpeg,jpg,gif', 'max:85000'],
+    //         'email' => ['required', 'string', 'email', 'max:50', Rule::unique('users', 'email')->whereNot('email', Auth::user()->email)],
+    //         'name' => ['required', 'string', 'max:20'],
+    //         'twitter' => ['nullable', 'string', 'max:100'],
+    //         'website' => ['nullable', 'string', 'max:100'],
+    //         'youtube' => ['nullable', 'string', 'max:100'],
+    //         'instaglam' => ['nullable', 'string', 'max:100'],
+    //         'comment' => ['nullable', 'max:250'],
+    //     ]);
+    // }
 
     //パスワード編集バリデーション処理
     public function passwordValidator(array $data)

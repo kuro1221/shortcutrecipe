@@ -4,15 +4,16 @@ namespace App\Http\Controllers;
 
 use App\Recipe;
 use App\User;
-use Illuminate\Support\Facades\Log;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\Validator;
 use App\Http\Requests\AddRecipeRequest;
 use App\Http\Requests\EditRecipeRequest;
 use App\Recipe\UseCase\AddRecipeUseCase;
 use App\Recipe\UseCase\EditRecipeUseCase;
+use App\Recipe\UseCase\ParamNumericCheckUseCase;
+use App\Recipe\UseCase\RecipeUnauthorizedAccessUseCase;
 use Illuminate\Support\Facades\DB;
+
 
 class RecipeController extends Controller
 {
@@ -42,14 +43,13 @@ class RecipeController extends Controller
      */
     public function editRecipeShow($recipe_id)
     {
-        // //数値以外が入力された場合、不正な入力とみなす
-        if (!is_numeric($recipe_id))
-            return redirect()->action('RecipeController@recipeListShow')->with('flash_message', '不正な値が入力されました');
+        $paramNumericCheckUseCase = new ParamNumericCheckUseCase();
+        $paramNumericCheckUseCase->handle($recipe_id);
+
         $recipe = Recipe::find($recipe_id);
         $user_id = Auth::id();
-        // //レシピが存在しない、またはログインユーザーがレシピの作成者ではない、またはレシピが削除されている場合は不正とみなす
-        if (!$recipe || $recipe->user_id !== $user_id  || $recipe->delete_flg !== 0)
-            return redirect()->action('RecipeController@recipeListShow')->with('flash_message', '不正な値が入力されました');
+        $recipeUnauthorizedAccessUseCase = new RecipeUnauthorizedAccessUseCase();
+        $recipeUnauthorizedAccessUseCase->handle($recipe, $user_id);
 
         return view(
             'recipe.editRecipe',
@@ -63,14 +63,13 @@ class RecipeController extends Controller
      */
     public function editRecipe($id, EditRecipeRequest $request)
     {
-        //数値以外が入力された場合、不正な入力とみなす
-        if (!is_numeric($id))
-            return redirect()->action('RecipeController@recipeListShow')->with('flash_message', '不正な値が入力されました');
+        $paramNumericCheckUseCase = new ParamNumericCheckUseCase();
+        $paramNumericCheckUseCase->handle($id);
+
         $recipe = Recipe::find($id);
         $user_id = Auth::id();
-        //レシピが存在しない、またはログインユーザーがレシピの作成者ではない、またはレシピが削除されている場合は不正とみなす
-        if (!$recipe || $recipe->user_id !== $user_id  || $recipe->delete_flg !== 0)
-            return redirect()->action('RecipeController@recipeListShow')->with('flash_message', '不正な値が入力されました');
+        $recipeUnauthorizedAccessUseCase = new RecipeUnauthorizedAccessUseCase();
+        $recipeUnauthorizedAccessUseCase->handle($recipe, $user_id);
 
         $editRecipeUseCase = new EditRecipeUseCase();
         $editRecipeUseCase->handle($recipe, $request);
@@ -80,14 +79,13 @@ class RecipeController extends Controller
 
     public function deleteRecipe($recipe_id)
     {
-        //数値以外が入力された場合、不正な入力とみなす
-        if (!is_numeric($recipe_id))
-            return redirect()->action('RecipeController@recipeListShow')->with('flash_message', '不正な値が入力されました');
+        $paramNumericCheckUseCase = new ParamNumericCheckUseCase();
+        $paramNumericCheckUseCase->handle($recipe_id);
+
         $recipe = Recipe::find($recipe_id);
         $user_id = Auth::id();
-        //レシピが存在しない、またはログインユーザーがレシピの作成者ではない、またはレシピが削除されている場合は不正とみなす
-        if (!$recipe || $recipe->user_id !== $user_id  || $recipe->delete_flg !== 0)
-            return redirect()->action('RecipeController@recipeListShow')->with('flash_message', '不正な値が入力されました');
+        $recipeUnauthorizedAccessUseCase = new RecipeUnauthorizedAccessUseCase();
+        $recipeUnauthorizedAccessUseCase->handle($recipe, $user_id);
 
         $recipe->delete_flg = true;
         $recipe->save();
