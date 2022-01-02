@@ -44,10 +44,12 @@ class RecipeController extends Controller
     public function editRecipeShow($recipe_id)
     {
         $paramNumericCheckUseCase = new ParamNumericCheckUseCase();
-        $paramNumericCheckUseCase->handle($recipe_id);
+        $paramNumericCheckUseCase->handle($recipe_id); //数値以外が入力された場合、不正な入力とみなす
+
 
         $recipe = Recipe::find($recipe_id);
         $user_id = Auth::id();
+        //レシピが存在しない、またはログインユーザーがレシピの作成者ではない、またはレシピが削除されている場合は不正とみなす
         $recipeUnauthorizedAccessUseCase = new RecipeUnauthorizedAccessUseCase();
         $recipeUnauthorizedAccessUseCase->handle($recipe, $user_id);
 
@@ -64,10 +66,12 @@ class RecipeController extends Controller
     public function editRecipe($id, EditRecipeRequest $request)
     {
         $paramNumericCheckUseCase = new ParamNumericCheckUseCase();
-        $paramNumericCheckUseCase->handle($id);
+        $paramNumericCheckUseCase->handle($id); //数値以外が入力された場合、不正な入力とみなす
+
 
         $recipe = Recipe::find($id);
         $user_id = Auth::id();
+        //レシピが存在しない、またはログインユーザーがレシピの作成者ではない、またはレシピが削除されている場合は不正とみなす
         $recipeUnauthorizedAccessUseCase = new RecipeUnauthorizedAccessUseCase();
         $recipeUnauthorizedAccessUseCase->handle($recipe, $user_id);
 
@@ -80,10 +84,12 @@ class RecipeController extends Controller
     public function deleteRecipe($recipe_id)
     {
         $paramNumericCheckUseCase = new ParamNumericCheckUseCase();
-        $paramNumericCheckUseCase->handle($recipe_id);
+        $paramNumericCheckUseCase->handle($recipe_id); //数値以外が入力された場合、不正な入力とみなす
+
 
         $recipe = Recipe::find($recipe_id);
         $user_id = Auth::id();
+        //レシピが存在しない、またはログインユーザーがレシピの作成者ではない、またはレシピが削除されている場合は不正とみなす
         $recipeUnauthorizedAccessUseCase = new RecipeUnauthorizedAccessUseCase();
         $recipeUnauthorizedAccessUseCase->handle($recipe, $user_id);
 
