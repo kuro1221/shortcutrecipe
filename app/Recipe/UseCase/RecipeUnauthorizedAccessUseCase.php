@@ -2,9 +2,6 @@
 
 namespace App\Recipe\UseCase;
 
-
-use App\Recipe;
-
 final class RecipeUnauthorizedAccessUseCase
 {
     public function handle($recipe, $user_id)
