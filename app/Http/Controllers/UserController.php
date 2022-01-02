@@ -11,14 +11,15 @@ use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Validation\Rule;
 use App\User\UseCase\GuestUserNotAccessUseCase;
+use App\Recipe\UseCase\ParamNumericCheckUseCase;
 
 class UserController extends Controller
 {
     public function userDetailShow($id)
     {
-        //数値以外が入力された場合、不正な入力とみなす
-        if (!is_numeric($id))
-            return redirect()->action('RecipeController@recipeListShow')->with('flash_message', '不正な値が入力されました');
+        $paramNumericCheckUseCase = new ParamNumericCheckUseCase();
+        $paramNumericCheckUseCase->handle($id);
+
         $user = User::find($id);
         //ユーザーが存在しない、またはユーザーが削除されている場合は不正とみなす
         if (!$user || $user->delete_flg !== 0)
@@ -83,9 +84,6 @@ class UserController extends Controller
     {
         $user = Auth::user();
         $user->forceDelete();
-        // $user->delete_flg = true;
-        // $user->save();
-        // Auth::logout();
         session()->flash('flash_message', '退会しました');
     }
 

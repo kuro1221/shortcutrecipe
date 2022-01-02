@@ -12,6 +12,7 @@ use App\Http\Requests\AddRecipeRequest;
 use App\Http\Requests\EditRecipeRequest;
 use App\Recipe\UseCase\AddRecipeUseCase;
 use App\Recipe\UseCase\EditRecipeUseCase;
+use App\Recipe\UseCase\ParamNumericCheckUseCase;
 use Illuminate\Support\Facades\DB;
 
 class RecipeController extends Controller
@@ -42,9 +43,9 @@ class RecipeController extends Controller
      */
     public function editRecipeShow($recipe_id)
     {
-        // //数値以外が入力された場合、不正な入力とみなす
-        if (!is_numeric($recipe_id))
-            return redirect()->action('RecipeController@recipeListShow')->with('flash_message', '不正な値が入力されました');
+        $paramNumericCheckUseCase = new ParamNumericCheckUseCase();
+        $paramNumericCheckUseCase->handle($recipe_id);
+
         $recipe = Recipe::find($recipe_id);
         $user_id = Auth::id();
         // //レシピが存在しない、またはログインユーザーがレシピの作成者ではない、またはレシピが削除されている場合は不正とみなす
@@ -63,9 +64,9 @@ class RecipeController extends Controller
      */
     public function editRecipe($id, EditRecipeRequest $request)
     {
-        //数値以外が入力された場合、不正な入力とみなす
-        if (!is_numeric($id))
-            return redirect()->action('RecipeController@recipeListShow')->with('flash_message', '不正な値が入力されました');
+        $paramNumericCheckUseCase = new ParamNumericCheckUseCase();
+        $paramNumericCheckUseCase->handle($id);
+
         $recipe = Recipe::find($id);
         $user_id = Auth::id();
         //レシピが存在しない、またはログインユーザーがレシピの作成者ではない、またはレシピが削除されている場合は不正とみなす
@@ -80,9 +81,9 @@ class RecipeController extends Controller
 
     public function deleteRecipe($recipe_id)
     {
-        //数値以外が入力された場合、不正な入力とみなす
-        if (!is_numeric($recipe_id))
-            return redirect()->action('RecipeController@recipeListShow')->with('flash_message', '不正な値が入力されました');
+        $paramNumericCheckUseCase = new ParamNumericCheckUseCase();
+        $paramNumericCheckUseCase->handle($recipe_id);
+
         $recipe = Recipe::find($recipe_id);
         $user_id = Auth::id();
         //レシピが存在しない、またはログインユーザーがレシピの作成者ではない、またはレシピが削除されている場合は不正とみなす
