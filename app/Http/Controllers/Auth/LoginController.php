@@ -45,7 +45,7 @@ class LoginController extends Controller
     public function guestLogin()
     {
         if (Auth::attempt(['email' =>  env('GUEST_EMAIL'), 'password' => env('GUEST_PASSWORD')])) {
-            return redirect()->action('RecipeController@recipeListShow')->with('flash_message', 'ゲストユーザーとしてログインしました。プロフィール及びパスワード編集・退会は行えません。');
+            return redirect()->action('RecipeController@recipeListShow')->with('flash_message', 'ゲストユーザーとしてログインしました');
         } else {
             return false;
         }
