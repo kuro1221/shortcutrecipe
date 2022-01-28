@@ -25,7 +25,7 @@ class EditRecipeRequest extends FormRequest
     {
         return [
             'recipe_name' => ['required', 'string', 'max:20'],
-            'iCloud_link' => ['required', 'string', 'max:150'],
+            'iCloud_link' => ['required', 'string', 'max:150', 'link_check'],
             'comment' => ['sometimes', 'max:250'],
             'reference_title' => ['sometimes', 'max:20'],
             'reference_url' => ['sometimes', 'max:150'],

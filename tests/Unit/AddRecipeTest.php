@@ -51,18 +51,18 @@ class AddRecipeTest extends TestCase
         return [
             'OK' => [
                 ['recipe_name', 'iCloud_link', 'comment', 'reference_title', 'reference_url'],
-                [str_repeat('a', 20), 'http://example.com/' . str_repeat('a', 131), str_repeat('a', 200), str_repeat('a', 20), 'http://example.com/' . str_repeat('a', 131)],
+                [str_repeat('a', 20), 'https://www.icloud.com/shortcuts/ss', str_repeat('a', 200), str_repeat('a', 20), 'http://example.com/' . str_repeat('a', 131)],
                 true
             ],
             'recipi_name空エラー' => [
                 ['recipe_name', 'iCloud_link', 'comment'],
-                ['', 'http://example.com', 'test1'],
+                ['', 'https://www.icloud.com/shortcuts/', 'test1'],
                 false
             ],
 
             'recipi_name最大文字数エラー' => [
                 ['recipe_name', 'iCloud_link', 'comment'],
-                [str_repeat('a', 21), 'http://example.com', 'test1'],
+                [str_repeat('a', 21), 'https://www.icloud.com/shortcuts/', 'test1'],
                 false
             ],
             'iCloud_link最大文字数エラー' => [
@@ -72,17 +72,22 @@ class AddRecipeTest extends TestCase
             ],
             'iCloud_link最大文字数エラー' => [
                 ['recipe_name', 'iCloud_link', 'comment'],
-                [str_repeat('a', 20), 'http://example.com' . str_repeat('a', 133), 'test1'],
+                [str_repeat('a', 20), 'https://www.icloud.com/shortcuts/' . str_repeat('a', 133), 'test1'],
                 false
             ],
             'comment空OK' => [
                 ['recipe_name', 'iCloud_link', 'comment'],
-                [str_repeat('a', 20), 'http://example.com', ''],
+                [str_repeat('a', 20), 'https://www.icloud.com/shortcuts/aa', ''],
                 true
             ],
             'comment最大文字数エラー' => [
                 ['recipe_name', 'iCloud_link', 'comment'],
-                [str_repeat('a', 20), 'http://example.com', str_repeat('a', 251)],
+                [str_repeat('a', 20), 'https://www.icloud.com/shortcuts/aa', str_repeat('a', 251)],
+                false
+            ],
+            'iCloud_linkエラー' => [
+                ['recipe_name', 'iCloud_link', 'comment'],
+                [str_repeat('a', 20), 'https://example.com', str_repeat('a', 20)],
                 false
             ],
         ];
