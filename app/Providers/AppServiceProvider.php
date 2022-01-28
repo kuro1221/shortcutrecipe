@@ -30,5 +30,10 @@ class AppServiceProvider extends ServiceProvider
         Validator::extend('password_hash_check', function ($attribute, $value, $parameters, $validator) {
             return Hash::check($value, $parameters[0]);
         });
+
+        //iCloudリンクの形式かどうか確認
+        Validator::extend('link_check', function ($attribute, $value, $parameters, $validator) {
+            return (0 === strpos($value, "https://www.icloud.com/shortcuts/",));
+        });
     }
 }
